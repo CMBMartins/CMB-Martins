@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Diagrama Unifilar de Sistema Elétrico</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="styles/reset.css" />
+  <link rel="stylesheet" href="styles/vars.css" />
+  <link rel="stylesheet" href="styles/main-content.css" />
+  <link rel="stylesheet" href="styles/sidebar-footer.css" />
+  <link rel="stylesheet" href="styles/media-query.css" /> <!--Media queries devem ser chamados depois do CSS principal -->
+
+
+  <link rel="stylesheet" href="styles/reset.css" />
+  <link rel="stylesheet" href="styles/vars.css" />
+  <link rel="stylesheet" href="styles/media-query.css" />
+  <link rel="stylesheet" href="styles/main-content.css" />
+  <link rel="stylesheet" href="styles/sidebar-footer.css" />
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css"
+    integrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css"
+    integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous" />
+
+</head>
+<body>
+
+<div class="container">
+    <img src="Imagens/carlos1.png" alt="logo do desenvolvedor">
+    <footer>Carlos Martins</footer>
+    <ul>
+        <a href="">        
+            <span class="fa fa-home"></span>            
+            <!--<img src="Imagens/casa.png" alt="icone de configuração">-->
+            <a href="PaginaPessoal.php">
+            <span>Página Principal</span><br>
+        </a>
+
+        <a href="">
+            <span class="fa fa-search"></span>
+            <span>Buscar</span>
+          </a>
+
+        <main>
+            <h1><strong> Diagrama Unifilar do Sistema Elétrico </strong></h1>
+            <h3>Botões de Comandos</h3>
+            <p>Os botões servem para operar cada equipamento!</p>
+            <ol>Lista das TAGS dos Transformadores:<br>
+                <a href="">
+                    <span class="fa fa-search"></span>
+                    <span>TF1</span><br>
+                  </a>
+                  <a href="">
+                    <span class="fa fa-search"></span>
+                    <span>TF2</span><br>
+                  </a>
+                  <a href="">
+                    <span class="fa fa-search"></span>
+                    <span>TF3</span><br>
+                  </a>
+                  <a href="">
+                    <span class="fa fa-search"></span>
+                    <span>TF4</span>
+                  </a>
+            </ol>
+        </main>
+
+        <h5>TF1</h5>
+        <button id="btnSeccionadoraA" class="btn btn-primary">Seccionadora A TF1</button>        
+        <button id="btnSeccionadoraB" class="btn btn-primary ml-2">Seccionadora B TF1</button>      
+        <button id="btnDisjuntor" class="btn btn-primary ml-2">Disjuntor TF1</button>
+
+        <h5>TF2</h5>
+        <button id="btnSeccionadoraATF2" class="btn btn-primary">Seccionadora A TF2</button>
+        <button id="btnSeccionadoraBTF2" class="btn btn-primary ml-2">Seccionadora B TF2</button>      
+        <button id="btnDisjuntorTF2" class="btn btn-primary ml-2">Disjuntor TF2</button>
+
+        <h5>TF3</h5>
+        <button id="btnSeccionadoraATF3" class="btn btn-primary">Seccionadora A TF3</button>
+        <button id="btnSeccionadoraBTF3" class="btn btn-primary ml-2">Seccionadora B TF3</button>      
+        <button id="btnDisjuntorTF3" class="btn btn-primary ml-2">Disjuntor TF3</button>
+
+        <h5>TF4</h5>
+        <button id="btnSeccionadoraATF4" class="btn btn-primary">Seccionadora A TF4</button>
+        <button id="btnSeccionadoraBTF4" class="btn btn-primary ml-2">Seccionadora B TF4</button>      
+        <button id="btnDisjuntorTF4" class="btn btn-primary ml-2">Disjuntor TF4</button>
+
+        <div class="linha-vertical">
+            <div class="linha-vertical1"></div>
+            <div class="linha-vertical11"></div>
+            <div class= "linha-vertical2"></div>                                          
+            <div id="seccionadoraA" class="seccionadora"></div>
+            <div id="seccionadoraB" class="seccionadora"></div> 
+            <div id="seccionadoraC" class="seccionadora"></div>
+            <div id="seccionadoraD" class="seccionadora"></div>               
+            <div class="linhahorizontal" ></div>
+            <div class="linhahorizontal1"></div>
+            <div class="linhahorizontal2"></div>
+            <div class="disjuntor"></div>
+            <div class="transformador"></div>
+            <div class="transformador1"></div>                
+            <div class="seta"></div>
+    
+            <div class="disjuntorTF2"></div>                
+            <div class="setaTF2"></div>
+            <div class="linhahorizontalTF2"></div>        
+            <div class="linha-verticalTF2" ></div>
+            <div class="linha-vertical1TF2"></div>              
+            <div class="linha-vertical2TF2"></div>                
+            <div id="seccionadoraATF2" class="seccionadora"></div>
+            <div id="seccionadoraBTF2" class="seccionadora"></div> 
+            <div id="seccionadoraCTF2" class="seccionadora"></div>
+            <div id="seccionadoraDTF2" class="seccionadora"></div>        
+            <div class="transformadorTF2"></div>
+            <div class="transformador1TF2"></div>
+    
+            <div class="disjuntorTF3"></div>                
+            <div class="setaTF3"></div>
+            <div class="linhahorizontalTF3"></div>        
+            <div class="linha-verticalTF3" ></div>
+            <div class="linha-vertical1TF3"></div>              
+            <div class="linha-vertical2TF3"></div>        
+            <div id="seccionadoraATF3" class="seccionadora"></div>
+            <div id="seccionadoraBTF3" class="seccionadora"></div> 
+            <div id="seccionadoraCTF3" class="seccionadora"></div>
+            <div id="seccionadoraDTF3" class="seccionadora"></div>        
+            <div class="transformadorTF3"></div>
+            <div class="transformador1TF3"></div>
+            
+            <div class="disjuntorTF4"></div>                
+            <div class="setaTF4"></div>
+            <div class="linhahorizontalTF4"></div>        
+            <div class="linha-verticalTF4" ></div>
+            <div class="linha-vertical1TF4"></div>              
+            <div class="linha-vertical2TF4"></div>        
+            <div id="seccionadoraATF4" class="seccionadora"></div>
+            <div id="seccionadoraBTF4" class="seccionadora"></div> 
+            <div id="seccionadoraCTF4" class="seccionadora"></div>
+            <div id="seccionadoraDTF4" class="seccionadora"></div>        
+            <div class="transformadorTF4"></div>
+            <div class="transformador1TF4"></div>
+        </div>   
+        <!-- Restante dos botões e elementos HTML -->
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="Painel230.js"></script>
+
+</body>
+</html>
