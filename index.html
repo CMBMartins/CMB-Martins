@@ -81,16 +81,6 @@
             height: auto;
         }
 
-        #banner {
-    width: 100%;
-    transition: opacity 1s;
-    opacity: 0;
-}
-
-#banner.fade-in {
-    opacity: 1;
-}
-
     </style>
     </head>
     
@@ -154,6 +144,7 @@
 
     <!--banner-->  
     <section></section>
+	<div class="container">
     <img src="Carlos.png" alt="Logo da Minha Empresa" class="img-fluid">
 
     <style>
@@ -163,12 +154,6 @@
             padding: 0;
         }
     </style><br>
-
-    <div class="banner-container">
-        <?php foreach ($banners as $index => $banner): ?>
-            <img src="<?php echo $banner; ?>" class="banner <?php echo $index === 0 ? 'active' : ''; ?>" alt="Banner <?php echo $index + 1; ?>">
-        <?php endforeach; ?>
-    </div>
 
     <script>
         let currentIndex = 0;
@@ -183,8 +168,7 @@
 
         setInterval(showNextBanner, 3000); // Muda a cada 3 segundos
     </script><br>
-    <!--end banner-->
-
+   
     <!--acompanhe-->
   <section class="box-acompanhe"></section>
     <div class="container">
