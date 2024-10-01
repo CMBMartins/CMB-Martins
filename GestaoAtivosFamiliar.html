@@ -17,7 +17,6 @@
   <link rel="stylesheet" href="styles/sidebar-footer.css" />
   <link rel="stylesheet" href="styles/media-query.css" /> <!--Media queries devem ser chamados depois do CSS principal -->
 
-
   <link rel="stylesheet" href="styles/reset.css" />
   <link rel="stylesheet" href="styles/vars.css" />
   <link rel="stylesheet" href="styles/media-query.css" />
@@ -33,15 +32,15 @@
 
 <div class="container">		
 	<div class="col">      
-	<img src="logo.png" alt="Logo da Minha Empresa" class="img-fluid">
+	<img src="carlos2.png" alt="Logo da Minha Empresa" class="img-fluid">
         <?php date_default_timezone_set('America/Sao_Paulo'); ?>
         <?php $hoje = date('d/m/Y'); ?>
         <?php $horaHoje = date("H:i:s"); ?>
         <?php echo $hoje; ?><br>
         <?php echo $horaHoje; ?><br>               
-			</div>
-			<div class="col align-self-center">
-			<h1 class="text-center">Gestão de Bens da Família Martins</h1>
+	</div>
+	<div class="col align-self-center">
+	<h1 class="text-center">Gestão de Bens da Família Martins</h1>
         <img src="Carlos.png" alt="Logo da Minha Empresa" class="img-fluid"><br><br>        
 			</div>
             <a href="">        
@@ -50,7 +49,7 @@
             <a href="PaginaPessoal.php">
             <span>Página Principal</span><br>
         </a>
-		</div>
+	</div>
 	</div>
   </script>
   </head>
@@ -123,11 +122,6 @@
     </style>
 
     <h3>Lista dos Integrantes Familiares:</h3><br>
-
-    <!-- Botões para abrir modais para cada item -->
-    <?php foreach ($itens as $item) : ?>
-        <button onclick="abrirModal(<?php echo $item['codigo']; ?>)">CPF <?php echo $item['codigo']; ?></button>
-    <?php endforeach; ?><br>
 
     <!-- Modais para exibir os itens -->
     
