@@ -64,38 +64,6 @@
 </head>
 <body>
 
-<?php
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "meubanco";
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verificação de erro na conexão
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
-}
-
-// Consulta SQL para obter o último registro
-$sql = "SELECT * FROM bancoshowsfilmes ORDER BY codigo DESC LIMIT 1";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-  // Loop para exibir os resultados
-  while ($row = $result->fetch_assoc()) {
-      $codigo = $row["codigo"];
-      $titulo = $row["titulo"];
-      $artista = $row["artista"];
-      $anodelançamento = $row["anodelançamento"];
-      $datadacompra = $row["datadacompra"];
-      $situaçao = $row["situaçao"];
-      $tipo = $row["tipo"];
-      $genero = $row["genero"];
-  }
-}
-?>
-
 <!DOCTYPE html>
 <body>
             <!-- Aqui você pode adicionar o formulário HTML existente -->
@@ -175,15 +143,12 @@ if ($result->num_rows > 0) {
             <span>Página Principal</span><br><br>
             </a>
 
-       <p>Último Código Registrado na Tabela: <?php echo $codigo; ?></p>
-       <p>Último Titulo Registrado na Tabela: <?php echo $titulo; ?></p>
-
 <title>Login</title>
 <div class="container">
     <h2>Login:</h2>    
             <a href="">        
             <span class="fa fa-home"></span>            
-            <!--<img src="Imagens/casa.png" alt="icone de configuração">-->
+            <!--<img src="casa.png" alt="icone de configuração">-->
             <a href="ControleShowsFilmes.php">
             <span>FAZER LOGIN</span><br>
             <p>VOCÊ PRECISA ESTAR LOGADO PARA REALIZAR INSERT E UPDATE NO BANCO!</p>
