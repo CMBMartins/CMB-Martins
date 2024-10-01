@@ -31,23 +31,23 @@
 </head>
 <body>
 <div class="container">		
-			<div class="col">      
-				<img src="Imagens/logo.png" alt="Logo da Minha Empresa" class="img-fluid">
+	<div class="col">      
+	<img src="carlos2.png" alt="Logo da Minha Empresa" class="img-fluid">
         <?php date_default_timezone_set('America/Sao_Paulo'); ?>
         <?php $hoje = date('d/m/Y'); ?>
         <?php $horaHoje = date("H:i:s"); ?>
         <?php echo $hoje; ?><br>
         <?php echo $horaHoje; ?><br>
         
-			</div>
-			<div class="col align-self-center">
-				<h1 class="text-center">Gestão de Contatos Pessoais</h1>
-        <img src="Imagens/Carlos.png" alt="Logo da Minha Empresa" class="img-fluid">        
+	</div>
+	<div class="col align-self-center">
+	<h1 class="text-center">Gestão de Contatos Pessoais</h1>
+        <img src="Carlos.png" alt="Logo da Minha Empresa" class="img-fluid">        
 			</div>
             <a href="">        
             <span class="fa fa-home"></span>            
-            <!--<img src="Imagens/casa.png" alt="icone de configuração">-->
-            <a href="PaginaPessoal.php">
+            <!--<img src="casa.png" alt="icone de configuração">-->
+            <a href="indice.html">
             <span>Página Principal</span><br>
             </a>
 		</div>
@@ -56,35 +56,6 @@
 </head>
 <body>
 
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "meubanco";
-
-// Cria uma conexão com o banco de dados
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verifica se ocorreu algum erro na conexão
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
-}
-
-// Consulta SQL para selecionar os itens na tabela
-$sql = "SELECT codigo, nome, telefone, endereço FROM pessoas";
-$result = $conn->query($sql);
-
-// Inicializa uma variável para armazenar os resultados da consulta
-$itens = array();
-
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $itens[] = $row;
-    }
-}
-// Fecha a conexão com o banco de dados
-$conn->close();
-?>
 
 
             <!-- Aqui você pode adicionar o formulário HTML existente -->
@@ -183,24 +154,7 @@ $conn->close();
 
     <h3>Lista dos Contatos Pessoais:</h3>
 
-    <!-- Botões para abrir modais para cada item -->
-    <?php foreach ($itens as $item) : ?>
-        <button onclick="abrirModal(<?php echo $item['codigo']; ?>)">código: <?php echo $item['codigo']; ?></button>
-    <?php endforeach; ?><br><br>
-
-    <!-- Modais para exibir os itens -->
-    <?php foreach ($itens as $item) : ?>
-        <div id="modal<?php echo $item['codigo']; ?>" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="fecharModal(<?php echo $item['codigo']; ?>)">&times;</span>
-                <h4>Código: <?php echo $item['codigo']; ?></h4></p>
-                <p><h5>Titulo: <?php echo $item['nome']; ?><h5></p>
-                <p>Artista: <?php echo $item['telefone']; ?></p>
-                <p>Ano de Lançamento: <?php echo $item['endereço']; ?></p>                          
-            </div>
-        </div>
-    <?php endforeach; ?>
-
+    
     <script>
         // Função para abrir um modal
         function abrirModal(codigo) {
@@ -216,417 +170,6 @@ $conn->close();
         //exit(); 
     </script>
 
-       <?php
-  
-        if(isset($_POST['inserir'])) {
-          
-        // Conexão com o banco de dados
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "meubanco";
-        $conn = new mysqli($servername, $username, $password, $dbname);
-        
-        if ($conn->connect_error) {
-          throw new Exception("Falha na conexão: " . $conn->connect_error);
-      }
-            
-            // Recebe os Dados do Formulário            
-            $codigo = $_POST['codigo'];
-            $nome = $_POST['nome'];
-            $telefone = $_POST['telefone'];
-            $endereço = $_POST['endereço'];
-            
-            // realiza a consulta no banco de dados para obter as informações do registro a ser excluído   
-            //if(isset($_POST['codigo'])) {                        
-            $sql = "SELECT * FROM pessoas WHERE codigo = '$codigo'";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-              echo "<h4>Código já existe no banco de dados!<br>";
-             } else {              
-              
-            // Insere os dados na tabela                 
-            $sql = "INSERT INTO pessoas SET codigo='$codigo', nome='$nome', telefone='$telefone', endereço='$endereço'";         
-            }
-
-            if ($conn->query($sql) === TRUE) {
-              echo "<h4>Registro inserido com sucesso!<br> Último Código inserido: " . $codigo . "<br>";
-              echo "<h4>Último Título inserido: " . $nome . "<br>";  
-
-          } else {            
-          echo "<h4>Erro ao inserir dados!<br> " . $conn->error;
-          }     
-           
-            $conn->close();            
-            exit();                  
-        }      
-
-            if(isset($_POST['atualizar'])) {
-
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "meubanco";
-            $conn = new mysqli($servername, $username, $password, $dbname);
-
-            if ($conn->connect_error) {
-              throw new Exception("Falha na conexão: " . $conn->connect_error);
-          }
-          
-            $codigo = $_POST['codigo'];
-            $nome = $_POST['nome'];
-            $telefone = $_POST['telefone'];
-            $endereço = $_POST['endereço'];
-            
-            //if(isset($_POST['codigo'])) {
-              $sql = "SELECT * FROM bancoshowsfilmes WHERE codigo = '$codigo' ";
-              $result = $conn->query($sql);
-            
-              if ($result->num_rows > 0) {
-               echo "<h4>Código já existe no banco de dados:"; 
-              
-                // Atualiza os dados na tabela 
-                $sql = "UPDATE pessoas SET codigo='$codigo', nome='$nome', telefone='$telefone', endereço='$endereço' WHERE codigo='$codigo'";
-              }
-              
-          if ($conn->query($sql) === TRUE) {          
-           echo "<h4>Registro atualizado com sucesso!<br> Último Código atualizado: " . $codigo . "<br>";
-           echo "<h4>Último Título atualizado: " . $nome . "<br>";
-            } else {      
-              echo "<h4>Erro ao atualizar registro!<br>" . $conn->error;
-           }
-           $conn->close();
-            exit();
-          }
-       
-        if(isset($_POST['apagar'])) {
-
-          $servername = "localhost";
-          $username = "root";
-          $password = "";
-          $dbname = "meubanco";
-          $conn = new mysqli($servername, $username, $password, $dbname);
-
-         // Verifica se ocorreu algum erro na conexão
-         if ($conn->connect_error) {
-         die("Falha na conexão: " . $conn->connect_error);
-        }
-
-       // Verifica se o formulário foi enviado
-       if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-       // Verifica se o parâmetro de identificação do registro a ser excluído foi fornecido    
-           $codigo = $_POST['codigo'];
-           $nome = $_POST['nome'];
-           $telefone = $_POST['telefone'];
-           $endereço = $_POST['endereço'];
-           
-           // Cria a consulta SQL para excluir o registro
-        $sql = "DELETE FROM pessoas WHERE codigo = $codigo";
-
-        // Executa a consulta
-        if ($conn->query($sql) === TRUE) {
-            echo "<h4>Registro com Código: $codigo foi excluído com sucesso!";
-        } else {
-            echo "<h4>Erro ao excluir registro: " . $conn->error;
-        }
-        } else {
-           echo "<h4>Parâmetro de identificação do registro não fornecido.";
-        }         
-            $conn->close();
-            exit();
-            }           
-        
-          if(isset($_POST['buscar'])) {
-
-          $servername = "localhost";
-          $username = "root";
-          $password = "";
-          $dbname = "meubanco";
-          $conn = new mysqli($servername, $username, $password, $dbname);
-          
-          // Consulta no banco de dados
-          $sql = "SELECT * FROM pessoas";
-          $resultado = $conn->query($sql);
-        if ($resultado->num_rows > 0) {
-                echo "<table><tr><th>Código: </th><th>Nome: </th><th>Telefone: </th><th>Endereço </th></tr>";
-                while($row = $resultado->fetch_assoc()) {
-                  echo "<tr><th>" . $row["codigo"] . "</th><th>" . $row["nome"] . "</th><th>" . $row["telefone"] ."</th><th>" . $row["endereço"] . "</th></tr>";
-              }
-            }
-
-           else {
-            echo "<h4>Nenhum resultado encontrado!";
-          }              
-          // Fechamento da conexão com o banco de dados
-          $conn->close();
-          exit();
-        } 
-
-        if(isset($_POST['consultaporcodigo'])) {
-
-          $servername = "localhost";
-          $username = "root";
-          $password = "";
-          $dbname = "meubanco";
-          $conn = new mysqli($servername, $username, $password, $dbname);
-         
-          $codigo = "codigo"; // Substitua com o valor desejado
-          $codigo = $_POST['codigo'];
-
-         // Consulta SQL com parâmetro
-         $sql = "SELECT * FROM pessoas WHERE codigo = ?";
-         $stmt = $conn->prepare($sql);
-         $stmt->bind_param("s", $codigo);
-         $stmt->execute();
-
-         // Resultado da consulta
-         $result = $stmt->get_result();
-
-         // Verifica se existem resultados
-         if ($result->num_rows > 0) {
-          // Loop para exibir os resultados
-          while ($row = $result->fetch_assoc()) {
-        // Processar os dados obtidos
-        $codigo = $row["codigo"];
-        $nome = $row["nome"];
-        echo "<th>codigo:</th>" . $codigo . "<br>";
-        echo "nome: " . $nome . "<br>";
-
-        $telefone = $row["telefone"];
-        $endereço = $row["endereço"];       
-        echo "<th>telefone:</th> " . $telefone . "<br>";
-        echo "endereço: " . $endereço . "<br>";
-      
-    }
-    } else {
-    echo "<h4>Nenhum resultado encontrado!";
-    }
-
-    // Fecha a conexão com o banco de dados
-    $stmt->close();
-    $conn->close();
-    exit();        
-        }         
-        
-        if(isset($_POST['consultapornome'])) {
-
-          $servername = "localhost";
-          $username = "root";
-          $password = "";
-          $dbname = "meubanco";
-          $conn = new mysqli($servername, $username, $password, $dbname);
-         
-          $nome = "nome"; // Substitua com o valor desejado
-          $nome = $_POST['nome'];
-
-         // Consulta SQL com parâmetro
-         $sql = "SELECT * FROM pessoas WHERE nome = ?";
-         $stmt = $conn->prepare($sql);
-         $stmt->bind_param("s", $nome);
-         $stmt->execute();
-
-         // Resultado da consulta
-         $result = $stmt->get_result();
-
-         // Verifica se existem resultados
-         if ($result->num_rows > 0) {
-          // Loop para exibir os resultados
-          while ($row = $result->fetch_assoc()) {
-
-        // Processar os dados obtidos
-        $codigo = $row["codigo"];
-        $nome = $row["nome"];       
-        echo "<th>codigo:</th>" . $codigo . "<br>";
-        echo "nome: " . $nome . "<br>";
-
-        $telefone = $row["telefone"];
-        $endereço = $row["endereço"];       
-        echo "<th>telefone:</th> " . $telefone . "<br>";
-        echo "endereço: " . $endereço . "<br><br>";
-    }
-    } else {
-      echo "<h4>Nenhum resultado encontrado!";
-      }
-
-      // Fecha a conexão com o banco de dados
-      $stmt->close();
-      $conn->close();
-      exit();
-      }
-
-      if(isset($_POST['consultaportelefone'])) {
-
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "meubanco";
-        $conn = new mysqli($servername, $username, $password, $dbname);
-       
-        $telefone = "telefone"; // Substitua com o valor desejado
-        $telefone = $_POST['telefone'];
-
-       // Consulta SQL com parâmetro
-       $sql = "SELECT * FROM pessoas WHERE telefone = ?";
-       $stmt = $conn->prepare($sql);
-       $stmt->bind_param("s", $telefone);
-       $stmt->execute();
-
-       // Resultado da consulta
-       $result = $stmt->get_result();
-
-       // Verifica se existem resultados
-       if ($result->num_rows > 0) {
-        // Loop para exibir os resultados
-        while ($row = $result->fetch_assoc()) {
-      // Processar os dados obtidos
-      $codigo = $row["codigo"];
-      $nome = $row["nome"];
-      echo "<th>codigo:</th>" . $codigo . "<br>";
-      echo "nome: " . $nome . "<br>";      
-      
-      $telefone = $row["telefone"];
-      $endereço = $row["endereço"] . "<br>";      
-      echo "telefone: " . $telefone . "<br>";
-      echo "endereço: " . $endereço . "<br>";       
-  }
-  } else {
-  echo "<h4>Nenhum resultado encontrado!";
-  }
-
-  // Fecha a conexão com o banco de dados
-  $stmt->close();
-  $conn->close();
-  exit();        
-      }
-
-      if(isset($_POST['consultaporendereço'])) {
-
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "meubanco";
-        $conn = new mysqli($servername, $username, $password, $dbname);
-       
-        $tipo = "endereço"; // Substitua com o valor desejado
-        $tipo = $_POST['endereço'];
-
-       // Consulta SQL com parâmetro
-       $sql = "SELECT * FROM pessoas WHERE endereço = ?";
-       $stmt = $conn->prepare($sql);
-       $stmt->bind_param("s", $tipo);
-       $stmt->execute();
-
-       // Resultado da consulta
-       $result = $stmt->get_result();
-
-       // Verifica se existem resultados
-       if ($result->num_rows > 0) {
-        // Loop para exibir os resultados
-        while ($row = $result->fetch_assoc()) {
-      // Processar os dados obtidos
-      $codigo = $row["codigo"];
-      $nome = $row["nome"];
-      echo "<th>codigo:</th>" . $codigo . "<br>";
-      echo "nome: " . $nome . "<br>";      
-      
-      $telefone = $row["telefone"];
-      $endereço = $row["endereço"] . "<br>";      
-      echo "telefone: " . $telefone . "<br>";
-      echo "endereço: " . $endereço . "<br>";   
-  }
-  } else {
-  echo "<h4>Nenhum resultado encontrado!";
-  }
-
-  // Fecha a conexão com o banco de dados
-  $stmt->close();
-  $conn->close();
-  exit();        
-      }
-
-      //if ($_SERVER["REQUEST_METHOD"] == "limpar") {
-        if(isset($_POST['limpar'])) {
-        // Apagar os dados digitados nos campos do formulário
-        unset($codigo);
-        unset($titulo);
-        unset($artista);
-        unset($anodelançamento);
-        unset($datadacompra);
-        unset($situaçao);
-        unset($tipo);
-        unset($genero);
-
-        if(isset($_POST['limpar'])) {                    
-          echo "<h4>Dados apagados com sucesso no Formulário!";
-        }
-         
-        else {
-        throw new Exception("Erro ao Apagar no Formulário! " . $conn->error); 
-        }
-        exit();
-        }
-      
-      ?>
- 
-  <!-- Tabela para mostrar dados -->
-        <h2>Consulta na Tabela:</h2>
-        <table class="table">
-            <thead>                
-            </thead>               
-            </tbody>
-        </table>
-
-<?php
-
-if(isset($_POST['autenticarusuario'])) {
-  // Configurações do banco de dados
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "meubanco";
-  
-  // Conexão com o banco de dados
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  
-  // Verifica se houve erro na conexão
-  if ($conn->connect_error) {
-      die("Erro na conexão com o banco de dados: " . $conn->connect_error);
-  }
-  
-  // Inicializa as variáveis para armazenar as credenciais do usuário
-  $usuario = "";
-  $senha = "";
-  
-  // Verifica se o formulário foi enviado
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      // Obtém as credenciais do formulário
-      $usuario = $_POST["usuario"];
-      $senha = $_POST["senha"];
-  
-      // Consulta SQL para verificar se o usuário existe na tabela
-      $sql = "SELECT * FROM bancousuario WHERE usuario = '$usuario' AND senha = '$senha'";
-      $result = $conn->query($sql);
-  
-      // Verifica se a consulta retornou algum resultado
-      if ($result->num_rows > 0) {
-          echo "<h4>LOGIN BEM SUCEDIDO!"; 
-          //redireciona para a página de sucesso
-          //header("Location: ControleUsuarios.php");
-          exit();
-      } 
-      else {
-          // Autenticação falhou, exibe mensagem de erro
-          $erro = "<h4>Usuário ou senha inválidos!";
-      }
-      // Fechar a conexão com o banco de dados
-      $conn->close();
-  }
-  }
-
-?>
-
 <!DOCTYPE html>
 <title>Login</title>
 </head>
@@ -634,11 +177,7 @@ if(isset($_POST['autenticarusuario'])) {
 <div class="container">
     <h2>Login</h2>
     <button type="submit" name="autenticarusuario">REALIZAR LOGIN</button <br> <p>VOCÊ PRECISA ESTAR LOGADO PARA UTILIZAR O SISTEMA!</p>
-    <?php if (isset($erro)) { ?>
-        <p><?php echo $erro; ?></p>
-    <?php }    
-    ?>
-
+   
         <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
         <label for="usuario">Usuário:</label>
         <input type="text" name="usuario" id="usuario" required>
