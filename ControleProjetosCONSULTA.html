@@ -40,8 +40,8 @@
     </style>
     
 <div class="container">		
-			<div class="col">      
-			<img src="carlos2.png" alt="Logo da Minha Empresa" class="img-fluid">
+	<div class="col">      
+	<img src="carlos2.png" alt="Logo da Minha Empresa" class="img-fluid">
         <?php date_default_timezone_set('America/Sao_Paulo'); ?>
         <?php $hoje = date('d/m/Y'); ?>
         <?php $horaHoje = date("H:i:s"); ?>
@@ -50,7 +50,7 @@
         
 			</div>
 			<div class="col align-self-center">
-				<h1 class="text-center">Gestão de Projetos Arquitetônicos e Complementares</h1>
+			<h1 class="text-center">Gestão de Projetos Arquitetônicos e Complementares</h1>
         <img src="Carlos.png" alt="Logo da Minha Empresa" class="img-fluid">        
 			</div>
       <a href="">        
@@ -107,17 +107,6 @@
                 <input type="text" class="form-control" name="genero" class="genero" text><br>
                 <!--<input type="text" class="form-control" name="genero" class="genero" value="<?php echo $genero; ?>"><br>-->
             </div>
-
-            <?php
-      }
-  
-  }else {
-      echo "Nenhum resultado encontrado!";
-  }
-  
-  // Fecha a conexão com o banco de dados
-  $conn->close();
-  ?>
 
         <div class="container">        
          <!--Cria o botão para consultar um valor na tabela (código) e dá ação ao método Post-->
