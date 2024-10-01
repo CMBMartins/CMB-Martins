@@ -41,7 +41,7 @@
     
 <div class="container">		
 			<div class="col">      
-				<img src="carlos2.png" alt="Logo da Minha Empresa" class="img-fluid">
+			<img src="carlos2.png" alt="Logo da Minha Empresa" class="img-fluid">
         <?php date_default_timezone_set('America/Sao_Paulo'); ?>
         <?php $hoje = date('d/m/Y'); ?>
         <?php $horaHoje = date("H:i:s"); ?>
@@ -65,36 +65,6 @@
 </head>
 <body>
 
-<?php
-
-// Conexão com o banco de dados
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "meubanco";
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verificação de erro na conexão
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
-}
-
-// Consulta SQL para obter o último registro
-$sql = "SELECT * FROM bancoprojetos ORDER BY codigo DESC LIMIT 1";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-  // Loop para exibir os resultados
-  while ($row = $result->fetch_assoc()) {
-      $codigo = $row["codigo"];
-      $titulo = $row["titulo"];
-      $cliente = $row["cliente"];
-      $tamanhodoimovel = $row["tamanhodoimovel"];
-      $valordoprojeto = $row["valordoprojeto"];
-      $datadaentrega = $row["datadaentrega"];
-      $tipo = $row["tipo"];
-      $genero = $row["genero"];      
-      ?>
             <!-- Aqui você pode adicionar o formulário HTML existente -->
             <div class="container">     
             <form action="ControleProjetosCONSULTA.php" method="post">                                    
