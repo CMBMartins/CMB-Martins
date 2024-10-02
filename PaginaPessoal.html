@@ -94,7 +94,15 @@
     </style>
     </head>
     
-<body> 
+<body>
+<header>    
+        <?php date_default_timezone_set('America/Sao_Paulo'); ?>
+        <?php $hoje = date('d/m/Y'); ?>
+        <?php $horaHoje = date("H:i:s"); ?>
+        <?php echo $hoje; ?>
+        <?php echo $horaHoje; ?>
+    </header>    
+	
     <nav>
 
     <img src="carlos1.png" alt="Logo da Minha Empresa" class="img-fluid">
