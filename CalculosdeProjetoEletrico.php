@@ -28,8 +28,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<img src="Imagens/logo.png" alt="Logo da Minha Empresa" class="img-fluid">
-				<?php date_default_timezone_set('America/Sao_Paulo'); ?>
+			<img src="logo.png" alt="Logo da Minha Empresa" class="img-fluid">
+			<?php date_default_timezone_set('America/Sao_Paulo'); ?>
                 <?php $hoje = date('d/m/Y'); ?>
                 <?php $horaHoje = date("H:i:s"); ?>
                 <?php echo $hoje; ?><br>
@@ -37,12 +37,12 @@
 			</div>
 
 				<h1 class="text-center">Cálculos de Potências de Luz e Tomadas</h1>
-				<img src="Imagens/Carlos.png" alt="Logo da Minha Empresa" class="img-fluid">
+				<img src="Carlos.png" alt="Logo da Minha Empresa" class="img-fluid">
 
 			</div>
 			<a href="">        
             <span class="fa fa-home"></span>            
-            <!--<img src="Imagens/casa.png" alt="icone de configuração">-->
+            <!--<img src="casa.png" alt="icone de configuração">-->
             <a href="PaginaPessoal.php">
             <span>Página Principal</span><br>
             </a>
