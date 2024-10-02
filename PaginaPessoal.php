@@ -131,8 +131,8 @@
         <!--<button>Selecione uma Aplicação</button>-->
         <h4><a href="#" >GESTÃO DE USUÁRIOS</a></h4>
         <div class="dropdown-content">
-        <a href="ControleUsuarios.php">GESTÃO DE USUÁRIOS</a><br>
-        <a href="autenticarUsuario">LOGIN DE USUÁRIOS</a>      
+        <a href="ControleUsuarios.html">GESTÃO DE USUÁRIOS</a><br>
+        <a href="autenticarUsuario.html">LOGIN DE USUÁRIOS</a>      
         </div>
         </div>
 
@@ -276,25 +276,25 @@
         <h2>Aplicativos de Gestão:</h2>
         <a href="">        
             <h4><span class="fa fa-envelope"></span>          
-            <a href="ControleShowsFilmesCONSULTA.php">Mídias de Shows e Filmes</a><br>
+            <a href="ControleShowsFilmesCONSULTA.html">Mídias de Shows e Filmes</a><br>
             <a href="">
             <span class="fa fa-envelope"></span>
-            <a href="ControleProjetosCONSULTA">Projetos Elétricos</a><br>
+            <a href="ControleProjetosCONSULTA.html">Projetos Elétricos</a><br>
             <a href="">
             <span class="fa fa-envelope"></span> 
-            <a href="GestaoAtivosFamiliar">Ativos Familiar</a><br>
+            <a href="GestaoAtivosFamiliar.html">Ativos Familiar</a><br>
             <a href="">
             <span class="fa fa-envelope"></span>
-            <a href="GestaoContatosPessoais">Contatos Pessoais</a><br>
+            <a href="GestaoContatosPessoais.html">Contatos Pessoais</a><br>
         </a>
 
         <h2>Aplicativos Elétricos:</h2>
         <a href="">        
             <h4><span class="fa fa-star"></span>            
-            <a href="CalculosdeProjetoEletrico.php">Calculos de Projetos Elétricos</a><br>
+            <a href="CalculosdeProjetoEletrico.html">Calculos de Projetos Elétricos</a><br>
             <a href="">
             <span class="fa fa-star"></span>
-            <a href="CalculosEletricos.php">Calculos Elétricos</a><br>
+            <a href="CalculosEletricos.html">Calculos Elétricos</a><br>
             <a href="">
             <span class="fa fa-star"></span>
             <a href="Painel230.html">Diagrama Unifilar de Sistema Elétrico</a><br> 
