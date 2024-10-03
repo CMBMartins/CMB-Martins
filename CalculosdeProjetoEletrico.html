@@ -66,14 +66,7 @@
 			</div>
 			<button type="submit" class="btn btn-primary">Calcular a Potencia de Luz em VA</button>
 		</form>
-		//<?php
-		if(isset($_POST['num1'])) 
-		 { 		
-			$num1 = $_POST['num1'];			
-			$resultado1 = 100+($num1-6)/4*60; 
-			echo "<h2>Resultado: $resultado1 VA</h2>";
-		}
-		//?>
+		
 	</div>
 
 	<div class="container mt-5">
@@ -85,15 +78,7 @@
 			</div>
 			<button type="submit" class="btn btn-primary">Calcular a quantidade de Tomadas Comum</button>
 		</form>
-		//<?php
-		if(isset($_POST['num2'])) 
-		 { 
 		
-			$num2 = $_POST['num2'];           			
-			$resultado2 = ($num2)/5; 
-			echo "<h2>Resultado: $resultado2 UNDS</h2>";
-		}
-		//?>
 	</div>
 	<div class="container mt-5">
 		<h1>Cálculo de Quantidade de Tomadas de Uso Especial!</h1>
@@ -104,15 +89,7 @@
 			</div>
 			<button type="submit" class="btn btn-primary">Calcular a quantidade de Tomadas de Uso Especial</button>
 		</form>
-		//<?php
-		if(isset($_POST['num3']))
-		 { 
 		
-			$num3 = $_POST['num3'];					
-			$resultado3 = ($num3)/3.5; 
-			echo "<h2>Resultado: $resultado3 UNDS</h2>";
-		}
-		//?>
 	</div>
 	<!-- Adiciona o JavaScript do Bootstrap -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
