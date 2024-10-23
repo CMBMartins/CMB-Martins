@@ -1,12 +1,82 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Diagrama Unifilar de Sistema Elétrico</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Diagrama Unifilar de Sistema Elétrico</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="styles/reset.css" />
+  <link rel="stylesheet" href="styles/vars.css" />
+  <link rel="stylesheet" href="styles/main-content.css" />
+  <link rel="stylesheet" href="styles/sidebar-footer.css" />
+  <link rel="stylesheet" href="styles/media-query.css" /> <!--Media queries devem ser chamados depois do CSS principal -->
+
+
+  <link rel="stylesheet" href="styles/reset.css" />
+  <link rel="stylesheet" href="styles/vars.css" />
+  <link rel="stylesheet" href="styles/media-query.css" />
+  <link rel="stylesheet" href="styles/main-content.css" />
+  <link rel="stylesheet" href="styles/sidebar-footer.css" />
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css"
+    integrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css"
+    integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous" />
+
+    </head>
+<body>
+
+<div class="container">
+
+  <style>
+    body {
+        background-color: #f6f6f6; /* Escolha a cor de fundo */
+    }
+</style>
+
+    <img src="Imagens/carlos1.png" alt="logo do desenvolvedor">
+    <footer>Carlos Martins</footer>
+    <ul>
+        <a href="">        
+            <span class="fa fa-home"></span>            
+            <!--<img src="Imagens/casa.png" alt="icone de configuração">-->
+            <a href="PaginaPessoal.php">
+            <span>Página Principal</span><br>
+        </a>
+
+        <a href="">
+            <span class="fa fa-search"></span>
+            <span>Buscar</span>
+          </a>
+
+        <main>
+            <h1><strong> Diagrama Unifilar do Sistema Elétrico </strong></h1>
+            <h3>Botões de Comandos</h3>
+            <p>Os botões servem para operar cada equipamento!</p>
+            <ol>Lista das TAGS dos Transformadores:<br>
+                <a href="">
+                    <span class="fa fa-search"></span>
+                    <span>TF1</span><br>
+                  </a>
+                  <a href="">
+                    <span class="fa fa-search"></span>
+                    <span>TF2</span><br>
+                  </a>
+                  <a href="">
+                    <span class="fa fa-search"></span>
+                    <span>TF3</span><br>
+                  </a>
+                  <a href="">
+                    <span class="fa fa-search"></span>
+                    <span>TF4</span>
+                  </a>
+            </ol>
+        </main>
+    
+    <style>        
         /* Adicione estilos adicionais conforme necessário */
         .linha-vertical {            
             border-left: 3px solid black;            
@@ -511,32 +581,6 @@
     </style>
 </head>
 <body>
-
-<div class="container">
-    <img src="Imagens/carlos1.png" alt= "logo do desenvolvedor">
-    <footer>Carlos Martins</footer>
-    <ul>
-        <a href="">        
-            <span class="fa fa-home"></span>
-            <i class="fa-solid fa-house"></i>
-            <img src="Imagens/casa.png" alt="icone de configuração">
-            <a href="PaginaPessoal.php">
-            <span>Página Principal</span>
-        </a>
-    <main>
-    <h1>
-        <strong> Diagrama Unifilar do Sistema Elétrico </strong>
-    </h1>
-    
-    <h3>Botões de Comandos</h3>
-    <P>Os botões servem para operar cada equipamento!</p>
-    <ol> Os botões vão executar os comandos nos trafos:   
-        <li>TF-1</li>
-        <li>TF-2</li>
-        <li>TF-3</li>
-        <li>TF-4</li>
-    </ol>
-    </main>    
     
         <h4>TF1</h4>
         <button id="btnSeccionadoraA" class="btn btn-primary">Seccionadora A TF1</button>
