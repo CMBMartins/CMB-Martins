@@ -1,158 +1,809 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Diagrama Unifilar de Sistema Elétrico</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Diagrama Unifilar de Sistema Elétrico</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Adicione estilos adicionais conforme necessário */
+        .linha-vertical {            
+            border-left: 3px solid black;            
+            height: 0px; /* Ajuste conforme necessário */
+            position: relative;
+            margin-left: -150px; /* Ajuste conforme necessário */
+            top: 90px;
+            left: -50px;
+        }
 
-  <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon" />
-  <link rel="stylesheet" href="styles/reset.css" />
-  <link rel="stylesheet" href="styles/vars.css" />
-  <link rel="stylesheet" href="styles/main-content.css" />
-  <link rel="stylesheet" href="styles/sidebar-footer.css" />
-  <link rel="stylesheet" href="styles/media-query.css" /> <!--Media queries devem ser chamados depois do CSS principal -->
+        .linha-vertical1 {            
+            border-left: 3px solid black;
+            height: 40px; /* Ajuste conforme necessário */
+            position: relative;
+            margin-left: 50px; /* Ajuste conforme necessário */
+            top: 160px; 
+            left: -50px;
+        }
 
+        .linha-vertical11 {            
+            border-left: 3px solid black;            
+            height: 70px; /* Ajuste conforme necessário */
+            position: relative;
+            margin-left: 50px; /* Ajuste conforme necessário */
+            top: 180px;
+            left: -50px;
+        }
 
-  <link rel="stylesheet" href="styles/reset.css" />
-  <link rel="stylesheet" href="styles/vars.css" />
-  <link rel="stylesheet" href="styles/media-query.css" />
-  <link rel="stylesheet" href="styles/main-content.css" />
-  <link rel="stylesheet" href="styles/sidebar-footer.css" />
+        .linha-vertical2 {            
+            border-left: 3px solid black;
+            height: 50px; /* Ajuste conforme necessário */
+            position: relative;
+            margin-left: -30px; /* Ajuste conforme necessário */
+            top: 250px;
+            left: 30px;
+        }
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css"
-    integrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css"
-    integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous" />
+        .seccionadora {
+            width: 3px;
+            height: 32px; /* Ajuste conforme necessário */
+            border: 2px solid black;
+            position: absolute;
+            top: 130px; 
+            left: 20px;
+        }
 
+        #seccionadoraA {
+            width: 3px;
+            height: 92px; /* Ajuste conforme necessário */
+            border: 2px solid black;
+            position: absolute;
+            top: -5px; 
+            left: -80px; /* Ajuste conforme necessário */
+        }
+
+        #seccionadoraB {
+            width: 3px;
+            height: 32px; /* Ajuste conforme necessário */
+            border: 2px solid black;
+            position: absolute;
+            top: 55px; 
+            left: 80px; /* Ajuste conforme necessário */
+        }
+       
+        #seccionadoraC {            
+            
+            left: -80px;
+        }
+
+        #seccionadoraD {
+            
+            left: 80px;
+        }
+
+        .linhahorizontal {
+            border-top: 3px solid black;
+            width: 1064px;
+            height: 30px;
+            position: relative;
+            margin-left: -150px;
+            top: -165px; /* Ajustável conforme necessário */
+            left: 10px;
+        }
+
+        .linhahorizontal1 {
+            border-top: 3px solid black;
+            width: 1064px;
+            height: 30px;
+            position: relative;
+            margin-left: -150px;
+            top: -135px; /* Ajustável conforme necessário */
+            left: 10px;
+        }
+
+        .linhahorizontal2 {
+            border-top: 3px solid black;
+            width: 164px;
+            height: 0px;
+            position: relative;
+            margin-left: -90px;
+            top: -60px; /* Ajustável conforme necessário */
+            left: 10px;
+        }
+
+        .disjuntor {
+            width: 40px;
+            height: 40px;
+            background-color: green;
+            border: 2px solid black;
+            border-radius: 50%;
+            position: absolute;
+            top: 200px; /* Ajuste conforme necessário */
+            left: -20px; /* Ajuste conforme necessário */
+        }
+
+        .transformador {
+            width: 40px;
+            height: 40px;
+            background-color: orange;
+            border: 2px solid black;
+            border-radius: 50%;
+            position: absolute;
+            top: 320px; /* Ajuste conforme necessário */
+            left: -20px; /* Ajuste conforme necessário */
+        }
+
+        .transformador1 {
+            width: 40px;
+            height: 40px;
+            background-color: lightblue;
+            border: 2px solid black;
+            border-radius: 50%;
+            position: absolute;
+            top: 280px; /* Ajuste conforme necessário */
+            left: -20px; /* Ajuste conforme necessário */
+        }
+
+        .seta {
+            width: 10;
+            height: 10;
+            border: 20px solid transparent;
+            border-radius: 50% solid transparent;
+            border-top: 20px solid black;            
+            position: absolute;
+            margin-left: -40px;
+            top: 410px; /* Ajuste conforme necessário */
+            left: 20px; /* Ajuste conforme necessário */
+        }
+
+        .linha-verticalTF2 {            
+            border-left: 3px solid black;            
+            height: 43px; /* Ajuste conforme necessário */
+            position: relative;
+            margin-left: 188px; /* Ajuste conforme necessário */
+            top: -66px; 
+            left: 80px;
+        }
+
+        .linha-vertical1TF2 {            
+            border-left: 3px solid black;
+            height: 42px; /* Ajuste conforme necessário */
+            position: relative;
+            margin-left: 170px; /* Ajuste conforme necessário */
+            top: -30px; 
+            left: 100px;
+        }
+
+        .linha-vertical2TF2 {            
+            border-left: 3px solid black;
+            height: 60px; /* Ajuste conforme necessário */
+            position: relative;
+            margin-left: 220px; /* Ajuste conforme necessário */
+            top: 48px;
+            left: 50px;
+        }
+       
+        .seccionadoraTF2 {
+            width: 3px;
+            height: 32px; /* Ajuste conforme necessário */
+            border: 2px solid black;
+            position: absolute;
+            top: 100px; 
+            left: 320px;
+        }
+
+        #seccionadoraATF2 {
+            width: 3px;
+            height: 94px; /* Ajuste conforme necessário */
+            border: 2px solid black;
+            position: absolute;
+            top: -5px; 
+            left: 180px; /* Ajuste conforme necessário */
+        }
+
+        #seccionadoraBTF2 {
+            width: 3px;
+            height: 34px; /* Ajuste conforme necessário */
+            border: 2px solid black;
+            position: absolute;
+            top: 58px; 
+            left: 350px; /* Ajuste conforme necessário */
+        }
+       
+        #seccionadoraCTF2 {            
+            
+            left: 180px;
+        }
+
+        #seccionadoraDTF2 {
+            
+            left: 350px;
+        }
+
+        .linhahorizontalTF2 {
+            border-top: 3px solid black;
+            width: 173px;
+            height: 0px;
+            position: relative;
+            margin-left: 180px;
+            top: -63px; /* Ajustável conforme necessário */
+            left: 0px;
+        }
+
+        .disjuntorTF2 {
+            width: 40px;
+            height: 40px;
+            background-color: green;
+            border: 2px solid black;
+            border-radius: 50%;
+            position: absolute;
+            top: 200px; /* Ajuste conforme necessário */
+            left: 250px; /* Ajuste conforme necessário */
+        }
+
+        .transformadorTF2 {
+            width: 40px;
+            height: 40px;
+            background-color: orange;
+            border: 2px solid black;
+            border-radius: 50%;
+            position: absolute;
+            top: 320px; /* Ajuste conforme necessário */
+            left: 250px; /* Ajuste conforme necessário */
+        }
+
+        .transformador1TF2 {
+            width: 40px;
+            height: 40px;
+            background-color: lightblue;
+            border: 2px solid black;
+            border-radius: 50%;
+            position: absolute;
+            top: 280px; /* Ajuste conforme necessário */
+            left: 250px; /* Ajuste conforme necessário */
+        }
+
+        .setaTF2 {
+            width: 10;
+            height: 10;
+            border: 20px solid transparent;
+            border-radius: 50% solid transparent;
+            border-top: 20px solid black;            
+            position: absolute;
+            margin-left: 250px;
+            top: 408px; /* Ajuste conforme necessário */
+        }
+
+        .linha-verticalTF3 {            
+            border-left: 3px solid black;            
+            height: 42px; /* Ajuste conforme necessário */
+            position: relative;
+            margin-left: 188px; /* Ajuste conforme necessário */
+            top: -135px; 
+            left: 330px;
+        }
+
+        .linha-vertical1TF3 {            
+            border-left: 3px solid black;
+            height: 42px; /* Ajuste conforme necessário */
+            position: relative;
+            margin-left: 270px; /* Ajuste conforme necessário */
+            top: -255px; 
+            left: 248px;
+        }
+
+        .linha-vertical2TF3 {            
+            border-left: 3px solid black;
+            height: 60px; /* Ajuste conforme necessário */
+            position: relative;
+            margin-left: 230px; /* Ajuste conforme necessário */
+            top: -100px;
+            left: 290px;
+        }
+       
+        .seccionadoraTF3 {
+            width: 3px;
+            height: 32px; /* Ajuste conforme necessário */
+            border: 2px solid black;
+            position: absolute;
+            top: 100px; 
+            left: 540px;
+        }
+
+        #seccionadoraATF3 {
+            width: 3px;
+            height: 94px; /* Ajuste conforme necessário */
+            border: 2px solid black;
+            position: absolute;
+            top: -5px; 
+            left: 440px; /* Ajuste conforme necessário */
+        }
+
+        #seccionadoraBTF3 {
+            width: 3px;
+            height: 34px; /* Ajuste conforme necessário */
+            border: 2px solid black;
+            position: absolute;
+            top: 58px; 
+            left: 610px; /* Ajuste conforme necessário */
+        }
+       
+        #seccionadoraCTF3 {            
+            
+            left: 440px;
+        }
+
+        #seccionadoraDTF3 {
+            
+            left: 610px;
+        }
+
+        .linhahorizontalTF3 {
+            border-top: 3px solid black;
+            width: 173px;
+            height: 0px;
+            position: relative;
+            margin-left: 410px;
+            top: -210px; /* Ajustável conforme necessário */
+            left: 30px;
+        }
+
+        .disjuntorTF3 {
+            width: 40px;
+            height: 40px;
+            background-color: green;
+            border: 2px solid black;
+            border-radius: 50%;
+            position: absolute;
+            top: 200px; /* Ajuste conforme necessário */
+            left: 500px; /* Ajuste conforme necessário */
+        }
+
+        .transformadorTF3 {
+            width: 40px;
+            height: 40px;
+            background-color: orange;
+            border: 2px solid black;
+            border-radius: 50%;
+            position: absolute;
+            top: 320px; /* Ajuste conforme necessário */
+            left: 500px; /* Ajuste conforme necessário */
+        }
+
+        .transformador1TF3 {
+            width: 40px;
+            height: 40px;
+            background-color: lightblue;
+            border: 2px solid black;
+            border-radius: 50%;
+            position: absolute;
+            top: 280px; /* Ajuste conforme necessário */
+            left: 500px; /* Ajuste conforme necessário */
+        }
+
+        .setaTF3 {
+            width: 10;
+            height: 10;
+            border: 20px solid transparent;
+            border-radius: 50% solid transparent;
+            border-top: 20px solid black;            
+            position: absolute;
+            margin-left: 500px;
+            top: 408px; /* Ajuste conforme necessário */
+        }
+
+        .linha-verticalTF4 {            
+            border-left: 3px solid black;            
+            height: 40px; /* Ajuste conforme necessário */
+            position: relative;            
+            top: -360px; 
+            left: 770px;
+        }
+
+        .linha-vertical1TF4 {            
+            border-left: 3px solid black;
+            height: 44px; /* Ajuste conforme necessário */
+            position: relative;            
+            top: -322px; 
+            left: 770px;
+        }
+
+        .linha-vertical2TF4 {            
+            border-left: 3px solid black;
+            height: 60px; /* Ajuste conforme necessário */
+            position: relative;
+            margin-left: 230px; /* Ajuste conforme necessário */
+            top: -250px;
+            left: 540px;
+        }
+       
+        .seccionadoraTF4 {
+            width: 3px;
+            height: 32px; /* Ajuste conforme necessário */
+            border: 2px solid black;
+            position: absolute;
+            top: 100px; 
+            left: 790px;
+        }
+
+        #seccionadoraATF4 {
+            width: 3px;
+            height: 94px; /* Ajuste conforme necessário */
+            border: 2px solid black;
+            position: absolute;
+            top: -5px; 
+            left: 690px; /* Ajuste conforme necessário */
+        }
+
+        #seccionadoraBTF4 {
+            width: 3px;
+            height: 34px; /* Ajuste conforme necessário */
+            border: 2px solid black;
+            position: absolute;
+            top: 58px; 
+            left: 860px; /* Ajuste conforme necessário */
+        }
+       
+        #seccionadoraCTF4 {            
+            
+            left: 690px;
+        }
+
+        #seccionadoraDTF4 {
+            
+            left: 860px;
+        }
+
+        .linhahorizontalTF4 {
+            border-top: 3px solid black;
+            width: 173px;
+            height: 0px;
+            position: relative;
+            margin-left: 660px;
+            top: -358px; /* Ajustável conforme necessário */
+            left: 30px;
+        }
+
+        .disjuntorTF4 {
+            width: 40px;
+            height: 40px;
+            background-color: green;
+            border: 2px solid black;
+            border-radius: 50%;
+            position: absolute;
+            top: 200px; /* Ajuste conforme necessário */
+            left: 750px; /* Ajuste conforme necessário */
+        }
+
+        .transformadorTF4 {
+            width: 40px;
+            height: 40px;
+            background-color: orange;
+            border: 2px solid black;
+            border-radius: 50%;
+            position: absolute;
+            top: 320px; /* Ajuste conforme necessário */
+            left: 750px; /* Ajuste conforme necessário */
+        }
+
+        .transformador1TF4 {
+            width: 40px;
+            height: 40px;
+            background-color: lightblue;
+            border: 2px solid black;
+            border-radius: 50%;
+            position: absolute;
+            top: 280px; /* Ajuste conforme necessário */
+            left: 750px; /* Ajuste conforme necessário */
+        }
+
+        .setaTF4 {
+            width: 10;
+            height: 10;
+            border: 20px solid transparent;
+            border-radius: 50% solid transparent;
+            border-top: 20px solid black;            
+            position: absolute;
+            margin-left: 750px;
+            top: 408px; /* Ajuste conforme necessário */
+        }
+
+    </style>
 </head>
 <body>
 
-  <style>       
-
-        body {
-            background-color: #f3f3f3; /* Escolha a cor de fundo */
-        }
-    </style>
-
 <div class="container">
-    <img src="carlos1.png" alt="logo do desenvolvedor">
+    <img src="Imagens/carlos1.png" alt= "logo do desenvolvedor">
     <footer>Carlos Martins</footer>
-    <ul><br><br><br>
+    <ul>
         <a href="">        
-            <span class="fa fa-home"></span>            
-            <!--<img src="casa.png" alt="icone de configuração">-->
-            <a href="PaginaPessoal.html">
-            <span>Página Principal</span><br>
+            <span class="fa fa-home"></span>
+            <i class="fa-solid fa-house"></i>
+            <img src="Imagens/casa.png" alt="icone de configuração">
+            <a href="PaginaPessoal.php">
+            <span>Página Principal</span>
         </a>
-
-        <a href="">
-            <span class="fa fa-search"></span>
-            <span>Buscar</span>
-          </a><br><br>
-
-        <main>
-            <h1><strong> Diagrama Unifilar do Sistema Elétrico </strong></h1>
-            <h3>Botões de Comandos</h3>
-            <p>Os botões servem para operar cada equipamento!</p>
-            <ol>Lista das TAGS dos Transformadores:<br>
-                <a href="">
-                    <span class="fa fa-search"></span>
-                    <span>TF1</span><br>
-                  </a>
-                  <a href="">
-                    <span class="fa fa-search"></span>
-                    <span>TF2</span><br>
-                  </a>
-                  <a href="">
-                    <span class="fa fa-search"></span>
-                    <span>TF3</span><br>
-                  </a>
-                  <a href="">
-                    <span class="fa fa-search"></span>
-                    <span>TF4</span>
-                  </a>
-            </ol>
-        </main>
-
-        <h5>TF1</h5>
-        <button id="btnSeccionadoraA" class="btn btn-primary">Seccionadora A TF1</button>        
+    <main>
+    <h1>
+        <strong> Diagrama Unifilar do Sistema Elétrico </strong>
+    </h1>
+    
+    <h3>Botões de Comandos</h3>
+    <P>Os botões servem para operar cada equipamento!</p>
+    <ol> Os botões vão executar os comandos nos trafos:   
+        <li>TF-1</li>
+        <li>TF-2</li>
+        <li>TF-3</li>
+        <li>TF-4</li>
+    </ol>
+    </main>    
+    
+        <h4>TF1</h4>
+        <button id="btnSeccionadoraA" class="btn btn-primary">Seccionadora A TF1</button>
         <button id="btnSeccionadoraB" class="btn btn-primary ml-2">Seccionadora B TF1</button>      
         <button id="btnDisjuntor" class="btn btn-primary ml-2">Disjuntor TF1</button>
 
-        <h5>TF2</h5>
+        <h4>TF2</h4>
         <button id="btnSeccionadoraATF2" class="btn btn-primary">Seccionadora A TF2</button>
         <button id="btnSeccionadoraBTF2" class="btn btn-primary ml-2">Seccionadora B TF2</button>      
         <button id="btnDisjuntorTF2" class="btn btn-primary ml-2">Disjuntor TF2</button>
 
-        <h5>TF3</h5>
+        <h4>TF3</h4>
         <button id="btnSeccionadoraATF3" class="btn btn-primary">Seccionadora A TF3</button>
         <button id="btnSeccionadoraBTF3" class="btn btn-primary ml-2">Seccionadora B TF3</button>      
         <button id="btnDisjuntorTF3" class="btn btn-primary ml-2">Disjuntor TF3</button>
 
-        <h5>TF4</h5>
+        <h4>TF4</h4>
         <button id="btnSeccionadoraATF4" class="btn btn-primary">Seccionadora A TF4</button>
         <button id="btnSeccionadoraBTF4" class="btn btn-primary ml-2">Seccionadora B TF4</button>      
         <button id="btnDisjuntorTF4" class="btn btn-primary ml-2">Disjuntor TF4</button>
-
+    
         <div class="linha-vertical">
-            <div class="linha-vertical1"></div>
-            <div class="linha-vertical11"></div>
-            <div class= "linha-vertical2"></div>                                          
-            <div id="seccionadoraA" class="seccionadora"></div>
-            <div id="seccionadoraB" class="seccionadora"></div> 
-            <div id="seccionadoraC" class="seccionadora"></div>
-            <div id="seccionadoraD" class="seccionadora"></div>               
-            <div class="linhahorizontal" ></div>
-            <div class="linhahorizontal1"></div>
-            <div class="linhahorizontal2"></div>
-            <div class="disjuntor"></div>
-            <div class="transformador"></div>
-            <div class="transformador1"></div>                
-            <div class="seta"></div>
-    
-            <div class="disjuntorTF2"></div>                
-            <div class="setaTF2"></div>
-            <div class="linhahorizontalTF2"></div>        
-            <div class="linha-verticalTF2" ></div>
-            <div class="linha-vertical1TF2"></div>              
-            <div class="linha-vertical2TF2"></div>                
-            <div id="seccionadoraATF2" class="seccionadora"></div>
-            <div id="seccionadoraBTF2" class="seccionadora"></div> 
-            <div id="seccionadoraCTF2" class="seccionadora"></div>
-            <div id="seccionadoraDTF2" class="seccionadora"></div>        
-            <div class="transformadorTF2"></div>
-            <div class="transformador1TF2"></div>
-    
-            <div class="disjuntorTF3"></div>                
-            <div class="setaTF3"></div>
-            <div class="linhahorizontalTF3"></div>        
-            <div class="linha-verticalTF3" ></div>
-            <div class="linha-vertical1TF3"></div>              
-            <div class="linha-vertical2TF3"></div>        
-            <div id="seccionadoraATF3" class="seccionadora"></div>
-            <div id="seccionadoraBTF3" class="seccionadora"></div> 
-            <div id="seccionadoraCTF3" class="seccionadora"></div>
-            <div id="seccionadoraDTF3" class="seccionadora"></div>        
-            <div class="transformadorTF3"></div>
-            <div class="transformador1TF3"></div>
-            
-            <div class="disjuntorTF4"></div>                
-            <div class="setaTF4"></div>
-            <div class="linhahorizontalTF4"></div>        
-            <div class="linha-verticalTF4" ></div>
-            <div class="linha-vertical1TF4"></div>              
-            <div class="linha-vertical2TF4"></div>        
-            <div id="seccionadoraATF4" class="seccionadora"></div>
-            <div id="seccionadoraBTF4" class="seccionadora"></div> 
-            <div id="seccionadoraCTF4" class="seccionadora"></div>
-            <div id="seccionadoraDTF4" class="seccionadora"></div>        
-            <div class="transformadorTF4"></div>
-            <div class="transformador1TF4"></div>
-        </div>   
-        <!-- Restante dos botões e elementos HTML -->
-    </div>
+        <div class="linha-vertical1"></div>
+        <div class="linha-vertical11"></div>
+        <div class= "linha-vertical2"></div>                                          
+        <div id="seccionadoraA" class="seccionadora"></div>
+        <div id="seccionadoraB" class="seccionadora"></div> 
+        <div id="seccionadoraC" class="seccionadora"></div>
+        <div id="seccionadoraD" class="seccionadora"></div>               
+        <div class="linhahorizontal" ></div>
+        <div class="linhahorizontal1"></div>
+        <div class="linhahorizontal2"></div>
+        <div class="disjuntor"></div>
+        <div class="transformador"></div>
+        <div class="transformador1"></div>                
+        <div class="seta"></div>
+
+        <div class="disjuntorTF2"></div>                
+        <div class="setaTF2"></div>
+        <div class="linhahorizontalTF2"></div>        
+        <div class="linha-verticalTF2" ></div>
+        <div class="linha-vertical1TF2"></div>              
+        <div class="linha-vertical2TF2"></div>                
+        <div id="seccionadoraATF2" class="seccionadora"></div>
+        <div id="seccionadoraBTF2" class="seccionadora"></div> 
+        <div id="seccionadoraCTF2" class="seccionadora"></div>
+        <div id="seccionadoraDTF2" class="seccionadora"></div>        
+        <div class="transformadorTF2"></div>
+        <div class="transformador1TF2"></div>
+
+        <div class="disjuntorTF3"></div>                
+        <div class="setaTF3"></div>
+        <div class="linhahorizontalTF3"></div>        
+        <div class="linha-verticalTF3" ></div>
+        <div class="linha-vertical1TF3"></div>              
+        <div class="linha-vertical2TF3"></div>        
+        <div id="seccionadoraATF3" class="seccionadora"></div>
+        <div id="seccionadoraBTF3" class="seccionadora"></div> 
+        <div id="seccionadoraCTF3" class="seccionadora"></div>
+        <div id="seccionadoraDTF3" class="seccionadora"></div>        
+        <div class="transformadorTF3"></div>
+        <div class="transformador1TF3"></div>
+        
+        <div class="disjuntorTF4"></div>                
+        <div class="setaTF4"></div>
+        <div class="linhahorizontalTF4"></div>        
+        <div class="linha-verticalTF4" ></div>
+        <div class="linha-vertical1TF4"></div>              
+        <div class="linha-vertical2TF4"></div>        
+        <div id="seccionadoraATF4" class="seccionadora"></div>
+        <div id="seccionadoraBTF4" class="seccionadora"></div> 
+        <div id="seccionadoraCTF4" class="seccionadora"></div>
+        <div id="seccionadoraDTF4" class="seccionadora"></div>        
+        <div class="transformadorTF4"></div>
+        <div class="transformador1TF4"></div>
+    </div>   
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        var seccionadoraAAberta = false;
+        var seccionadoraBAberta = false;
+
+        $("#btnSeccionadoraA").click(function () {
+            seccionadoraAAberta = !seccionadoraAAberta;
+            //atualizarDiagramaSeccionadoraAAberta()
+            atualizarDiagrama();
+        });
+
+        $("#btnSeccionadoraB").click(function () {
+            seccionadoraBAberta = !seccionadoraBAberta;
+            //atualizarDiagramaSeccionadoraBAberta()
+            atualizarDiagrama();
+        });
+
+        function atualizarDiagrama() {
+            $("#seccionadoraA").css("height", seccionadoraAAberta ? "96px" : "136px");
+            $("#seccionadoraB").css("height", seccionadoraBAberta ? "32px" : "76px");
+        }
+
+        //function atualizarDiagramaSeccionadoraAAberta() {
+            //$("#seccionadoraA").css("height", seccionadoraAAberta ? "96px" : "136px");
+            //$("#seccionadoraA").css("height", seccionadoraAAberta ? "32px" : "76px");
+        //}
+
+        //function atualizarDiagramaSeccionadoraBAberta() {
+            //$("#seccionadoraB").css("height", seccionadoraBAberta ? "96px" : "136px");
+            //$("#seccionadoraB").css("height", seccionadoraBAberta ? "32px" : "76px");
+        //}
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        var disjuntorAberto = false;
+        var transformadorAberto = false;
+        var transformador1Aberto = false;
+       
+        $("#btnDisjuntor").click(function () {
+            disjuntorAberto = !disjuntorAberto;
+            transformadorAberto = !transformadorAberto;
+            transformador1Aberto = !transformador1Aberto;
+            atualizarDiagrama();
+        });
+
+        function atualizarDiagrama() {
+            $(".disjuntor").css("background-color", disjuntorAberto ? "red" : "green");
+            $(".transformador").css("background-color", transformadorAberto ? "red" : "orange");
+            $(".transformador1").css("background-color", transformador1Aberto ? "red" : "lightblue");                      
+        }
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        var seccionadoraAAbertaTF2 = false;
+        var seccionadoraBAbertaTF2 = false;
+
+        $("#btnSeccionadoraATF2").click(function () {
+            seccionadoraAAbertaTF2 = !seccionadoraAAbertaTF2;
+            atualizarDiagramaTF2();
+        });
+
+        $("#btnSeccionadoraBTF2").click(function () {
+            seccionadoraBAbertaTF2 = !seccionadoraBAbertaTF2;
+            atualizarDiagramaTF2();
+        });
+
+        function atualizarDiagramaTF2() {
+            $("#seccionadoraATF2").css("height", seccionadoraAAbertaTF2 ? "96px" : "136px");
+            $("#seccionadoraBTF2").css("height", seccionadoraBAbertaTF2 ? "32px" : "72px");
+        }
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        var disjuntorAbertoTF2 = false;
+        var transformadorAbertoTF2 = false;
+        var transformador1AbertoTF2 = false;
+       
+        $("#btnDisjuntorTF2").click(function () {
+            disjuntorAbertoTF2 = !disjuntorAbertoTF2;
+            transformadorAbertoTF2 = !transformadorAbertoTF2;
+            transformador1AbertoTF2 = !transformador1AbertoTF2;
+            atualizarDiagramaTF2();
+        });
+
+        function atualizarDiagramaTF2() {
+            $(".disjuntorTF2").css("background-color", disjuntorAbertoTF2 ? "red" : "green");
+            $(".transformadorTF2").css("background-color", transformadorAbertoTF2 ? "red" : "orange");
+            $(".transformador1TF2").css("background-color", transformador1AbertoTF2 ? "red" : "lightblue");                      
+        }
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        var seccionadoraAAbertaTF3 = false;
+        var seccionadoraBAbertaTF3 = false;
+
+        $("#btnSeccionadoraATF3").click(function () {
+            seccionadoraAAbertaTF3 = !seccionadoraAAbertaTF3;
+            atualizarDiagramaTF3();
+        });
+
+        $("#btnSeccionadoraBTF3").click(function () {
+            seccionadoraBAbertaTF3 = !seccionadoraBAbertaTF3;
+            atualizarDiagramaTF3();
+        });
+
+        function atualizarDiagramaTF3() {
+            $("#seccionadoraATF3").css("height", seccionadoraAAbertaTF3 ? "96px" : "136px");
+            $("#seccionadoraBTF3").css("height", seccionadoraBAbertaTF3 ? "32px" : "72px");
+        }
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        var disjuntorAbertoTF3 = false;
+        var transformadorAbertoTF3 = false;
+        var transformador1AbertoTF3 = false;
+       
+        $("#btnDisjuntorTF3").click(function () {
+            disjuntorAbertoTF3 = !disjuntorAbertoTF3;
+            transformadorAbertoTF3 = !transformadorAbertoTF3;
+            transformador1AbertoTF3 = !transformador1AbertoTF3;
+            atualizarDiagramaTF3();
+        });
+
+        function atualizarDiagramaTF3() {
+            $(".disjuntorTF3").css("background-color", disjuntorAbertoTF3 ? "red" : "green");
+            $(".transformadorTF3").css("background-color", transformadorAbertoTF3 ? "red" : "orange");
+            $(".transformador1TF3").css("background-color", transformador1AbertoTF3 ? "red" : "lightblue");                      
+        }
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        var seccionadoraAAbertaTF4 = false;
+        var seccionadoraBAbertaTF4 = false;
+
+        $("#btnSeccionadoraATF4").click(function () {
+            seccionadoraAAbertaTF4 = !seccionadoraAAbertaTF4;
+            atualizarDiagramaTF4();
+        });
+
+        $("#btnSeccionadoraBTF4").click(function () {
+            seccionadoraBAbertaTF4 = !seccionadoraBAbertaTF4;
+            atualizarDiagramaTF4();
+        });
+
+        function atualizarDiagramaTF4() {
+            $("#seccionadoraATF4").css("height", seccionadoraAAbertaTF4 ? "96px" : "136px");
+            $("#seccionadoraBTF4").css("height", seccionadoraBAbertaTF4 ? "32px" : "72px");
+        }
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        var disjuntorAbertoTF4 = false;
+        var transformadorAbertoTF4 = false;
+        var transformador1AbertoTF4 = false;
+       
+        $("#btnDisjuntorTF4").click(function () {
+            disjuntorAbertoTF4 = !disjuntorAbertoTF4;
+            transformadorAbertoTF4 = !transformadorAbertoTF4;
+            transformador1AbertoTF4 = !transformador1AbertoTF4;
+            atualizarDiagramaTF4();
+        });
+
+        function atualizarDiagramaTF4() {
+            $(".disjuntorTF4").css("background-color", disjuntorAbertoTF4 ? "red" : "green");
+            $(".transformadorTF4").css("background-color", transformadorAbertoTF4 ? "red" : "orange");
+            $(".transformador1TF4").css("background-color", transformador1AbertoTF4 ? "red" : "lightblue");                      
+        }
+    });
+</script>
+
+</body>
+</html>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
