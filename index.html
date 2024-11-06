@@ -168,6 +168,39 @@
     <div class="container">
     <section></section>
 
+  <form id="searchForm" onsubmit="search(event)">
+  <input type="text" id="searchQuery" placeholder="Digite sua pesquisa">
+  <button type="submit">
+    <span class="fa fa-search"></span> Buscar
+  </button>
+</form>
+
+<div id="searchResults"></div>
+
+<script>
+  async function search(event) {
+    event.preventDefault(); // Evita o envio padrão do formulário
+
+    const query = document.getElementById('searchQuery').value;
+    
+    if (query.trim() === "") {
+      alert("Digite uma palavra para buscar");
+      return;
+    }
+
+    try {
+      const response = await fetch('index.html?query=' + encodeURIComponent(query));
+      const result = await response.text(); // Pode ser JSON ou HTML, dependendo do back-end
+      
+      // Atualiza o conteúdo com os resultados
+      document.getElementById('searchResults').innerHTML = result;
+    } catch (error) {
+      console.error('Erro ao buscar:', error);
+      document.getElementById('searchResults').innerHTML = "Erro ao realizar a pesquisa.";
+    }
+  }
+</script><br>
+
       <div class="acompanhe">
         <p><strong>Siga as Redes Sociais:</strong></p>
         <a href="https://www.instagram.com/carlosmardoniomartins/" target="_blank"> <img src="instagram4.jpg" class="ico-redesocial"></a>       
