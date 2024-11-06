@@ -47,11 +47,38 @@
             <span>Página Principal</span><br>
         </a>
 
-        <a href="">
-            <span class="fa fa-search"></span>
-            <span>Buscar</span>
-          </a>
+  <form id="searchForm" onsubmit="search(event)">
+  <input type="text" id="searchQuery" placeholder="Digite sua pesquisa">
+  <button type="submit">
+    <span class="fa fa-search"></span> Buscar
+  </button>
+</form>
 
+<div id="searchResults"></div>
+
+<script>
+  async function search(event) {
+    event.preventDefault(); // Evita o envio padrão do formulário
+
+    const query = document.getElementById('searchQuery').value;
+    
+    if (query.trim() === "") {
+      alert("Digite uma palavra para buscar");
+      return;
+    }
+
+    try {
+      const response = await fetch('Painel230.html?query=' + encodeURIComponent(query));
+      const result = await response.text(); // Pode ser JSON ou HTML, dependendo do back-end
+      
+      // Atualiza o conteúdo com os resultados
+      document.getElementById('searchResults').innerHTML = result;
+    } catch (error) {
+      console.error('Erro ao buscar:', error);
+      document.getElementById('searchResults').innerHTML = "Erro ao realizar a pesquisa.";
+    }
+  }
+</script><br>
         <main>
             <h1><strong> Diagrama Unifilar do Sistema Elétrico </strong></h1>
             <h3>Botões de Comandos</h3>
