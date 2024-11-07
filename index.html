@@ -171,7 +171,7 @@
   <form id="searchForm" onsubmit="search(event)">
   <input type="text" id="searchQuery" placeholder="Digite sua pesquisa">
   <button type="submit">
-    <span class="fa fa-search"></span> Buscar
+  <span class="fa fa-search"></span> Buscar
   </button>
 </form>
 
@@ -189,7 +189,7 @@
     }
 
     try {
-      const response = await fetch('index.html?query=' + encodeURIComponent(query));
+      const response = await fetch('apresentaçãoPessoal.html?query=' + encodeURIComponent(query));
       const result = await response.text(); // Pode ser JSON ou HTML, dependendo do back-end
       
       // Atualiza o conteúdo com os resultados
