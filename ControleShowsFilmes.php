@@ -31,10 +31,9 @@
 </head>
 <body>
 
-<style>       
-
+<style>
         body {
-            background-color: #f3f3f3; /* Escolha a cor de fundo */
+            background-color: #f6f6f6; /* Escolha a cor de fundo */
         }
     </style>
 

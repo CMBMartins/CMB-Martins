@@ -30,9 +30,16 @@
     integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous" />
 </head>
 <body>
-<div class="container">		
-			<div class="col">      
-			<img src="Imagens/logo.png" alt="Logo da Minha Empresa" class="img-fluid">
+<div class="container">
+    
+<style>
+        body {
+            background-color: #f6f6f6; /* Escolha a cor de fundo */
+        }
+		</style>
+        
+		<div class="col">      
+		<img src="Imagens/logo.png" alt="Logo da Minha Empresa" class="img-fluid">
         <?php date_default_timezone_set('America/Sao_Paulo'); ?>
         <?php $hoje = date('d/m/Y'); ?>
         <?php $horaHoje = date("H:i:s"); ?>
@@ -87,8 +94,8 @@ if ($result->num_rows > 0) {
 $conn->close();
 ?>
 
-<!--<!DOCTYPE html>
-<body>-->
+<!DOCTYPE html>
+<body>
 <div class="container">
     <h3>Realizar Login</h3>
 
@@ -183,25 +190,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-
-<div class="container">
-    <title>Login de Usuarios</title>
-    <style>
-        /* Estilos para modais (mesmos estilos do exemplo anterior) */
-        .modal {
-            /* ... */
-        }
-
-        .modal-content {
-            /* ... */
-        }
-
-        .close {
-            /* ... */
-        }
-    </style>
-</head>
-<body>
     
     <h3>Lista dos Usuários:</h3><br>
 
