@@ -1,0 +1,437 @@
+
+<?php
+session_start();
+
+// Simulação: Definir uma variável de controle
+$executarScript = true;
+
+$menuShow = isset($_SESSION["logado"]) && $_SESSION["logado"];
+
+$nomeUsuario = isset($_SESSION["username"]) ? $_SESSION["username"] : "DEFAULT";
+?>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css"
+    integrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css"
+    integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous" />
+
+    <title>Simulador para Treinamento de Operadores</title>
+    </head>
+
+    <style>
+        /* O menu começa escondido */
+        .menu {
+            display: <?php echo $showMenu ? "block" : "none"; ?>;
+        }
+    </style>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #c0c0c0;
+            margin: 0;
+            overflow: hidden;
+        }
+        #container {
+            position: relative;
+            width: 1500px;
+            height: 900px;
+            margin: 100px auto;
+            background-color: #c0c0c0;
+            border: 2px solid black;
+        }
+        
+        .button img {
+            width: 100%;
+            height: 100%;
+        }
+        .tooltip {
+            font-size: 12px;
+            color: gray;
+            position: absolute;
+        }
+        #email {
+            position: absolute;
+            top: 920px;
+            left: 1370px;
+            font-style: italic;
+            font-size: 10px;
+            color: gray;
+        }
+        .divider {
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            background-color: blue;
+        }
+        .top-divider {
+            top: 0px;
+        }
+        .bottom-divider {
+            top: 55px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #painel {
+            position: relative;
+            width: 600px;
+            height: 500px;
+            background-color: #ffffff;
+            border: 0px solid #000;
+        }
+        .panel {
+            position: absolute;
+            background-color: red;
+        }
+        .orange {
+            background-color: orange;
+        }
+        
+    </style>
+
+    <div id="container">        
+        <div class="divider top-divider"></div>
+        <div class="divider bottom-divider"></div>        
+
+        <img src="imagensAlbras/Carlos1.PNG" alt="Carlos GIF" style="position: absolute; top: 875px; left: 1400px; width: 70px; height: 70px;">
+        <img src="imagensAlbras/Albras1.JPG" alt="Logo" style="position: absolute; top: 4px; left: 2px; width: 255px; height: 50px;">
+
+    <!-- Cabeçalho-->
+    <div class="header">
+        <div>         
+        <span class="title">...................................................................................SIMULADOR ALBRAS.........................................................................</span>
+        <span class="title"> <? echo $nomeUsuario="username"; ?> DEFAULT </span><br><br>
+        <?$nomeUsuario = isset($_SESSION["usuario"]) ? $_SESSION["usuario"] : "DEFAULT";?>
+               
+            <a href="">        
+            <span class="fa fa-home"></span>            
+            <!--<img src="Imagens/casa.png" alt="icone de configuração">-->
+            <a href="PaginaPessoal.php">
+            <span>Página Principal</span>
+            </a>
+</head>
+
+<div class="col">        
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #F5F5F5;
+            color: #000;
+        }
+        .header {
+            background-color: #DDD;
+            border: 0px solid #CCC;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header img {
+            height: 40px;
+        }
+        .title {
+            font-weight: bold;
+            font-size: 25px;
+            color: blue;
+        }
+        .section {
+            border: 0px solid #CCC;
+            margin: 18px;
+            padding: 1px;
+            background-color: #EAEAEA;
+            border-radius: 0px;
+        }
+        .section-title {
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 0px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 6px;
+            text-align: left;
+        }
+        .highlight {
+            font-weight: bold;
+            color: blue;
+        }
+        .red {
+            color: red;
+        }
+        .green {
+            color: green;
+        }
+        .alarms {
+            color: red;
+            font-weight: bold;
+            margin-top: 0px;
+        }
+    </style>
+</head>
+
+<span>Controle de Usuário:</span>
+            <body>                
+            <form method="POST" action="">                
+            <label>Usuário:</label>
+            <input type="text" name="username" required>
+            
+            <label>Senha:</label>
+            <input type="password" name="password" required>
+            
+            <!--<button type="submit">REALIZAR LOGIN</button>-->
+            <button onclick="realizarLogin()">REALIZAR LOGIN</button>
+            <button onclick="realizarLogout()">REALIZAR LOGOFF</button><br>
+            </form>
+    
+        <div id="menu" class="menu">
+        <button class="button" style="top: 59px; left: 152px;" title="Pressione para fazer Login e liberar a operação dos Equipamentos">
+        <a href="autenticarUsuario.php" target="_blank"> <img src="imagensAlbras/botãoLogin.jpg" alt="Botão Login"></a>            
+        </button>
+        <button class="button" style="top: 59px; left: 202px;" title="Pressione para Consultar os Relatórios">
+            <a href="telaMTS.html" target="_blank"> <img src="imagensAlbras/botãoRelatorio.JPG" alt="Botão Relatório"></a>
+        </button>
+        <button class="button" style="top: 59px; left: 52px;" title="Pressione para fazer Logoff e bloquear as operações">
+            <a href="autenticarUsuario.php" target="_blank"> <img src="imagensAlbras/botaoHistoricos.jpg" alt="Botão Logoff"></a>
+        </button>
+        <button class="button" style="top: 59px; left: 52px;" title="Pressione para Inserir e Editar os Usuários do Sistema">
+            <a href="controleUsuarios.php" target="_blank"> <img src="imagensAlbras/botãoAlarme.jpg" alt="Botão Usuários"></a>
+        </button>
+        <button class="button" style="top: 59px; left: 302px;" title="Pressione para acessar a Tela dos Barramentos de 34,5 kV">
+            <a href="telaMTS.html" target="_blank"> <img src="imagensAlbras/botãoTelecomando.jpg" alt="Botão Tela dos Barramentos"></a>
+        </button>
+        <button class="button" style="top: 59px; left: 252px;" title="Modifica Valores">
+            <a href="telaMTS.html" target="_blank"> <img src="imagensAlbras/telecomando.jpg" alt="Botão Modifica Valores"></a>
+        </button>
+        <button class="button" style="top: 59px; left: 102px;" title="Pressione para Visualizar Imagens dos Equipamentos">
+            <a href="AlbumPessoal.php" target="_blank"> <img src="imagensAlbras/botãoMT.jpg" alt="Botão Equipamentos"></a>
+        </button>
+        <button class="button" style="top: 59px; left: 252px;" title="Pressione para Selecionar uma das Classes de Manobra a ser Simulada">
+            <a href="telaMTS.html" target="_blank"> <img src="imagensAlbras/Simulador.jpg" alt="Botão Simulador"></a>
+        </button>
+        <button class="button" style="top: 59px; left: 352px;" title="Pressione para chamar a tela das SE's Locais">
+            <a href="telaMTS.html" target="_blank"> <img src="imagensAlbras/botaoseslocais.jpg" alt="Botão SE's Locais"></a>            
+        </button>
+        <button class="button" style="top: 59px; left: 302px;" title="Pressione para chamar a tela da Página Principal">
+            <a href="PaginaPessoal.php" target="_blank"> <img src="imagensAlbras/PaginaPrincipal.png" alt="Botão Página Principal"></a>            
+        </button>        
+        <!-- Adicione os outros botões aqui -->
+
+    </div>
+
+    <div id="email">cmardonio@yahoo.com.br</div>
+    </div>
+
+    <script>        
+        function showMenu() {
+            if (localStorage.getItem("loggedIn") === "true") {
+                document.getElementById("menu").style.display = "block";
+            }
+        }
+            //alert("A função foi executada automaticamente!");
+            //console.log("A função foi chamada pelo PHP.");
+
+        // PHP insere a chamada da função caso a condição seja verdadeira
+        //<?php if ($executarScript) { ?>
+            window.onload = realizarLogout;
+        //<?php } ?>
+    </script>
+
+    <script>
+        // Se a sessão estiver ativa, mostra o menu
+        <?php if (isset($_SESSION["logado"]) && $_SESSION["logado"]) { ?>
+            document.getElementById("menu").style.display = "block";
+        <?php } ?>
+    </script>
+
+    <script>
+        function realizarLogin() {
+            
+            let user = document.getElementById("username").value;
+            let pass = document.getElementById("password").value;
+            
+            // Simulação de autenticação (substitua com validação no backend)
+            if (user === "Mardonio" && pass === "Bacharel") {
+                localStorage.setItem("loggedIn", "true");
+                showMenu();                
+
+                 // Limpa os campos após o login
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+            
+            } else {
+                alert("Usuário ou senha incorretos!");
+            }
+        }
+
+        function realizarLogout() {
+            localStorage.removeItem("loggedIn");
+            document.getElementById("menu").style.display = "none";
+        }
+
+        function showMenu() {
+            if (localStorage.getItem("loggedIn") === "true") {
+                document.getElementById("menu").style.display = "block";
+            }
+        }
+
+        // Verifica se já está logado ao carregar a página
+        window.onload = showMenu;
+
+    </script>
+
+    <!-- Controle de Demanda -->
+    <div class="section">
+        <div class="section-title">Controle de Demanda</div>
+        <table>
+            <tr>
+                <td>Demanda Controlada (MW)</td>
+                <td class="highlight">812.0</td>
+            </tr>
+            <tr>
+                <td>Eletronorte </td>
+                <td class="highlight">237.7 (kV)</td>
+                <td class="highlight">ALBRAS/ALUNORTE: 855.2 (MW)</td>
+            </tr>
+            <tr>
+                <td>Alunorte</td>
+                <td class="highlight">76.1 (MW)</td>
+            </tr>
+            <tr>
+                <td>Albras</td>
+                <td class="highlight">792.2 (MW)</td>
+            </tr>
+            <tr>
+                <td>MT's</td>
+                <td class="highlight">716.1 (MW)</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Medição de Energia -->
+    <div class="section">
+        <div class="section-title">Medição de Energia</div>
+        <table>
+            <tr>
+                <td>Fator de Potência (%)</td>
+                <td class="highlight">98.3</td>
+            </tr>
+            <tr>
+                <td>Demanda Anterior (MW)</td>
+                <td class="highlight">805.2</td>
+            </tr>
+            <tr>
+                <td>Demanda Atual (MW)</td>
+                <td class="highlight">805.8</td>
+            </tr>
+            <tr>
+                <td>Demanda Medidor Total Albras (MW)</td>
+                <td class="highlight">806.4</td>
+            </tr>
+            <table>
+            
+                <td>Hora de Referência</td>
+                <td style="color: red;"
+                td> Fora de Ponta:           
+            <?php date_default_timezone_set('America/Sao_Paulo'); ?>
+            <?php $hoje = date('d/m/Y'); ?>
+            <?php $horaHoje = date("H:i:s"); ?>
+            <?php echo $hoje; ?>
+            <?php echo $horaHoje; ?></td>
+    </tr>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Seções REDUÇÃO -->
+    <div class="section">
+        <div class="section-title">Redução</div>
+        <table>
+            <tr>
+                <td><b>Redução I</b></td>
+                <td>Dem: <span class="highlight">182.1</span></td>
+                <td>Iset: <span class="highlight">172.0</span></td>
+                <td>IDC: <span class="highlight">172.2</span></td>
+                <td>VDC: <span class="highlight">1028.5</span></td>
+                <td>DV: <span class="highlight">1.35</span></td>
+            </tr>
+            <tr>
+                <td><b>Redução II</b></td>
+                <td>Dem: <span class="highlight">194.1</span></td>
+                <td>Iset: <span class="highlight">181.0</span></td>
+                <td>IDC: <span class="highlight">181.1</span></td>
+                <td>VDC: <span class="highlight">1044.2</span></td>
+                <td>DV: <span class="highlight">-7.22</span></td>
+            </tr>
+            <tr>
+                <td><b>Redução III</b></td>
+                <td>Dem: <span class="highlight">196.7</span></td>
+                <td>Iset: <span class="highlight">180.0</span></td>
+                <td>IDC: <span class="highlight">181.1</span></td>
+                <td>VDC: <span class="highlight">1044.2</span></td>
+                <td>DV: <span class="highlight">0.22</span></td>
+            </tr>
+            <tr>
+                <td><b>Redução IV</b></td>
+                <td>Dem: <span class="highlight">195.8</span></td>
+                <td>Iset: <span class="highlight">181.0</span></td>
+                <td>IDC: <span class="highlight">181.1</span></td>
+                <td>VDC: <span class="highlight">1056.1</span></td>
+                <td>DV: <span class="highlight">0.40</span></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Alimentadores de Processo -->
+    <div class="section">
+        <div class="section-title">Alimentadores de Processo</div>
+        <table>
+            <tr>
+                <td>P1</td>
+                <td class="highlight">8.2</td>
+                <td>P2</td>
+                <td class="highlight">6.0</td>
+                <td>P3</td>
+                <td class="highlight">7.1</td>
+                <td>P4</td>
+                <td class="highlight">4.4</td>
+                <td>P5</td>
+                <td class="highlight">4.4</td>
+                <td>P6</td>
+                <td class="highlight">4.4</td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td class="highlight">36.4</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Alarme -->
+    <div class="section alarms">
+        <p>Alarmes:</p>
+        <p>MANOBRA HABILITADA PARA SIMULAÇÃO: 'NENHUMA'</p>
+        <p class="green">EQUIPAMENTO QUE FOI OPERADO: 'NENHUM'</p>
+    </div>
+</body>
+</html>
+
