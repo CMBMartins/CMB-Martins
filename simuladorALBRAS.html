@@ -271,8 +271,9 @@ $nomeUsuario = isset($_SESSION["username"]) ? $_SESSION["username"] : "DEFAULT";
             
             // Simulação de autenticação (substitua com validação no backend)
             if (user === "Mardonio" && pass === "Bacharel") {
-                //localStorage.setItem("loggedIn", "true");
-                //showMenu();                
+                localStorage.setItem("loggedIn", "true");
+                document.getElementById("menu").style.display = "true";
+                showMenu();                
 
                  // Limpa os campos após o login
             document.getElementById("username").value = "";
