@@ -270,7 +270,7 @@ $nomeUsuario = isset($_SESSION["username"]) ? $_SESSION["username"] : "DEFAULT";
             let pass = document.getElementById("password").value;
             
             // Simulação de autenticação (substitua com validação no backend)
-            if (user === "Mardonio" && pass === "Bacharel") {
+            //if (user === "Mardonio" && pass === "Bacharel") {
                 localStorage.setItem("loggedIn", "true");
                 document.getElementById("menu").style.display = "true";
                 showMenu();                
@@ -282,7 +282,7 @@ $nomeUsuario = isset($_SESSION["username"]) ? $_SESSION["username"] : "DEFAULT";
             } else {
                 alert("Usuário ou senha incorretos!");
             }
-        }
+        //}
 
         function realizarLogout() {
             localStorage.removeItem("loggedIn");
