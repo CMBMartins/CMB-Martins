@@ -48,7 +48,7 @@
         }     
     
         header {
-            background-color: #666;
+            background-color: #444;
             color: #fff;
             padding: 10px;
             text-align: center;
@@ -81,7 +81,7 @@
             height: auto;
         }
 
-	    #banner {
+        #banner {
     width: 100%;
     transition: opacity 1s;
     opacity: 0;
@@ -95,17 +95,15 @@
     </head>
     
 <body>
-
- <header>
-	 <h5><a href="PaginaPessoal.html">PÁGINA PESSOAL</a></h5>
+    <header>
+        <h5>PÁGINA PESSOAL</h5>   
         <?php date_default_timezone_set('America/Sao_Paulo'); ?>
         <?php $hoje = date('d/m/Y'); ?>
         <?php $horaHoje = date("H:i:s"); ?>
         <?php echo $hoje; ?>
         <?php echo $horaHoje; ?>            	
 
-    </header>
-	
+    </header>    
     <nav>
 
     <img src="carlos1.png" alt="Logo da Minha Empresa" class="img-fluid">
@@ -126,7 +124,8 @@
         <div class="dropdown-content">
         <a href="CalculosdeProjetoEletrico.html">CÁLCULOS DE PROJETOS ELÉTRICOS</a><br>
         <a href="CalculosEletricos.html">CÁLCULOS ELETRICOS</a><br>
-        <a href="Painel230.html">DIAGRAMA UNIFILAR DO SISTEMA ELÉTRICO</a>           
+        <a href="Painel2302.html">DIAGRAMA UNIFILAR DO SISTEMA ELÉTRICO</a><br>
+        <a href="simuladorALBRAS.html">SIMULADOR DO SISTEMA ELÉTRICO DA ALBRAS</a><br>         
         </div>
         </div>
     
@@ -148,30 +147,66 @@
         </div>
     
     <div class="dropdown">
-        <h4><a href="apresentaçãoPessoal.html">SOBRE MIM</a>
-        <a href="AlbumPessoal.html">GALERIA</a>
-        <a href="Contato.html">CONTATO</a>
+        <h4><a href="apresentaçãoPessoal">SOBRE MIM</a>
+        <a href="AlbumPessoal">GALERIA</a>
+        <a href="Contato">CONTATO</a>
         </div>
         </div>
-    </nav><br><br><br>
+    </nav><br><br>
 
-    <!--banner-->  
-    <section>
-	 <div class="container">       
-	<h2>Carlos Mardônio Bezerra Martins</h2>	
+    <!--banner-->
+    <div class="container">
+        <h2>Carlos Mardônio Bezerra Martins</h2> 
     <img src="Carlos.png" alt="Logo da Minha Empresa" class="img-fluid">
-	</div>
-    </section>
+    </div> 
+    <?php
+    $banners = [
+    "imagens/Carlos.png",
+    "imagens/Carlos.png",
+    "imagens/Carlos.png",
+    "imagens/Carlos.png",
+    "imagens/Carlos.png"
+];
+?>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .banner-container {
+        position: relative;
+        width: 100%;
+        max-width: 800px; /* Ajuste conforme necessário */
+        margin: auto;
+        overflow: hidden;
+    }
+    
+    .banner-wrapper {
+        display: flex;
+        transition: transform 3s ease-in-out;
+        width: calc(100% * <?php echo count($banners); ?>); /* Largura total, considerando todos os banners */
+    }
+
+    .banner {
+        width: calc(100% / <?php echo count($banners); ?>); /* Cada banner ocupa a largura total do container */
+        flex-shrink: 0;
+    }
+</style>
+
+    <!--end banner-->
 
     <!--acompanhe-->
   <section class="box-acompanhe"></section>
     <div class="container">
     <section></section>
 
-  <form id="searchForm" onsubmit="search(event)">
+    <form id="searchForm" onsubmit="search(event)">
   <input type="text" id="searchQuery" placeholder="Digite sua pesquisa">
   <button type="submit">
-  <span class="fa fa-search"></span> Buscar
+    <span class="fa fa-search"></span> Buscar
   </button>
 </form>
 
@@ -189,7 +224,7 @@
     }
 
     try {
-      const response = await fetch('apresentaçãoPessoal.html?query=' + encodeURIComponent(query));
+      const response = await fetch('ApresentaçãoPessoal.php?query=' + encodeURIComponent(query));
       const result = await response.text(); // Pode ser JSON ou HTML, dependendo do back-end
       
       // Atualiza o conteúdo com os resultados
@@ -207,7 +242,7 @@
         <a href="http://www.youtube.com" target="_blank"> <img src="youtube.png" class="tv-ico"></a>
         <a href="http://www.youtube.com/feed/playlists" target="_blank"> <img src="youtube1.png" class="tv-ico"> </a>
         <a href="https://www.flickr.com" target="_blank"> <img src="flickr-ico.png" class="ico-redesocial"></a>
-        <a href="Contato.html" target="_blank"> <img src="carlos2.png" class="ico-redesocial"></a>
+        <a href="Contato.php" target="_blank"> <img src="carlos2.png" class="ico-redesocial"></a>
       </div>
 
     </div>
@@ -222,7 +257,7 @@
    <!--<div class="container radio">-->
        <div class="play-radio">
             <button id="playButton">
-                <a href="https://www.radios.com.br/aovivo/radio-cbn-macapa-933-fm/33054" target="_blank"> <img src="cbn.png"class="icon"></a>
+                <a href="https://www.radios.com.br/aovivo/radio-cbn-macapa-933-fm/33054" target="_blank"> <img src="Imagens/cbn.png"class="icon"></a>
                 
                   <!--<path d="youtube.png"></path>--> <!-- Ícone de play -->
                 </svg>
@@ -280,11 +315,18 @@
             <h4><span class="fa fa-star"></span>            
             <a href="CalculosdeProjetoEletrico.html">Calculos de Projetos Elétricos</a><br>
             <a href="">
+
             <span class="fa fa-star"></span>
             <a href="CalculosEletricos.html">Calculos Elétricos</a><br>
             <a href="">
+
             <span class="fa fa-star"></span>
-            <a href="Painel230.html">Diagrama Unifilar de Sistema Elétrico</a><br> 
+            <a href="Painel230.html">Diagrama Unifilar de Sistema Elétrico</a><br>
+            <a href="">
+                
+            <span class="fa fa-star"></span>
+            <a href="simuladorALBRAS.html">Simulador do Sistema Elétrico da ALBRAS</a><br>
+            <a href="">
         </a>
 
         <h2>Galeria de Imagens Pessoais:</h2>
@@ -321,7 +363,7 @@
         <!--<button>Selecione uma Aplicação</button>-->
         <button type="submit" class="btn "><strong>Pátio da Subestação de 230 KV</strong></button>
         <div class="dropdown-content">          
-            <img src="patio.jpg" alt="Logo da Minha Empresa" class="img-fluid">
+            <img src="patio.png" alt="Logo da Minha Empresa" class="img-fluid">
         </div>
         </div>
    
@@ -345,7 +387,7 @@
         <!--<button>Selecione uma Aplicação</button>-->
         <button type="submit" class="btn "><strong>Plano ALAP Digital</strong></button>
         <div class="dropdown-content">            
-            <img src="ALAPDIGITAL.jpg" alt="Logo da Minha Empresa" class="img-fluid">
+            <img src="ALAPDIGITAL.JPG" alt="Logo da Minha Empresa" class="img-fluid">
         </div>
         </div>
     </div>
@@ -378,7 +420,3 @@
     <footer>
     <p><h5><img src="carlos2.png" alt="Logo da Minha Empresa" class="img-fluid">Desenvolvido por [Carlos Martins]</h5></p>
     </footer>
-    
-</head>
-</body>   
-</html>
