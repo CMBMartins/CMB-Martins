@@ -1,30 +1,35 @@
 
-<?php
-session_start();
-
-// Simulação: Definir uma variável de controle
-$executarScript = true;
-
-$menuShow = isset($_SESSION["logado"]) && $_SESSION["logado"];
-
-$nomeUsuario = isset($_SESSION["username"]) ? $_SESSION["username"] : "DEFAULT";
-?>
-
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
+    
+<meta charset="UTF-8">
+    <title>Simulador ALBRAS </title>
+    <!-- Adiciona o Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Adiciona o jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Adiciona o JavaScript do Bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/vars.css" />
+    <link rel="stylesheet" href="styles/main-content.css" />
+    <link rel="stylesheet" href="styles/sidebar-footer.css" />
+    <link rel="stylesheet" href="styles/media-query.css" /> <!--Media queries devem ser chamados depois do CSS principal -->
+
+
+  <link rel="stylesheet" href="styles/reset.css" />
+  <link rel="stylesheet" href="styles/vars.css" />
+  <link rel="stylesheet" href="styles/media-query.css" />
+  <link rel="stylesheet" href="styles/main-content.css" />
+  <link rel="stylesheet" href="styles/sidebar-footer.css" />
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css"
     integrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css"
     integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous" />
-
-    <title>Simulador para Treinamento de Operadores</title>
     </head>
 
     <style>
@@ -35,21 +40,38 @@ $nomeUsuario = isset($_SESSION["username"]) ? $_SESSION["username"] : "DEFAULT";
     </style>
 
     <style>
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;  /* Centraliza verticalmente */
+    justify-content: center;  /* Centraliza horizontalmente */
+    background-color: #f0f0f0; /* Cor de fundo opcional */
+}
+
+
         body {
             font-family: Arial, sans-serif;
             background-color: #c0c0c0;
             margin: 0;
             overflow: hidden;
         }
-        #container {
-            position: relative;
-            width: 1500px;
-            height: 900px;
-            margin: 100px auto;
-            background-color: #c0c0c0;
-            border: 2px solid black;
-        }
+
+    #container {
+        position: absolute;
+        top: 0px;
+        width: 1500px;
+        height: 850px;
+        background-color: #c0c0c0;
+        border: 2px solid black;
         
+        /* Centraliza horizontal e verticalmente */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
         .button img {
             width: 100%;
             height: 100%;
@@ -61,7 +83,7 @@ $nomeUsuario = isset($_SESSION["username"]) ? $_SESSION["username"] : "DEFAULT";
         }
         #email {
             position: absolute;
-            top: 920px;
+            top: 830px;
             left: 1370px;
             font-style: italic;
             font-size: 10px;
@@ -110,22 +132,15 @@ $nomeUsuario = isset($_SESSION["username"]) ? $_SESSION["username"] : "DEFAULT";
         <div class="divider top-divider"></div>
         <div class="divider bottom-divider"></div>        
 
-        <img src="carlos1.png" alt="Carlos GIF" style="position: absolute; top: 875px; left: 1400px; width: 70px; height: 70px;">
-        <img src="ALBRAS1.JPG" alt="Logo" style="position: absolute; top: 4px; left: 2px; width: 255px; height: 50px;">
+        <img src="imagensAlbras/Carlos1.PNG" alt="Carlos GIF" style="position: absolute; top: 760px; left: 1400px; width: 70px; height: 70px;">
+        <img src="imagensAlbras/Albras1.JPG" alt="Logo" style="position: absolute; top: 4px; left: 2px; width: 255px; height: 50px;">
 
     <!-- Cabeçalho-->
     <div class="header">
         <div>         
         <span class="title">...................................................................................SIMULADOR ALBRAS.........................................................................</span>
         <span class="title"> <? echo $nomeUsuario="username"; ?> DEFAULT </span><br><br>
-        <?$nomeUsuario = isset($_SESSION["usuario"]) ? $_SESSION["usuario"] : "DEFAULT";?>
-               
-            <a href="">        
-            <span class="fa fa-home"></span>            
-            <!--<img src="casa.png" alt="icone de configuração">-->
-            <a href="PaginaPessoal.html">
-            <span>Página Principal</span>
-            </a>
+        <!--<?$nomeUsuario = isset($_SESSION["usuario"]) ? $_SESSION["usuario"] : "DEFAULT";?>-->           
 </head>
 
 <div class="col">        
@@ -153,7 +168,7 @@ $nomeUsuario = isset($_SESSION["username"]) ? $_SESSION["username"] : "DEFAULT";
         }
         .section {
             border: 0px solid #CCC;
-            margin: 18px;
+            margin: 3px;
             padding: 1px;
             background-color: #EAEAEA;
             border-radius: 0px;
@@ -189,7 +204,7 @@ $nomeUsuario = isset($_SESSION["username"]) ? $_SESSION["username"] : "DEFAULT";
     </style>
 </head>
 
-<span>Controle de Usuário:</span>
+<!--<span>Controle de Usuário:</span>-->
             <body>                
             <form method="POST" action="">                
             <label>Usuário:</label>
@@ -205,34 +220,34 @@ $nomeUsuario = isset($_SESSION["username"]) ? $_SESSION["username"] : "DEFAULT";
     
         <div id="menu" class="menu">
         <button class="button" style="top: 59px; left: 152px;" title="Pressione para fazer Login e liberar a operação dos Equipamentos">
-        <a href="autenticarUsuario.html" target="_blank"> <img src="botãoLogin.JPG" alt="Botão Login"></a>            
+        <a href="autenticarUsuario.php" target="_blank"> <img src="imagensAlbras/botãoLogin.jpg" alt="Botão Login"></a>            
         </button>
         <button class="button" style="top: 59px; left: 202px;" title="Pressione para Consultar os Relatórios">
-            <a href="telaMTS.html" target="_blank"> <img src="botãoRelatorio.JPG" alt="Botão Relatório"></a>
+            <a href="telaMTS.html" target="_blank"> <img src="imagensAlbras/botãoRelatorio.JPG" alt="Botão Relatório"></a>
         </button>
         <button class="button" style="top: 59px; left: 52px;" title="Pressione para fazer Logoff e bloquear as operações">
-            <a href="autenticarUsuario.html" target="_blank"> <img src="botaoHistoricos.JPG" alt="Botão Logoff"></a>
+            <a href="autenticarUsuario.php" target="_blank"> <img src="imagensAlbras/botaoHistoricos.jpg" alt="Botão Logoff"></a>
         </button>
         <button class="button" style="top: 59px; left: 52px;" title="Pressione para Inserir e Editar os Usuários do Sistema">
-            <a href="ControleUsuarios.html" target="_blank"> <img src="botãoAlarme.JPG" alt="Botão Usuários"></a>
+            <a href="controleUsuarios.php" target="_blank"> <img src="imagensAlbras/botãoAlarme.jpg" alt="Botão Usuários"></a>
         </button>
         <button class="button" style="top: 59px; left: 302px;" title="Pressione para acessar a Tela dos Barramentos de 34,5 kV">
-            <a href="telaMTS.html" target="_blank"> <img src="botãoTelecomando.JPG" alt="Botão Tela dos Barramentos"></a>
+            <a href="telaMTS.html" target="_blank"> <img src="imagensAlbras/botãoTelecomando.jpg" alt="Botão Tela dos Barramentos"></a>
         </button>
         <button class="button" style="top: 59px; left: 252px;" title="Modifica Valores">
-            <a href="telaMTS.html" target="_blank"> <img src="telecomando.JPG" alt="Botão Modifica Valores"></a>
+            <a href="telaMTS.html" target="_blank"> <img src="imagensAlbras/telecomando.jpg" alt="Botão Modifica Valores"></a>
         </button>
         <button class="button" style="top: 59px; left: 102px;" title="Pressione para Visualizar Imagens dos Equipamentos">
-            <a href="AlbumPessoal.html" target="_blank"> <img src="botãoMT.JPG" alt="Botão Equipamentos"></a>
+            <a href="AlbumPessoal.php" target="_blank"> <img src="imagensAlbras/botãoMT.jpg" alt="Botão Equipamentos"></a>
         </button>
         <button class="button" style="top: 59px; left: 252px;" title="Pressione para Selecionar uma das Classes de Manobra a ser Simulada">
-            <a href="telaMTS.html" target="_blank"> <img src="Simulador.JPG" alt="Botão Simulador"></a>
+            <a href="telaMTS.html" target="_blank"> <img src="imagensAlbras/Simulador.jpg" alt="Botão Simulador"></a>
         </button>
         <button class="button" style="top: 59px; left: 352px;" title="Pressione para chamar a tela das SE's Locais">
-            <a href="telaMTS.html" target="_blank"> <img src="botaoSesLocais.JPG" alt="Botão SE's Locais"></a>            
+            <a href="telaMTS.html" target="_blank"> <img src="imagensAlbras/botaoseslocais.jpg" alt="Botão SE's Locais"></a>            
         </button>
         <button class="button" style="top: 59px; left: 302px;" title="Pressione para chamar a tela da Página Principal">
-            <a href="PaginaPessoal.html" target="_blank"> <img src="PaginaPrincipal.jpg" alt="Botão Página Principal"></a>            
+            <a href="PaginaPessoal.php" target="_blank"> <img src="imagensAlbras/PaginaPrincipal.png" alt="Botão Página Principal"></a>            
         </button>        
         <!-- Adicione os outros botões aqui -->
 
@@ -271,7 +286,7 @@ $nomeUsuario = isset($_SESSION["username"]) ? $_SESSION["username"] : "DEFAULT";
             
             // Simulação de autenticação (substitua com validação no backend)
             if (user === "Mardonio" && pass === "Bacharel") {
-                localStorage.setItem("loggedIn", "true");                
+                localStorage.setItem("loggedIn", "true");
                 showMenu();                
 
                  // Limpa os campos após o login
@@ -434,4 +449,3 @@ $nomeUsuario = isset($_SESSION["username"]) ? $_SESSION["username"] : "DEFAULT";
     </div>
 </body>
 </html>
-

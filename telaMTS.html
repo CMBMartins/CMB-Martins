@@ -1,12 +1,36 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
+    
+<meta charset="UTF-8">
+    <title>Tela dos MTS </title>
+    <!-- Adiciona o Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Adiciona o jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Adiciona o JavaScript do Bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela Trafos de 230 KV</title>
+    <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/vars.css" />
+    <link rel="stylesheet" href="styles/main-content.css" />
+    <link rel="stylesheet" href="styles/sidebar-footer.css" />
+    <link rel="stylesheet" href="styles/media-query.css" /> <!--Media queries devem ser chamados depois do CSS principal -->
+
+
+  <link rel="stylesheet" href="styles/reset.css" />
+  <link rel="stylesheet" href="styles/vars.css" />
+  <link rel="stylesheet" href="styles/media-query.css" />
+  <link rel="stylesheet" href="styles/main-content.css" />
+  <link rel="stylesheet" href="styles/sidebar-footer.css" />
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css"
+    integrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css"
+    integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous" />
+
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,14 +38,21 @@
             margin: 0;
             overflow: hidden;
         }
-        #container {
-            position: relative;
-            width: 1500px;
-            height: 740px;
-            margin: 100px auto;
-            background-color: #c0c0c0;
-            border: 2px solid black;
-        }
+
+    #container {
+    position: relative;
+    width: 1450px;
+    height: 850px;
+    margin: 100px auto;
+    background-color: #c0c0c0;
+    border: 2px solid black;
+
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: flex-start; /* Alinha os itens à esquerda */
+    padding-left: 20px; /* Ajusta a distância da borda esquerda */
+}
+
         .button {
             position: absolute;
             width: 50px;
@@ -41,7 +72,7 @@
         }
         #email {
             position: absolute;
-            top: 730px;
+            top: 710px;
             left: 1370px;
             font-style: italic;
             font-size: 10px;
@@ -94,12 +125,12 @@
             background-color: blue;
         }
         .barraA {
-            top: 6px;
+            top: 56px;
             left: 0px;
             width: 800px;
         }
         .barraB {
-            top: 30px;
+            top: 80px;
             left: 0px;
             width: 800px;
         }
@@ -116,61 +147,81 @@
             color: white;
             position: absolute;
             top: 5px;
-            left: 430px;
+            left: 530px;
+        }
+
+        .telaPrincipal {
+            font-size: 40px;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            top: 55px;
+            left: 320px;
         }
         
     </style>
-</head>
 
-<div id="container">
+    <!-- Cabeçalho-->
+    <div id="container">
+
     <div class="divider top-divider"></div>
     <div class="divider bottom-divider"></div>
-    <img src="Carlos1.GIF" alt="Carlos GIF" style="position: absolute; top: 660px; left: 1400px; width: 70px; height: 70px;">
+    <img src="imagensALBRAS/Carlos1.GIF" alt="Carlos GIF" style="position: absolute; top: 640px; left: 1400px; width: 70px; height: 70px;">
     <img src="imagensAlbras/Albras1.JPG" alt="Logo" style="position: absolute; top: 4px; left: 2px; width: 255px; height: 50px;">
     
-    <div class="simulador">Tela dos Trafos de 230 Kv</div>
+    <div class="simulador">SIMULADOR ALBRAS</div>
+    <div class="telaPrincipal">Tela dos Trafos de 230 Kv</div>
     <div id="email">cmardonio@yahoo.com.br</div>
     <button class="button" style="top: 59px; left: 152px;" title="Pressione para fazer Login e liberar a operação dos Equipamentos">
 
+        <div>
+            <a href="">        
+            <span class="fa fa-home"></span>           
+            <a href="simuladorALBRAS.php">
+            <span>Tela Principal</span>
+            </a>
+        </div>
+    </head>
+
     <!-- SECCIONADORA 89 MT-1A -->
-        <div class="panel" style="left: 145px; top: 8px; width: 3px; height: 55px;"></div>        
+        <div class="panel" style="left: 145px; top: 58px; width: 3px; height: 55px;"></div>        
         <!-- SECCIONADORA 89 MT-1A / DISJUNTOR 52 MT-R -->
-        <div class="panel" style="left: 145px; top: 103px; width: 3px; height: 23px;"></div>
+        <div class="panel" style="left: 145px; top: 153px; width: 3px; height: 23px;"></div>
         <!-- BAY MT-1 -->
         <!-- Seccionadora 89 MT-1A -->
-        <div class="panel" style="left: -5px; top: 8px; width: 3px; height: 55px;"></div>
+        <div class="panel" style="left: -5px; top: 58px; width: 3px; height: 55px;"></div>
         <!-- Seccionadora 89 MT-1A / Disjuntor -->
-        <div class="panel" style="left: -5px; top: 103px; width: 3px; height: 23px;"></div>
+        <div class="panel" style="left: -5px; top: 153px; width: 3px; height: 23px;"></div>
         <!-- Seccionadora 89 MT-1B -->
-        <div class="panel" style="left: 80px; top: 30px; width: 3px; height: 33px;"></div>
+        <div class="panel" style="left: 80px; top: 80px; width: 3px; height: 33px;"></div>
         <!-- SECCIONADORA 89 MT-1B / DISJUNTOR MT- -->
-        <div class="panel" style="left: 79px; top: 103px; width: 3px; height: 23px;"></div>
+        <div class="panel" style="left: 79px; top: 163px; width: 3px; height: 23px;"></div>
         <!-- DISJUNTOR / TRANSFORMADOR MT1-->
-        <div class="panel" style="left: 40px; top: 185px; width: 3px; height: 43px;"></div>
+        <div class="panel" style="left: 40px; top: 235px; width: 3px; height: 43px;"></div>
         <!-- SECCIONADORA MT-1A / SECCIONADORA MT-1B -->
-        <div class="panel" style="left: -5px; top: 125px; width: 87px; height: 3px;"></div>
+        <div class="panel" style="left: -5px; top: 175px; width: 87px; height: 3px;"></div>
         <!-- SECCIONADORA / DISJUNTOR MT-1 -->
-        <div class="panel" style="left: 40px; top: 126px; width: 3px; height: 20px;"></div>
+        <div class="panel" style="left: 40px; top: 176px; width: 3px; height: 20px;"></div>
         <!-- TRANSFORMADOR / BARRA T1 -->
-        <div class="panel orange" style="left: 40px; top: 272px; width: 3px; height: 114px;"></div>
+        <div class="panel orange" style="left: 40px; top: 322px; width: 3px; height: 114px;"></div>
         <!-- BARRA T1 -->
-        <div class="panel orange" style="left: -25px; top: 385px; width: 130px; height: 3px;"></div>
+        <div class="panel orange" style="left: -25px; top: 435px; width: 130px; height: 3px;"></div>
 
 
         <!-- SECCIONADORA 89 MT-RB -->
-        <div class="panel" style="left: 230px; top: 30px; width: 3px; height: 33px;"></div>
+        <div class="panel" style="left: 230px; top: 80px; width: 3px; height: 33px;"></div>
         <!-- SECCIONADORA 89 MT-RB / DISJUNTOR -->
-        <div class="panel" style="left: 230px; top: 103px; width: 3px; height: 23px;"></div>
+        <div class="panel" style="left: 230px; top: 153px; width: 3px; height: 23px;"></div>
         <!-- DISJUNTOR / TRANSFORMADOR MTR-->
-        <div class="panel" style="left: 190px; top: 185px; width: 3px; height: 43px;"></div>
+        <div class="panel" style="left: 190px; top: 235px; width: 3px; height: 43px;"></div>
         <!-- SECCIONADORA 89 MT-RA / SECCIONADORA 89 MT-RB -->
-        <div class="panel" style="left: 145px; top: 125px; width: 88px; height: 3px;"></div>
+        <div class="panel" style="left: 145px; top: 175px; width: 88px; height: 3px;"></div>
         <!-- SECCIONADORA / DISJUNTOR MTR-->
-        <div class="panel" style="left: 190px; top: 126px; width: 3px; height: 20px;"></div>
+        <div class="panel" style="left: 190px; top: 176px; width: 3px; height: 20px;"></div>
         <!-- TRANSFORMADOR / BARRA TR -->
-        <div class="panel orange" style="left: 190px; top: 272px; width: 3px; height: 114px;"></div>
+        <div class="panel orange" style="left: 190px; top: 322px; width: 3px; height: 114px;"></div>
         <!-- BARRA TR -->
-        <div class="panel orange" style="left: 125px; top: 385px; width: 130px; height: 3px;"></div>
+        <div class="panel orange" style="left: 125px; top: 435px; width: 130px; height: 3px;"></div>
         
        
                 <!-- Barras superiores -->
@@ -179,54 +230,54 @@
         
                 <!-- Conexões das barras com os transformadores -->
                 <!-- Barra A para T2 -->
-                <div class="panel" style="left: 295px; top: 10px; width: 3px; height: 70px;"></div>
+                <div class="panel" style="left: 295px; top: 60px; width: 3px; height: 70px;"></div>
                 <!-- SECCIONADORAS DO TRANSFORMADOR T2 -->
-                <div class="panel" style="left: 385px; top: 30px; width: 3px; height: 35px;"></div> <!-- SECCIONADORA SUPERIOR -->
-                <div class="panel" style="left: 340px; top: 125px; width: 3px; height: 20px;"></div> <!-- SECCIONADORA INFERIOR -->
+                <div class="panel" style="left: 385px; top: 80px; width: 3px; height: 35px;"></div> <!-- SECCIONADORA SUPERIOR -->
+                <div class="panel" style="left: 340px; top: 175px; width: 3px; height: 20px;"></div> <!-- SECCIONADORA INFERIOR -->
                 <!-- SECCIONADORA 89 MT-2A / DISJUNTOR 52 MT-2 -->
-                <div class="panel" style="left: 295px; top: 103px; width: 3px; height: 25px;"></div>
-                <div class="panel" style="left: 383px; top: 103px; width: 3px; height: 25px;"></div>
+                <div class="panel" style="left: 295px; top: 153px; width: 3px; height: 25px;"></div>
+                <div class="panel" style="left: 383px; top: 153px; width: 3px; height: 25px;"></div>
                 <!-- SECCIONADORA 89 MT-2A / SECCIONADORA 89 MT-2B -->
-                <div class="panel" style="left: 295px; top: 125px; width: 88px; height: 3px;"></div>
+                <div class="panel" style="left: 295px; top: 175px; width: 88px; height: 3px;"></div>
                 <!-- TRANSFORMADOR T2 -->
-                <div class="panel" style="left: 340px; top: 185px; width: 3px; height: 43px;"></div>
-                <div class="panel orange" style="left: 340px; top: 272px; width: 3px; height: 114px;"></div>
-                <div class="panel orange" style="left: 275px; top: 385px; width: 130px; height: 3px;"></div>
+                <div class="panel" style="left: 340px; top: 235px; width: 3px; height: 43px;"></div>
+                <div class="panel orange" style="left: 340px; top: 322px; width: 3px; height: 114px;"></div>
+                <div class="panel orange" style="left: 275px; top: 435px; width: 130px; height: 3px;"></div>
 
                 
                 <!-- Barra A para T3 -->
                  <!-- Barra A para T3 -->
-                <div class="panel" style="left: 445px; top: 10px; width: 3px; height: 70px;"></div>
+                <div class="panel" style="left: 445px; top: 60px; width: 3px; height: 70px;"></div>
                 <!-- SECCIONADORAS DO TRANSFORMADOR T3 -->
-                <div class="panel" style="left: 530px; top: 30px; width: 3px; height: 35px;"></div> <!-- SECCIONADORA SUPERIOR -->
+                <div class="panel" style="left: 530px; top: 80px; width: 3px; height: 35px;"></div> <!-- SECCIONADORA SUPERIOR -->
                 <!-- SECCIONADORA 89 MT-3A / DISJUNTOR 52 MT-3 -->
-                <div class="panel" style="left: 490px; top: 188px; width: 3px; height: 45px;"></div>
-                <div class="panel" style="left: 443px; top: 103px; width: 3px; height: 25px;"></div>
+                <div class="panel" style="left: 490px; top: 238px; width: 3px; height: 45px;"></div>
+                <div class="panel" style="left: 443px; top: 153px; width: 3px; height: 25px;"></div>
                 <!-- SECCIONADORA 89 MT-3A / SECCIONADORA 89 MT-3B -->
-                <div class="panel" style="left: 445px; top: 125px; width: 88px; height: 3px;"></div>
-                <div class="panel" style="left: 530px; top: 103px; width: 3px; height: 25px;"></div>              
+                <div class="panel" style="left: 445px; top: 175px; width: 88px; height: 3px;"></div>
+                <div class="panel" style="left: 530px; top: 153px; width: 3px; height: 25px;"></div>              
                 <!-- TRANSFORMADOR T3 -->
                 
-                <div class="panel orange" style="left: 490px; top: 272px; width: 3px; height: 114px;"></div>
-                <div class="panel orange" style="left: 425px; top: 385px; width: 130px; height: 3px;"></div>                
+                <div class="panel orange" style="left: 490px; top: 322px; width: 3px; height: 114px;"></div>
+                <div class="panel orange" style="left: 425px; top: 435px; width: 130px; height: 3px;"></div>                
                 <!-- SECCIONADORAS DO TRANSFORMADOR T3 -->                
-                <div class="panel" style="left: 490px; top: 128px; width: 3px; height: 20px;"></div> <!-- SECCIONADORA INFERIOR -->
+                <div class="panel" style="left: 490px; top: 178px; width: 3px; height: 20px;"></div> <!-- SECCIONADORA INFERIOR -->
 
         
                 <!-- SECCIONADORAS DO TRANSFORMADOR T4 -->
-                <div class="panel" style="left: 600px; top: 10px; width: 3px; height: 70px;"></div>
+                <div class="panel" style="left: 600px; top: 60px; width: 3px; height: 70px;"></div>
                 <!-- SECCIONADORAS DO TRANSFORMADOR T3 -->
-                <div class="panel" style="left: 685px; top: 30px; width: 3px; height: 35px;"></div> <!-- SECCIONADORA SUPERIOR -->                
-                <div class="panel" style="left: 640px; top: 128px; width: 3px; height: 20px;"></div> <!-- SECCIONADORA INFERIOR -->               
-                <div class="panel" style="left: 600px; top: 103px; width: 3px; height: 25px;"></div>
+                <div class="panel" style="left: 685px; top: 80px; width: 3px; height: 35px;"></div> <!-- SECCIONADORA SUPERIOR -->                
+                <div class="panel" style="left: 640px; top: 178px; width: 3px; height: 20px;"></div> <!-- SECCIONADORA INFERIOR -->               
+                <div class="panel" style="left: 600px; top: 153px; width: 3px; height: 25px;"></div>
                 <!-- SECCIONADORA 89 MT-3A / SECCIONADORA 89 MT-3B -->
-                <div class="panel" style="left: 600px; top: 125px; width: 88px; height: 3px;"></div>
-                <div class="panel" style="left: 685px; top: 103px; width: 3px; height: 25px;"></div> 
+                <div class="panel" style="left: 600px; top: 175px; width: 88px; height: 3px;"></div>
+                <div class="panel" style="left: 685px; top: 153px; width: 3px; height: 25px;"></div> 
                 
                 <!-- TRANSFORMADOR T4 -->
-                <div class="panel" style="left: 640px; top: 190px; width: 3px; height: 43px;"></div>
-                <div class="panel orange" style="left: 640px; top: 272px; width: 3px; height: 114px;"></div>
-                <div class="panel orange" style="left: 575px; top: 385px; width: 130px; height: 3px;"></div>
+                <div class="panel" style="left: 640px; top: 240px; width: 3px; height: 43px;"></div>
+                <div class="panel orange" style="left: 640px; top: 322px; width: 3px; height: 114px;"></div>
+                <div class="panel orange" style="left: 575px; top: 435px; width: 130px; height: 3px;"></div>
             </div>
 </div>
     
