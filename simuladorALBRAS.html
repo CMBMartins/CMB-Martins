@@ -40,118 +40,60 @@
     </style>
 
     <style>
-
-html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    align-items: center;  /* Centraliza verticalmente */
-    justify-content: center;  /* Centraliza horizontalmente */
-    background-color: #f0f0f0; /* Cor de fundo opcional */
-}
-
-
         body {
+            position: absolute;
+            width: 1500px;
+            height: 850px;
             font-family: Arial, sans-serif;
             background-color: #c0c0c0;
             margin: 0;
-            overflow: hidden;
+            padding: 0;
+            top: 50px;
+            left: 100px;
+            border: 2px solid black;
         }
 
-    #container {
-        position: absolute;
-        top: 0px;
-        width: 1500px;
-        height: 850px;
-        background-color: #c0c0c0;
-        border: 2px solid black;
+        /* Barra superior */
+        .top-bar {            
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid blue;
+        }
         
-        /* Centraliza horizontal e verticalmente */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
 
-        .button img {
-            width: 100%;
-            height: 100%;
-        }
-        .tooltip {
-            font-size: 12px;
-            color: gray;
-            position: absolute;
-        }
-        #email {
-            position: absolute;
-            top: 830px;
-            left: 1370px;
-            font-style: italic;
-            font-size: 10px;
-            color: gray;
-        }
-        .divider {
+        .divider {            
             position: absolute;
             width: 100%;
-            height: 5px;
+            height: 4px;
             background-color: blue;
         }
         .top-divider {
             top: 0px;
         }
-        .bottom-divider {
-            top: 55px;
+        .bottom-divider {           
+            top: 56px;
         }
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
+        .buttons {
+            background-color: #c0c0c0;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            gap: 5px;
         }
-        #painel {
-            position: relative;
-            width: 600px;
-            height: 500px;
-            background-color: #ffffff;
-            border: 0px solid #000;
-        }
-        .panel {
-            position: absolute;
-            background-color: red;
-        }
-        .orange {
-            background-color: orange;
-        }
-        
-    </style>
 
-    <div id="container">        
-        <div class="divider top-divider"></div>
-        <div class="divider bottom-divider"></div>        
-
-        <img src="carlos1.png" alt="Carlos GIF" style="position: absolute; top: 760px; left: 1400px; width: 70px; height: 70px;">
-        <img src="ALBRAS1.JPG" alt="Logo" style="position: absolute; top: 4px; left: 2px; width: 255px; height: 50px;">
-
-    <!-- Cabeçalho-->
-    <div class="header">
-        <div>         
-        <span class="title">...................................................................................SIMULADOR ALBRAS.........................................................................</span>
-        <span class="title"> <? echo $nomeUsuario="username"; ?> DEFAULT </span><br><br>
-        <!--<?$nomeUsuario = isset($_SESSION["usuario"]) ? $_SESSION["usuario"] : "DEFAULT";?>-->           
-</head>
-
-<div class="col">        
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #F5F5F5;
-            color: #000;
+        .buttons button {
+            background-color: #c0c0c0;
+            top: 155px;
+            width: 40px;
+            height: 40px;
+            border: none;
+            cursor: pointer;            
+            border-radius: 5px;
         }
+
         .header {
-            background-color: #DDD;
+            background-color: #c0c0c0;
             border: 0px solid #CCC;
             padding: 15px;
             display: flex;
@@ -161,101 +103,248 @@ html, body {
         .header img {
             height: 40px;
         }
+
         .title {
             font-weight: bold;
             font-size: 25px;
             color: blue;
         }
-        .section {
-            border: 0px solid #CCC;
-            margin: 3px;
-            padding: 1px;
-            background-color: #EAEAEA;
-            border-radius: 0px;
-        }
-        .section-title {
+
+        .datetime {
+            color: darkred;
             font-weight: bold;
-            font-size: 20px;
-            margin-bottom: 0px;
         }
-        table {
+
+        /* Layout principal */
+        .container {
+            width: 1495px;
+            height: 350px;
+            background-color: #c0c0c0;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;            
+        }
+
+        /* Controle de Demanda */
+        .controle {
+            background-color: #c0c0c0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+            width: 400px;
+            left: 0px;
+            border: 2px solid black;
+        }
+
+        .controle h3 {
+            margin: 0;
+        }
+
+        .controle p {
+            font-size: 18px;
+            color: blue;
+        }
+
+        /* Estrutura elétrica */
+        .estrutura {
+            background-color: #c0c0c0;
+            text-align: center;
+            flex-grow: 1;
+            position: relative;
+            width: 100px;
+            border: 2px solid black;
+        }
+
+        .linha-vermelha {
+            width: 150px;
+            height: 3px;
+            background-color: red;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .medicao {
+            background-color: #c0c0c0;            
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+            width: 500px;
+            border: 2px solid black;
+        }
+
+        .medicao table {
             width: 100%;
             border-collapse: collapse;
         }
-        td {
-            padding: 6px;
-            text-align: left;
+
+        .medicao td {
+            padding: 5px;
+            border-bottom: 1px solid #ccc;
         }
-        .highlight {
-            font-weight: bold;
+
+        .azul {
             color: blue;
         }
-        .red {
+
+        .vermelho {
             color: red;
         }
-        .green {
-            color: green;
-        }
-        .alarms {
-            color: red;
-            font-weight: bold;
-            margin-top: 0px;
+
+        #email {
+            position: absolute;
+            top: 980px;
+            left: 1370px;
+            font-style: italic;
+            font-size: 10px;
+            color: gray;
         }
     </style>
 </head>
 
-<!--<span>Controle de Usuário:</span>-->
-            <body>                
-            <form method="POST" action="">                
-            <label>Usuário:</label>
-            <input type="text" name="username" required>
-            
-            <label>Senha:</label>
-            <input type="password" name="password" required>
-            
-            <!--<button type="submit">REALIZAR LOGIN</button>-->
-            <button onclick="realizarLogin()">REALIZAR LOGIN</button>
-            <button onclick="realizarLogout()">REALIZAR LOGOFF</button><br>
-            </form>
-    
-        <div id="menu" class="menu">
-        <button class="button" style="top: 59px; left: 152px;" title="Pressione para fazer Login e liberar a operação dos Equipamentos">
-        <a href="autenticarUsuario.php" target="_blank"> <img src="botãoLogin.JPG" alt="Botão Login"></a>            
-        </button>
-        <button class="button" style="top: 59px; left: 202px;" title="Pressione para Consultar os Relatórios">
-            <a href="telaMTS.html" target="_blank"> <img src="botãoRelatorio.JPG" alt="Botão Relatório"></a>
-        </button>
-        <button class="button" style="top: 59px; left: 52px;" title="Pressione para fazer Logoff e bloquear as operações">
-            <a href="autenticarUsuario.php" target="_blank"> <img src="botaoHistoricos.JPG" alt="Botão Logoff"></a>
-        </button>
-        <button class="button" style="top: 59px; left: 52px;" title="Pressione para Inserir e Editar os Usuários do Sistema">
-            <a href="controleUsuarios.php" target="_blank"> <img src="botãoAlarme.JPG" alt="Botão Usuários"></a>
-        </button>
-        <button class="button" style="top: 59px; left: 302px;" title="Pressione para acessar a Tela dos Barramentos de 34,5 kV">
-            <a href="telaMTS.html" target="_blank"> <img src="botãoTelecomando.JPG" alt="Botão Tela dos Barramentos"></a>
-        </button>
-        <button class="button" style="top: 59px; left: 252px;" title="Modifica Valores">
-            <a href="telaMTS.html" target="_blank"> <img src="telecomando.JPG" alt="Botão Modifica Valores"></a>
-        </button>
-        <button class="button" style="top: 59px; left: 102px;" title="Pressione para Visualizar Imagens dos Equipamentos">
-            <a href="AlbumPessoal.php" target="_blank"> <img src="botãoMT.JPG" alt="Botão Equipamentos"></a>
-        </button>
-        <button class="button" style="top: 59px; left: 252px;" title="Pressione para Selecionar uma das Classes de Manobra a ser Simulada">
-            <a href="telaMTS.html" target="_blank"> <img src="Simulador.JPG" alt="Botão Simulador"></a>
-        </button>
-        <button class="button" style="top: 59px; left: 352px;" title="Pressione para chamar a tela das SE's Locais">
-            <a href="telaMTS.html" target="_blank"> <img src="botaoSesLocais.JPG" alt="Botão SE's Locais"></a>            
-        </button>
-        <button class="button" style="top: 59px; left: 302px;" title="Pressione para chamar a tela da Página Principal">
-            <a href="PaginaPessoal.html" target="_blank"> <img src="PaginaPrincipal.jpg" alt="Botão Página Principal"></a>            
-        </button>        
-        <!-- Adicione os outros botões aqui -->
+<div id="container">        
+<div class="divider top-divider"></div>
+<div class="divider bottom-divider"></div>    
 
+    <img src="imagensAlbras/Carlos1.PNG" alt="Carlos GIF" style="position: absolute; top: 910px; left: 1400px; width: 70px; height: 70px;">
+    <img src="imagensAlbras/Albras1.JPG" alt="Logo" style="position: absolute; top: 5px; left: 2px; width: 255px; height: 50px;">
+
+    <!-- Cabeçalho-->
+    <div class="header">
+    <div>         
+    <span class="title">...................................................................................SIMULADOR ALBRAS.........................................................................</span>
+    <span class="title"> <? echo $nomeUsuario="username"; ?> DEFAULT </span><br><br>
+    <!--<?$nomeUsuario = isset($_SESSION["usuario"]) ? $_SESSION["usuario"] : "DEFAULT";?>-->
+
+<!-- Barra Superior -->     
+    <!--BOTÕES DO MENU PRINCIPAL DA TELA-->
+    <div id="menu" class="menu">
+    <button class="button" style="top: 159px; left: 152px;" title="Pressione para fazer Login e liberar a operação dos Equipamentos">
+    <a href="autenticarUsuario.php" target="_blank"> <img src="imagensAlbras/botãoLogin.jpg" alt="Botão Login"></a>            
+    </button>
+    <button class="button" style="top: 59px; left: 202px;" title="Pressione para Consultar os Relatórios">
+        <a href="telaMTS.html" target="_blank"> <img src="imagensAlbras/botãoRelatorio.JPG" alt="Botão Relatório"></a>
+    </button>
+    <button class="button" style="top: 59px; left: 52px;" title="Pressione para fazer Logoff e bloquear as operações">
+        <a href="telaMTS.html" target="_blank"> <img src="imagensAlbras/botaoHistoricos.jpg" alt="Botão Logoff"></a>
+    </button>
+    <button class="button" style="top: 59px; left: 52px;" title="Pressione para Inserir e Editar os Usuários do Sistema">
+        <a href="controleUsuarios.php" target="_blank"> <img src="imagensAlbras/botãoAlarme.jpg" alt="Botão Usuários"></a>
+    </button>
+    <button class="button" style="top: 59px; left: 302px;" title="Pressione para acessar a Tela dos Barramentos de 34,5 kV">
+        <a href="menudeBarramentos.html" target="_blank"> <img src="imagensAlbras/botãoTelecomando.jpg" alt="Botão Tela dos Barramentos"></a>
+    </button>
+    <button class="button" style="top: 59px; left: 252px;" title="Modifica Valores">
+        <a href="telaMTS.html" target="_blank"> <img src="imagensAlbras/telecomando.jpg" alt="Botão Modifica Valores"></a>
+    </button>
+    <button class="button" style="top: 59px; left: 102px;" title="Pressione para Visualizar Imagens dos Equipamentos">
+        <a href="AlbumPessoal.php" target="_blank"> <img src="imagensAlbras/botãoMT.jpg" alt="Botão Equipamentos"></a>
+    </button>
+    <button class="button" style="top: 59px; left: 252px;" title="Pressione para Selecionar uma das Classes de Manobra a ser Simulada">
+        <a href="menuManobras.html" target="_blank"> <img src="imagensAlbras/Simulador.jpg" alt="Botão Simulador"></a>
+    </button>
+    <button class="button" style="top: 59px; left: 352px;" title="Pressione para chamar a tela das SE's Locais">
+        <a href="telaMTS.html" target="_blank"> <img src="imagensAlbras/botaoseslocais.jpg" alt="Botão SE's Locais"></a>            
+    </button>
+    <button class="button" style="top: 59px; left: 302px;" title="Pressione para chamar a tela da Página Principal">
+        <a href="PaginaPessoal.php" target="_blank"> <img src="imagensAlbras/TelaPrincipal.png" alt="Botão Página Principal"></a>           
+    </button>        
+    <!-- Adicione os outros botões aqui -->
+</div>
+
+<!--<span>Controle de Usuário:</span>-->
+<div id="container">              
+    <form method="POST" action="">                
+    <label>Usuário:</label>
+    <input type="text" name="username" required>
+        
+    <label>Senha:</label>
+    <input type="password" name="password" required>
+        
+    <!--<button type="submit">REALIZAR LOGIN</button>-->
+    <button onclick="realizarLogin()">REALIZAR LOGIN</button>
+    <button onclick="realizarLogout()">REALIZAR LOGOFF</button><br>
+    </form>
     </div>
 
+    <div id="telaPrincipal">17/03/2025 10:47</div>
+    </div>
+       
+        <!--<?php date_default_timezone_set('America/Sao_Paulo'); ?>
+        <?php $hoje = date('d/m/Y'); ?>
+        <?php $horaHoje = date("H:i:s"); ?>
+        <?php echo $hoje; ?>
+        <?php echo $horaHoje; ?>-->            	
+   
+    <!--DIV DA ASSINATURA DO DESENVOLVEDOR DA TELA-->
     <div id="email">cmardonio@yahoo.com.br</div>
     </div>
+    </div>
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador ALBRAS</title>
+    <style>
+        body {
+            background-color: #c0c0c0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            border: 2px solid black;
+        }
+
+        /* Container flexível */
+        .container {
+            background-color: #c0c0c0;
+            display: flex; /* Ativa o Flexbox */
+            justify-content: space-between; /* Espaço entre as colunas */
+            gap: 20px; /* Espaço entre as divs */
+            padding: 20px;
+        }
+
+        /* Estilização das seções */
+        .section {
+            background-color: #c0c0c0;
+            padding: 15px;
+            border-radius: 3px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            flex: 1; /* Faz com que todas as colunas tenham largura igual */
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            border-bottom: 1px solid #ccc;
+            text-align: left;
+        }
+
+        .highlight {
+            color: blue;
+            font-weight: bold;
+        }
+
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+
+<!--<scripts>-->
     <script>        
         function showMenu() {
             if (localStorage.getItem("loggedIn") === "true") {
@@ -314,104 +403,123 @@ html, body {
 
     </script>
 
-    <!-- Controle de Demanda -->
-    <div class="section">
-        <div class="section-title">Controle de Demanda</div>
-        <table>
-            <tr>
-                <td>Demanda Controlada (MW)</td>
-                <td class="highlight">812.0</td>
-            </tr>
-            <tr>
-                <td>Eletronorte </td>
-                <td class="highlight">237.7 (kV)</td>
-                <td class="highlight">ALBRAS/ALUNORTE: 855.2 (MW)</td>
-            </tr>
-            <tr>
-                <td>Alunorte</td>
-                <td class="highlight">76.1 (MW)</td>
-            </tr>
-            <tr>
-                <td>Albras</td>
-                <td class="highlight">792.2 (MW)</td>
-            </tr>
-            <tr>
-                <td>MT's</td>
-                <td class="highlight">716.1 (MW)</td>
-            </tr>
-        </table>
-    </div>
+<body>
 
-    <!-- Medição de Energia -->
-    <div class="section">
-        <div class="section-title">Medição de Energia</div>
-        <table>
-            <tr>
-                <td>Fator de Potência (%)</td>
-                <td class="highlight">98.3</td>
-            </tr>
-            <tr>
-                <td>Demanda Anterior (MW)</td>
-                <td class="highlight">805.2</td>
-            </tr>
-            <tr>
-                <td>Demanda Atual (MW)</td>
-                <td class="highlight">805.8</td>
-            </tr>
-            <tr>
-                <td>Demanda Medidor Total Albras (MW)</td>
-                <td class="highlight">806.4</td>
-            </tr>
+    <!-- Container com três colunas -->
+    <div class="container">
+
+        <!-- Controle de Demanda -->
+        <div class="controle">
+            <div class="section-title">Controle de Demanda</div>
             <table>
-            
-                <td>Hora de Referência</td>
-                <td style="color: red;"
-                td> Fora de Ponta:           
-            <?php date_default_timezone_set('America/Sao_Paulo'); ?>
-            <?php $hoje = date('d/m/Y'); ?>
-            <?php $horaHoje = date("H:i:s"); ?>
-            <?php echo $hoje; ?>
-            <?php echo $horaHoje; ?></td>
-    </tr>
-            </tr>
-        </table>
+                <tr>
+                    <th>Demanda Controlada (MW)</th>
+                    <td class="highlight">812.0</td>
+                </tr>
+                <!--<tr>
+                    <th>Eletronorte</th>
+                    <td class="highlight">237.7 (kV)</td>
+                </tr>
+                <tr>
+                    <th>ALBRAS/ALUNORTE</th>
+                    <td class="highlight">855.2 (MW)</td>
+                </tr>-->
+                <tr>
+                    <th class="red">Frequência</th>
+                    <td class="red">60.0 Hz</td>
+                </tr>
+                <!--<tr>
+                    <th>Alunorte</th>
+                    <td class="highlight">76.1 (MW)</td>
+                </tr>
+                <tr>
+                    <th>Albras</th>
+                    <td class="highlight">792.2 (MW)</td>
+                </tr>-->
+                <tr>
+                    <th>MT's</th>
+                    <td class="highlight">716.1 (MW)</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Espaço central (Vazio ou estrutura elétrica, caso necessário) -->
+        <div class="estrutura">
+            <div class="section-title">Alimentação da Eletronorte (230 KV)</div>
+            <p style="text-align: center;"></p>
+            <img src="imagensALBRAS/Eletronorte.png" alt="Diagrama elétrico" width="250">
+        </div>
+
+        <!-- Medição de Energia -->
+        <div class="medicao">
+            <div class="section-title">Medição de Energia</div>
+            <table>
+                <tr>
+                    <td><b>Fator de Potência (%)</b></td>
+                    <td class="highlight">98.3</td>
+                </tr>
+                <tr>
+                    <td><b>Demanda Anterior (MW)</b></td>
+                    <td class="highlight">805.2</td>
+                </tr>
+                <tr>
+                    <td><b>Demanda Atual (MW)</b></td>
+                    <td class="highlight">805.8</td>
+                </tr>
+                <tr>
+                    <td><b>Demanda Medidor Total Albras (MW)</b></td>
+                    <td class="highlight">806.4</td>
+                </tr>
+                <tr>                
+                <th> Hora de Referência: Fora de Ponta 
+                <!--<td class="highlight">Fora de Ponta: 17/03/2025 08:58</td>-->
+                <td class="highlight">
+                <?php date_default_timezone_set('America/Sao_Paulo'); ?>
+                <?php $hoje = date('d/m/Y'); ?>
+                <?php $horaHoje = date("H:i:s"); ?>
+                <?php echo $hoje; ?>
+                <?php echo $horaHoje; ?>
+                </th>
+                </tr>
+            </table>
+        </div>
     </div>
 
-    <!-- Seções REDUÇÃO -->
+        <!-- Seções REDUÇÃO -->
     <div class="section">
         <div class="section-title">Redução</div>
         <table>
             <tr>
-                <td><b>Redução I</b></td>
-                <td>Dem: <span class="highlight">182.1</span></td>
-                <td>Iset: <span class="highlight">172.0</span></td>
-                <td>IDC: <span class="highlight">172.2</span></td>
-                <td>VDC: <span class="highlight">1028.5</span></td>
-                <td>DV: <span class="highlight">1.35</span></td>
+                <th><b>Redução I</b></th>
+                <th>Dem: <span class="highlight">182.1</span></th>
+                <th>Iset: <span class="highlight">172.0</span></th>
+                <th>IDC: <span class="highlight">172.2</span></th>
+                <th>VDC: <span class="highlight">1028.5</span></th>
+                <th>DV: <span class="highlight">1.35</span></th>
             </tr>
             <tr>
-                <td><b>Redução II</b></td>
-                <td>Dem: <span class="highlight">194.1</span></td>
-                <td>Iset: <span class="highlight">181.0</span></td>
-                <td>IDC: <span class="highlight">181.1</span></td>
-                <td>VDC: <span class="highlight">1044.2</span></td>
-                <td>DV: <span class="highlight">-7.22</span></td>
+                <th><b>Redução II</b></th>
+                <th>Dem: <span class="highlight">194.1</span></th>
+                <th>Iset: <span class="highlight">181.0</span></th>
+                <th>IDC: <span class="highlight">181.1</span></th>
+                <th>VDC: <span class="highlight">1044.2</span></th>
+                <th>DV: <span class="highlight">-7.22</span></th>
             </tr>
             <tr>
-                <td><b>Redução III</b></td>
-                <td>Dem: <span class="highlight">196.7</span></td>
-                <td>Iset: <span class="highlight">180.0</span></td>
+                <th><b>Redução III</b></th>
+                <th>Dem: <span class="highlight">196.7</span></th>
+                <th>Iset: <span class="highlight">180.0</span></th>
                 <td>IDC: <span class="highlight">181.1</span></td>
-                <td>VDC: <span class="highlight">1044.2</span></td>
-                <td>DV: <span class="highlight">0.22</span></td>
+                <th>VDC: <span class="highlight">1044.2</span></th>
+                <th>DV: <span class="highlight">0.22</span></th>
             </tr>
             <tr>
-                <td><b>Redução IV</b></td>
-                <td>Dem: <span class="highlight">195.8</span></td>
-                <td>Iset: <span class="highlight">181.0</span></td>
-                <td>IDC: <span class="highlight">181.1</span></td>
-                <td>VDC: <span class="highlight">1056.1</span></td>
-                <td>DV: <span class="highlight">0.40</span></td>
+                <th><b>Redução IV</b></th>
+                <th>Dem: <span class="highlight">195.8</span></th>
+                <th>Iset: <span class="highlight">181.0</span></th>
+                <th>IDC: <span class="highlight">181.1</span></th>
+                <th>VDC: <span class="highlight">1056.1</span></th>
+                <th>DV: <span class="highlight">0.40</span></th>
             </tr>
         </table>
     </div>
@@ -421,31 +529,34 @@ html, body {
         <div class="section-title">Alimentadores de Processo</div>
         <table>
             <tr>
-                <td>P1</td>
-                <td class="highlight">8.2</td>
-                <td>P2</td>
-                <td class="highlight">6.0</td>
-                <td>P3</td>
-                <td class="highlight">7.1</td>
-                <td>P4</td>
-                <td class="highlight">4.4</td>
-                <td>P5</td>
-                <td class="highlight">4.4</td>
-                <td>P6</td>
-                <td class="highlight">4.4</td>
+                <th>P1</th>
+                <th class="highlight">8.2</th>
+                <th>P2</th>
+                <th class="highlight">6.0</th>
+                <th>P3</th>
+                <th class="highlight">7.1</th>
+                <th>P4</th>
+                <th class="highlight">4.4</th>
+                <th>P5</th>
+                <th class="highlight">4.4</th>
+                <th>P6</th>
+                <th class="highlight">4.4</th>
             </tr>
             <tr>
-                <td>Total</td>
-                <td class="highlight">36.4</td>
+                <th>Total</th>
+                <th class="highlight">36.4</th>
             </tr>
         </table>
     </div>
+</div>
 
     <!-- Alarme -->
-    <div class="section alarms">
-        <p>Alarmes:</p>
+    <div class="section alarms">    
+        <p class="red"> Alarmes: </p>
         <p>MANOBRA HABILITADA PARA SIMULAÇÃO: 'NENHUMA'</p>
         <p class="green">EQUIPAMENTO QUE FOI OPERADO: 'NENHUM'</p>
     </div>
+    </div>
+
 </body>
 </html>
