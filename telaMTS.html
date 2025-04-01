@@ -1,8 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
     <title>Tela dos MTS </title>
     <!-- Adiciona o Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -36,17 +38,19 @@
             font-family: Arial, sans-serif;
             background-color: #c0c0c0;
             margin: 0;
-            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
     #container {
     position: relative;
-    width: 1500px;
+    width: 1200px;
     height: 850px;
-    margin: 100px auto;
+    margin: 0;
     background-color: #c0c0c0;
     border: 3px solid black;
-
     display: flex;
     align-items: center; /* Centraliza verticalmente */
     justify-content: flex-start; /* Alinha os itens à esquerda */
@@ -73,7 +77,7 @@
         #email {
             position: absolute;
             top: 820px;
-            left: 1320px;
+            left: 1070px;
             font-style: italic;
             font-size: 10px;
             color: gray;
@@ -102,8 +106,8 @@
         }
         #painel {
             position: relative;
-            width: 600px;
-            height: 500px;
+            width: 1000px;
+            height: 600px;
             background-color: #ffffff;
             border: 0px solid #000;
         }
@@ -123,16 +127,22 @@
             position: absolute;
             height: 4px;
             background-color: blue;
+            height: 4px;
+            background-color: blue;
         }
         .barraA {
-            top: 56px;
-            left: 0px;
-            width: 800px;
+            top: 58px;
+            left: -10px;
+            width: 950px;
+            height: 4px;
+            background-color: red;
         }
         .barraB {
             top: 80px;
-            left: 0px;
-            width: 800px;
+            left: -10px;
+            width: 950px;
+            height: 4px;
+            background-color: red;
         }
    
         body {
@@ -140,6 +150,10 @@
             background-color: #C0C0C0;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
         .simulador {
             font-size: 40px;
@@ -158,127 +172,813 @@
             top: 80px;
             left: 320px;
         }
+
+        .telaprincipal {
+            font-size: 15px;
+            font-weight: bold;
+            color: black;
+            position: absolute;
+            top: -45px;
+            left: -140px;
+        }
         
+        svg {
+            background: #c0c0c0;
+        }
     </style>
-
-    <!-- Cabeçalho-->
-    <div id="container">
-
-    <div class="divider top-divider"></div>
-    <div class="divider bottom-divider"></div>
-    <img src="carlos1.png" alt="Carlos GIF" style="position: absolute; top: 750px; left: 1350px; width: 70px; height: 70px;">
-    <img src="ALBRAS1.JPG" alt="Logo" style="position: absolute; top: 4px; left: 2px; width: 255px; height: 50px;">
-    
-    <div class="simulador">SIMULADOR ALBRAS</div>
-    <div class="telaPrincipal">Tela dos Trafos de 230 Kv</div>
-    <div id="email">cmardonio@yahoo.com.br</div>
-    <button class="button" style="top: 130px; left: 152px;" title="Pressione para fazer Login e liberar a operação dos Equipamentos">
-
-        <div>
-            <a href="">        
-            <span class="fa fa-home"></span>           
-            <a href="simuladorALBRAS.html">
-            <span>Tela Principal</span>
-            </a>
-        </div>
     </head>
 
-    <!-- SECCIONADORA 89 MT-1A -->
-        <div class="panel" style="left: 145px; top: 58px; width: 3px; height: 55px;"></div>        
-        <!-- SECCIONADORA 89 MT-1A / DISJUNTOR 52 MT-R -->
-        <div class="panel" style="left: 145px; top: 153px; width: 3px; height: 23px;"></div>
-        <!-- BAY MT-1 -->
-        <!-- Seccionadora 89 MT-1A -->
-        <div class="panel" style="left: -5px; top: 58px; width: 3px; height: 55px;"></div>
-        <!-- Seccionadora 89 MT-1A / Disjuntor -->
-        <div class="panel" style="left: -5px; top: 153px; width: 3px; height: 23px;"></div>
-        <!-- Seccionadora 89 MT-1B -->
-        <div class="panel" style="left: 80px; top: 80px; width: 3px; height: 33px;"></div>
-        <!-- SECCIONADORA 89 MT-1B / DISJUNTOR MT- -->
-        <div class="panel" style="left: 79px; top: 154px; width: 3px; height: 23px;"></div>
-        <!-- DISJUNTOR / TRANSFORMADOR MT1-->
-        <div class="panel" style="left: 40px; top: 235px; width: 3px; height: 43px;"></div>
-        <!-- SECCIONADORA MT-1A / SECCIONADORA MT-1B -->
-        <div class="panel" style="left: -5px; top: 175px; width: 87px; height: 3px;"></div>
-        <!-- SECCIONADORA / DISJUNTOR MT-1 -->
-        <div class="panel" style="left: 40px; top: 176px; width: 3px; height: 20px;"></div>
-        <!-- TRANSFORMADOR / BARRA T1 -->
-        <div class="panel orange" style="left: 40px; top: 322px; width: 3px; height: 114px;"></div>
+    <!-- Cabeçalho-->
+    <body>
+        <div id="container">
+            <div class="divider top-divider"></div>
+            <div class="divider bottom-divider"></div>
+            
+            <img src="imagensALBRAS/carlos1.PNG" alt="Carlos GIF" style="position: absolute; top: 750px; left: 1100px; width: 70px; height: 70px;">
+            <img src="imagensALBRAS/Albras1.JPG" alt="Logo" style="position: absolute; top: 4px; left: 2px; width: 255px; height: 50px;">
+            
+            <div class="simulador">SIMULADOR ALBRAS</div>
+            <div class="telaPrincipal">Tela dos Trafos de 230 Kv</div>
+            
+            <div id="email">cmardonio@yahoo.com.br</div>
+            
+            <button class="button" style="top: 130px; left: 152px;" title="Pressione para fazer Login e liberar a operação dos Equipamentos">
+            <!--<h4><div><a href="simuladorALBRAS.php">Chamar a tela Principal</a><br></div></h4>-->            
+            
+            <div class="telaprincipal">
+                <a href="">        
+                <span class="fa fa-home"></span>           
+                <a href="menudeBarramentos.html">
+                <span>Tela Principal</span>
+                </a>
+            </div>        
+    </head>
+
+    <!-- LINHAS DAS SECCIONADORAS E DISJUNTORES -->                
+        <!-- BAY MT-2 -->
+         <!-- SECCIONADORA 89 MT-2A / DISJUNTOR 52 MT-2 -->
+        <!-- Seccionadora 89 MT-2A -->
+        <div class="panel" style="left: 45px; top: 58px; width: 3px; height: 60px;"></div>
+        <!-- Seccionadora 89 MT-2A / Disjuntor -->
+        <div class="panel" style="left: 45px; top: 153px; width: 3px; height: 23px;"></div>
+        <!-- Seccionadora 89 MT-2B -->
+        <div class="panel" style="left: 130px; top: 80px; width: 3px; height: 39px;"></div>
+        <!-- SECCIONADORA 89 MT-2B / DISJUNTOR MT- -->
+        <div class="panel" style="left: 129px; top: 154px; width: 3px; height: 23px;"></div>
+        <!-- DISJUNTOR / TRANSFORMADOR MT2-->
+        <div class="panel" style="left: 90px; top: 235px; width: 3px; height: 43px;"></div>
+        <!-- SECCIONADORA MT-2A / SECCIONADORA MT-1B -->
+        <div class="panel" style="left: 45px; top: 175px; width: 87px; height: 3px;"></div>
+        <!-- SECCIONADORA / DISJUNTOR MT-2 -->
+        <div class="panel" style="left: 90px; top: 176px; width: 3px; height: 20px;"></div>
+        <!-- TRANSFORMADOR / BARRA T2 -->
+        <div class="panel orange" style="left: 90px; top: 322px; width: 3px; height: 114px;"></div>
         <!-- BARRA T1 -->
-        <div class="panel orange" style="left: -25px; top: 435px; width: 130px; height: 3px;"></div>
+        <div class="panel orange" style="left: 25px; top: 435px; width: 130px; height: 3px;"></div>
 
 
         <!-- SECCIONADORA 89 MT-RB -->
-        <div class="panel" style="left: 230px; top: 80px; width: 3px; height: 33px;"></div>
+        <div class="panel" style="left: 195px; top: 58px; width: 3px; height: 60px;"></div>
+        <!-- Seccionadora 89 MT-RB --> 
+        <div class="panel" style="left: 280px; top: 80px; width: 3px; height: 39px;"></div>
+        <!-- Seccionadora 89 MT-RA -->
+        <div class="panel" style="left: 195px; top: 153px; width: 3px; height: 23px;"></div>
         <!-- SECCIONADORA 89 MT-RB / DISJUNTOR -->
-        <div class="panel" style="left: 230px; top: 153px; width: 3px; height: 23px;"></div>
+        <div class="panel" style="left: 280px; top: 153px; width: 3px; height: 23px;"></div>
         <!-- DISJUNTOR / TRANSFORMADOR MTR-->
-        <div class="panel" style="left: 190px; top: 235px; width: 3px; height: 43px;"></div>
+        <div class="panel" style="left: 240px; top: 235px; width: 3px; height: 43px;"></div>
         <!-- SECCIONADORA 89 MT-RA / SECCIONADORA 89 MT-RB -->
-        <div class="panel" style="left: 145px; top: 175px; width: 88px; height: 3px;"></div>
-        <!-- SECCIONADORA / DISJUNTOR MTR-->
-        <div class="panel" style="left: 190px; top: 176px; width: 3px; height: 20px;"></div>
+        <div class="panel" style="left: 195px; top: 175px; width: 88px; height: 3px;"></div>
+        <!-- SECCIONADORA / DISJUNTOR MT-R -->
+        <div class="panel" style="left: 240px; top: 176px; width: 3px; height: 20px;"></div>
         <!-- TRANSFORMADOR / BARRA TR -->
-        <div class="panel orange" style="left: 190px; top: 322px; width: 3px; height: 114px;"></div>
+        <div class="panel orange" style="left: 240px; top: 322px; width: 3px; height: 114px;"></div>
         <!-- BARRA TR -->
-        <div class="panel orange" style="left: 125px; top: 435px; width: 130px; height: 3px;"></div>
+        <div class="panel orange" style="left: 175px; top: 435px; width: 130px; height: 3px;"></div>
         
+        
+        <!-- Barras superiores -->
+        <div class="barra barraA"></div> <!-- Barra A -->
+        <div class="barra barraB"></div> <!-- Barra B -->
+
+        <!-- Conexões das barras com os transformadores -->                        
+        <!-- Barra A para T1 -->        
+        <!-- SECCIONADORAS DO TRANSFORMADOR MT-2 -->
+        <div class="panel" style="left: 345px; top: 60px; width: 3px; height: 60px;"></div> <!-- SECCIONADORA SUPERIOR 89 MT1A -->
+        <div class="panel" style="left: 345px; top: 153px; width: 3px; height: 25px;"></div> <!-- SECCIONADORA INFERIOR 89MT1A-->
+        <div class="panel" style="left: 433px; top: 80px; width: 3px; height: 39px;"></div> <!-- SECCIONADORA SUPERIOR 89 MT1B -->
+        <div class="panel" style="left: 433px; top: 153px; width: 3px; height: 25px;"></div> <!-- SECCIONADORA INFERIOR 89MT1B-->
+
+        <!-- SECCIONADORA 89 MT-1A / DISJUNTOR 52 MT-1 -->       
+        <div class="panel" style="left: 390px; top: 175px; width: 3px; height: 20px;"></div> <!-- LIGAÇÃO DA SECCIONADORA C/ DISJUNTOR MT1--> 
+        <!-- SECCIONADORA 89 MT-1A / SECCIONADORA 89 MT-2B -->
+        <div class="panel" style="left: 345px; top: 175px; width: 88px; height: 3px;"></div> <!-- SECCIONADORA Ligação entre 89 MT1A e 89MT1B -->
+        <!-- TRANSFORMADOR MT1 -->
+        <div class="panel" style="left: 390px; top: 235px; width: 3px; height: 43px;"></div>
+        <div class="panel orange" style="left: 390px; top: 322px; width: 3px; height: 114px;"></div>
+        <div class="panel orange" style="left: 325px; top: 435px; width: 130px; height: 3px;"></div>
+
+        <!-- Barra A para L1 -->
+         <!-- SECCIONADORAS DA Linha L1 -->
+        <div class="panel" style="left: 493px; top: 58px; width: 3px; height: 60px;"></div>
+        <!-- SECCIONADORAS DA L1 -->
+        <div class="panel" style="left: 580px; top: 80px; width: 3px; height: 39px;"></div> <!-- SECCIONADORA SUPERIOR -->
+        <div class="panel" style="left: 540px; top: 175px; width: 3px; height: 20px;"></div> <!-- SECCIONADORA INFERIOR -->
+        <!-- SECCIONADORA 89 L1-A / DISJUNTOR 52 L1 -->
+        <div class="panel" style="left: 540px; top: 234px; width: 3px; height: 45px;"></div>
+        <div class="panel" style="left: 493px; top: 153px; width: 3px; height: 25px;"></div>
+        <!-- SECCIONADORA 89 L1-A / SECCIONADORA 89 L1-B -->
+        <div class="panel" style="left: 495px; top: 175px; width: 88px; height: 3px;"></div>
+        <div class="panel" style="left: 580px; top: 153px; width: 3px; height: 25px;"></div>                        
+        <div class="panel red" style="left: 540px; top: 314px; width: 3px; height: 124px;"></div>                       
+                        
+        <!-- SECCIONADORAS DA LINHA L2 -->
+        <div class="panel" style="left: 650px; top: 60px; width: 3px; height: 60px;"></div> <!-- SECCIONADORA 89 L2-A --> 
+        <!-- SECCIONADORAS DO L2 -->
+        <div class="panel" style="left: 735px; top: 80px; width: 3px; height: 39px;"></div> <!-- SECCIONADORA 89L2-B -->                      
+        <div class="panel" style="left: 650px; top: 153px; width: 3px; height: 25px;"></div> <!-- SECCIONADORA 89MT4A -->
+        <!-- SECCIONADORA 89 L2-A / SECCIONADORA 89 89 L2-B -->
+        <div class="panel" style="left: 690px; top: 175px; width: 3px; height: 20px;"></div> <!-- SECCIONADORA INFERIOR -->
+        <div class="panel" style="left: 650px; top: 175px; width: 88px; height: 3px;"></div> <!-- SECCIONADORA INFERIOR A para B-->
+        <div class="panel" style="left: 735px; top: 153px; width: 3px; height: 25px;"></div> 
+                
+        <!-- SECCIONADORA 89 L2 -->
+        <div class="panel" style="left: 690px; top: 235px; width: 3px; height: 43px;"></div>
+        <div class="panel red" style="left: 690px; top: 314px; width: 3px; height: 124px;"></div>        
+
+        <!-- SECCIONADORAS DA INTERLIGAÇÃO BT -->
+        <div class="panel" style="left: 800px; top: 60px; width: 3px; height: 60px;"></div> <!-- SECCIONADORA 89 BT-A --> 
+        <!-- SECCIONADORAS DO L2 -->
+        <div class="panel" style="left: 885px; top: 80px; width: 3px; height: 39px;"></div> <!-- SECCIONADORA 89BT-B -->                      
+        <div class="panel" style="left: 800px; top: 153px; width: 3px; height: 65px;"></div> <!-- SECCIONADORA 89BT-A -->
+        <!-- SECCIONADORA 89 L2-A / SECCIONADORA 89 89 L2-B -->        
+        <div class="panel" style="left: 800px; top: 215px; width: 88px; height: 3px;"></div> <!-- SECCIONADORA INFERIOR A para B-->
+        <div class="panel" style="left: 885px; top: 153px; width: 3px; height: 65px;"></div> <!-- SECCIONADORA INFERIOR BT-B PARA DISJUNTOR-->
+                
+        <!-- Símbolos dos Disjuntores e Transformadores -->                     
+        <svg id="diagrama" width="1000" height="600" style="background: #c0c0c0; display: flex; margin: 0;">
+
+        <!-- Botões das Seccionadoras A e B MT-2 (botão) -->
+         <!-- Seccionadora A (botão) -->
+        <rect id="btnA" x="25" y="117" width="35" height="35" fill="#c0c0c0" stroke="gray" onclick="toggleSeccionadoraMT2A('A')"/>
+        <text x="25" y="140" onclick="toggleSeccionadora('A')">89MT2A</text>
+        <!-- Seccionadora B (botão) -->
+        <rect id="btnB" x="107" y="117" width="35" height="35" fill="#c0c0c0" stroke="gray" onclick="toggleSeccionadoraMT2B('B')"/>
+        <text x="108" y="140" onclick="toggleSeccionadora('B')">89MT2B</text>
+
+        <!-- Símbolo de Disjuntor do MT-2-->
+        <rect id="btnMT2" x="365" y="195" width="40" height="38" fill="green" stroke="black" stroke-width="2"  onclick="toggleDisjuntorMT2('MT2')"/> <!-- Disjuntor -->
+        <line x1="405" y1="214" x2="365" y2="214" stroke="black" stroke-width="2"/> <!-- Corte no meio -->
+        <text x="407" y="220" onclick="toggleDisjuntor('52MT2')">52MT1</text>
+        <!-- Símbolo de Transformador MT-2-->
+        <line x1="50" y1="300" x2="120" y2="300" stroke="orange" stroke-width="4"/> <!-- Base do transformador -->
+        <circle cx="75" cy="300" r="24" stroke="black" stroke-width="2" fill="none"/> <!-- Bobina 1 -->
+        <circle cx="95" cy="300" r="24" stroke="black" stroke-width="2" fill="none"/> <!-- Bobina 2 -->
+        <text x="87" y="340" onclick="toggleTransformador('MT1')">MT2</text>
+   
+        <!-- Simbolos Disjuntor e Transformador MT-R -->               
+        <!-- Botões das Seccionadoras A e B MT-R (botão) -->
+        <!-- Seccionadora A (botão) -->
+        <rect id="btnRA" x="173" y="117" width="35" height="35" fill="#c0c0c0" stroke="gray" onclick="toggleSeccionadoraMTRA('RA')"/>
+        <text x="175" y="140" onclick="toggleSeccionadora('RA')">89MTRA</text>
+        <!-- Seccionadora B (botão) -->
+        <rect id="btnRB" x="257" y="117" width="35" height="35" fill="#c0c0c0" stroke="gray" onclick="toggleSeccionadoraMTRB('RB')"/>
+        <text x="258" y="140" onclick="toggleSeccionadora('RB')">89MTRB</text>
+
+        <!-- Símbolo de Disjuntor MT-R-->
+        <rect id="btnMTR" x="216" y="195" width="40" height="38" fill="green" stroke="black" stroke-width="2" onclick="toggleDisjuntorMTR('MTR')"/> <!-- Disjuntor -->
+        <line x1="255" y1="214" x2="215" y2="214" stroke="black" stroke-width="2"/> <!-- Corte no meio -->
+        <text x="257" y="220" onclick="toggleDisjuntor('52MTR')">52MTR</text>
+        <!-- Símbolo de Transformador MT-R-->
+        <line x1="200" y1="300" x2="270" y2="300" stroke="orange" stroke-width="4"/> <!-- Base do transformador -->
+        <circle cx="225" cy="300" r="24" stroke="black" stroke-width="2" fill="none"/> <!-- Bobina 1 -->
+        <circle cx="245" cy="300" r="24" stroke="black" stroke-width="2" fill="none"/> <!-- Bobina 2 -->
+        <text x="237" y="340" onclick="toggleTransformador('MTR')">MTR</text>
+        
+        <!-- Simbolos Disjuntor e Transformador MT-1 -->                
+        <!-- Botões das Seccionadoras A e B MT-2 (botão) -->
+        <!-- Seccionadora A (botão) -->
+        <rect id="btn1A" x="323" y="117" width="35" height="35" fill="#c0c0c0" stroke="gray" onclick="toggleSeccionadoraMT1A('1A')"/>
+        <text x="325" y="140" onclick="toggleSeccionadora('2A')">89MT1A</text>
+        <!-- Seccionadora B (botão) -->
+        <rect id="btn1B" x="412" y="117" width="35" height="35" fill="#c0c0c0" stroke="gray" onclick="toggleSeccionadoraMT1B('1B')"/>
+        <text x="414" y="140" onclick="toggleSeccionadora('2B')">89MT1B</text>
+
+        <!-- Símbolo de Disjuntor MT-1-->
+        <rect id="btnMT1" x="66" y="195" width="40" height="38" fill="green" stroke="black" stroke-width="2" onclick="toggleDisjuntorMT1('MT1')"/> <!-- Disjuntor -->
+        <line x1="105" y1="214" x2="65" y2="214" stroke="black" stroke-width="2"/> <!-- Corte no meio -->
+        <text x="107" y="220" onclick="toggleDisjuntor('52MT1')">52MT2</text>        
+        <!-- Símbolo de Transformador MT-1-->
+        <line x1="350" y1="300" x2="420" y2="300" stroke="orange" stroke-width="4"/> <!-- Base do transformador -->
+        <circle cx="375" cy="300" r="24" stroke="black" stroke-width="2" fill="none"/> <!-- Bobina 1 -->
+        <circle cx="395" cy="300" r="24" stroke="black" stroke-width="2" fill="none"/> <!-- Bobina 2 -->
+        <text x="387" y="340" onclick="toggleTransformador('MT1')">MT1</text>
+        
+        <!-- Simbolos Disjuntor e Seccionadora L1 -->        
+        <!-- Botões das Seccionadoras A e B L1 (botão) -->
+        <!-- Seccionadora A (botão) -->
+        <rect id="btnL1A" x="471" y="117" width="35" height="35" fill="#c0c0c0" stroke="gray" onclick="toggleSeccionadoraL1A('L1A')"/>
+        <text x="473" y="140" onclick="toggleSeccionadora('3A')">89L1A</text>
+        <!-- Seccionadora B (botão) -->
+        <rect id="btnL1B" x="558" y="117" width="35" height="35" fill="#c0c0c0" stroke="gray" onclick="toggleSeccionadoraL1B('L1B')"/>
+        <text x="560" y="140" onclick="toggleSeccionadora('3B')">89L1B</text>
+
+        <!-- Símbolo de Disjuntor do L1-->
+        <rect id="btnL1" x="515" y="195" width="40" height="38" fill="green" stroke="black" stroke-width="2"  onclick="toggleDisjuntorL1('L1')" /> <!-- Disjuntor -->
+        <line x1="555" y1="214" x2="515" y2="214" stroke="black" stroke-width="2"/> <!-- Corte no meio -->
+        <text x="557" y="220" onclick="toggleDisjuntor('52L1')">52L1</text>
+        <!-- Símbolo da e Seccionadora L1 89L1-->
+        <rect id="btnL1" x="517" y="278" width="35" height="35" fill="#c0c0c0" stroke="gray" onclick="toggleSeccionadoraL1('L1')"/>       
+        <text x="555" y="300" onclick="toggleTransformador('89L1')">89L1</text>
+        <defs>
+            <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto" markerUnits="strokeWidth">
+                <polygon points="0 0, 10 5, 0 10" fill="red"/>
+            </marker>
+        </defs>
+        <!-- Linha do Alimentador L1 -->
+        <line x1="535" y1="415" x2="535" y2="422" stroke="red" stroke-width="4" marker-end="url(#arrow)"/>
+        <text x="535" y="455" onclick="toggleTransformador('L1')">L1</text>
        
-                <!-- Barras superiores -->
-                <div class="barra barraA"></div> <!-- Barra A -->
-                <div class="barra barraB"></div> <!-- Barra B -->
-        
-                <!-- Conexões das barras com os transformadores -->
-                <!-- Barra A para T2 -->
-                <div class="panel" style="left: 295px; top: 60px; width: 3px; height: 70px;"></div>
-                <!-- SECCIONADORAS DO TRANSFORMADOR T2 -->
-                <div class="panel" style="left: 385px; top: 80px; width: 3px; height: 35px;"></div> <!-- SECCIONADORA SUPERIOR -->
-                <div class="panel" style="left: 340px; top: 175px; width: 3px; height: 20px;"></div> <!-- SECCIONADORA INFERIOR -->
-                <!-- SECCIONADORA 89 MT-2A / DISJUNTOR 52 MT-2 -->
-                <div class="panel" style="left: 295px; top: 153px; width: 3px; height: 25px;"></div>
-                <div class="panel" style="left: 383px; top: 153px; width: 3px; height: 25px;"></div>
-                <!-- SECCIONADORA 89 MT-2A / SECCIONADORA 89 MT-2B -->
-                <div class="panel" style="left: 295px; top: 175px; width: 88px; height: 3px;"></div>
-                <!-- TRANSFORMADOR T2 -->
-                <div class="panel" style="left: 340px; top: 235px; width: 3px; height: 43px;"></div>
-                <div class="panel orange" style="left: 340px; top: 322px; width: 3px; height: 114px;"></div>
-                <div class="panel orange" style="left: 275px; top: 435px; width: 130px; height: 3px;"></div>
+        <!-- Simbolos Disjuntor e Seccionadora L2 -->
+         <!-- Botões das Seccionadoras A e B L2 (botão) -->       
+         <!-- Seccionadora A (botão) -->
+        <rect id="btnL2A" x="627" y="117" width="35" height="35" fill="#c0c0c0" stroke="gray" onclick="toggleSeccionadoraL2A('L2A')"/>
+        <text x="630" y="140" onclick="toggleSeccionadora('4A')">89L2A</text>
+        <!-- Seccionadora B (botão) -->
+        <rect id="btnL2B" x="712" y="117" width="35" height="35" fill="#c0c0c0" stroke="gray" onclick="toggleSeccionadoraL2B('L2B')"/>
+        <text x="714" y="140" onclick="toggleSeccionadora('4B')">89L2B</text>
 
-                
-                <!-- Barra A para T3 -->
-                 <!-- Barra A para T3 -->
-                <div class="panel" style="left: 445px; top: 60px; width: 3px; height: 70px;"></div>
-                <!-- SECCIONADORAS DO TRANSFORMADOR T3 -->
-                <div class="panel" style="left: 530px; top: 80px; width: 3px; height: 35px;"></div> <!-- SECCIONADORA SUPERIOR -->
-                <!-- SECCIONADORA 89 MT-3A / DISJUNTOR 52 MT-3 -->
-                <div class="panel" style="left: 490px; top: 238px; width: 3px; height: 45px;"></div>
-                <div class="panel" style="left: 443px; top: 153px; width: 3px; height: 25px;"></div>
-                <!-- SECCIONADORA 89 MT-3A / SECCIONADORA 89 MT-3B -->
-                <div class="panel" style="left: 445px; top: 175px; width: 88px; height: 3px;"></div>
-                <div class="panel" style="left: 530px; top: 153px; width: 3px; height: 25px;"></div>              
-                <!-- TRANSFORMADOR T3 -->
-                
-                <div class="panel orange" style="left: 490px; top: 322px; width: 3px; height: 114px;"></div>
-                <div class="panel orange" style="left: 425px; top: 435px; width: 130px; height: 3px;"></div>                
-                <!-- SECCIONADORAS DO TRANSFORMADOR T3 -->                
-                <div class="panel" style="left: 490px; top: 178px; width: 3px; height: 20px;"></div> <!-- SECCIONADORA INFERIOR -->
+        <!-- Símbolo de Disjuntor do L2-->
+        <rect id="btnL2" x="665" y="195" width="40" height="38" fill="green" stroke="black" stroke-width="2"  onclick="toggleDisjuntorL2('L2')"/> <!-- Disjuntor -->
+        <line x1="705" y1="214" x2="665" y2="214" stroke="black" stroke-width="2"/> <!-- Corte no meio -->
+        <text x="707" y="220" onclick="toggleDisjuntor('52L2')">52L2</text>        
+        <!-- Símbolo da e Seccionadora 89 L2-->
+        <rect id="btnL2" x="667" y="277" width="35" height="35" fill="#c0c0c0" stroke="gray" onclick="toggleSeccionadoraL2('L2')"/>    
+        <text x="705" y="300" onclick="toggleTransformador('89L2')">89L2</text>
+        <defs>
+            <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto" markerUnits="strokeWidth">
+                <polygon points="0 0, 10 5, 0 10" fill="red"/>
+            </marker>
+        </defs>
+        <!-- Linha do Alimentador L2 -->
+        <line x1="685" y1="415" x2="685" y2="422" stroke="red" stroke-width="4" marker-end="url(#arrow)"/>
+        <text x="685" y="455" onclick="toggleTransformador('L2')">L2</text>
 
+        <!-- Simbolos Disjuntor e Seccionadora BT -->
+         <!-- Botões das Seccionadoras A e B BT (botão) -->       
+         <!-- Seccionadora A (botão) -->
+         <rect id="btnBTA" x="777" y="117" width="35" height="35" fill="#c0c0c0" stroke="gray" onclick="toggleSeccionadoraBTA('BTA')"/>
+         <text x="780" y="140" onclick="toggleSeccionadora('4A')">89BTA</text>
+         <!-- Seccionadora B (botão) -->
+         <rect id="btnBTB" x="862" y="117" width="35" height="35" fill="#c0c0c0" stroke="gray" onclick="toggleSeccionadoraBTB('BTB')"/>
+         <text x="864" y="140" onclick="toggleSeccionadora('4B')">89BTB</text>
+ 
+         <!-- Símbolo de Disjuntor do BT-->
+         <rect id="btnBT" x="820" y="196" width="40" height="38" fill="green" stroke="black" stroke-width="2"  onclick="toggleDisjuntorBT('BT')"/> <!-- Disjuntor -->
+         <line x1="705" y1="214" x2="665" y2="214" stroke="black" stroke-width="2"/> <!-- Corte no meio -->
+         <text x="862" y="230" onclick="toggleDisjuntor('52L2')">52BT</text>      
+
+    </svg>
+
+    <!-- Scripts das Seccionadoras e dos Transformadores -->
+    <!-- Seccionadora 89MT1A-->
+    <script>
+        function toggleSeccionadoraMT2A(tipo) {
+            let linha = document.querySelector(`#linha${tipo}`);
+    
+            if (linha) {
+                // Se a linha está na posição vertical (fechada), alteramos para inclinada (aberta)
+                if (linha.getAttribute("x2") === "40") {
+                    linha.setAttribute("x2", "60"); // Move para direita (linha inclinada)
+                    linha.setAttribute("y2", "118");
+                } else {
+                    // Se a linha já está inclinada, voltamos para vertical (fechada)
+                    linha.setAttribute("x2", "40");
+                    linha.setAttribute("y2", "118");
+                }
+            } else {
+                // Criamos a linha inicial como fechada (vertical)
+                linha = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                linha.setAttribute("id", "linha" + tipo);
+                linha.setAttribute("stroke", "red");
+                linha.setAttribute("stroke-width", "4");
+                linha.setAttribute("x1", "40");
+                linha.setAttribute("y1", "152");
+                linha.setAttribute("x2", "60");
+                linha.setAttribute("y2", "118");
+    
+                document.getElementById("diagrama").appendChild(linha);
+            }
+        }
+    </script>    
+
+<!-- Seccionadora 89MT2B-->
+<script>
+    function toggleSeccionadoraMT2B(tipo) {
+        let linha = document.querySelector(`#linha${tipo}`);
+
+        if (linha) {
+            // Se a linha está na vertical (fechada), alteramos para inclinada (aberta)
+            if (linha.getAttribute("x2") === "125") {
+                linha.setAttribute("x2", "145"); // Move para direita (linha inclinada)
+                linha.setAttribute("y2", "118");
+            } else {
+                // Se a linha já está inclinada, voltamos para vertical (fechada)
+                linha.setAttribute("x2", "125");
+                linha.setAttribute("y2", "118");
+            }
+        } else {
+            // Criamos a linha inicial como fechada (vertical)
+            linha = document.createElementNS("http://www.w3.org/2000/svg", "line");
+            linha.setAttribute("id", "linha" + tipo);
+            linha.setAttribute("stroke", "red");
+            linha.setAttribute("stroke-width", "4");
+            linha.setAttribute("x1", "125");
+            linha.setAttribute("y1", "152");
+            linha.setAttribute("x2", "145");
+            linha.setAttribute("y2", "118");
+
+            document.getElementById("diagrama").appendChild(linha);
+        }
+    }
+</script>
+
+<!-- Seccionadora 89MTRA-->
+<script>
+    function toggleSeccionadoraMTRA(tipo) {
+
+        let linha = document.querySelector(`#linha${tipo}`);
+    
+            if (linha) {
+                // Se a linha está na posição vertical (fechada), alteramos para inclinada (aberta)
+                if (linha.getAttribute("x2") === "190") {
+                    linha.setAttribute("x2", "210"); // Move para direita (linha inclinada)
+                    linha.setAttribute("y2", "118");
+                } else {
+                    // Se a linha já está inclinada, voltamos para vertical (fechada)
+                    linha.setAttribute("x2", "190");
+                    linha.setAttribute("y2", "118");
+                }
+            } else {
+                // Criamos a linha inicial como fechada (vertical)
+                linha = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                linha.setAttribute("id", "linha" + tipo);
+                linha.setAttribute("stroke", "red");
+                linha.setAttribute("stroke-width", "4");
+                linha.setAttribute("x1", "190");
+                linha.setAttribute("y1", "152");
+                linha.setAttribute("x2", "210");
+                linha.setAttribute("y2", "118");
+    
+                document.getElementById("diagrama").appendChild(linha);
+            }
+        }
+</script>
+
+<!-- Seccionadora 89MTRB-->
+<script>
+function toggleSeccionadoraMTRB(tipo) {
+    let linha = document.querySelector(`#linha${tipo}`);
+
+        if (linha) {
+            // Se a linha está na vertical (fechada), alteramos para inclinada (aberta)
+            if (linha.getAttribute("x2") === "275") {
+                linha.setAttribute("x2", "295"); // Move para direita (linha inclinada)
+                linha.setAttribute("y2", "118");
+            } else {
+                // Se a linha já está inclinada, voltamos para vertical (fechada)
+                linha.setAttribute("x2", "275");
+                linha.setAttribute("y2", "118");
+            }
+        } else {
+            // Criamos a linha inicial como fechada (vertical)
+            linha = document.createElementNS("http://www.w3.org/2000/svg", "line");
+            linha.setAttribute("id", "linha" + tipo);
+            linha.setAttribute("stroke", "red");
+            linha.setAttribute("stroke-width", "4");
+            linha.setAttribute("x1", "275");
+            linha.setAttribute("y1", "152");
+            linha.setAttribute("x2", "295");
+            linha.setAttribute("y2", "118");
+
+            document.getElementById("diagrama").appendChild(linha);
+    }
+}
+</script>
+
+<!-- Seccionadora 89MT1A-->
+<script>
+    function toggleSeccionadoraMT1A(tipo) {
+        let linha = document.querySelector(`#linha${tipo}`);
+    
+            if (linha) {
+                // Se a linha está na posição vertical (fechada), alteramos para inclinada (aberta)
+                if (linha.getAttribute("x2") === "340") {
+                    linha.setAttribute("x2", "360"); // Move para direita (linha inclinada)
+                    linha.setAttribute("y2", "118");
+                } else {
+                    // Se a linha já está inclinada, voltamos para vertical (fechada)
+                    linha.setAttribute("x2", "340");
+                    linha.setAttribute("y2", "118");
+                }
+            } else {
+                // Criamos a linha inicial como fechada (vertical)
+                linha = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                linha.setAttribute("id", "linha" + tipo);
+                linha.setAttribute("stroke", "red");
+                linha.setAttribute("stroke-width", "4");
+                linha.setAttribute("x1", "340");
+                linha.setAttribute("y1", "152");
+                linha.setAttribute("x2", "360");
+                linha.setAttribute("y2", "118");
+    
+                document.getElementById("diagrama").appendChild(linha);
+            }
+        }
+</script>
+
+<!-- Seccionadora 89MT1B-->
+<script>
+function toggleSeccionadoraMT1B(tipo) {
+    let linha = document.querySelector(`#linha${tipo}`);
+
+        if (linha) {
+            // Se a linha está na vertical (fechada), alteramos para inclinada (aberta)
+            if (linha.getAttribute("x2") === "428") {
+                linha.setAttribute("x2", "448"); // Move para direita (linha inclinada)
+                linha.setAttribute("y2", "118");
+            } else {
+                // Se a linha já está inclinada, voltamos para vertical (fechada)
+                linha.setAttribute("x2", "428");
+                linha.setAttribute("y2", "118");
+            }
+        } else {
+            // Criamos a linha inicial como fechada (vertical)
+            linha = document.createElementNS("http://www.w3.org/2000/svg", "line");
+            linha.setAttribute("id", "linha" + tipo);
+            linha.setAttribute("stroke", "red");
+            linha.setAttribute("stroke-width", "4");
+            linha.setAttribute("x1", "428");
+            linha.setAttribute("y1", "152");
+            linha.setAttribute("x2", "448");
+            linha.setAttribute("y2", "118");
+
+            document.getElementById("diagrama").appendChild(linha);
+    }
+}
+</script>
+
+<!-- Seccionadora 89L1A-->
+<script>
+    function toggleSeccionadoraL1A(tipo) {
+        let linha = document.querySelector(`#linha${tipo}`);
+    
+            if (linha) {
+                // Se a linha está na posição vertical (fechada), alteramos para inclinada (aberta)
+                if (linha.getAttribute("x2") === "489") {
+                    linha.setAttribute("x2", "509"); // Move para direita (linha inclinada)
+                    linha.setAttribute("y2", "118");
+                } else {
+                    // Se a linha já está inclinada, voltamos para vertical (fechada)
+                    linha.setAttribute("x2", "489");
+                    linha.setAttribute("y2", "118");
+                }
+            } else {
+                // Criamos a linha inicial como fechada (vertical)
+                linha = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                linha.setAttribute("id", "linha" + tipo);
+                linha.setAttribute("stroke", "red");
+                linha.setAttribute("stroke-width", "4");
+                linha.setAttribute("x1", "489");
+                linha.setAttribute("y1", "152");
+                linha.setAttribute("x2", "509");
+                linha.setAttribute("y2", "118");
+    
+                document.getElementById("diagrama").appendChild(linha);
+        }
+    }
+</script>
+
+<!-- Seccionadora 89L1B-->
+<script>
+function toggleSeccionadoraL1B(tipo) {
+    let linha = document.querySelector(`#linha${tipo}`);
+
+    if (linha) {
+            // Se a linha está na vertical (fechada), alteramos para inclinada (aberta)
+            if (linha.getAttribute("x2") === "576") {
+                linha.setAttribute("x2", "596"); // Move para direita (linha inclinada)
+                linha.setAttribute("y2", "118");
+            } else {
+                // Se a linha já está inclinada, voltamos para vertical (fechada)
+                linha.setAttribute("x2", "576");
+                linha.setAttribute("y2", "118");
+            }
+        } else {
+            // Criamos a linha inicial como fechada (vertical)
+            linha = document.createElementNS("http://www.w3.org/2000/svg", "line");
+            linha.setAttribute("id", "linha" + tipo);
+            linha.setAttribute("stroke", "red");
+            linha.setAttribute("stroke-width", "4");
+            linha.setAttribute("x1", "576");
+            linha.setAttribute("y1", "152");
+            linha.setAttribute("x2", "596");
+            linha.setAttribute("y2", "118");
+
+            document.getElementById("diagrama").appendChild(linha);
+    }
+}
+</script>
+
+<!-- Seccionadora 89L2A-->
+<script>
+    function toggleSeccionadoraL2A(tipo) {
+        let linha = document.querySelector(`#linha${tipo}`);
+    
+    if (linha) {
+        // Se a linha está na posição vertical (fechada), alteramos para inclinada (aberta)
+        if (linha.getAttribute("x2") === "646") {
+            linha.setAttribute("x2", "666"); // Move para direita (linha inclinada)
+            linha.setAttribute("y2", "116");
+        } else {
+            // Se a linha já está inclinada, voltamos para vertical (fechada)
+            linha.setAttribute("x2", "646");
+            linha.setAttribute("y2", "116");
+        }
+    } else {
+        // Criamos a linha inicial como fechada (vertical)
+        linha = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        linha.setAttribute("id", "linha" + tipo);
+        linha.setAttribute("stroke", "red");
+        linha.setAttribute("stroke-width", "4");
+        linha.setAttribute("x1", "646");
+        linha.setAttribute("y1", "152");
+        linha.setAttribute("x2", "666");
+        linha.setAttribute("y2", "116");
+
+        document.getElementById("diagrama").appendChild(linha);
+        }
+    }
+</script>
+
+<!-- Seccionadora 89L2B-->
+<script>
+function toggleSeccionadoraL2B(tipo) {
+    let linha = document.querySelector(`#linha${tipo}`);
+
+    if (linha) {
+            // Se a linha está na vertical (fechada), alteramos para inclinada (aberta)
+            if (linha.getAttribute("x2") === "730") {
+                linha.setAttribute("x2", "750"); // Move para direita (linha inclinada)
+                linha.setAttribute("y2", "118");
+            } else {
+                // Se a linha já está inclinada, voltamos para vertical (fechada)
+                linha.setAttribute("x2", "730");
+                linha.setAttribute("y2", "118");
+            }
+        } else {
+            // Criamos a linha inicial como fechada (vertical)
+            linha = document.createElementNS("http://www.w3.org/2000/svg", "line");
+            linha.setAttribute("id", "linha" + tipo);
+            linha.setAttribute("stroke", "red");
+            linha.setAttribute("stroke-width", "4");
+            linha.setAttribute("x1", "730");
+            linha.setAttribute("y1", "152");
+            linha.setAttribute("x2", "750");
+            linha.setAttribute("y2", "118");
+
+            document.getElementById("diagrama").appendChild(linha);
+    }
+}
+</script>
+
+<!-- Seccionadora 89L1-->
+<script>
+    function toggleSeccionadoraL1(tipo) {
+        let linha = document.querySelector(`#linha${tipo}`);        
+    
+            if (linha) {
+                // Se a linha está na posição vertical (fechada), alteramos para inclinada (aberta)
+                if (linha.getAttribute("x2") === "535") {
+                    linha.setAttribute("x2", "555"); // Move para direita (linha inclinada)
+                    linha.setAttribute("y2", "280");
+                } else {
+                    // Se a linha já está inclinada, voltamos para vertical (fechada)
+                    linha.setAttribute("x2", "535");
+                    linha.setAttribute("y2", "280");
+                }
+            } else {
+                // Criamos a linha inicial como fechada (vertical)
+                linha = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                linha.setAttribute("id", "linha" + tipo);
+                linha.setAttribute("stroke", "red");
+                linha.setAttribute("stroke-width", "4");
+                linha.setAttribute("x1", "535");
+                linha.setAttribute("y1", "312");
+                linha.setAttribute("x2", "535");
+                linha.setAttribute("y2", "280");
+    
+                document.getElementById("diagrama").appendChild(linha);
+        }
+    }
+</script>
+
+<!-- Seccionadora 82L2-->
+<script>
+    function toggleSeccionadoraL2(tipo) {
+        let linha = document.querySelector(`#linha${tipo}`);        
+    
+            if (linha) {
+                // Se a linha está na posição vertical (fechada), alteramos para inclinada (aberta)
+                if (linha.getAttribute("x2") === "685") {
+                    linha.setAttribute("x2", "705"); // Move para direita (linha inclinada)
+                    linha.setAttribute("y2", "278");
+                } else {
+                    // Se a linha já está inclinada, voltamos para vertical (fechada)
+                    linha.setAttribute("x2", "685");
+                    linha.setAttribute("y2", "278");
+                }
+            } else {
+                // Criamos a linha inicial como fechada (vertical)
+                linha = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                linha.setAttribute("id", "linha" + tipo);
+                linha.setAttribute("stroke", "red");
+                linha.setAttribute("stroke-width", "4");
+                linha.setAttribute("x1", "685");
+                linha.setAttribute("y1", "312");
+                linha.setAttribute("x2", "685");
+                linha.setAttribute("y2", "278");
+    
+                document.getElementById("diagrama").appendChild(linha);
+        }
+    }
+</script>
+
+<!-- Seccionadora 89BTA-->
+<script>
+    function toggleSeccionadoraBTA(tipo) {
+        let linha = document.querySelector(`#linha${tipo}`);
+    
+    if (linha) {
+        // Se a linha está na posição vertical (fechada), alteramos para inclinada (aberta)
+        if (linha.getAttribute("x2") === "796") {
+            linha.setAttribute("x2", "816"); // Move para direita (linha inclinada)
+            linha.setAttribute("y2", "116");
+        } else {
+            // Se a linha já está inclinada, voltamos para vertical (fechada)
+            linha.setAttribute("x2", "796");
+            linha.setAttribute("y2", "116");
+        }
+    } else {
+        // Criamos a linha inicial como fechada (vertical)
+        linha = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        linha.setAttribute("id", "linha" + tipo);
+        linha.setAttribute("stroke", "red");
+        linha.setAttribute("stroke-width", "4");
+        linha.setAttribute("x1", "796");
+        linha.setAttribute("y1", "152");
+        linha.setAttribute("x2", "796");
+        linha.setAttribute("y2", "116");
+
+        document.getElementById("diagrama").appendChild(linha);
+        }
+    }
+</script>
+
+<!-- Seccionadora 89BTB-->
+<script>
+    function toggleSeccionadoraBTB(tipo) {
+        let linha = document.querySelector(`#linha${tipo}`);
+    
+        if (linha) {
+                // Se a linha está na vertical (fechada), alteramos para inclinada (aberta)
+                if (linha.getAttribute("x2") === "880") {
+                    linha.setAttribute("x2", "900"); // Move para direita (linha inclinada)
+                    linha.setAttribute("y2", "118");
+                } else {
+                    // Se a linha já está inclinada, voltamos para vertical (fechada)
+                    linha.setAttribute("x2", "880");
+                    linha.setAttribute("y2", "118");
+                }
+            } else {
+                // Criamos a linha inicial como fechada (vertical)
+                linha = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                linha.setAttribute("id", "linha" + tipo);
+                linha.setAttribute("stroke", "red");
+                linha.setAttribute("stroke-width", "4");
+                linha.setAttribute("x1", "880");
+                linha.setAttribute("y1", "152");
+                linha.setAttribute("x2", "880");
+                linha.setAttribute("y2", "118");
+    
+                document.getElementById("diagrama").appendChild(linha);
+        }
+    }
+    </script>
+
+<!-- Disjuntor 52MT2-->
+<script>
+    function toggleDisjuntorMT2(tipo) {
+        let botao = document.getElementById('btn' + tipo);
         
-                <!-- SECCIONADORAS DO TRANSFORMADOR T4 -->
-                <div class="panel" style="left: 600px; top: 60px; width: 3px; height: 70px;"></div>
-                <!-- SECCIONADORAS DO TRANSFORMADOR T3 -->
-                <div class="panel" style="left: 685px; top: 80px; width: 3px; height: 35px;"></div> <!-- SECCIONADORA SUPERIOR -->                
-                <div class="panel" style="left: 640px; top: 178px; width: 3px; height: 20px;"></div> <!-- SECCIONADORA INFERIOR -->               
-                <div class="panel" style="left: 600px; top: 153px; width: 3px; height: 25px;"></div>
-                <!-- SECCIONADORA 89 MT-3A / SECCIONADORA 89 MT-3B -->
-                <div class="panel" style="left: 600px; top: 175px; width: 88px; height: 3px;"></div>
-                <div class="panel" style="left: 685px; top: 153px; width: 3px; height: 25px;"></div> 
-                
-                <!-- TRANSFORMADOR T4 -->
-                <div class="panel" style="left: 640px; top: 240px; width: 3px; height: 43px;"></div>
-                <div class="panel orange" style="left: 640px; top: 322px; width: 3px; height: 114px;"></div>
-                <div class="panel orange" style="left: 575px; top: 435px; width: 130px; height: 3px;"></div>
-            </div>
+        if (botao) {
+            if (botao.style.fill === "red") {
+                botao.style.fill = "green"; // Muda para aberto (verde)
+          
+        } else {
+            // Criamos uma nova linha se ela ainda não existe           
+            botao.style.fill = "red";        
+    }
+}
+    }
+</script>
+
+<!-- Disjuntor 52MTR-->
+<script>
+    function toggleDisjuntorMTR(tipo) {
+        let botao = document.getElementById('btn' + tipo);
+       
+        if (botao) {
+            if (botao.style.fill === "red") {
+                botao.style.fill = "green"; // Muda para aberto (verde)
+          
+        } else {
+            // Criamos uma nova linha se ela ainda não existe           
+            botao.style.fill = "red";            
+    }
+}
+    }
+</script>
+
+<!-- Disjuntor 52MT1-->
+<script>
+    function toggleDisjuntorMT1(tipo) {
+        let botao = document.getElementById('btn' + tipo);
+       
+        if (botao) {
+            if (botao.style.fill === "red") {
+                botao.style.fill = "green"; // Muda para aberto (verde)
+          
+        } else {
+            // Criamos uma nova linha se ela ainda não existe           
+            botao.style.fill = "red";            
+    }
+}
+    }
+</script>
+
+<!-- Disjuntor 52L1-->
+<script>
+    function toggleDisjuntorL1(tipo) {
+        let botao = document.getElementById('btn' + tipo);
+       
+        if (botao) {
+            if (botao.style.fill === "red") {
+                botao.style.fill = "green"; // Muda para aberto (verde)
+          
+        } else {
+            // Criamos uma nova linha se ela ainda não existe           
+            botao.style.fill = "red";            
+    }
+}
+    }
+</script>
+
+<!-- Disjuntor 52L2-->
+<script>
+    function toggleDisjuntorL2(tipo) {
+        let botao = document.getElementById('btn' + tipo);
+       
+        if (botao) {
+            if (botao.style.fill === "red") {
+                botao.style.fill = "green"; // Muda para aberto (verde)
+          
+        } else {
+            // Criamos uma nova linha se ela ainda não existe           
+            botao.style.fill = "red";            
+    }
+}
+    }
+</script>
+
+<!-- Disjuntor 52BT-->
+<script>
+    function toggleDisjuntorBT(tipo) {
+        let botao = document.getElementById('btn' + tipo);
+       
+        if (botao) {
+            if (botao.style.fill === "red") {
+                botao.style.fill = "green"; // Muda para aberto (verde)
+          
+        } else {
+            // Criamos uma nova linha se ela ainda não existe           
+            botao.style.fill = "red";            
+    }
+}
+    }
+</script>
+
+</div>
 </div>
     
 </body>
