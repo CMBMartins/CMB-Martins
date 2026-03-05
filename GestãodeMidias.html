@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gestão de Mídias - Shows e Filmes</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<style>
+    body {
+        font-family: Arial;
+        margin: 0;
+        background: #f2f2f2;
+    }
+
+    /* BARRA SUPERIOR */
+
+    .topo {
+        background: #2c3e50;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        font-size: 24px;
+    }
+
+    /* CONTAINER */
+
+    .container {
+        width: 900px;
+        margin: auto;
+        margin-top: 20px;
+    }
+
+    /* CARD */
+
+    .card {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 8px gray;
+        margin-bottom: 20px;
+    }
+
+    /* LOGO */
+
+    .logo {
+        text-align: center;
+    }
+
+    /* INPUTS */
+
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-top: 8px;
+    }
+
+    /* GRID FORM */
+
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    /* BOTÕES */
+
+    .botoes {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    button {
+        padding: 10px 15px;
+        margin: 5px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .salvar {
+        background: #27ae60;
+        color: white;
+    }
+
+    .limparCampos {
+        background: #f39c12;
+        color: white;
+    }
+
+    .buscarArtista {
+        background: #f37712;
+        color: white;
+    }
+
+    .listarTodos {
+        background: #2980b9;
+        color: white;
+    }
+
+    /* TABELA */
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
+
+    th {
+        background: #34495e;
+        color: white;
+    }
+</style>
+
+</head>
+
+<body>
+
+    <div class="topo">
+
+        <img src="Imagens/Carlos1.gif" width="30">
+        Gestão de Mídias - Shows e Filmes
+
+    </div>
+
+    <div class="container">
+
+        <div class="card">
+
+            <div class="logo">
+                <img src="Imagens/Carlos.png" width="250">
+            </div>
+
+            <h2>Cadastrar Mídia</h2>
+
+            <div class="grid">
+
+                <input type="text" id="titulo" placeholder="Título">
+
+                <input type="text" id="buscarArtista" placeholder="Artista">
+
+                <input type="text" id="anodelancamento" placeholder="Ano de Lançamento">
+
+                <input type="text" id="datadacompra" placeholder="Data da Compra">
+
+                <input type="text" id="situacao" placeholder="Situação">
+
+                <input type="text" id="tipo" placeholder="Tipo">
+
+                <input type="text" id="genero" placeholder="Gênero">
+
+            </div>
+
+            <div class="botoes">
+
+                <button class="salvar" onclick="salvar()">Salvar</button>
+
+                <button class="limparCampos" onclick="limparCampos()">Limpar</button>
+
+                <button class="buscarArtista" onclick="buscarArtista()">Buscar Artista</button>
+
+                <button class="listarTodos" onclick="listarTodos()">Listar Midias</button>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Lista de Shows e Filmes</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Título</th>
+                        <th>Artista</th>
+                        <th>Ano</th>
+                        <th>Situação</th>
+                        <th>Gênero</th>
+                        <th>Ação</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="tabelaShows">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        const api = "http://localhost:8084/shows";
+
+        function listarTodos() {
+
+            fetch(api)
+
+                .then(response => response.json())
+
+                .then(data => {
+
+                    const tabela = document.getElementById("tabelaShows");
+
+                    tabela.innerHTML = "";
+
+                    data.forEach(show => {
+
+                        tabela.innerHTML += `
+<tr>
+<td>${show.id}</td>
+<td>${show.titulo}</td>
+<td>${show.artista}</td>
+<td>${show.anodelancamento}</td>
+<td>${show.situacao}</td>
+<td>${show.genero}</td>
+
+<td>
+<button class="btn btn-danger btn-sm"
+onclick="deletar(${show.id})">
+Excluir
+</button>
+</td>
+
+</tr>
+`;
+
+                    });
+
+                });
+
+        }
+
+
+        function salvar() {
+
+            const titulo = document.getElementById("titulo").value;
+            const artista = document.getElementById("artista").value;
+            const anodelancamento = document.getElementById("anodelancamento").value;
+            const datadacompra = document.getElementById("datadacompra").value;
+            const situacao = document.getElementById("situacao").value;
+            const tipo = document.getElementById("tipo").value;
+            const genero = document.getElementById("genero").value;
+
+            fetch(api, {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+
+                    titulo,
+                    artista,
+                    anodelancamento,
+                    datadacompra,
+                    situacao,
+                    tipo,
+                    genero
+
+                })
+
+            })
+
+                .then(response => response.json())
+
+                .then(data => {
+
+                    limparCampos();
+
+                    carregar();
+
+                });
+
+        }
+
+
+        function deletar(id) {
+
+            if (!confirm("Deseja excluir este registro?")) {
+                return;
+            }
+
+            fetch(`${api}/${id}`, {
+
+                method: "DELETE"
+
+            })
+
+                .then(() => carregar());
+
+        }
+
+
+        function buscarArtista() {
+
+            const artista = document.getElementById("buscarArtista").value;
+
+            fetch(`${api}/buscar?artista=${artista}`)
+
+                .then(response => response.json())
+
+                .then(data => {
+
+                    const tabela = document.getElementById("tabelaShows");
+
+                    tabela.innerHTML = "";
+
+                    if (data.length === 0) {
+
+                        tabela.innerHTML = `
+<tr>
+<td colspan="7">Nenhum resultado encontrado</td>
+</tr>
+`;
+
+                        return;
+                    }
+
+                    data.forEach(show => {
+
+                        tabela.innerHTML += `
+<tr>
+<td>${show.id}</td>
+<td>${show.titulo}</td>
+<td>${show.artista}</td>
+<td>${show.anodelancamento}</td>
+<td>${show.situacao}</td>
+<td>${show.genero}</td>
+
+<td>
+<button class="btn btn-danger btn-sm"
+onclick="deletar(${show.id})">
+Excluir
+</button>
+</td>
+
+</tr>
+`;
+
+                    });
+
+                });
+
+        }
+
+
+        function limparCampos() {
+            document.getElementById("titulo").value = "";
+            document.getElementById("artista").value = "";
+            document.getElementById("anodelancamento").value = "";
+            document.getElementById("datadacompra").value = "";
+            document.getElementById("situacao").value = "";
+            document.getElementById("tipo").value = "";
+            document.getElementById("genero").value = "";
+
+        }
+
+        carregar();
+
+    </script>
+
+</body>
+
+</html>
