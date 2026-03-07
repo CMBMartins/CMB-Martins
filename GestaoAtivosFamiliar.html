@@ -1,163 +1,122 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
-    <title>Gestão de Ativos Familiar </title>
-    <!-- Adiciona o Bootstrap -->
+    <title>Gestão de Ativos Familiar</title>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- Adiciona o jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- Adiciona o JavaScript do Bootstrap -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon" />
-  <link rel="stylesheet" href="styles/reset.css" />
-  <link rel="stylesheet" href="styles/vars.css" />
-  <link rel="stylesheet" href="styles/main-content.css" />
-  <link rel="stylesheet" href="styles/sidebar-footer.css" />
-  <link rel="stylesheet" href="styles/media-query.css" /> <!--Media queries devem ser chamados depois do CSS principal -->
-
-  <link rel="stylesheet" href="styles/reset.css" />
-  <link rel="stylesheet" href="styles/vars.css" />
-  <link rel="stylesheet" href="styles/media-query.css" />
-  <link rel="stylesheet" href="styles/main-content.css" />
-  <link rel="stylesheet" href="styles/sidebar-footer.css" />
-
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css"
-    integrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css"
-    integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous" />
-</head>
-<body>
-
-	<style>       
-
-        body {
-            background-color: #f3f3f3; /* Escolha a cor de fundo */
-        }
-    </style>
-	
-<div class="container">		
-	<div class="col">      
-	<img src="carlos2.png" alt="Logo da Minha Empresa" class="img-fluid">
-        <?php date_default_timezone_set('America/Sao_Paulo'); ?>
-        <?php $hoje = date('d/m/Y'); ?>
-        <?php $horaHoje = date("H:i:s"); ?>
-        <?php echo $hoje; ?><br>
-        <?php echo $horaHoje; ?><br>               
-	</div>
-	<div class="col align-self-center">
-	<h1 class="text-center">Gestão de Bens da Família Martins</h1>
-        <img src="Carlos.png" alt="Logo da Minha Empresa" class="img-fluid"><br><br>        
-			</div>
-            <a href="">        
-            <span class="fa fa-home"></span>            
-            <!--<img src="casa.png" alt="icone de configuração">-->
-            <a href="PaginaPessoal.html">
-            <span>Página Principal</span><br>
-        </a>
-	</div>
-	</div>
-  </script>
-  </head>
-<body>
-
-<!DOCTYPE html>
-<body>
-<div class="container">
-    <h3>Cadastrar ou Alterar Integrantes da Família Martins</h3>
-        
-        <label for="codigo">CPF:</label>
-        <input type="text" name="codigo" id="codigo" text>       
-        
-        <label for="integrante">Integrante:</label>
-        <input type="text" name="integrante" id="integrante" text>
-
-        <label for="contato">Contato Telefônico:</label>
-        <input type="text" name="contato" id="contato" text>
-
-        <label for="bem">Bem Cadastrado:</label>        
-        <input type="text" name="bem" id="bem" text><br>
-
-        <label for="documento">Documentos:</label>        
-        <input type="text" name="documento" id="documento" text><br><br>
-  
-        <div class="container">
-        <form action="GestaoAtivosFamiliar.php" method="post">                            
-        <form method="post">         
-        <!--<button type="submit" name="realizarLogin">REALIZAR LOGIN</button>-->
-        <!--<button type="submit" name="realizarLogin">REALIZAR LOGIN</button <br>  <p>VOCÊ PRECISA ESTAR LOGADO PARA UTILIZAR O SISTEMA!</p>-->    
-        
-        <form action="GestaoAtivosFamiliar.php" method="post">                            
-        <form method="post">         
-        <button type="submit" name="cadastrarIntegrante">CADASTRAR INTEGRANTE</button> 
-        <!--<button type="cadastrar">Cadastrar</button>-->
-
-        <form action="GestaoAtivosFamiliar.php" method="post">                            
-        <form method="post">         
-        <button type="submit" name="atualizarDados">ATUALIZAR DADOS</button>
-
-        <form method="post">         
-        <button type="submit" name="excluirDados">EXCLUIR DADOS</button>
-
-        <form method="post">         
-        <button type="submit" name="consultarIntegrante">Consultar INTEGRANTE</button>
-
-        <form method="post">         
-        <button type="submit" name="consultarCPF">Consultar por CPF</button>
-
-        <form method="post">         
-        <button type="submit" name="buscar">Consultar todos os Dados na Tabela</button><br><br>
- 
-    <title>GestaoAtivosFamiliar</title>
     <style>
-        /* Estilos para modais (mesmos estilos do exemplo anterior) */
-        .modal {
-            /* ... */
+        body {
+            background-color: #f6f6f6;
+            font-family: Arial;
         }
 
-        .modal-content {
-            /* ... */
+        .topo {
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
         }
 
-        .close {
-            /* ... */
+        .container {
+            max-width: 900px;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        form label {
+            margin-top: 10px;
+        }
+
+        button {
+            margin: 5px;
         }
     </style>
 
-    <h3>Lista dos Integrantes Familiares:</h3><br>
+</head>
 
-    <!-- Modais para exibir os itens -->
-    
-    <script>
-        // Função para abrir um modal
-        function abrirModal(codigo) {
-            var modal = document.getElementById("modal" + codigo);
-            modal.style.display = "block";
-        }
-
-        // Função para fechar um modal
-        function fecharModal(codigo) {
-            var modal = document.getElementById("modal" + codigo);
-            modal.style.display = "none";
-        }
-    </script>    
-
-
-<!DOCTYPE html>
 <body>
-<title>Login</title>
 
-<div class="container">
-    <h2>Login</h2>
-    <button type="submit" name="realizarLogin">REALIZAR LOGIN</button <br> <p>VOCÊ PRECISA ESTAR LOGADO PARA UTILIZAR O SISTEMA!</p>
-            
-        <label for="usuario">Usuário:</label>
-        <input type="text" name="usuario" id="usuario" required>
+    <div class="topo">
 
-        <label for="senha">Senha:</label>
-        <input type="password" name="senha" id="senha" required><br><br>
+        <img src="Imagens/Carlos1.gif" width="50">
+        Gestão de Contatos Pessoais
+    </div>
 
-</div>
+    <a href="PaginaPessoal.html" class="btn btn-default">
+        <span class="glyphicon glyphicon-home"></span> Página Principal
+    </a>
+
+    <div class="container">
+
+        <div class="card">
+
+            <div class="logo">
+                <img src="Imagens/Carlos.png" width="250">
+            </div>
+
+            <h2>Cadastrar ou Alterar Integrantes</h2>
+
+            <form id="formIntegrantes">
+
+                <label>CPF</label>
+                <input type="text" id="codigo" class="form-control">
+
+                <label>Integrante</label>
+                <input type="text" id="integrante" class="form-control">
+
+                <label>Contato Telefônico</label>
+                <input type="text" id="contato" class="form-control">
+
+                <label>Bem Cadastrado</label>
+                <input type="text" id="bem" class="form-control">
+
+                <label>Documentos</label>
+                <input type="text" id="documento" class="form-control">
+
+                <br>
+
+                <button type="button" class="btn btn-success">Cadastrar Integrante</button>
+
+                <button type="button" class="btn btn-primary">Atualizar Dados</button>
+
+                <button type="button" class="btn btn-danger">Excluir Dados</button>
+
+                <button type="button" class="btn btn-info">Consultar Integrante</button>
+
+                <button type="button" class="btn btn-warning">Consultar CPF</button>
+
+                <button type="button" class="btn btn-default">Consultar Todos</button>
+
+                <button type="reset" class="btn btn-default">Limpar Formulário</button>
+
+            </form>
+
+            <hr>
+
+            <h3>Login do Sistema</h3>
+
+            <form>
+
+                <label>Usuário</label>
+                <input type="text" class="form-control">
+
+                <label>Senha</label>
+                <input type="password" class="form-control">
+
+                <br>
+
+                <button class="btn btn-primary">Realizar Login</button>
+
+            </form>
+
+        </div>
+
 </body>
+
 </html>

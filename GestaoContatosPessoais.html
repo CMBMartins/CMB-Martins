@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>Gestão de Contatos Pessoais </title>
@@ -11,187 +12,151 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon" />
-  <link rel="stylesheet" href="styles/reset.css" />
-  <link rel="stylesheet" href="styles/vars.css" />
-  <link rel="stylesheet" href="styles/main-content.css" />
-  <link rel="stylesheet" href="styles/sidebar-footer.css" />
-  <link rel="stylesheet" href="styles/media-query.css" /> <!--Media queries devem ser chamados depois do CSS principal -->
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/vars.css" />
+    <link rel="stylesheet" href="styles/main-content.css" />
+    <link rel="stylesheet" href="styles/sidebar-footer.css" />
+    <link rel="stylesheet" href="styles/media-query.css" />
+    <!--Media queries devem ser chamados depois do CSS principal -->
 
 
-  <link rel="stylesheet" href="styles/reset.css" />
-  <link rel="stylesheet" href="styles/vars.css" />
-  <link rel="stylesheet" href="styles/media-query.css" />
-  <link rel="stylesheet" href="styles/main-content.css" />
-  <link rel="stylesheet" href="styles/sidebar-footer.css" />
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/vars.css" />
+    <link rel="stylesheet" href="styles/media-query.css" />
+    <link rel="stylesheet" href="styles/main-content.css" />
+    <link rel="stylesheet" href="styles/sidebar-footer.css" />
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css"
-    integrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css"
-    integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous" />
-</head>
-<body>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css"
+        integrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css"
+        integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous" />
 
-	<style>       
-
+    <style>
         body {
-            background-color: #f3f3f3; /* Escolha a cor de fundo */
+            background-color: #f6f6f6;
+        }
+
+        .topo {
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .container {
+            margin-top: 30px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        .form-control {
+            margin-bottom: 10px;
+        }
+
+        .botoes {
+            margin-top: 20px;
+        }
+
+        .botoes button {
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        img {
+            max-width: 150px;
+            display: block;
+            margin: auto;
         }
     </style>
-	
-<div class="container">		
-	<div class="col">      
-	<img src="carlos2.png" alt="Logo da Minha Empresa" class="img-fluid">
-        <?php date_default_timezone_set('America/Sao_Paulo'); ?>
-        <?php $hoje = date('d/m/Y'); ?>
-        <?php $horaHoje = date("H:i:s"); ?>
-        <?php echo $hoje; ?><br>
-        <?php echo $horaHoje; ?><br>
-        
-	</div>
-	<div class="col align-self-center">
-	<h1 class="text-center">Gestão de Contatos Pessoais</h1>
-        <img src="Carlos.png" alt="Logo da Minha Empresa" class="img-fluid">        
-			</div>
-            <a href="">        
-            <span class="fa fa-home"></span>            
-            <!--<img src="casa.png" alt="icone de configuração">-->
-            <a href="PaginaPessoal.html">
-            <span>Página Principal</span><br>
-            </a>
-		</div>
-	</div>
-  </script>
+
 </head>
+
 <body>
+    <div class="topo">
 
+        <img src="Imagens/Carlos1.gif" width="50">
+        Gestão de Contatos Pessoais
+    </div>
 
+    <a href="PaginaPessoal.html" class="btn btn-default">
+        <span class="glyphicon glyphicon-home"></span> Página Principal
+    </a>
 
-            <!-- Aqui você pode adicionar o formulário HTML existente -->
-            <div class="container">      
-            <form action="GestaoContatosPessoais.php" method="post">                                       
-            <label for="codigo">Código:</label>                    
-            <input type="text" class="form-control" name="codigo" class="codigo" text><br> 
-            
-            <form action="GestaoContatosPessoais.php" method="post">            
-            <label for="nome">Nome:</label>
-            <input type="text" class="form-control" name="nome" class="nome" text><br>
-            
-            <form action="GestaoContatosPessoais.php" method="post">           
-            <label for="">Telefone:</label>
-            <input type="text" class="form-control" name="telefone" class="telefone" text><br>
+    <div class="container">
 
-            <form action="GestaoContatosPessoais.php" method="post">           
-            <label for="">Endereço:</label>
-            <input type="text" class="form-control" name="endereço" class="endereço" text><br>
+        <div class="card">
 
+            <div class="logo">
+                <img src="Imagens/Carlos.png" width="250">
             </div>
 
-        <!--Cria o botão para inserir dados na Tabela e dá ação ao método Post-->
-        <div class="container">
-        <form action="GestaoContatosPessoais.php" method="post">                            
-        <form method="post">         
-        <button type="submit" name="inserir">Inserir Dados na Tabela</button>         
-       
-         <!--Cria o botão para atualizar dados na Tabela e dá ação ao método Post-->         
-         <form action="GestaoContatosPessoais.php" method="post">        
-        <form method="post">
-        <button type="submit" name="atualizar">Atualizar Dados na Tabela</button>           
-       
-        <!--Cria o botão para apagar dados na Tabela e dá ação ao método Post-->        
-        <form method="post">
-        <form action="GestaoContatosPessoais.php" method="post"> 
-         <button type="submit" name="apagar">Excluir Dados na Tabela</button>
-         
-         <!--Cria o botão para consultar um valor na tabela (código) e dá ação ao método Post-->
-        <form action="GestaoContatosPessoais.php" method="post">         
-        <form method="post">
-        <button type="submit" name="consultaporcodigo">Consultar por Código</button>        
+            <h1 class="text-center">Cadastrar Contatos Pessoais</h1>
 
-        <!--Cria o botão para consultar um valor na tabela (artista) e dá ação ao método Post-->
-        <form action="GestaoContatosPessoais.php" method="post">         
-        <form method="post">
-        <button type="submit" name="consultapornome">Consultar por Nome</button>
+            <form id="formulario" action="GestaoContatosPessoais.php" method="post">
 
-        <!--Cria o botão para consultar todos os dados no Formulário pelo genero-->
-        <form action="GestaoContatosPessoais.php" method="post">         
-        <form method="post">        
-        <button type="submit" name="consultaportelefone">Consultar por Telefone</button>
+                <label>Código</label>
+                <input type="text" class="form-control" name="codigo">
 
-        <!--Cria o botão para consultar todos os dados no Formulário pelo genero-->
-        <form action="GestaoContatosPessoais.php" method="post">         
-        <form method="post">        
-        <button type="submit" name="consultaporendereço">Consultar por Endereço</button>
+                <label>Nome</label>
+                <input type="text" class="form-control" name="nome">
 
-        <!--Cria o botão para consultar todos os dados na tabela e dá ação ao método Post-->
-        <form action="GestaoContatosPessoais.php" method="post">         
-        <form method="post">
-        <button type="submit" name="buscar">Consultar todos os Dados da Tabela</button>
+                <label>Telefone</label>
+                <input type="text" class="form-control" name="telefone">
 
-        <!--Cria o botão para apagar todos os dados no Formulário-->
-        <form action="GestaoContatosPessoais.php" method="post">         
-        <form method="post">        
-        <button type="submit" name="limpar">Apagar os Dados do Formulário</button><br>
-        
-        <!--Cria o botão para apagar todos os dados no Formulário-->
-        <form action="GestaoContatosPessoais.php" method="post">         
-        <form method="post">            
-        
-        <!--<a href="">        
-            <span class="fa fa-home"></span>            
-            <img src="Imagens/casa.png" alt="icone de configuração">
-            <a href="PaginaPessoal.html">
-            <span>Página Principal</span><br>
-            </a>-->
+                <label>Endereço</label>
+                <input type="text" class="form-control" name="endereco">
 
-<head>
-    <title>Gestao de Contatos Pessoais</title>
-    <style>
-        /* Estilos para modais (mesmos estilos do exemplo anterior) */
-        .modal {
-            /* ... */
-        }
+                <div class="botoes">
 
-        .modal-content {
-            /* ... */
-        }
+                    <button class="btn btn-primary" type="submit" name="inserir">
+                        Inserir
+                    </button>
 
-        .close {
-            /* ... */
-        }
-    </style>
+                    <button class="btn btn-warning" type="submit" name="atualizar">
+                        Atualizar
+                    </button>
 
-    <h3>Lista dos Contatos Pessoais:</h3>
+                    <button class="btn btn-danger" type="submit" name="apagar" onclick="return confirmarExclusao()">
+                        Excluir
+                    </button>
 
-    
-    <script>
-        // Função para abrir um modal
-        function abrirModal(codigo) {
-            var modal = document.getElementById("modal" + codigo);
-            modal.style.display = "block";
-        }
+                    <button class="btn btn-info" type="submit" name="consultaporcodigo">
+                        Consultar Código
+                    </button>
 
-        // Função para fechar um modal
-        function fecharModal(codigo) {
-            var modal = document.getElementById("modal" + codigo);
-            modal.style.display = "none";
-        }
-        //exit(); 
-    </script>
+                    <button class="btn btn-info" type="submit" name="consultapornome">
+                        Consultar Nome
+                    </button>
 
-<!DOCTYPE html>
-<title>Login</title>
-</head>
-<body>
-<div class="container">
-    <h2>Login</h2>
-    <button type="submit" name="autenticarusuario">REALIZAR LOGIN</button <br> <p>VOCÊ PRECISA ESTAR LOGADO PARA UTILIZAR O SISTEMA!</p>
-   
-        <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
-        <label for="usuario">Usuário:</label>
-        <input type="text" name="usuario" id="usuario" required>
+                    <button class="btn btn-success" type="submit" name="consultaTabela">
+                        Consultar Todos
+                    </button>
 
-        <label for="senha">Senha:</label>
-        <input type="password" name="senha" id="senha" required><br><br>
+                    <button class="btn btn-default" type="button" onclick="limparFormulario()">
+                        Limpar
+                    </button>
+
+                </div>
+
+            </form>
+            <script src="scripts/formulario.js">
+                function confirmarExclusao() {
+                    return confirm("Deseja realmente excluir este contato?");
+                }
+
+                function limparFormulario() {
+                    document.getElementById("formulario").reset();
+                }
+
+                function mensagem(texto) {
+                    alert(texto);
+                }
+            </script>
+        </div>
 
 </body>
+
 </html>

@@ -1,429 +1,286 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    
-<meta charset="UTF-8">
-    <title>Página Pessoal </title>
-    <!-- Adiciona o Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- Adiciona o jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- Adiciona o JavaScript do Bootstrap -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="styles/reset.css" />
-    <link rel="stylesheet" href="styles/vars.css" />
-    <link rel="stylesheet" href="styles/main-content.css" />
-    <link rel="stylesheet" href="styles/sidebar-footer.css" />
-    <link rel="stylesheet" href="styles/media-query.css" /> <!--Media queries devem ser chamados depois do CSS principal -->
+    <meta charset="UTF-8">
+    <title>Página Pessoal - Carlos Martins</title>
 
-
-  <link rel="stylesheet" href="styles/reset.css" />
-  <link rel="stylesheet" href="styles/vars.css" />
-  <link rel="stylesheet" href="styles/media-query.css" />
-  <link rel="stylesheet" href="styles/main-content.css" />
-  <link rel="stylesheet" href="styles/sidebar-footer.css" />
-
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css"
-    integrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css"
-    integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/estilo.css">
 
 </head>
-<body>
-<div class="container">		
-		
-</div> 
-</head>
-
-<body>
-<title>Minha Página Pessoal</title>
-    <style>
-        body {
-            background-color: #f3f3f3; /* Escolha a cor de fundo */
-            font-family: Arial;
-            margin: 0;
-            padding: 0;
-        }     
-    
-        header {
-            background-color: #444;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-        
-        nav {
-            background-color: #333;
-            color: #ffffff;
-            padding: 5px;
-            display: flex;
-            justify-content: center;
-        }
-        
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            padding: 8px 16px;
-        }
-        
-        nav a:hover {
-            background-color: #f9f9f9;
-        }
-        
-        section {
-            padding: 20px;
-        }
-        
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        #banner {
-    width: 100%;
-    transition: opacity 1s;
-    opacity: 0;
-}
-
-#banner.fade-in {
-    opacity: 1;
-}
-
-    </style>
-    </head>
-    
-<body>
-    <header>
-        <h5>PÁGINA PESSOAL</h5>   
-        <?php date_default_timezone_set('America/Sao_Paulo'); ?>
-        <?php $hoje = date('d/m/Y'); ?>
-        <?php $horaHoje = date("H:i:s"); ?>
-        <?php echo $hoje; ?>
-        <?php echo $horaHoje; ?>            	
-
-    </header>    
-    <nav>
-
-    <img src="carlos1.png" alt="Logo da Minha Empresa" class="img-fluid">
-    <div class="dropdown">
-        <!--<button>Selecione uma Aplicação</button>-->         
-        <!--<button type="submit" class="btn btn-primary">APLICATIVOS DE GESTÃO</button>-->
-        <h4><a href="#">APLICATIVOS DE GESTÃO</a></h4>     
-        <div class="dropdown-content">
-        <a href="GestãodeMidias.html">Midias de Shows e Filmes</a><br>
-        <a href="ControleProjetosCONSULTA.html">PROJETOS ELÉTRICOS</a><br> 
-        <a href="GestaoAtivosFamiliar.html">ATIVOS FAMILIAR</a><br>
-        <a href="GestaoContatosPessoais.html">CONTATOS PESSOAIS</a>        
-        </div>
-    </div>
-    <div class="dropdown">
-        <!--<button>Selecione uma Aplicação</button>-->
-        <h4><a href= "#">APLICATIVOS ELÉTRICOS</a></h4>
-        <div class="dropdown-content">
-        <a href="CalculosdeProjetoEletrico.html">CÁLCULOS DE PROJETOS ELÉTRICOS</a><br>
-        <a href="CalculosEletricos.html">CÁLCULOS ELETRICOS</a><br>
-        <a href="Painel230.html">DIAGRAMA UNIFILAR DO SISTEMA ELÉTRICO</a><br>
-        <a href="simuladorALBRAS.html">SIMULADOR DO SISTEMA ELÉTRICO DA ALBRAS</a><br>         
-        </div>
-        </div>
-    
-    <div class="dropdown">
-        <!--<button>Selecione uma Aplicação</button>-->
-        <h4><a href="#" >GESTÃO DE USUÁRIOS</a></h4>
-        <div class="dropdown-content">
-        <a href="ControleUsuarios.html">GESTÃO DE USUÁRIOS</a><br>
-        <a href="autenticarUsuario.html">LOGIN DE USUÁRIOS</a>      
-        </div>
-        </div>
-
-        <div class="dropdown">
-        <!--<button>Selecione uma Aplicação</button>-->
-        <h4><a href= "#" >ALBUM PESSOAL</a></h4>
-        <div class="dropdown-content">
-        <a href="AlbumPessoal.html">ALBUM PESSOAL</a>
-        </div>
-        </div>
-    
-    <div class="dropdown">
-        <h4><a href="apresentaçãoPessoal">SOBRE MIM</a>
-        <a href="AlbumPessoal">GALERIA</a>
-        <a href="Contato">CONTATO</a>
-        </div>
-        </div>
-    </nav><br><br>
-
-    <!--banner-->
-    <div class="container">
-        <h2>Carlos Mardônio Bezerra Martins</h2> 
-    <img src="Carlos.png" alt="Logo da Minha Empresa" class="img-fluid">
-    </div> 
-    <?php
-    $banners = [
-    "imagens/Carlos.png",
-    "imagens/Carlos.png",
-    "imagens/Carlos.png",
-    "imagens/Carlos.png",
-    "imagens/Carlos.png"
-];
-?>
 
 <style>
     body {
-        font-family: Arial, sans-serif;
         margin: 0;
-        padding: 0;
+        font-family: Arial;
+        background: #f4f4f4;
     }
-    
-    .banner-container {
-        position: relative;
-        width: 100%;
-        max-width: 800px; /* Ajuste conforme necessário */
-        margin: auto;
-        overflow: hidden;
+
+    header {
+        background: #333;
+        color: white;
+        padding: 15px;
+        text-align: center;
     }
-    
-    .banner-wrapper {
-        display: flex;
-        transition: transform 3s ease-in-out;
-        width: calc(100% * <?php echo count($banners); ?>); /* Largura total, considerando todos os banners */
+
+    nav {
+        background: #555;
+        text-align: center;
+        padding: 10px;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin: 10px;
+        padding: 8px 15px;
+    }
+
+    nav a:hover {
+        background: #ddd;
+        color: black;
     }
 
     .banner {
-        width: calc(100% / <?php echo count($banners); ?>); /* Cada banner ocupa a largura total do container */
-        flex-shrink: 0;
+        text-align: center;
+        background: black;
+    }
+
+    .banner img {
+        width: 100%;
+        max-height: 300px;
+        object-fit: cover;
+    }
+
+    .perfil {
+        display: flex;
+        padding: 30px;
+        align-items: center;
+        background: white;
+    }
+
+    .perfil img {
+        width: 200px;
+        border-radius: 10px;
+        margin-right: 30px;
+    }
+
+    .apps {
+        padding: 30px;
+        text-align: center;
+    }
+
+    .cards {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        background: white;
+        padding: 20px;
+        width: 220px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .card button {
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .card button:hover {
+        background: #0056b3;
+    }
+
+    footer {
+        background: #333;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        margin-top: 30px;
+    }
+
+    .barra-menu {
+        display: flex;
+        justify-content: center;
+        gap: 80px;
+        background: #666;
+        padding: 30px;
+        color: white;
+    }
+
+    .menu-item {
+        text-align: center;
+    }
+
+    .menu-item a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .menu-item a:hover {
+        color: yellow;
     }
 </style>
 
-    <!--end banner-->
+</head>
 
-    <!--acompanhe-->
-  <section class="box-acompanhe"></section>
-    <div class="container">
-    <section></section>
-
-    <form id="searchForm" onsubmit="search(event)">
-  <input type="text" id="searchQuery" placeholder="Digite sua pesquisa">
-  <button type="submit">
-    <span class="fa fa-search"></span> Buscar
-  </button>
-</form>
-
-<div id="searchResults"></div>
-
-<script>
-  async function search(event) {
-    event.preventDefault(); // Evita o envio padrão do formulário
-
-    const query = document.getElementById('searchQuery').value;
-    
-    if (query.trim() === "") {
-      alert("Digite uma palavra para buscar");
-      return;
-    }
-
-    try {
-      const response = await fetch('ApresentaçãoPessoal.php?query=' + encodeURIComponent(query));
-      const result = await response.text(); // Pode ser JSON ou HTML, dependendo do back-end
-      
-      // Atualiza o conteúdo com os resultados
-      document.getElementById('searchResults').innerHTML = result;
-    } catch (error) {
-      console.error('Erro ao buscar:', error);
-      document.getElementById('searchResults').innerHTML = "Erro ao realizar a pesquisa.";
-    }
-  }
-</script><br>
-
-      <div class="acompanhe">
-        <p><strong>Siga as Redes Sociais:</strong></p>
-        <a href="https://www.instagram.com/carlosmardoniomartins/" target="_blank"> <img src="instagram4.jpg" class="ico-redesocial"></a>       
-        <a href="http://www.youtube.com" target="_blank"> <img src="youtube.png" class="tv-ico"></a>
-        <a href="http://www.youtube.com/feed/playlists" target="_blank"> <img src="youtube1.png" class="tv-ico"> </a>
-        <a href="https://www.flickr.com" target="_blank"> <img src="flickr-ico.png" class="ico-redesocial"></a>
-        <a href="Contato.php" target="_blank"> <img src="carlos2.png" class="ico-redesocial"></a>
-      </div>
-
-    </div>
-  
-  <!--end acompanhe-->
-
-  <!--radio-->
-  
- <section class="box-radio"></section>
- <div class="container">
- <h2>Link para Rádio</h2> 
-   <!--<div class="container radio">-->
-       <div class="play-radio">
-            <button id="playButton">
-                <a href="https://www.radios.com.br/aovivo/radio-cbn-macapa-933-fm/33054" target="_blank"> <img src="cbn.png"class="icon"></a>
-                
-                  <!--<path d="youtube.png"></path>--> <!-- Ícone de play -->
-                </svg>
-            </button>
-            <a href="https://www.radios.com.br/aovivo/radio-cbn-macapa-933-fm/33054"></a>
-       </div>
-        <div class="info-radio">
-            <div class="aovivo">ao vivo</div>
-            <p>93.9 FM <strong>Rádio CBN Macapá</strong> </p>
-        </div>
-        </div>
-       
-<!--end radio-->
-    
-   
-    <div class="container">
-    <section></section>
-               
-        <h2>Seção de Conteúdo</h2>
-        <a href="">        
-            <h4><span class="fa fa-home"></span>           
-            <!--<img src="casa.png" alt="icone de Sidebar">-->
-            <a href="http://www.youtube.com/feed/playlists">You tube do Gestor da página</a>           
-        </a>
-        <h5><p>Este link encaminha para o youtube do gestor da página!</p></h5>
-        
-    <section></section>
-    <h2>Seção Pessoal</h2>
-    <a href="">        
-            <!--<h4><span class="fa fa-search"></span>-->
-            <h4><span class="fa fa-user"></span>            
-            <!--<img src="html.png" alt="icone de Sidebar">-->
-            <a href="https://www.instagram.com/carlosmardoniomartins/">Rede Social do Gestor da página</a>            
-        </a>
-        <h5><p>Este link encaminha para a rede social do gestor da página!</p></h5>
-
-        <section></section>
-        <h2>Aplicativos de Gestão:</h2>
-        <a href="">        
-            <h4><span class="fa fa-envelope"></span>          
-            <a href="GestãodeMidias.html">Mídias de Shows e Filmes</a><br>
-            <a href="">
-            <span class="fa fa-envelope"></span>
-            <a href="ControleProjetosCONSULTA.html">Projetos Elétricos</a><br>
-            <a href="">
-            <span class="fa fa-envelope"></span> 
-            <a href="GestaoAtivosFamiliar.html">Ativos Familiar</a><br>
-            <a href="">
-            <span class="fa fa-envelope"></span>
-            <a href="GestaoContatosPessoais.html">Contatos Pessoais</a><br>
-        </a>
-
-        <h2>Aplicativos Elétricos:</h2>
-        <a href="">        
-            <h4><span class="fa fa-star"></span>            
-            <a href="CalculosdeProjetoEletrico.html">Calculos de Projetos Elétricos</a><br>
-            <a href="">
-
-            <span class="fa fa-star"></span>
-            <a href="CalculosEletricos.html">Calculos Elétricos</a><br>
-            <a href="">
-
-            <span class="fa fa-star"></span>
-            <a href="Painel230.html">Diagrama Unifilar de Sistema Elétrico</a><br>
-            <a href="">
-                
-            <span class="fa fa-star"></span>
-            <a href="simuladorALBRAS.html">Simulador do Sistema Elétrico da ALBRAS</a><br>
-            <a href="">
-        </a>
-
-        <h2>Galeria de Imagens Pessoais:</h2>
-            <a href="">        
-            <h4><span class="fa fa-search"></span>                                 
-            <a href="AlbumPessoal.html">Galeria de Imagens:</a><br></h> 
-        </a><br>
-        
-    
-    <style>
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-        
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-    </style>
-
-<!--<h2>Galeria de Imagens:<h2>-->
-<section></section>
-     <div class="dropdown">
-     <h2>Destaques</h2>
-        <!--<button>Selecione uma Aplicação</button>-->
-        <button type="submit" class="btn "><strong>Pátio da Subestação de 230 KV</strong></button>
-        <div class="dropdown-content">          
-            <img src="patio.png" alt="Logo da Minha Empresa" class="img-fluid">
-        </div>
-        </div>
-   
-    <div class="dropdown">
-        <!--<button>Selecione uma Aplicação</button>-->
-        <button type="submit" class="btn "><strong>Tech Gov Forum Amapá</strong></button>
-        <div class="dropdown-content">           
-            <img src="TechGov.jpg" alt="Logo da Minha Empresa" class="img-fluid">
-        </div>
-        </div>
-
-    <div class="dropdown">
-        <!--<button>Selecione uma Aplicação</button>-->
-        <button type="submit" class="btn "><strong>Tech Gov Fórum Amapá</strong></button>
-        <div class="dropdown-content">           
-            <img src="TechGov1.jpg" alt="Logo da Minha Empresa" class="img-fluid">
-        </div>
-        </div>
-   
-    <div class="dropdown">
-        <!--<button>Selecione uma Aplicação</button>-->
-        <button type="submit" class="btn "><strong>Plano ALAP Digital</strong></button>
-        <div class="dropdown-content">            
-            <img src="ALAPDIGITAL.JPG" alt="Logo da Minha Empresa" class="img-fluid">
-        </div>
-        </div>
-    </div>
-    
 <body>
 
-    <style>
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-        
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-    </style><br><br><br>
+    <header>
 
-<section></section>
-    <img src="Carlos.png" alt="Logo da Minha Empresa" class="img-fluid">
+        <h2><img src="Imagens/carlos1.gif" width="30">
+            Página Pessoal</h2>
 
-    <footer>
-    <p><h5><img src="carlos2.png" alt="Logo da Minha Empresa" class="img-fluid">Desenvolvido por [Carlos Martins]</h5></p>
-    </footer>
-    
-</head>
-</body>   
+        <div id="dataHora">
+        </div>
+
+    </header>
+
+    <nav>
+
+        <div class="barra-menu">
+
+            <div class="menu-item">
+                <h2>Aplicativos de Gestão</h2>
+                <a href="GestãodeMidias.html">Mídias de Shows e Filmes</a><br>
+                <a href="GestãodeProjetos.html">Projetos Elétricos</a><br>
+                <a href="GestaoAtivosFamiliar.html">Ativos Familiar</a><br>
+                <a href="GestaoContatosPessoais.html">Contatos Pessoais</a>
+            </div>
+
+            <div class="menu-item">
+                <h2>Aplicativos Elétricos</h2>
+                <a href="CalculosdeProjetoEletrico.html">Cálculos de Projetos Elétricos</a><br>
+                <a href="CalculosEletrico.html">Cálculos Elétricos</a><br>
+                <a href="SimuladorAlbras.html">Simulador ALBRAS</a>
+            </div>
+
+            <div class="menu-item">
+                <h2>Galeria de Imagens</h2>
+                <a href="AlbumPessoal.html">Album Pessoal</a>
+            </div>
+
+        </div>
+
+        <section class="perfil">
+
+            <img src="Imagens/Carlos.png">
+
+            <div>
+
+                <h2>Carlos Mardônio Bezerra Martins</h2>
+
+                <p>
+                    Bem-vindo à minha página pessoal.
+                    Aqui estão disponíveis meus aplicativos de gestão,
+                    aplicativos elétricos e sistemas desenvolvidos.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section class="apps">
+
+            <h2>Meus Sistemas</h2>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Sistemas de Gestão</h3>
+                    <p>Controle de dados e relatórios.</p>
+                    <a href="GestãodeMidias.html">Mídias de Shows e Filmes</a><br>
+                    <a href="GestãodeProjetos.html">Projetos Elétricos</a><br>
+                    <a href="GestaoAtivosFamiliar.html">Ativos Familiar</a><br>
+                    <a href="GestaoContatosPessoais.html">Contatos Pessoais</a>
+                    <button>Acessar</button>
+                </div>
+
+                <div class="card">
+                    <h3>Simulador ALBRAS</h3>
+                    <p>Simulação de manobras elétricas.</p>
+                    <a href="CalculosdeProjetoEletrico.html">Cálculos de Projetos Elétricos</a><br>
+                    <a href="CalculosEletrico.html">Cálculos Elétricos</a><br>
+                    <a href="SimuladorAlbras.html">Simulador ALBRAS</a>
+                    <button>Acessar</button>
+                </div>
+
+                <div class="card">
+                    <h3>Cadastro de Usuários</h3>
+                    <p>Gerenciamento de usuários.</p>
+                    <a href="AlbumPessoal.html">Album Pessoal</a>
+                    <button>Acessar</button>
+                </div>
+
+            </div>
+
+        </section>
+
+        <footer>
+
+            <p>© 2026 Carlos Martins</p>
+
+        </footer>
+
+        <script src="js/script.js">
+
+            // DATA E HORA
+
+            function atualizarDataHora() {
+
+                const agora = new Date();
+
+                const data =
+                    agora.toLocaleDateString("pt-BR");
+
+                const hora =
+                    agora.toLocaleTimeString("pt-BR");
+
+                document.getElementById("dataHora").innerHTML =
+                    data + " " + hora;
+
+            }
+
+            setInterval(atualizarDataHora, 1000);
+
+            atualizarDataHora();
+
+
+            // BANNER AUTOMÁTICO
+
+            const banners = [
+                "imagens/banner1.png",
+                "imagens/banner2.png",
+                "imagens/banner1.png"
+            ];
+
+            let i = 0;
+
+            function trocarBanner() {
+
+                i++;
+
+                if (i >= banners.length) {
+                    i = 0;
+                }
+
+                document.getElementById("bannerImg").src =
+                    banners[i];
+
+            }
+
+            setInterval(trocarBanner, 4000);
+
+        </script>
+
+</body>
+
 </html>
-
-
-

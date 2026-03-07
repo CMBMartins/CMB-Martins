@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Gestão de Mídias - Shows e Filmes</title>
+    <title>Gestão de Projetos Elétricos</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -131,8 +131,8 @@
 
     <div class="topo">
 
-        <img src="Imagens/Carlos1.gif" width="30">
-        Gestão de Mídias - Shows e Filmes
+        <img src="Imagens/Carlos1.gif" width="50">
+        Gestão de Projetos Eletricos
     </div>
 
     <a href="PaginaPessoal.html" class="btn btn-default">
@@ -147,19 +147,19 @@
                 <img src="Imagens/Carlos.png" width="250">
             </div>
 
-            <h2>Cadastrar Mídia</h2>
+            <h2>Cadastrar Projetos DWG e outros</h2>
 
             <div class="grid">
 
                 <input type="text" id="titulo" placeholder="Título">
 
-                <input type="text" id="buscarArtista" placeholder="Artista">
+                <input type="text" id="cliente" placeholder="Cliente">
 
-                <input type="text" id="anodelancamento" placeholder="Ano de Lançamento">
+                <input type="text" id="tamanhodoimovel" placeholder="Tamanho do Imovel">
 
-                <input type="text" id="datadacompra" placeholder="Data da Compra">
+                <input type="text" id="valordoprojeto" placeholder="Valor do Projeto">
 
-                <input type="text" id="situacao" placeholder="Situação">
+                <input type="text" id="datadaentrega" placeholder="Data da Entrega">
 
                 <input type="text" id="tipo" placeholder="Tipo">
 
@@ -173,9 +173,9 @@
 
                 <button class="limparCampos" onclick="limparCampos()">Limpar</button>
 
-                <button class="buscarArtista" onclick="buscarArtista()">Buscar Artista</button>
+                <button class="cliente" onclick="cliente()">Buscar Cliente</button>
 
-                <button class="listarTodos" onclick="listarTodos()">Listar Midias</button>
+                <button class="listarTodos" onclick="listarTodos()">Listar Projetos</button>
 
             </div>
 
@@ -183,7 +183,7 @@
 
         <div class="card">
 
-            <h2>Lista de Shows e Filmes</h2>
+            <h2>Lista de Projetos</h2>
 
             <table>
 
@@ -193,17 +193,17 @@
 
                         <th>ID</th>
                         <th>Título</th>
-                        <th>Artista</th>
-                        <th>Ano</th>
-                        <th>Situação</th>
-                        <th>Gênero</th>
+                        <th>Cliente</th>
+                        <th>T.doImovel</th>
+                        <th>Valor</th>
+                        <th>DataEntrega</th>
                         <th>Ação</th>
 
                     </tr>
 
                 </thead>
 
-                <tbody id="tabelaShows">
+                <tbody id="tabelaProjetos">
 
                 </tbody>
 
@@ -215,7 +215,7 @@
 
     <script>
 
-        const api = "http://localhost:8084/shows";
+        const api = "http://localhost:8084/projetos";
 
         function listarTodos() {
 
@@ -225,7 +225,7 @@
 
                 .then(data => {
 
-                    const tabela = document.getElementById("tabelaShows");
+                    const tabela = document.getElementById("tabelaProjetos");
 
                     tabela.innerHTML = "";
 
@@ -235,14 +235,13 @@
 <tr>
 <td>${show.id}</td>
 <td>${show.titulo}</td>
-<td>${show.artista}</td>
-<td>${show.anodelancamento}</td>
-<td>${show.situacao}</td>
+<td>${show.cliente}</td>
+<td>${show.tamanhodoimovel}</td>
+<td>${show.valordoprojeto}</td>
 <td>${show.genero}</td>
 
 <td>
-<button class="btn btn-danger btn-sm"
-onclick="deletar(${show.id})">
+<button onclick="deletar(${show.id})">
 Excluir
 </button>
 </td>
@@ -260,10 +259,10 @@ Excluir
         function salvar() {
 
             const titulo = document.getElementById("titulo").value;
-            const artista = document.getElementById("artista").value;
-            const anodelancamento = document.getElementById("anodelancamento").value;
-            const datadacompra = document.getElementById("datadacompra").value;
-            const situacao = document.getElementById("situacao").value;
+            const cliente = document.getElementById("cliente").value;
+            const tamanhodoimovel = document.getElementById("tamanhodoimovel").value;
+            const valordoprojeto = document.getElementById("valordoprojeto").value;
+            const datadaentrega = document.getElementById("datadaentrega").value;
             const tipo = document.getElementById("tipo").value;
             const genero = document.getElementById("genero").value;
 
@@ -278,10 +277,10 @@ Excluir
                 body: JSON.stringify({
 
                     titulo,
-                    artista,
-                    anodelancamento,
-                    datadacompra,
-                    situacao,
+                    cliente,
+                    tamanhodoimovel,
+                    valordoprojeto,
+                    datadaentrega,
                     tipo,
                     genero
 
@@ -319,11 +318,11 @@ Excluir
         }
 
 
-        function buscarArtista() {
+        function cliente() {
 
-            const artista = document.getElementById("buscarArtista").value;
+            const cliente = document.getElementById("cliente").value;
 
-            fetch(`${api}/buscar?artista=${artista}`)
+            fetch(`${api}/buscar?cliente=${cliente}`)
 
                 .then(response => response.json())
 
@@ -350,14 +349,13 @@ Excluir
 <tr>
 <td>${show.id}</td>
 <td>${show.titulo}</td>
-<td>${show.artista}</td>
-<td>${show.anodelancamento}</td>
-<td>${show.situacao}</td>
+<td>${show.cliente}</td>
+<td>${show.tamanhodoimovel}</td>
+<td>${show.valordoprojeto}</td>
 <td>${show.genero}</td>
 
 <td>
-<button class="btn btn-danger btn-sm"
-onclick="deletar(${show.id})">
+<button onclick="deletar(${show.id})">
 Excluir
 </button>
 </td>
@@ -374,10 +372,10 @@ Excluir
 
         function limparCampos() {
             document.getElementById("titulo").value = "";
-            document.getElementById("artista").value = "";
-            document.getElementById("anodelancamento").value = "";
-            document.getElementById("datadacompra").value = "";
-            document.getElementById("situacao").value = "";
+            document.getElementById("cliente").value = "";
+            document.getElementById("tamanhodoimovel").value = "";
+            document.getElementById("valordoprojeto").value = "";
+            document.getElementById("datada entrega").value = "";
             document.getElementById("tipo").value = "";
             document.getElementById("genero").value = "";
 

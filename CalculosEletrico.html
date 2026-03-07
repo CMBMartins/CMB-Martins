@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Sistema de Cálculos Elétricos</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+<style>
+
+body{
+background:#f4f6f9;
+}
+
+header{
+background:#1f2d3d;
+color:white;
+padding:20px;
+text-align:center;
+margin-bottom:30px;
+}
+
+.card{
+box-shadow:0px 4px 10px rgba(0,0,0,0.15);
+}
+
+.resultado{
+font-size:22px;
+font-weight:bold;
+color:#0d6efd;
+margin-top:15px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h2><img src="Imagens/carlos1.gif" width="40">
+            Sistema de Cálculos de Projetos Elétricos</h2>
+<p>NBR 5410 - Dimensionamentos básicos</p>
+
+</header>
+
+
+<div class="container">
+
+<div class="row g-4">
+
+    <div class="home text-start">
+    <a href="PaginaPessoal.html" class="btn btn-secondary">
+    <i class="fa fa-home"></i> Página Principal
+    </a>
+</div>
+
+
+<!-- CALCULO DE ILUMINAÇÃO -->
+
+<div class="col-md-4">
+
+<div class="card p-4">
+
+<h4>Potência de Iluminação</h4>
+
+<label>Área do ambiente (m²)</label>
+
+<input type="number" id="area" class="form-control">
+
+<br>
+
+<button onclick="calcularLuz()" class="btn btn-primary w-100">
+Calcular
+</button>
+
+<div id="resultadoLuz" class="resultado"></div>
+
+</div>
+
+</div>
+
+
+
+<!-- TOMADAS COMUNS -->
+
+<div class="col-md-4">
+
+<div class="card p-4">
+
+<h4>Tomadas de Uso Comum</h4>
+
+<label>Perímetro do ambiente (m)</label>
+
+<input type="number" id="perimetro" class="form-control">
+
+<br>
+
+<button onclick="calcularTUG()" class="btn btn-success w-100">
+Calcular
+</button>
+
+<div id="resultadoTUG" class="resultado"></div>
+
+</div>
+
+</div>
+
+
+
+<!-- TOMADAS ESPECIAIS -->
+
+<div class="col-md-4">
+
+<div class="card p-4">
+
+<h4>Tomadas de Uso Especial</h4>
+
+<label>Perímetro do ambiente (m)</label>
+
+<input type="number" id="especial" class="form-control">
+
+<br>
+
+<button onclick="calcularTUE()" class="btn btn-warning w-100">
+Calcular
+</button>
+
+<div id="resultadoTUE" class="resultado"></div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<script>
+
+
+function calcularLuz(){
+
+let area = parseFloat(document.getElementById("area").value);
+
+let resultado;
+
+if(area <= 6){
+
+resultado = 100;
+
+}
+else{
+
+resultado = 100 + Math.ceil((area - 6) / 4) * 60;
+
+}
+
+document.getElementById("resultadoLuz").innerHTML =
+"Potência necessária: " + resultado + " VA";
+
+}
+
+
+
+function calcularTUG(){
+
+let perimetro = parseFloat(document.getElementById("perimetro").value);
+
+let resultado = Math.ceil(perimetro / 5);
+
+if(resultado < 1){
+resultado = 1;
+}
+
+document.getElementById("resultadoTUG").innerHTML =
+"Quantidade: " + resultado + " tomadas";
+
+}
+
+
+
+function calcularTUE(){
+
+let perimetro = parseFloat(document.getElementById("especial").value);
+
+let resultado = Math.ceil(perimetro / 3.5);
+
+if(resultado < 1){
+resultado = 1;
+}
+
+document.getElementById("resultadoTUE").innerHTML =
+"Quantidade: " + resultado + " tomadas";
+
+}
+
+</script>
+
+</body>
+
+</html>
