@@ -1,69 +1,108 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
+
 <meta charset="UTF-8">
-    <title>Página Pessoal </title>
-    <!-- Adiciona o Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- Adiciona o jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- Adiciona o JavaScript do Bootstrap -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>Página Pessoal</title>
 
-  <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon" />
-  <link rel="stylesheet" href="styles/reset.css" />
-  <link rel="stylesheet" href="styles/vars.css" />
-  <link rel="stylesheet" href="styles/main-content.css" />
-  <link rel="stylesheet" href="styles/sidebar-footer.css" />
-  <link rel="stylesheet" href="styles/media-query.css" /> <!--Media queries devem ser chamados depois do CSS principal -->
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-  <link rel="stylesheet" href="styles/reset.css" />
-  <link rel="stylesheet" href="styles/vars.css" />
-  <link rel="stylesheet" href="styles/media-query.css" />
-  <link rel="stylesheet" href="styles/main-content.css" />
-  <link rel="stylesheet" href="styles/sidebar-footer.css" />
+<!-- Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css"
-    integrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css"
-    integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous" />
+<link rel="shortcut icon" href="icons/favicon.png">
+
+<link rel="stylesheet" href="styles/reset.css">
+<link rel="stylesheet" href="styles/vars.css">
+<link rel="stylesheet" href="styles/main-content.css">
+<link rel="stylesheet" href="styles/sidebar-footer.css">
+<link rel="stylesheet" href="styles/media-query.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+<style>
+
+body{
+background:#f6f6f6;
+font-family:Arial;
+}
+
+.perfil-container{
+text-align:center;
+margin-top:60px;
+background:white;
+padding:40px;
+border-radius:10px;
+box-shadow:0px 4px 12px rgba(0,0,0,0.15);
+}
+
+.perfil-container h2{
+margin-bottom:20px;
+}
+
+.info{
+font-size:16px;
+margin:5px;
+}
+
+.btn-home{
+margin-top:20px;
+}
+
+footer{
+text-align:center;
+margin-top:40px;
+color:#777;
+}
+
+</style>
+
 </head>
+
 <body>
-	
-	<style>       
 
-        body {
-            background-color: #f3f3f3; /* Escolha a cor de fundo */
-        }
-    </style><br><br>
-	
-<div class="container">		
-	<div class="col">      
-	<img src="carlos2.png" alt="Logo da Minha Empresa" class="img-fluid">
+<div class="container">
 
-	<a href="">        
-            <span class="fa fa-home"></span>            
-            <!--<img src="casa.png" alt="icone de configuração">-->
-            <a href="PaginaPessoal.html">
-            <span>Página Principal</span><br>
-        </a>
-        
-	 <div class="container">       
-	<h2>Carlos Mardônio Bezerra Martins</h2>        
-	</div>
-        			
-        <img src="Carlos.png" alt="Logo da Minha Empresa" class="img-fluid">	
-			
+<div class="perfil-container">
+
+<h2>Carlos Mardônio Bezerra Martins</h2>
+
+<p class="info"><strong>Analista de TI</strong></p>
+
+<p class="info">
+Chefe da Divisão de Análise e Desenvolvimento de Sistemas da ALAP
+</p>
+
+<p class="info">
+<i class="fa fa-envelope"></i> cmardonioo@gmail.com
+</p>
+
+<p class="info">
+<i class="fa fa-phone"></i> (91) 98802-5000
+</p>
+
+<a href="PaginaPessoal.html" class="btn btn-primary btn-home">
+
+<i class="fa fa-home"></i> Página Principal
+
+</a>
+
+</div>
+
+</div>
+
+
 <footer>
-    <p>Carlos Mardônio Bezerra Martins</p>
-    <p>Analista e Desenvolvedor de TI</p>
-    <p>Chefe da Divisão de Análise e Desenvolvimento de Sistemas da ALAP</p>
-    <p>cmardonioo@gmail.com</p>
-    <p>(91) 98802-5000</p><br>
-    
-    </footer>
-    </div>			
-	</div>
-	    </div>
+
+<p>© 2026 - Carlos Martins</p>
+
+</footer>
+
+</body>
+
 </html>
