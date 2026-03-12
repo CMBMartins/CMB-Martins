@@ -131,7 +131,7 @@
 
     <div class="topo">
 
-        <img src="carlos1.gif" width="30">
+        <img src="Imagens/Carlos1.gif" width="30">
         Gestão de Mídias - Shows e Filmes
     </div>
 
@@ -144,22 +144,23 @@
         <div class="card">
 
             <div class="logo">
-                <img src="Carlos.png" width="250">
+                <img src="Imagens/Carlos.png" width="250">
             </div>
 
             <h2>Cadastrar Mídia</h2>
 
             <div class="grid">
+                <input type="hidden" id="id">
 
                 <input type="text" id="titulo" placeholder="Título">
 
-                <input type="text" id="buscarArtista" placeholder="Artista">
+                <input type="text" id="artista" placeholder="Artista">
 
-                <input type="text" id="anodelancamento" placeholder="Ano de Lançamento">
+                <input type="text" id="anodelançamento" placeholder="Ano de Lançamento">
 
                 <input type="text" id="datadacompra" placeholder="Data da Compra">
 
-                <input type="text" id="situacao" placeholder="Situação">
+                <input type="text" id="situaçao" placeholder="Situação">
 
                 <input type="text" id="tipo" placeholder="Tipo">
 
@@ -173,7 +174,7 @@
 
                 <button class="limparCampos" onclick="limparCampos()">Limpar</button>
 
-                <button class="buscarArtista" onclick="buscarArtista()">Buscar Artista</button>
+                <button class="artista" onclick="artista()">Buscar Artista</button>
 
                 <button class="listarTodos" onclick="listarTodos()">Listar Midias</button>
 
@@ -193,9 +194,9 @@
 
                         <th>ID</th>
                         <th>Título</th>
-                        <th>Artista</th>
-                        <th>Ano</th>
-                        <th>Situação</th>
+                        <th>Artista</th>                        
+                        <th>DataCompra</th>                        
+                        <th>Tipo</th>
                         <th>Gênero</th>
                         <th>Ação</th>
 
@@ -236,8 +237,8 @@
 <td>${show.id}</td>
 <td>${show.titulo}</td>
 <td>${show.artista}</td>
-<td>${show.anodelancamento}</td>
-<td>${show.situacao}</td>
+<td>${show.datadacompra}</td>
+<td>${show.tipo}</td>
 <td>${show.genero}</td>
 
 <td>
@@ -261,9 +262,9 @@ Excluir
 
             const titulo = document.getElementById("titulo").value;
             const artista = document.getElementById("artista").value;
-            const anodelancamento = document.getElementById("anodelancamento").value;
+            const anodelancamento = document.getElementById("anodelançamento").value;
             const datadacompra = document.getElementById("datadacompra").value;
-            const situacao = document.getElementById("situacao").value;
+            const situacao = document.getElementById("situaçao").value;
             const tipo = document.getElementById("tipo").value;
             const genero = document.getElementById("genero").value;
 
@@ -319,9 +320,9 @@ Excluir
         }
 
 
-        function buscarArtista() {
+        function artista() {
 
-            const artista = document.getElementById("buscarArtista").value;
+            const artista = document.getElementById("artista").value;
 
             fetch(`${api}/buscar?artista=${artista}`)
 
@@ -351,8 +352,8 @@ Excluir
 <td>${show.id}</td>
 <td>${show.titulo}</td>
 <td>${show.artista}</td>
-<td>${show.anodelancamento}</td>
-<td>${show.situacao}</td>
+<td>${show.datadacompra}</td>
+<td>${show.tipo}</td>
 <td>${show.genero}</td>
 
 <td>
@@ -375,9 +376,9 @@ Excluir
         function limparCampos() {
             document.getElementById("titulo").value = "";
             document.getElementById("artista").value = "";
-            document.getElementById("anodelancamento").value = "";
+            document.getElementById("anodelançamento").value = "";
             document.getElementById("datadacompra").value = "";
-            document.getElementById("situacao").value = "";
+            document.getElementById("situaçao").value = "";
             document.getElementById("tipo").value = "";
             document.getElementById("genero").value = "";
 
@@ -389,7 +390,4 @@ Excluir
 
 </body>
 
-
 </html>
-
-

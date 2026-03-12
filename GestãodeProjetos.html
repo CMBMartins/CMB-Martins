@@ -131,7 +131,7 @@
 
     <div class="topo">
 
-        <img src="carlos1.gif" width="50">
+        <img src="Imagens/Carlos1.gif" width="50">
         Gestão de Projetos Eletricos
     </div>
 
@@ -144,12 +144,13 @@
         <div class="card">
 
             <div class="logo">
-                <img src="Carlos.png" width="250">
+                <img src="Imagens/Carlos.png" width="250">
             </div>
 
             <h2>Cadastrar Projetos DWG e outros</h2>
 
             <div class="grid">
+                <input type="hidden" id="id">
 
                 <input type="text" id="titulo" placeholder="Título">
 
@@ -189,14 +190,14 @@
 
                 <thead>
 
-                    <tr>
-
-                        <th>ID</th>
+                    <tr>                        
                         <th>Título</th>
                         <th>Cliente</th>
                         <th>T.doImovel</th>
                         <th>Valor</th>
                         <th>DataEntrega</th>
+                        <th>Tipo</th>
+                        <th>Genero</th>
                         <th>Ação</th>
 
                     </tr>
@@ -217,12 +218,14 @@
 
         const api = "http://localhost:8084/projetos";
 
+        function carregar() {
+            //listarTodos();
+        }
+
         function listarTodos() {
 
             fetch(api)
-
                 .then(response => response.json())
-
                 .then(data => {
 
                     const tabela = document.getElementById("tabelaProjetos");
@@ -233,15 +236,22 @@
 
                         tabela.innerHTML += `
 <tr>
-<td>${show.id}</td>
 <td>${show.titulo}</td>
 <td>${show.cliente}</td>
 <td>${show.tamanhodoimovel}</td>
 <td>${show.valordoprojeto}</td>
+<td>${show.datadaentrega}</td>
+<td>${show.tipo}</td>
 <td>${show.genero}</td>
 
 <td>
-<button onclick="deletar(${show.id})">
+<button class="btn btn-danger btn-sm"
+onclick="editar(${show.id})">
+Editar
+</button>
+
+<button class="btn btn-danger btn-sm"
+onclick="deletar(${show.id})">
 Excluir
 </button>
 </td>
@@ -252,8 +262,9 @@ Excluir
                     });
 
                 });
-
         }
+
+        //window.onload = carregar;
 
 
         function salvar() {
@@ -265,6 +276,8 @@ Excluir
             const datadaentrega = document.getElementById("datadaentrega").value;
             const tipo = document.getElementById("tipo").value;
             const genero = document.getElementById("genero").value;
+
+            alert("Projeto salvo com sucesso!");
 
             fetch(api, {
 
@@ -294,26 +307,59 @@ Excluir
 
                     limparCampos();
 
-                    carregar();
+                    listarTodos();
 
                 });
 
         }
 
 
+        function editar() {
+        const id = document.getElementById("id").value;
+
+        const dados = {
+
+        titulo: document.getElementById("titulo").value,
+        cliente: document.getElementById("cliente").value,
+        tamanhodoimovel: document.getElementById("tamanhodoimovel").value,
+        valordoprojeto: document.getElementById("valordoprojeto").value,
+        datadaentrega: document.getElementById("datadaentrega").value,
+        tipo: document.getElementById("tipo").value,
+        genero: document.getElementById("genero").value
+
+    };
+
+    fetch(api + "/" + id, {
+
+        method: "PUT",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify(dados)
+
+    })
+
+    .then(() => {
+
+        alert("Dados atualizados com sucesso!");
+
+        limparCampos();
+
+        listarTodos();
+
+    });
+
+}
+
+
         function deletar(id) {
 
-            if (!confirm("Deseja excluir este registro?")) {
-                return;
-            }
-
-            fetch(`${api}/${id}`, {
-
+            fetch(api + "/" + id, {
                 method: "DELETE"
-
             })
-
-                .then(() => carregar());
+                .then(() => listarTodos())
 
         }
 
@@ -322,13 +368,13 @@ Excluir
 
             const cliente = document.getElementById("cliente").value;
 
-            fetch(`${api}/buscar?cliente=${cliente}`)
+            fetch("http://localhost:8084/projetos/buscar?cliente=" + encodeURIComponent(cliente))
 
                 .then(response => response.json())
 
                 .then(data => {
 
-                    const tabela = document.getElementById("tabelaShows");
+                    const tabela = document.getElementById("tabelaProjetos");
 
                     tabela.innerHTML = "";
 
@@ -347,22 +393,28 @@ Excluir
 
                         tabela.innerHTML += `
 <tr>
-<td>${show.id}</td>
+<td>${show.codigo}</td>
 <td>${show.titulo}</td>
 <td>${show.cliente}</td>
 <td>${show.tamanhodoimovel}</td>
 <td>${show.valordoprojeto}</td>
-<td>${show.genero}</td>
+<td>${show.datadaentrega}</td>
 
 <td>
-<button onclick="deletar(${show.id})">
+
+<button class="btn btn-danger btn-sm"
+onclick="editar(${show.id})">
+Editar
+</button>
+
+<button class="btn btn-danger btn-sm"
+onclick="deletar(${show.id})">
 Excluir
 </button>
 </td>
 
 </tr>
 `;
-
                     });
 
                 });
@@ -375,7 +427,7 @@ Excluir
             document.getElementById("cliente").value = "";
             document.getElementById("tamanhodoimovel").value = "";
             document.getElementById("valordoprojeto").value = "";
-            document.getElementById("datada entrega").value = "";
+            document.getElementById("datadaentrega").value = "";
             document.getElementById("tipo").value = "";
             document.getElementById("genero").value = "";
 
@@ -387,6 +439,4 @@ Excluir
 
 </body>
 
-
 </html>
-

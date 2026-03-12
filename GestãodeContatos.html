@@ -140,7 +140,7 @@
                 <img src="Imagens/Carlos.png" width="250">
             </div>
 
-            <h2>Cadastrar ou Alterar Integrantes</h2>
+            <h2>Cadastrar ou Alterar Contatos</h2>
 
             <div class="grid">
 
@@ -148,13 +148,12 @@
 
                 <input type="text" id="cpf" placeholder="CPF">
                 
-                <input type="text" id="integrante" placeholder="Integrante">
+                <input type="text" id="nome" placeholder="Nome">
                 
                 <input type="text" id="telefone" placeholder="Telefone">
                 
-                <input type="text" id="bemcadastrado" placeholder="Bem">
+                <input type="text" id="endereço" placeholder="Endereço">                
                 
-                <input type="text" id="documento" placeholder="Documento">
             </div>
 
             <div class="botoes">
@@ -167,12 +166,12 @@
                     <i class="fa fa-eraser"></i> Limpar
                 </button>
 
-                <button class="btn btn-primary" onclick="integrante()">
-                    <i class="fa fa-search"></i> Buscar Integrante
+                <button class="btn btn-primary" onclick="nome()">
+                    <i class="fa fa-search"></i> Buscar Nome
                 </button>
 
                 <button class="btn btn-info" onclick="listarTodos()">
-                    <i class="fa fa-list"></i> Listar Projetos
+                    <i class="fa fa-list"></i> Listar Nomes
                 </button>
 
             </div>
@@ -196,7 +195,7 @@
 
             <div class="card">
 
-                <h2>Lista de Familiares</h2>
+                <h2>Lista de Contatos</h2>
 
                 <table>
 
@@ -205,17 +204,16 @@
                         <tr>
                             
                             <th>CPF</th>
-                            <th>Integrante</th>
+                            <th>Nome</th>
                             <th>Telefone</th>
-                            <th>Bem Cadastrado</th>
-                            <th>Documento</th>
+                            <th>Endereço</th>                            
                             <th>Ação</th>
 
                         </tr>
 
                     </thead>
 
-                    <tbody id="tabelaFamilia">
+                    <tbody id="tabelaContato">
 
                     </tbody>
 
@@ -227,7 +225,7 @@
 
         <script>
 
-            const api = "http://localhost:8084/familia";
+            const api = "http://localhost:8084/contato";
 
             function carregar() {
                 //listarTodos();
@@ -239,7 +237,7 @@
                     .then(response => response.json())
                     .then(data => {
 
-                        const tabela = document.getElementById("tabelaFamilia");
+                        const tabela = document.getElementById("tabelaContato");
                         tabela.innerHTML = "";
 
                         data.forEach(show => {
@@ -248,10 +246,9 @@
 <tr>
 
 <td>${show.cpf}</td>
-<td>${show.integrante}</td>
+<td>${show.nome}</td>
 <td>${show.telefone}</td>
-<td>${show.bemcadastrado}</td>
-<td>${show.documento}</td>
+<td>${show.endereço}</td>
 
 <td>
 <button class="btn btn-danger btn-sm"
@@ -277,11 +274,10 @@ Excluir
             function salvar() {
 
                 const cpf = document.getElementById("cpf").value;
-                const integrante = document.getElementById("integrante").value;
+                const nome = document.getElementById("nome").value;
                 const telefone = document.getElementById("telefone").value;
-                const bemcadastrado = document.getElementById("bemcadastrado").value;
-                const documento = document.getElementById("documento").value;
-
+                const endereço = document.getElementById("endereço").value;
+                
                 fetch(api, {
 
                     method: "POST",
@@ -293,10 +289,9 @@ Excluir
                     body: JSON.stringify({
 
                         cpf,
-                        integrante,
+                        nome,
                         telefone,
-                        bemcadastrado,
-                        documento
+                        endereço,                       
 
                     })
 
@@ -362,25 +357,24 @@ Excluir
             function limparCampos() {
 
                 document.getElementById("cpf").value = "";
-                document.getElementById("integrante").value = "";
+                document.getElementById("nome").value = "";
                 document.getElementById("telefone").value = "";
-                document.getElementById("bemcadastrado").value = "";
-                document.getElementById("documento").value = "";
+                document.getElementById("endereço").value = "";                
 
             }
 
             //listarTodos();
 
-            function integrante() {
-            const integrante = document.getElementById("integrante").value;
+            function nome() {
+            const nome = document.getElementById("nome").value;
 
-            fetch("http://localhost:8084/familia/buscar?integrante=" + encodeURIComponent(integrante))
+            fetch("http://localhost:8084/contato/buscar?nome=" + encodeURIComponent(nome))
 
                 .then(response => response.json())
 
                 .then(data => {
 
-                    const tabela = document.getElementById("tabelaFamilia");
+                    const tabela = document.getElementById("tabelaContato");
 
                     tabela.innerHTML = "";
 
@@ -400,10 +394,9 @@ Excluir
                         tabela.innerHTML += `
 <tr>
 <td>${show.cpf}</td>
-<td>${show.integrante}</td>
+<td>${show.nome}</td>
 <td>${show.telefone}</td>
-<td>${show.bemcadastrado}</td>
-<td>${show.documento}</td>
+<td>${show.endereço}</td>
 
 <td>
 
