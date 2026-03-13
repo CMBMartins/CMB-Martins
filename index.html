@@ -1,321 +1,437 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Página Pessoal - Carlos Martins</title>
 
-<title>Página Pessoal - Carlos Martins</title>
+    <!-- Adiciona o Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Adiciona o jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Adiciona o JavaScript do Bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<link rel="icon" href="icons/favicon.png">
+    <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/vars.css" />
+    <link rel="stylesheet" href="styles/main-content.css" />
+    <link rel="stylesheet" href="styles/sidebar-footer.css" />
+    <link rel="stylesheet" href="styles/media-query.css" />
+    <!--Media queries devem ser chamados depois do CSS principal -->
 
-<!-- Bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css"
+        integrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css"
+        integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous" />
 
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-
-<!-- CSS -->
-<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/estilo.css">
 
 </head>
 
 <style>
-body{
-background:#f3f3f3;
-font-family:Arial;
-}
+    body {
+        margin: 0;
+        font-family: Arial;
+        background: #f4f4f4;
+    }
 
-.header{
-text-align:center;
-padding:80px;
-}
+    header {
+        background: #333;
+        color: white;
+        padding: 15px;
+        text-align: center;
+    }
 
-.perfil{
-width:50px;
-border-radius:50%;
-}
+    nav {
+        background: #555;
+        text-align: center;
+        padding: 10px;
+    }
 
-.perfil1{
-width:300px;
-border-radius:50%;
-}
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin: 10px;
+        padding: 8px 15px;
+    }
 
-.busca{
-text-align:center;
-margin:40px;
-}
+    nav a:hover {
+        background: #ddd;
+        color: black;
+    }
 
-.busca input{
-padding:8px;
-width:250px;
-}
+    .banner {
+        text-align: center;
+        background: black;
+    }
 
-.busca button{
-padding:8px 15px;
-}
+    .banner img {
+        width: 100%;
+        max-height: 350px;
+        object-fit: cover;
+    }
 
-.redes{
-text-align:center;
-margin:40px;
-}
+    .perfil {
+        display: flex;
+        padding: 30px;
+        align-items: center;
+        background: white;
+    }
 
-.redes img{
-width:50px;
-margin:10px;
-}
+    .perfil img {
+        width: 500px;
+        border-radius: 10px;
+        margin-right: 30px;
+    }
 
-.destaques img{
-width:100%;
-border-radius:5px;
-}
+    .apps {
+        padding: 30px;
+        text-align: center;
+    }
 
-.radio{
-text-align:center;
-margin:40px;
-}
+    .cards {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
 
-.radio-icon{
-width:80px;
-}
+    .card {
+        background: white;
+        padding: 20px;
+        width: 220px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 
-footer{
-background:#333;
-color:white;
-text-align:center;
-padding:15px;
-margin-top:40px;
-}
+    .card button {
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .card button:hover {
+        background: #0056b3;
+    }
+
+    footer {
+        background: #333;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        margin-top: 30px;
+    }
+
+    .barra-menu {
+        display: flex;
+        justify-content: center;
+        gap: 80px;
+        background: #666;
+        padding: 30px;
+        color: white;
+    }
+
+    .menu-item {
+        text-align: center;
+    }
+
+    .menu-item a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .menu-item a:hover {
+        color: yellow;
+    }
 </style>
+
+</head>
 
 <body>
 
-<!-- MENU -->
+    <header>
 
-<nav class="navbar navbar-inverse">
+        <h2><img src="Imagens/Carlos1.gif" width="30">
+            Página Pessoal</h2>
+    </header>
 
-<div class="container">
+    <nav>
 
-<div class="navbar-header">
-<img src="carlos1.gif" class="perfil">
-<a class="navbar-brand" href="#"></a>
-</div>
+        <body>
 
-<ul class="nav navbar-nav">
+            <div id="dataHora"></div>
 
-<li class="dropdown">
+            <script>
 
-<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-Aplicativos de Gestão
-<span class="caret"></span>
-</a>
+                function atualizarDataHora() {
 
-<ul class="dropdown-menu">
+                    const agora = new Date();
 
-<li><a href="GestãodeMidias.html">Mídias</a></li>
-<li><a href="ControleProjetosCONSULTA.html">Projetos Elétricos</a></li>
-<li><a href="GestaoAtivosFamiliar.html">Ativos Familiar</a></li>
-<li><a href="GestãodeContatos.html">Contatos</a></li>
+                    const data = agora.toLocaleDateString("pt-BR");
 
-</ul>
+                    const hora = agora.toLocaleTimeString("pt-BR");
 
-</li>
+                    document.getElementById("dataHora").innerHTML =
+                        data + " " + hora;
 
-<li class="dropdown">
+                }
 
-<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-Aplicativos Elétricos
-<span class="caret"></span>
-</a>
+                setInterval(atualizarDataHora, 1000);
 
-<ul class="dropdown-menu">
+                atualizarDataHora();
 
-<li><a href="CalculosdeProjetoEletrico.html">Projetos Elétricos</a></li>
-<li><a href="CalculosEletricos.html">Cálculos Elétricos</a></li>
-<li><a href="Painel230.html">Diagrama Unifilar</a></li>
-<li><a href="SimuladorAlbras.html">Simulador Albras</a></li>
+            </script>
 
-</ul>
+        </body>
 
-</li>
+        <div class="barra-menu">
 
-<li><a href="AlbumPessoal.html">Galeria</a></li>
-<li><a href="Contato.html">Contato</a></li>
+            <div class="menu-item">
+                <h2>Aplicativos de Gestão</h2>
+                <a href="GestãodeMidias.html">Mídias de Shows e Filmes</a><br>
+                <a href="GestãodeProjetos.html">Projetos Elétricos</a><br>
+                <a href="GestaoAtivosFamiliar.html">Ativos Familiar</a><br>
+                <a href="GestaoContatosPessoais.html">Contatos Pessoais</a>
+            </div>
 
-</ul>
+            <div class="menu-item">
+                <h2>Aplicativos Elétricos</h2>
+                <a href="CalculosdeProjetoEletrico.html">Cálculos de Projetos Elétricos</a><br>
+                <a href="CalculosEletricos.htmlp">Cálculos Elétricos</a><br>
+                <a href="telaMTS.html">Diagrama Unifilar</a><br>
+                <a href="SimuladorAlbras.html">Simulador ALBRAS</a>
+            </div>
 
-</div>
+            <div class="menu-item">
+                <h2>Galeria de Imagens</h2>
+                <a href="AlbumPessoal.html">Album Pessoal</a><br>
+                <a href="Contato.html">Meus Contatos</a>
+            </div>
 
-</nav>
+        </div>
 
+        <div class="banner">
+            <img id="bannerImg" src="imagens/banner1.JPG">
+        </div>
 
-<!-- HEADER -->
+        <script>
 
-<header class="header">
+            const banners = [
+                "Imagens/banner.JPG",
+                "Imagens/banner1.JPG",
+                "Imagens/monitor.JPG"
+            ];
 
-<h2>Carlos Mardônio Bezerra Martins</h2>
+            let i = 0;
 
-<img src="Carlos.png" class="perfil1">
+            function trocarBanner() {
 
-</header>
+                i++;
 
+                if (i >= banners.length) {
+                    i = 0;
+                }
 
-<!-- BUSCA -->
+                document.getElementById("bannerImg").src = banners[i];
 
-<div class="container busca">
+            }
 
-<form id="searchForm">
+            setInterval(trocarBanner, 4000);
 
-<input type="text" id="searchQuery" placeholder="Digite sua pesquisa">
+        </script>
 
-<button type="submit">
+        <section class="perfil">
 
-<i class="fa fa-search"></i> Buscar
+            <img src="Imagens/Carlos.png">
 
-</button>
+            <div>
 
-</form>
+                <h2>Carlos Mardônio Bezerra Martins</h2>
 
-<div id="searchResults"></div>
+                <p>
+                    Bem-vindo à minha página pessoal.
+                    Aqui estão disponíveis meus aplicativos de gestão,
+                    aplicativos elétricos e sistemas desenvolvidos.
+                </p>
 
-</div>
+            </div>
+        </section><br><br>
 
+        <section class="box-acompanhe">
+            <div class="container">
 
-<!-- REDES SOCIAIS -->
+                <form id="searchForm" onsubmit="search(event)">
+                    <input type="text" id="searchQuery" placeholder="Digite sua pesquisa">
+                    <button type="submit">
+                        <span class="fa fa-search"></span> Buscar
+                    </button>
+                </form>
 
-<div class="container redes">
+                <div id="searchResults">
 
-<h3>Siga nas redes sociais</h3>
+                    <script>
+                        async function search(event) {
+                            event.preventDefault(); // Evita o envio padrão do formulário
 
-<a href="https://www.instagram.com/carlosmardoniomartins/" target="_blank">
-<img src="instagram4.jpg">
-</a>
+                            const query = document.getElementById('searchQuery').value;
 
-<a href="http://www.youtube.com" target="_blank">
-<img src="youtube.png">
-</a>
+                            if (query.trim() === "") {
+                                alert("Digite uma palavra para buscar");
+                                return;
+                            }
 
-<a href="https://www.flickr.com" target="_blank">
-<img src="flickr-ico.png">
-</a>
+                            try {
+                                const response = await fetch('ApresentaçãoPessoal.php?query=' + encodeURIComponent(query));
+                                const result = await response.text(); // Pode ser JSON ou HTML, dependendo do back-end
 
-</div>
+                                // Atualiza o conteúdo com os resultados
+                                document.getElementById('searchResults').innerHTML = result;
+                            } catch (error) {
+                                console.error('Erro ao buscar:', error);
+                                document.getElementById('searchResults').innerHTML = "Erro ao realizar a pesquisa.";
+                            }
+                        }
+                    </script>
+                </div>
+            </div>
+        </section>
+        <br>
 
+        <div class="acompanhe">
+            <p><strong>Siga as Redes Sociais:</strong></p>
+            <a href="https://www.instagram.com/carlosmardoniomartins/" target="_blank"> <img
+                    src="Imagens/instagram4.jpg" class="ico-redesocial"></a>
+            <a href="http://www.youtube.com" target="_blank"> <img src="Imagens/youtube.png" class="tv-ico"></a>
+            <a href="http://www.youtube.com/feed/playlists" target="_blank"> <img src="Imagens/youtube1.png"
+                    class="tv-ico">
+            </a>
+            <a href="https://www.flickr.com" target="_blank"> <img src="Imagens/flickr-ico.png"
+                    class="ico-redesocial"></a>
+            <a href="Contato.html" target="_blank"> <img src="Imagens/carlos2.png" class="ico-redesocial"></a>
+        </div>
 
-<!-- DESTAQUES -->
+        <!-- DESTAQUES -->
 
-<div class="container destaques">
+        <div class="container destaques">
 
-<h2>Destaques</h2>
+            <h2>Destaques</h2>
 
-<div class="row">
+            <div class="row">
 
-<div class="col-md-3">
+                <div class="col-md-3">
 
-<img src="patio.PNG" class="img-responsive">
+                    <img src="Imagens/patio.PNG" class="img-responsive">
 
-<p>Pátio Subestação 230kV</p>
+                    <p>Pátio Subestação 230kV</p>
 
-</div>
+                </div>
 
-<div class="col-md-3">
+                <div class="col-md-3">
 
-<img src="TechGov.jpg" class="img-responsive">
+                    <img src="Imagens/TechGov.jpg" class="img-responsive">
 
-<p>Tech Gov Forum</p>
+                    <p>Tech Gov Forum</p>
 
-</div>
+                </div>
 
-<div class="col-md-3">
+                <div class="col-md-3">
 
-<img src="TechGov1.jpg" class="img-responsive">
+                    <img src="Imagens/TechGov1.jpg" class="img-responsive">
 
-<p>Tech Gov Fórum</p>
+                    <p>Tech Gov Fórum</p>
 
-</div>
+                </div>
 
-<div class="col-md-3">
+                <div class="col-md-3">
 
-<img src="ALAPDIGITAL.jpg" class="img-responsive">
+                    <img src="Imagens/ALAPDIGITAL.jpg" class="img-responsive">
 
-<p>Plano ALAP Digital</p>
+                    <p>Destaques de Carlos Martins</p>
 
-</div>
+                </div>
 
-</div>
+            </div>
 
-</div>
+        </div>
 
+        <!--radio-->
 
-<!-- RADIO -->
+        <section class="box-radio"></section>
+        <div class="container">
+            <h2>Link para Rádio</h2>
+            <!--<div class="container radio">-->
+            <div class="play-radio">
+                <button id="playButton">
+                    <a href="https://www.radios.com.br/aovivo/radio-cbn-macapa-933-fm/33054" target="_blank"> <img
+                            src="Imagens/cbn.png" class="icon"></a>
 
-<div class="container radio">
+                    <!--<path d="Imagens/youtube.png"></path>--> <!-- Ícone de play -->
+                    </svg>
+                </button>
+                <a href="https://www.radios.com.br/aovivo/radio-cbn-macapa-933-fm/33054"></a>
+            </div>
+            <div class="info-radio">
+                <div class="aovivo">ao vivo</div>
+                <p>93.9 FM <strong>Rádio CBN Macapá</strong> </p>
+            </div>
+        </div>
 
-<h3>Rádio ao vivo</h3>
+        <!--end radio-->
 
-<a href="https://www.radios.com.br/aovivo/radio-cbn-macapa-933-fm/33054" target="_blank">
+        <section class="apps">
 
-<img src="cbn.png" class="radio-icon">
+            <h2>Meus Sistemas</h2>
 
-</a>
+            <div class="cards">
 
-<p>93.9 FM Rádio CBN Macapá</p>
+                <div class="card">
+                    <h3>Sistema de Gestão</h3>
+                    <p>Controle de dados e relatórios.</p>
+                    <button><a href="SimuladorALBRAS.html" class="btn btn-primary"></a>
+                        Acessar</button>
+                </div>
 
-</div>
+                <div class="card">
+                    <h3>Simulador ALBRAS</h3>
+                    <p>Simulação de manobras elétricas.</p>
+                    <button><a href="SimuladorALBRAS.html" class="btn btn-primary"></a>
+                        Acessar</button>
+                </div>
 
+                <div class="card">
+                    <h3>Cadastro de Usuários</h3>
+                    <p>Gerenciamento de usuários.</p>
+                    <button><a href="SimuladorALBRAS.html" class="btn btn-primary"></a>
+                        Acessar</button>
+                </div>
 
-<!-- FOOTER -->
+            </div>
 
-<footer>
+        </section>
 
-<p><p>© 2023 - Desenvolvido por Carlos Martins</p>
+        <footer>
 
-</footer>
+            <p>© 2026 Carlos Martins</p>
 
-<!-- SCRIPTS -->
+        </footer>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="js/script.js">
 
-<script src="js/script.js">
-    document.getElementById("searchForm").addEventListener("submit", async function(event){
+            function abrirSimulador() {
 
-event.preventDefault();
+                window.location.href = "SimuladorALBRAS.html";
 
-let query = document.getElementById("searchQuery").value;
+            }
 
-if(query.trim() === ""){
-alert("Digite algo para buscar");
-return;
-}
+            function abrirProjetos() {
+                window.open("GestãodeProjetos.html", "_blank");
+            }
 
-try{
-
-let response = await fetch("ApresentaçãoPessoal.php?query=" + encodeURIComponent(query));
-
-let result = await response.text();
-
-document.getElementById("searchResults").innerHTML = result;
-
-}
-
-catch(error){
-
-document.getElementById("searchResults").innerHTML = "Erro na pesquisa";
-
-}
-
-});
-</script>
-
+        </script>
 </body>
 
 </html>
-
-
-
-
-
-
-
