@@ -6,6 +6,26 @@
     <meta charset="UTF-8">
     <title>Página Pessoal - Carlos Martins</title>
 
+    <!-- Adiciona o Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Adiciona o jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Adiciona o JavaScript do Bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/vars.css" />
+    <link rel="stylesheet" href="styles/main-content.css" />
+    <link rel="stylesheet" href="styles/sidebar-footer.css" />
+    <link rel="stylesheet" href="styles/media-query.css" />
+    <!--Media queries devem ser chamados depois do CSS principal -->
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css"
+        integrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css"
+        integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous" />
+
     <link rel="stylesheet" href="css/estilo.css">
 
 </head>
@@ -49,7 +69,7 @@
 
     .banner img {
         width: 100%;
-        max-height: 300px;
+        max-height: 350px;
         object-fit: cover;
     }
 
@@ -61,7 +81,7 @@
     }
 
     .perfil img {
-        width: 200px;
+        width: 500px;
         border-radius: 10px;
         margin-right: 30px;
     }
@@ -136,15 +156,38 @@
 
     <header>
 
-        <h2><img src="carlos1.gif" width="30">
+        <h2><img src="Imagens/Carlos1.gif" width="30">
             Página Pessoal</h2>
-
-        <div id="dataHora">
-        </div>
-
     </header>
 
     <nav>
+
+        <body>
+
+            <div id="dataHora"></div>
+
+            <script>
+
+                function atualizarDataHora() {
+
+                    const agora = new Date();
+
+                    const data = agora.toLocaleDateString("pt-BR");
+
+                    const hora = agora.toLocaleTimeString("pt-BR");
+
+                    document.getElementById("dataHora").innerHTML =
+                        data + " " + hora;
+
+                }
+
+                setInterval(atualizarDataHora, 1000);
+
+                atualizarDataHora();
+
+            </script>
+
+        </body>
 
         <div class="barra-menu">
 
@@ -153,27 +196,58 @@
                 <a href="GestãodeMidias.html">Mídias de Shows e Filmes</a><br>
                 <a href="GestãodeProjetos.html">Projetos Elétricos</a><br>
                 <a href="GestaoAtivosFamiliar.html">Ativos Familiar</a><br>
-                <a href="GestãodeContatos.html">Contatos Pessoais</a>
+                <a href="GestaoContatosPessoais.html">Contatos Pessoais</a>
             </div>
 
             <div class="menu-item">
                 <h2>Aplicativos Elétricos</h2>
                 <a href="CalculosdeProjetoEletrico.html">Cálculos de Projetos Elétricos</a><br>
-                <a href="CalculosEletrico.html">Cálculos Elétricos</a><br>
+                <a href="CalculosEletricos.htmlp">Cálculos Elétricos</a><br>
+                <a href="telaMTS.html">Diagrama Unifilar</a><br>
                 <a href="SimuladorAlbras.html">Simulador ALBRAS</a>
             </div>
 
             <div class="menu-item">
                 <h2>Galeria de Imagens</h2>
                 <a href="AlbumPessoal.html">Album Pessoal</a><br>
-                <a href="Contato.html">Acesse meus Contatos</a>
+                <a href="Contato.html">Meus Contatos</a>
             </div>
 
         </div>
 
+        <div class="banner">
+            <img id="bannerImg" src="imagens/banner1.JPG">
+        </div>
+
+        <script>
+
+            const banners = [
+                "Imagens/banner.JPG",
+                "Imagens/banner1.JPG",
+                "Imagens/monitor.JPG"
+            ];
+
+            let i = 0;
+
+            function trocarBanner() {
+
+                i++;
+
+                if (i >= banners.length) {
+                    i = 0;
+                }
+
+                document.getElementById("bannerImg").src = banners[i];
+
+            }
+
+            setInterval(trocarBanner, 4000);
+
+        </script>
+
         <section class="perfil">
 
-            <img src="Carlos.png">
+            <img src="Imagens/Carlos.png">
 
             <div>
 
@@ -186,8 +260,128 @@
                 </p>
 
             </div>
+        </section><br><br>
 
+        <section class="box-acompanhe">
+            <div class="container">
+
+                <form id="searchForm" onsubmit="search(event)">
+                    <input type="text" id="searchQuery" placeholder="Digite sua pesquisa">
+                    <button type="submit">
+                        <span class="fa fa-search"></span> Buscar
+                    </button>
+                </form>
+
+                <div id="searchResults">
+
+                    <script>
+                        async function search(event) {
+                            event.preventDefault(); // Evita o envio padrão do formulário
+
+                            const query = document.getElementById('searchQuery').value;
+
+                            if (query.trim() === "") {
+                                alert("Digite uma palavra para buscar");
+                                return;
+                            }
+
+                            try {
+                                const response = await fetch('ApresentaçãoPessoal.php?query=' + encodeURIComponent(query));
+                                const result = await response.text(); // Pode ser JSON ou HTML, dependendo do back-end
+
+                                // Atualiza o conteúdo com os resultados
+                                document.getElementById('searchResults').innerHTML = result;
+                            } catch (error) {
+                                console.error('Erro ao buscar:', error);
+                                document.getElementById('searchResults').innerHTML = "Erro ao realizar a pesquisa.";
+                            }
+                        }
+                    </script>
+                </div>
+            </div>
         </section>
+        <br>
+
+        <div class="acompanhe">
+            <p><strong>Siga as Redes Sociais:</strong></p>
+            <a href="https://www.instagram.com/carlosmardoniomartins/" target="_blank"> <img
+                    src="Imagens/instagram4.jpg" class="ico-redesocial"></a>
+            <a href="http://www.youtube.com" target="_blank"> <img src="Imagens/youtube.png" class="tv-ico"></a>
+            <a href="http://www.youtube.com/feed/playlists" target="_blank"> <img src="Imagens/youtube1.png"
+                    class="tv-ico">
+            </a>
+            <a href="https://www.flickr.com" target="_blank"> <img src="Imagens/flickr-ico.png"
+                    class="ico-redesocial"></a>
+            <a href="Contato.html" target="_blank"> <img src="Imagens/carlos2.png" class="ico-redesocial"></a>
+        </div>
+
+        <!-- DESTAQUES -->
+
+        <div class="container destaques">
+
+            <h2>Destaques</h2>
+
+            <div class="row">
+
+                <div class="col-md-3">
+
+                    <img src="Imagens/patio.PNG" class="img-responsive">
+
+                    <p>Pátio Subestação 230kV</p>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <img src="Imagens/TechGov.jpg" class="img-responsive">
+
+                    <p>Tech Gov Forum</p>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <img src="Imagens/TechGov1.jpg" class="img-responsive">
+
+                    <p>Tech Gov Fórum</p>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <img src="Imagens/ALAPDIGITAL.jpg" class="img-responsive">
+
+                    <p>Destaques de Carlos Martins</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--radio-->
+
+        <section class="box-radio"></section>
+        <div class="container">
+            <h2>Link para Rádio</h2>
+            <!--<div class="container radio">-->
+            <div class="play-radio">
+                <button id="playButton">
+                    <a href="https://www.radios.com.br/aovivo/radio-cbn-macapa-933-fm/33054" target="_blank"> <img
+                            src="Imagens/cbn.png" class="icon"></a>
+
+                    <!--<path d="Imagens/youtube.png"></path>--> <!-- Ícone de play -->
+                    </svg>
+                </button>
+                <a href="https://www.radios.com.br/aovivo/radio-cbn-macapa-933-fm/33054"></a>
+            </div>
+            <div class="info-radio">
+                <div class="aovivo">ao vivo</div>
+                <p>93.9 FM <strong>Rádio CBN Macapá</strong> </p>
+            </div>
+        </div>
+
+        <!--end radio-->
 
         <section class="apps">
 
@@ -196,29 +390,24 @@
             <div class="cards">
 
                 <div class="card">
-                    <h3>Sistemas de Gestão</h3>
+                    <h3>Sistema de Gestão</h3>
                     <p>Controle de dados e relatórios.</p>
-                    <a href="GestãodeMidias.html">Mídias de Shows e Filmes</a><br>
-                    <a href="GestãodeProjetos.html">Projetos Elétricos</a><br>
-                    <a href="GestaoAtivosFamiliar.html">Ativos Familiar</a><br>
-                    <a href="GestãodeContatos.html">Contatos Pessoais</a>
-                    <button>Acessar</button>
+                    <button><a href="SimuladorALBRAS.html" class="btn btn-primary"></a>
+                        Acessar</button>
                 </div>
 
                 <div class="card">
                     <h3>Simulador ALBRAS</h3>
                     <p>Simulação de manobras elétricas.</p>
-                    <a href="CalculosdeProjetoEletrico.html">Cálculos de Projetos Elétricos</a><br>
-                    <a href="CalculosEletrico.html">Cálculos Elétricos</a><br>
-                    <a href="SimuladorAlbras.html">Simulador ALBRAS</a>
-                    <button>Acessar</button>
+                    <button><a href="SimuladorALBRAS.html" class="btn btn-primary"></a>
+                        Acessar</button>
                 </div>
 
                 <div class="card">
                     <h3>Cadastro de Usuários</h3>
                     <p>Gerenciamento de usuários.</p>
-                    <a href="AlbumPessoal.html">Album Pessoal</a>
-                    <button>Acessar</button>
+                    <button><a href="SimuladorALBRAS.html" class="btn btn-primary"></a>
+                        Acessar</button>
                 </div>
 
             </div>
@@ -233,57 +422,17 @@
 
         <script src="js/script.js">
 
-            // DATA E HORA
+            function abrirSimulador() {
 
-            function atualizarDataHora() {
-
-                const agora = new Date();
-
-                const data =
-                    agora.toLocaleDateString("pt-BR");
-
-                const hora =
-                    agora.toLocaleTimeString("pt-BR");
-
-                document.getElementById("dataHora").innerHTML =
-                    data + " " + hora;
+                window.location.href = "SimuladorALBRAS.html";
 
             }
 
-            setInterval(atualizarDataHora, 1000);
-
-            atualizarDataHora();
-
-
-            // BANNER AUTOMÁTICO
-
-            const banners = [
-                "banner1.png",
-                "banner2.png",
-                "banner1.png"
-            ];
-
-            let i = 0;
-
-            function trocarBanner() {
-
-                i++;
-
-                if (i >= banners.length) {
-                    i = 0;
-                }
-
-                document.getElementById("bannerImg").src =
-                    banners[i];
-
+            function abrirProjetos() {
+                window.open("GestãodeProjetos.html", "_blank");
             }
-
-            setInterval(trocarBanner, 4000);
 
         </script>
-
 </body>
 
-
 </html>
-
