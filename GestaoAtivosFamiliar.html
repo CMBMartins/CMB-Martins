@@ -120,27 +120,21 @@
 
 </head>
 
-<body>
-
-    <div class="topo">
-
-        <img src="carlos1.gif" width="50">
-        Gestão de Contatos Pessoais
-    </div>
-
-    <a href="PaginaPessoal.html" class="btn btn-default">
-        <span class="glyphicon glyphicon-home"></span> Página Principal
-    </a>
+<body>    
 
     <div class="container">
 
         <div class="card">
+            <a href="PaginaPessoal.html" class="btn btn-default">
+        <span class="glyphicon glyphicon-home"></span> Página Principal
+         </a>
 
             <div class="logo">
-                <img src="Carlos.png" width="250">
+                <h1><img src="Imagens/carlos1.gif" width="60">
+                  Gestão de Ativos Familiar</h1>
             </div>
 
-            <h2>Cadastrar ou Alterar Integrantes</h2>
+            <h2>Cadastrar ou alterar Integrantes</h2>
 
             <div class="grid">
 
@@ -314,10 +308,16 @@ Excluir
             }
 
      function editar() {
-        const id = document.getElementById("id").value;
 
-        const dados = {
-       
+    const id = document.getElementById("id").value;
+
+    if (!id) {
+        alert("Selecione um registro para editar.");
+        return;
+    }
+
+    const dados = {
+
         cpf: document.getElementById("cpf").value,
         integrante: document.getElementById("integrante").value,
         telefone: document.getElementById("telefone").value,
@@ -326,27 +326,46 @@ Excluir
 
     };
 
-    fetch(api + "/" + id, {
+    if (confirm("Deseja realmente atualizar este registro?")) {
 
-        method: "PUT",
+        fetch(api + "/" + id, {
 
-        headers: {
-            "Content-Type": "application/json"
-        },
+            method: "PUT",
 
-        body: JSON.stringify(dados)
+            headers: {
+                "Content-Type": "application/json"
+            },
 
-    })
+            body: JSON.stringify(dados)
 
-    .then(() => {
+        })
 
-        alert("Dados atualizados com sucesso!");
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Erro ao atualizar");
+            }
+            return response.json();
+        })
 
-        limparCampos();
+        .then(() => {
 
-        listarTodos();
+            alert("Dados atualizados com sucesso!");
 
-    });
+            limparCampos();
+
+            listarTodos();
+
+        })
+
+        .catch(error => {
+
+            console.error("Erro:", error);
+
+            alert("Erro ao atualizar o registro.");
+
+        });
+
+    }
 
 }
 
@@ -430,6 +449,5 @@ Excluir
         </script>
 
 </body>
-
 
 </html>

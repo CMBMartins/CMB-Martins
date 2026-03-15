@@ -4,7 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
-<title>Gestão de Usuários</title>
+<title>Login</title>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -23,19 +23,8 @@ background:#f5f5f5;
 font-family:Arial;
 }
 
-.header{
-text-align:center;
-margin-bottom:30px;
-}
-
 .logo{
 width:50px;
-}
-
-.perfil{
-width:320px;
-border-radius:50%;
-margin-top:10px;
 }
 
 .card-form{
@@ -115,25 +104,24 @@ margin-top:20px;
     <span class="glyphicon glyphicon-home"></span> Página Principal
     </a>
 
-    <h3><img src="Imagens/carlos1.gif" class="logo">
-         Cadastro e Administração de Usuários</h3>    
+    <h2><img src="Imagens/carlos1.gif" class="logo">
+        Realizar Login</h2>
 
 <div class="grid">
 
                 <input type="hidden" id="id">               
 
-                <input type="text" id="usuario" placeholder="Usuario">
+                <input type="text" id="usuario" placeholder="usuario">
                 
-                <input type="text" id="senha" placeholder="Senha">
+                <input type="text" id="senha" placeholder="senha">                
                 
-                <input type="text" id="perfil" placeholder="Perfil">
                 
             </div>
 
             <div class="botoes">
 
-                <button class="btn btn-success" onclick="salvar()">
-                    <i class="fa fa-save"></i> Salvar
+                <button class="btn btn-success" onclick="autenticar()">
+                    <i class="fa fa-save"></i> Login
                 </button>
 
                 <button class="btn btn-secondary" onclick="limparCampos()">
@@ -149,7 +137,6 @@ margin-top:20px;
                 </button>
 
             </div>
-
 
 <br>
 
@@ -184,13 +171,12 @@ margin-top:20px;
 
             const api = "http://localhost:8084/usuario";
 
-            //Função carregar
             function carregar() {
                 //listarTodos();
             }
 
-            //Função para Listar Toda a tabela
-            function listarTodos() {
+            //Função para Listar todos os Usuários
+            function listarTodos() {                
 
                 fetch(api)
                     .then(response => response.json())
@@ -231,139 +217,57 @@ limparCampos();
 
             }
 
-            //Função para Salvar
-            function salvar() {
-
-                const usuario = document.getElementById("usuario").value;
-                const senha = document.getElementById("senha").value;
-                const perfil = document.getElementById("perfil").value;
-                
-                fetch(api, {
-
-                    method: "POST",
-
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-
-                    body: JSON.stringify({
-
-                        usuario,
-                        senha,
-                        perfil,                       
-
-                    })
-
-                })
-                    .then(response => response.json())
-                    .then(data => {
-
-                        alert("Projeto salvo com sucesso!");
-
-                        limparCampos();
-                        listarTodos();
-
-                    });
-
-            }
-
-
-     //Função para Editar Usuário
-     function editar() {
-
-    const usuario = document.getElementById("usuario").value;
-
-    if (!usuario) {
-        alert("Selecione um registro para editar.");
-        return;
-    }
-
-    const dados = {
-
-        id: document.getElementById("id").value,
-        usuario: document.getElementById("usuario").value,
-        senha: document.getElementById("senha").value,
-        perfil: document.getElementById("perfil").value,        
-
-    };
-
-    if (confirm("Deseja realmente atualizar este registro?")) {
-
-        fetch(api + "/" + id, {
-
-            method: "PUT",
-
-            headers: {
-                "Content-Type": "application/json"
-            },
-
-            body: JSON.stringify(dados)
-
-        })
-
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Erro ao atualizar");
-            }
-            return response.json();
-        })
-
-        .then(() => {
-
-            alert("Dados atualizados com sucesso!");
-
-            limparCampos();
-
-            listarTodos();
-
-        })
-
-        .catch(error => {
-
-            console.error("Erro:", error);
-
-            alert("Erro ao atualizar o registro.");
-
-        });
-
-    }
-
-}
-
-    //Função para Deletar Usuário
-    function deletar(id) {
-
-    if (confirm("Tem certeza que deseja excluir este registro?")) {
-
-        fetch(`${api}/${id}`, {
-            method: "DELETE"
-        })
-        .then(() => {
-            alert("Registro excluído com sucesso!");
-            listarTodos();
-        })
-        .catch(error => {
-            console.error("Erro ao excluir:", error);
-            alert("Erro ao excluir o registro.");
-        });
-
-    }
-
-}
-
-            //Função para limpar os campos do formulario
-            function limparCampos() {
-
-                document.getElementById("usuario").value = "";
-                document.getElementById("senha").value = "";
-                document.getElementById("perfil").value = "";                
-
-            }
             
+//Função para realizar o Login
+function autenticar(){
+
+const usuario = document.getElementById("usuario").value;
+const senha = document.getElementById("senha").value;
+
+fetch("http://localhost:8084/usuario",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+usuario:usuario,
+senha:senha
+})
+
+})
+
+.then(response => {
+
+if(!response.ok){
+throw new Error("Login inválido");
+}
+
+return response.json();
+
+})
+
+.then(data => {
+
+alert("Login realizado com sucesso!");
+
+window.location.href = "GestãodeMidias.html";
+
+})
+
+.catch(error =>{
+
+alert("Usuário ou senha incorretos");
+
+});
+
+}
 
             //Função para pesquisar por Usuário
             function usuario() {
-                
+
             const usuario = document.getElementById("usuario").value;
 
             fetch("http://localhost:8084/usuario/buscar?usuario=" + encodeURIComponent(usuario))
@@ -418,7 +322,16 @@ limparCampos();
 
         }
 
-        </script>
+        //Função para limpaar os campos do formulario
+            function limparCampos() {
+
+                document.getElementById("usuario").value = "";
+                document.getElementById("senha").value = "";
+                document.getElementById("perfil").value = "";                
+
+            }
+
+</script>
 
 </body>
 
