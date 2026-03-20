@@ -46,6 +46,25 @@
         text-align: center;
     }
 
+
+     .campo-direita {
+        text-align: right;
+    }
+
+    #usuariologado {
+        text-align: right;
+        float: right;
+        padding: 6px 10px;
+        text-align: right;
+        font-weight: bold;
+        font-size: 14px;
+        color: #003366;
+        background: #e6f2ff;
+        border: 2px solid #007bff;
+        border-radius: 6px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
     /* INPUTS */
 
     input {
@@ -69,36 +88,70 @@
         margin-top: 15px;
     }
 
-    button {
-        padding: 10px 15px;
-        margin: 5px;
+   /* padrão de botão */
+    .botoes button {
+        padding: 10px 18px;
         border: none;
-        border-radius: 5px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: bold;
         cursor: pointer;
+        transition: all 0.3s ease;
+        color: white;
     }
 
-    .salvar {
+     /* padrão de botão */
+    .login button {
+        padding: 10px 18px;
+        border: none;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        color: white;
+        background-color: #007bff;
+        /* azul padrão */
+    }
+
+
+    #salvar {
         background: #27ae60;
         color: white;
     }
 
-    .limparCampos {
+     #editar {
+        background: #73ae27;
+        color: white;
+    }
+
+    #limparCampos {
         background: #f39c12;
         color: white;
     }
 
-    .buscarIntegrante {
+    #buscarContato {
         background: #f37712;
         color: white;
     }
 
-    .listarTodos {
+    #listarTodos {
         background: #2980b9;
         color: white;
     }
 
-    /* TABELA */
+    .autenticar {
+        background: #7827ae;
+        color: white;
+    }
 
+    .logout {
+        background: #ae2b27;
+        color: white;
+    }
+
+    /* TABELA */
     table {
         width: 100%;
         border-collapse: collapse;
@@ -126,12 +179,16 @@
 
         <div class="card">
 
+            <div class="campo-direita">
+                <input type="text" id="usuariologado" placeholder="Default" style="width:33%;">
+            </div>
+
             <a href="PaginaPessoal.html" class="btn btn-default">
             <span class="glyphicon glyphicon-home"></span> Página Principal
             </a>
 
             <div class="logo">
-                <h1><img src="carlos1.gif" width="60">
+                <h1><img src="Imagens/carlos1.gif" width="60">
                     Gestão de Contatos Pessoais</h1>
             </div>
 
@@ -139,7 +196,7 @@
 
             <div class="grid">
 
-                <input type="hidden" id="id">               
+                <input type="text" id="id" placeholder="ID">               
 
                 <input type="text" id="cpf" placeholder="CPF">
                 
@@ -153,40 +210,32 @@
 
             <div class="botoes">
 
-                <button class="btn btn-success" onclick="salvar()">
-                    <i class="fa fa-save"></i> Salvar
-                </button>
+                <button id="salvar" onclick="salvar()">Salvar</button>
 
-                <button class="btn btn-secondary" onclick="limparCampos()">
-                    <i class="fa fa-eraser"></i> Limpar
-                </button>
+                <button id="editar" onclick="editar()">Atualizar os Dados</button>
 
-                <button class="btn btn-primary" onclick="nome()">
-                    <i class="fa fa-search"></i> Buscar Nome
-                </button>
+                <button id="limparCampos" onclick="limparCampos()">Limpar</button>
 
-                <button class="btn btn-info" onclick="listarTodos()">
-                    <i class="fa fa-list"></i> Listar Nomes
-                </button>
+                <button id="buscarContato" onclick="buscarContato()">Buscar Contato</button>
+
+                <button id="listarTodos" onclick="listarTodos()">Listar Contatos</button>
 
             </div>
 
-            <h3>Login do Sistema</h3>
+            <div class="login">
 
-            <div>
+                <h2>Realizar Login</h2>
 
-                <label>Usuário</label>
-                <input type="text" class="form-control">
+                <input type="text" id="usuario" placeholder="usuario" style="width:33%;">
 
-                <label>Senha</label>
-                <input type="password" class="form-control">
+                <input type="text" id="senha" placeholder="senha" style="width:33%;">
 
-                <button class="btn btn-primary">Realizar Login</button>
+                <button onclick="autenticar()">Entrar</button>
+                <button onclick="logout()">Sair</button>
 
             </div>
-            </div>
-            
-                <br>
+
+            </div>            
 
             <div class="card">
 
@@ -220,12 +269,42 @@
 
         <script>
 
+            const id = document.getElementById("id").value;
+
             const api = "http://localhost:8084/contato";
 
             function carregar() {
                 //listarTodos();
             }
 
+            window.onload = function () {
+
+            if (localStorage.getItem("usuariologado")) {
+                liberarFuncoes();
+
+            } else {
+
+                bloquearFuncoes();
+            }
+
+        }
+
+        function liberarFuncoes() {
+
+            document.getElementById("salvar").disabled = false;
+            document.getElementById("editar").disabled = false;            
+            document.getElementById("listarTodos").disabled = false;
+
+        }
+
+        function bloquearFuncoes() {
+
+            document.getElementById("salvar").disabled = true;
+            document.getElementById("editar").disabled = true;            
+            document.getElementById("listarTodos").disabled = true;
+
+        }
+             // FUNÇÃO PARA LISTAR TODOS CONTATOS
             function listarTodos() {
 
                 fetch(api)
@@ -266,6 +345,7 @@ Excluir
 
             }
 
+            // FUNÇÃO PARA SALVAR CONTATOS
             function salvar() {
 
                 const cpf = document.getElementById("cpf").value;
@@ -303,7 +383,12 @@ Excluir
 
             }
 
-     function editar() {
+
+        // FUNÇÃO PARA EDITAR OS DADOS NA TABELA
+        function editar() {
+
+            if (confirm("Tem certeza que deseja editar estes dados?")) {
+
         const id = document.getElementById("id").value;
 
         const dados = {
@@ -337,17 +422,30 @@ Excluir
         listarTodos();
 
     });
+}
 
 }
 
-            function deletar(id) {
+        // FUNÇÃO PARA EXCLUIR
+        function deletar(id) {
+
+            if (confirm("Tem certeza que deseja excluir este registro?")) {
 
                 fetch(`${api}/${id}`, {
                     method: "DELETE"
                 })
-                    .then(() => listarTodos());
+                    .then(() => {
+                        alert("Registro excluído com sucesso!");
+                        listarTodos();
+                    })
+                    .catch(error => {
+                        console.error("Erro ao excluir:", error);
+                        alert("Erro ao excluir o registro.");
+                    });
 
             }
+
+        }            
 
             function limparCampos() {
 
@@ -358,9 +456,8 @@ Excluir
 
             }
 
-            //listarTodos();
-
-            function nome() {
+            // FUNÇÃO PARA CONSULTAR POR NOME
+            function buscarContato() {
             const nome = document.getElementById("nome").value;
 
             fetch("http://localhost:8084/contato/buscar?nome=" + encodeURIComponent(nome))
@@ -412,6 +509,78 @@ Excluir
                     });
 
                 });
+
+        }
+
+
+        // FUNÇÃO PARA AUTENTICAR O USUARIO NO BANCO E MOSTRAR NA TELA
+        function autenticar() {
+
+            const usuario = document.getElementById("usuario").value;
+            const senha = document.getElementById("senha").value;
+
+            fetch("http://localhost:8084/usuario", {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    usuario,
+                    senha
+                })
+
+            })
+
+                .then(response => {
+
+                    if (!response.ok) {
+                        throw new Error("Login inválido");
+                    }
+
+                    return response.json();
+
+                })
+
+                .then(data => {
+
+                    // Mostra o usuário no campo Default
+
+                    document.getElementById("usuariologado").value = data.usuario;
+                    alert("Login realizado com sucesso!");
+                    liberarFuncoes();
+                    limparLogin();
+
+                })
+
+
+                .catch(error => {
+
+                    alert("Usuário ou senha incorretos");
+
+                });
+
+        }
+
+
+        // FUNÇÃO EFETUAR O LOGOUT
+        function logout() {
+
+            localStorage.removeItem("usuariologado");
+
+            document.getElementById("usuariologado").value = "";
+
+            bloquearFuncoes();
+
+        }
+
+        
+        // FUNÇÃO PARA LIMPAR OS CAMPOS DO LOGIN
+        function limparLogin() {
+            document.getElementById("usuario").value = "";
+            document.getElementById("senha").value = "";
 
         }
 

@@ -54,6 +54,25 @@
         text-align: center;
     }
 
+    .campo-direita {
+        text-align: right;
+    }
+
+    #usuariologado {
+        text-align: right;
+        float: right;
+        padding: 6px 10px;
+        text-align: right;
+        font-weight: bold;
+        font-size: 14px;
+        color: #003366;
+        background: #e6f2ff;
+        border: 2px solid #007bff;
+        border-radius: 6px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    */
     /* INPUTS */
 
     input {
@@ -73,35 +92,73 @@
     /* BOTÕES */
 
     .botoes {
+        display: flex;
+        flex-wrap: wrap;
         text-align: center;
-        margin-top: 15px;
+        gap: 10px;
+        margin-top: 20px;
     }
 
-    button {
-        padding: 10px 15px;
-        margin: 5px;
+    /* padrão de botão */
+    .botoes button {
+        padding: 10px 18px;
         border: none;
-        border-radius: 5px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: bold;
         cursor: pointer;
+        transition: all 0.3s ease;
+        color: white;
     }
 
-    .salvar {
+    /* padrão de botão */
+    .login button {
+        padding: 10px 18px;
+        border: none;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        color: white;
+        background-color: #007bff;
+        /* azul padrão */
+    }
+
+
+    #salvar {
         background: #27ae60;
         color: white;
     }
 
-    .limparCampos {
+    #editar {
+        background: #6fae27;
+        color: white;
+    }
+   
+    #limparCampos {
         background: #f39c12;
         color: white;
     }
 
-    .buscarArtista {
+    #buscarArtista {
         background: #f37712;
         color: white;
     }
 
-    .listarTodos {
+    #listarTodos {
         background: #2980b9;
+        color: white;
+    }
+
+    .autenticar {
+        background: #7827ae;
+        color: white;
+    }
+
+    .logout {
+        background: #ae2b27;
         color: white;
     }
 
@@ -127,25 +184,30 @@
 
 </head>
 
-<body>    
+<body>
 
     <div class="container">
 
         <div class="card">
 
+            <div class="campo-direita">
+                <input type="text" id="usuariologado" placeholder="Default" style="width:33%;">
+            </div>
+
             <a href="PaginaPessoal.html" class="btn btn-default">
-            <span class="glyphicon glyphicon-home"></span> Página Principal
+                <span class="glyphicon glyphicon-home"></span> Página Principal
             </a>
 
             <div class="logo">
-            <h1><img src="carlos1.gif" width="40">
-            Gestão de Shows e Filmes</h1>
+                <h1><img src="Imagens/carlos1.gif" width="60">
+                    Gestão de Shows e Filmes</h1>
             </div>
 
             <h2>Cadastrar Mídia</h2>
 
             <div class="grid">
-                <input type="hidden" id="id">
+
+                <input type="text" id="id" placeholder="ID">
 
                 <input type="text" id="titulo" placeholder="Título">
 
@@ -165,13 +227,28 @@
 
             <div class="botoes">
 
-                <button class="salvar" onclick="salvar()">Salvar</button>
+                <button id="salvar" onclick="salvar()">Salvar</button>
 
-                <button class="limparCampos" onclick="limparCampos()">Limpar</button>
+                <button id="editar" onclick="editar()">Editar</button>
 
-                <button class="artista" onclick="artista()">Buscar Artista</button>
+                <button id="limparCampos" onclick="limparCampos()">Limpar</button>
 
-                <button class="listarTodos" onclick="listarTodos()">Listar Midias</button>
+                <button id="buscarArtista" onclick="buscarArtista()">Buscar Artista</button>
+
+                <button id="listarTodos" onclick="listarTodos()">Listar Midias</button>
+
+            </div>
+
+            <div class="login">
+
+                <h2>Realizar Login</h2>
+
+                <input type="text" id="usuario" placeholder="usuario" style="width:33%;">
+
+                <input type="text" id="senha" placeholder="senha" style="width:33%;">
+
+                <button onclick="autenticar()">Entrar</button>
+                <button onclick="logout()">Sair</button>
 
             </div>
 
@@ -189,8 +266,8 @@
 
                         <th>ID</th>
                         <th>Título</th>
-                        <th>Artista</th>                        
-                        <th>DataCompra</th>                        
+                        <th>Artista</th>
+                        <th>DataCompra</th>
                         <th>Tipo</th>
                         <th>Gênero</th>
                         <th>Ação</th>
@@ -211,7 +288,38 @@
 
     <script>
 
+        const id = document.getElementById("id").value;
+
         const api = "http://localhost:8084/shows";
+
+        window.onload = function () {
+
+            if (localStorage.getItem("usuariologado")) {
+                liberarFuncoes();
+
+            } else {
+
+                bloquearFuncoes();
+            }
+
+        }
+
+        function liberarFuncoes() {
+
+            document.getElementById("salvar").disabled = false;
+            document.getElementById("editar").disabled = false;
+            document.getElementById("listarTodos").disabled = false;
+
+        }
+
+        function bloquearFuncoes() {
+
+            document.getElementById("salvar").disabled = true;
+            document.getElementById("editar").disabled = true;
+            document.getElementById("listarTodos").disabled = true;
+
+        }
+
 
         function listarTodos() {
 
@@ -228,23 +336,23 @@
                     data.forEach(show => {
 
                         tabela.innerHTML += `
-<tr>
-<td>${show.id}</td>
-<td>${show.titulo}</td>
-<td>${show.artista}</td>
-<td>${show.datadacompra}</td>
-<td>${show.tipo}</td>
-<td>${show.genero}</td>
+        <tr>
+        <td>${show.id}</td>
+        <td>${show.titulo}</td>
+        <td>${show.artista}</td>
+        <td>${show.datadacompra}</td>
+        <td>${show.tipo}</td>
+        <td>${show.genero}</td>
 
-<td>
-<button class="btn btn-danger btn-sm"
-onclick="deletar(${show.id})">
-Excluir
-</button>
-</td>
+        <td>
+        <button class="btn btn-danger btn-sm"
+        onclick="deletar(${show.id})">
+        Excluir
+        </button>
+        </td>
 
-</tr>
-`;
+        </tr>
+        `;
 
                     });
 
@@ -253,7 +361,9 @@ Excluir
         }
 
 
+        // FUNÇÃO PARA SALVAR
         function salvar() {
+            if (confirm("Tem certeza que deseja salvar esses dados?")) {
 
             const titulo = document.getElementById("titulo").value;
             const artista = document.getElementById("artista").value;
@@ -293,29 +403,86 @@ Excluir
 
                     carregar();
 
+                    alert("Dados salvo com sucesso!");
+
                 });
 
-        }
-
-
-        function deletar(id) {
-
-            if (!confirm("Deseja excluir este registro?")) {
+            if (!localStorage.getItem("usuariologado")) {
+                alert("Faça login para executar essa ação!");
                 return;
             }
 
-            fetch(`${api}/${id}`, {
+        }
+    }
 
-                method: "DELETE"
+        // FUNÇÃO PARA EDITAR
+        function editar() {
+
+            if (confirm("Tem certeza que deseja editar estes dados?")) {
+
+            const id = document.getElementById("id").value;
+
+            const dados = {
+
+                titulo: document.getElementById("titulo").value,
+                artista: document.getElementById("artista").value,
+                anodelancamento: document.getElementById("anodelancamento").value,
+                datadacompra: document.getElementById("datadacompra").value,
+                situacao: document.getElementById("situacao").value,
+                tipo: document.getElementById("tipo").value,
+                genero: document.getElementById("genero").value
+
+            };
+
+            fetch(api + "/" + id, {
+
+                method: "PUT",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify(dados)
 
             })
 
-                .then(() => carregar());
+                .then(() => {
+
+                    alert("Dados atualizados com sucesso!");
+
+                    limparCampos();
+                    listarTodos();
+
+                });
+
+        }
+    }
+
+
+        // FUNÇÃO PARA EXCLUIR
+        function deletar(id) {
+
+            if (confirm("Tem certeza que deseja excluir este registro?")) {
+
+                fetch(`${api}/${id}`, {
+                    method: "DELETE"
+                })
+                    .then(() => {
+                        alert("Registro excluído com sucesso!");
+                        listarTodos();
+                    })
+                    .catch(error => {
+                        console.error("Erro ao excluir:", error);
+                        alert("Erro ao excluir o registro.");
+                    });
+
+            }
 
         }
 
 
-        function artista() {
+        // FUNÇÃO PARA CONSULTAR POR ARTISTA
+        function buscarArtista() {
 
             const artista = document.getElementById("artista").value;
 
@@ -332,10 +499,10 @@ Excluir
                     if (data.length === 0) {
 
                         tabela.innerHTML = `
-<tr>
-<td colspan="7">Nenhum resultado encontrado</td>
-</tr>
-`;
+        <tr>
+        <td colspan="7">Nenhum resultado encontrado</td>
+        </tr>
+        `;
 
                         return;
                     }
@@ -343,31 +510,92 @@ Excluir
                     data.forEach(show => {
 
                         tabela.innerHTML += `
-<tr>
-<td>${show.id}</td>
-<td>${show.titulo}</td>
-<td>${show.artista}</td>
-<td>${show.datadacompra}</td>
-<td>${show.tipo}</td>
-<td>${show.genero}</td>
+        <tr>
+        <td>${show.id}</td>
+        <td>${show.titulo}</td>
+        <td>${show.artista}</td>
+        <td>${show.datadacompra}</td>
+        <td>${show.tipo}</td>
+        <td>${show.genero}</td>
 
-<td>
-<button class="btn btn-danger btn-sm"
-onclick="deletar(${show.id})">
-Excluir
-</button>
-</td>
-
-</tr>
-`;
-
+        <td>
+        <button class="btn btn-danger btn-sm"
+        onclick="deletar(${show.id})">
+        Excluir
+        </button>
+        </td>
+        </tr>
+        `;
                     });
+                });
+
+        }
+
+
+        // FUNÇÃO PARA AUTENTICAR O USUARIO NO BANCO E MOSTRAR NA TELA
+        function autenticar() {
+
+            const usuario = document.getElementById("usuario").value;
+            const senha = document.getElementById("senha").value;
+
+            fetch("http://localhost:8084/usuario", {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    usuario,
+                    senha
+                })
+
+            })
+
+                .then(response => {
+
+                    if (!response.ok) {
+                        throw new Error("Login inválido");
+                    }
+
+                    return response.json();
+
+                })
+
+                .then(data => {
+
+                    // Mostra o usuário no campo Default
+
+                    document.getElementById("usuariologado").value = data.usuario;
+                    alert("Login realizado com sucesso!");
+                    liberarFuncoes();
+                    limparLogin();
+
+                })
+
+
+                .catch(error => {
+
+                    alert("Usuário ou senha incorretos");
 
                 });
 
         }
 
 
+        // FUNÇÃO EFETUAR O LOGOUT
+        function logout() {
+
+            localStorage.removeItem("usuariologado");
+
+            document.getElementById("usuariologado").value = "";
+
+            bloquearFuncoes();
+
+        }
+
+        // FUNÇÃO LIMPAR OS CAMPOS DO FORMULÁRIO
         function limparCampos() {
             document.getElementById("titulo").value = "";
             document.getElementById("artista").value = "";
@@ -379,7 +607,12 @@ Excluir
 
         }
 
-        carregar();
+         // FUNÇÃO PARA LIMPAR OS CAMPOS DO LOGIN
+        function limparLogin() {
+            document.getElementById("usuario").value = "";
+            document.getElementById("senha").value = "";
+
+        }
 
     </script>
 
