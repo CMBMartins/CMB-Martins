@@ -556,6 +556,40 @@
 
     <script>
 
+        // FUNÇÃO PARA MOSTRAR E ATUALIZAR DATA E HORA
+        function atualizarDataHora() {
+
+                    const agora = new Date();
+
+                    const dias = [
+                        "Domingo", "Segunda-feira", "Terça-feira",
+                        "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"
+                    ];
+
+                    const meses = [
+                        "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+                        "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+                    ];
+
+                    const diaSemana = dias[agora.getDay()];
+                    const dia = agora.getDate();
+                    const mes = meses[agora.getMonth()];
+                    const ano = agora.getFullYear();
+
+                    const hora = agora.toLocaleTimeString("pt-BR");
+
+                    document.getElementById("dataCompleta").innerHTML =
+                        "📅 " + diaSemana + ", " + dia + " de " + mes + " de " + ano;
+
+                    document.getElementById("horaAtual").innerHTML =
+                        "⏰ " + hora;
+
+                }
+
+                setInterval(atualizarDataHora, 1000);
+
+                atualizarDataHora();
+
         // FUNÇÃO PARA AUTENTICAR O USUARIO NO BANCO E MOSTRAR NA TELA
         function autenticar() {
 
