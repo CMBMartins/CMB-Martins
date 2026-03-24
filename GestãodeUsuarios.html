@@ -233,7 +233,7 @@ limparCampos();
 
             //Função para Salvar
             function salvar() {
-
+                if (confirm("Tem certeza que deseja salvar esses dados?")) {
                 const usuario = document.getElementById("usuario").value;
                 const senha = document.getElementById("senha").value;
                 const perfil = document.getElementById("perfil").value;
@@ -264,6 +264,7 @@ limparCampos();
                         listarTodos();
 
                     });
+                }
 
             }
 
@@ -362,9 +363,13 @@ limparCampos();
             
 
             //Função para pesquisar por Usuário
-            function usuario() {
-                
+            function usuario() {                
             const usuario = document.getElementById("usuario").value;
+
+                    if (usuario === "") {
+                    alert("⚠️ Informe o nome do usuario a ser consultado!");
+                    return;
+                }
 
             fetch("http://localhost:8084/usuario/buscar?usuario=" + encodeURIComponent(usuario))
 
