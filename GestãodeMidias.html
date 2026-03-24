@@ -486,6 +486,11 @@
 
             const artista = document.getElementById("artista").value;
 
+             if (artista === "") {
+                alert("⚠️ Informe o artista a ser consultado!");
+                return;
+            }
+
             fetch(`${api}/buscar?artista=${artista}`)
 
                 .then(response => response.json())
@@ -537,6 +542,22 @@
 
             const usuario = document.getElementById("usuario").value;
             const senha = document.getElementById("senha").value;
+
+            // Validação de campos vazios
+            if (usuario === "" && senha === "") {
+                alert("⚠️ Informe usuario e senha para realizar Login!");
+                return;
+            }
+
+            if (usuario === "") {
+                alert("⚠️ Informe o usuário!");
+                return;
+            }
+
+            if (senha === "") {
+                alert("⚠️ Informe a senha!");
+                return;
+            }
 
             fetch("http://localhost:8084/usuario", {
 
@@ -591,6 +612,7 @@
 
             document.getElementById("usuariologado").value = "";
 
+            alert("Logout executado com sucesso!");
             bloquearFuncoes();
 
         }
@@ -604,7 +626,7 @@
             document.getElementById("situaçao").value = "";
             document.getElementById("tipo").value = "";
             document.getElementById("genero").value = "";
-
+            alert("Campos limpos sucesso!");
         }
 
          // FUNÇÃO PARA LIMPAR OS CAMPOS DO LOGIN
