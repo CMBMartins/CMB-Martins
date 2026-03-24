@@ -351,34 +351,29 @@
                 <div class="hora">
                     <span id="horaAtual"></span>
                 </div>
-            </div>
-
-            <!--<span>Controle de Usuário:</span>-->
-            <div id="container">
-                <div class="login">
-
-                <h4>Realizar Login</h4>
-
-                <input type="text" id="usuario" placeholder="usuario" style="width:13%;">
-
-                <input type="text" id="senha" placeholder="senha" style="width:13%;">
-
-                <button onclick="autenticar()">Entrar</button>
-                <button onclick="logout()">   Sair   </button>
-
+                
+            <div class="login">
+                        <input type="text" id="usuario" placeholder="Usuário" required style="width:37%;">
+                        <input type="text" id="senha" placeholder="Senha" required style="width:37%;">
+                        <button onclick="autenticar()">Entrar</button>
+                        <button onclick="logout()">Sair</button>
+                    </div>
             </div><br>
    
     <!--BOTÕES DO MENU PRINCIPAL DA TELA-->
     <div id="menu" class="menu">
-    <button class="button" style="top: 159px; left: 152px;" title="Pressione para fazer Login e liberar a operação dos Equipamentos">
-    <a href="Login.html" target="_blank"> <img src="botãoLogin.JPG" alt="Botão Login"></a>            
-    </button>
+    <div id="menu" class="menu">
+                    <button class="button" style="top: 159px; left: 152px;" onclick="autenticar()"
+                        title="Pressione para fazer Login e liberar a operação dos Equipamentos">
+                        <img src="imagensAlbras/botãoLogin.jpg" alt="Botão Login">
+                    </button>
     <button class="button" style="top: 59px; left: 202px;" title="Pressione para Consultar os Relatórios">
         <a href="telaMTS.html" target="_blank"> <img src="botãoRelatorio.JPG" alt="Botão Relatório"></a>
     </button>
-    <button class="button" style="top: 59px; left: 52px;" title="Pressione para fazer Logoff e bloquear as operações">
-        <a href="telaMTS.html" target="_blank"> <img src="botaoHistoricos.JPG" alt="Botão Logoff"></a>
-    </button>
+    <button class="button" style="top: 159px; left: 152px;" onclick="logout()"
+                        title="Pressione para fazer Logout">
+                        <img src="imagensAlbras/botaoHistoricos.jpg" alt="Botão Logout">
+                    </button>
     <button class="button" style="top: 59px; left: 52px;" title="Pressione para Inserir e Editar os Usuários do Sistema">
         <a href="GestãodeUsuarios.html" target="_blank"> <img src="botãoAlarme.JPG" alt="Botão Usuários"></a>
     </button>
@@ -556,6 +551,22 @@
 
     <script>
 
+        const api = "http://localhost:8084/simulador";
+
+        window.onload = function () {
+
+            if (localStorage.getItem("usuariologado")) {
+                liberarFuncoes();
+                document.getElementById("usuariologado").value = data.usuario;
+                alert("Login realizado com sucesso!");
+
+            } else {
+
+                bloquearFuncoes();
+            }
+
+        }
+
         // FUNÇÃO PARA MOSTRAR E ATUALIZAR DATA E HORA
         function atualizarDataHora() {
 
@@ -596,6 +607,22 @@
             const usuario = document.getElementById("usuario").value;
             const senha = document.getElementById("senha").value;
 
+            // Validação de campos vazios
+            if (usuario === "" && senha === "") {
+                alert("⚠️ Informe usuario e senha para realizar Login!");
+                return;
+            }
+
+            if (usuario === "") {
+                alert("⚠️ Informe o usuário!");
+                return;
+            }
+
+            if (senha === "") {
+                alert("⚠️ Informe a senha!");
+                return;
+            }
+
             fetch("http://localhost:8084/usuario", {
 
                 method: "POST",
@@ -624,14 +651,12 @@
                 .then(data => {
 
                     // Mostra o usuário no campo Default
-
                     document.getElementById("usuariologado").value = data.usuario;
                     alert("Login realizado com sucesso!");
                     //liberarFuncoes();
                     limparLogin();
 
                 })
-
 
                 .catch(error => {
 
@@ -646,9 +671,8 @@
         function logout() {
 
             localStorage.removeItem("usuariologado");
-
             document.getElementById("usuariologado").value = "";
-
+            alert("Logout realizado com sucesso!");
             bloquearFuncoes();
 
         }
