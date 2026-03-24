@@ -224,6 +224,22 @@ function autenticar(){
 const usuario = document.getElementById("usuario").value;
 const senha = document.getElementById("senha").value;
 
+        // Validação de campos vazios
+                if (usuario === "" && senha === "") {
+                    alert("⚠️ Informe o usuário e a senha!");
+                    return;
+                }
+
+                if (usuario === "") {
+                    alert("⚠️ Informe o usuário!");
+                    return;
+                }
+
+                if (senha === "") {
+                    alert("⚠️ Informe a senha!");
+                    return;
+                }
+        
 fetch("http://localhost:8084/usuario",{
 
 method:"POST",
@@ -269,6 +285,11 @@ alert("Usuário ou senha incorretos");
             function usuario() {
 
             const usuario = document.getElementById("usuario").value;
+
+                    if (usuario === "") {
+                    alert("⚠️ Informe o usuario a ser consultado!");
+                    return;
+                }
 
             fetch("http://localhost:8084/usuario/buscar?usuario=" + encodeURIComponent(usuario))
 
