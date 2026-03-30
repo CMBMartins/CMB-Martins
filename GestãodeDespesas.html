@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Planilha de Gastos Pessoais</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<style>
+    body {
+    font-family: Arial;
+    background: linear-gradient(135deg, #4e73df, #1cc88a);
+    margin: 0;
+}
+
+/* CONTAINER */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+/* CARD */
+.card {   
+
+    background: white;
+    padding: 25px;
+    width: 800px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px gray;
+    margin-bottom: 20px;
+}
+
+/* TOPO */
+.topo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.btn-home {
+    text-decoration: none;
+    background: #4e73df;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+}
+
+/* LOGO */
+.logo {
+    text-align: center;
+}
+
+.logo img {
+    width: 60px;
+}
+
+.logo h1 {
+    margin: 5px 0;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* INPUTS */
+.grid input, .login input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* BOTÕES */
+.botoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.botoes button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+/* CORES */
+.salvar { background: #1cc88a; }
+.editar { background: #f6c23e; }
+.limpar { background: #858796; }
+.buscar { background: #36b9cc; }
+.listar { background: #4e73df; }
+
+/* LOGIN */
+.login {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+}
+
+.login-botoes {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.login button {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    background: #4e73df;
+    color: white;
+    border-radius: 5px;
+}
+    .campo-direita {
+        text-align: right;
+    }
+
+    #usuariologado {
+        text-align: right;
+        float: right;
+        padding: 6px 10px;
+        text-align: right;
+        font-weight: bold;
+        font-size: 14px;
+        color: #003366;
+        background: #e6f2ff;
+        border: 2px solid #007bff;
+        border-radius: 6px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    /* INPUTS */
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-top: 8px;
+    }
+
+    /* GRID FORM */
+
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+
+    #salvar {
+        background: #27ae60;
+        color: white;
+    }
+
+    #editar {
+        background: #73ae27;
+        color: white;
+    }
+
+    #limparCampos {
+        background: #f39c12;
+        color: white;
+    }
+
+    #buscarDespesa {
+        background: #f37712;
+        color: white;
+    }
+
+    #listarTodos {
+        background: #2980b9;
+        color: white;
+    }
+
+    .autenticar {
+        background: #7827ae;
+        color: white;
+    }
+
+    .logout {
+        background: #ae2b27;
+        color: white;
+    }
+
+    /* TABELA */
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
+
+    th {
+        background: #34495e;
+        color: white;
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <!-- TOPO -->
+        <div class="topo">
+            <div class="usuario">
+                <input type="text" id="usuariologado" placeholder="Usuário" readonly>
+            </div>            
+
+            <a href="DashboardGestãodeDespesas.html" class="btn-home">
+                ⬅ Relatórios - Dashboard
+            </a>
+
+            <a href="PaginaPessoal.html" class="btn-home">
+                ⬅ Página Principal
+            </a>
+        </div>
+
+        <!-- LOGO -->
+        <div class="logo">            
+            <h1>
+                <img src="Imagens/carlos1.gif" width="60">
+                Gestão de Despesas
+            </h1>
+        </div>
+
+        <h2>Cadastro de Despesas</h2>
+
+        <!-- FORMULÁRIO -->
+        <div class="grid">
+
+            <input type="text" id="id" placeholder="ID">
+            <input type="date" id="data">
+            <input type="text" id="descricao" placeholder="Descrição">
+            <input type="text" id="categoria" placeholder="Categoria">
+            <input type="text" id="tipo" placeholder="Tipo">
+            <input type="number" id="valor" placeholder="Valor">
+            <input type="text" id="status" placeholder="Status">
+
+        </div>
+
+        <!-- BOTÕES -->
+        <div class="botoes">
+            <button class="salvar" onclick="salvar()">Salvar</button>
+            <button class="editar" onclick="editar()">Atualizar</button>
+            <button class="limpar" onclick="limparCampos()">Limpar</button>
+            <button class="buscar" onclick="buscarDespesa()">Pesquisar</button>
+            <button class="listar" onclick="listarTodos()">Listar</button>
+        </div>
+
+        <!-- LOGIN -->
+        <div class="login">
+
+            <h3>Login</h3>
+
+            <input type="text" id="usuario" placeholder="Usuário">            
+            <input type="password" id="senha" placeholder="Senha">
+
+            <div class="login-botoes">
+                <button onclick="login()">Entrar</button>
+                <button onclick="logout()">Sair</button>
+            </div>
+
+        </div>
+
+        <!-- LISTA -->
+        <div class="card-lista">
+
+            <h2>Lista de Despesas</h2>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Data</th>
+                        <th>Descrição</th>
+                        <th>Categoria</th>
+                        <th>Tipo</th>
+                        <th>Valor</th>
+                        <th>Status</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tabelaDespesas"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+    <script>
+
+        const id = document.getElementById("id").value;
+
+        const api = "http://localhost:8084/despesas";
+
+        //listarTodos();
+
+        // FUNÇÃO PARA LISTAR TODAS DESPESAS
+        function listarTodos() {
+
+            fetch(api)
+                .then(response => response.json())
+                .then(data => {
+
+                    const tabela = document.getElementById("tabelaDespesas");
+
+                    tabela.innerHTML = "";
+
+                    data.forEach(show => {
+
+                        tabela.innerHTML += `
+<tr>
+<td>${show.id}</td>
+<td>${show.data}</td>
+<td>${show.descricao}</td>
+<td>${show.categoria}</td>
+<td>${show.tipo}</td>
+<td>${show.valor}</td>
+<td>${show.status}</td>
+
+<td>
+
+<button class="btn btn-danger btn-sm"
+onclick="deletar(${show.id})">
+Excluir
+</button>
+</td>
+
+</tr>
+`;
+
+                    });
+
+                });
+        }
+
+        // FUNÇÃO PARA SALVAR
+        function salvar() {
+
+            if (confirm("Tem certeza que deseja salvar esses dados?")) {
+
+                const data = document.getElementById("data").value;
+                const descricao = document.getElementById("descricao").value;
+                const categoria = document.getElementById("categoria").value;
+                const tipo = document.getElementById("tipo").value;
+                const valor = document.getElementById("valor").value;                
+                const status = document.getElementById("status").value;
+
+                alert("Projeto salvo com sucesso!");
+
+                fetch(api, {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+
+                        data,
+                        descricao,
+                        categoria,
+                        tipo,
+                        valor,
+                        status                        
+
+                    })
+
+                })
+
+                    .then(response => response.json())
+
+                    .then(data => {
+
+                        limparCampos();
+
+                        listarTodos();
+
+                    });
+
+            }
+        }
+
+
+        // FUNÇÃO PARA EDITAR OS DADOS NA TABELA
+        function editar() {
+
+            if (confirm("Tem certeza que deseja editar estes dados?")) {
+
+                const id = document.getElementById("id").value;
+
+                const dados = {
+                   
+                    data: document.getElementById("data").value,
+                    descricao: document.getElementById("descricao").value,
+                    categoria: document.getElementById("categoria").value,
+                    tipo: document.getElementById("tipo").value,
+                    valor: document.getElementById("valor").value,
+                    status: document.getElementById("status").value,
+                    
+                };
+
+                fetch(api + "/" + id, {
+
+                    method: "PUT",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify(dados)
+
+                })
+
+                    .then(() => {
+
+                        alert("Dados atualizados com sucesso!");
+
+                        limparCampos();
+                        listarTodos();
+
+                    });
+
+            }
+        }
+
+
+        // FUNÇÃO PARA EXCLUIR
+        function deletar(id) {
+
+            if (confirm("Tem certeza que deseja excluir este registro?")) {
+
+                fetch(`${api}/${id}`, {
+                    method: "DELETE"
+                })
+                    .then(() => {
+                        alert("Registro excluído com sucesso!");
+                        listarTodos();
+                    })
+                    .catch(error => {
+                        console.error("Erro ao excluir:", error);
+                        alert("Erro ao excluir o registro.");
+                    });
+
+            }
+
+        }
+
+
+        // FUNÇÃO PARA CONSULTAR POR DESPESA
+        function buscarDescricao() {
+
+            const descricao = document.getElementById("cliente").value;
+
+            if (cliente === "") {
+                alert("⚠️ Informe o cliente a ser consultado!");
+                return;
+            }
+
+            fetch("http://localhost:8084/despesas/buscar?descricao=" + encodeURIComponent(descricao))
+
+                .then(response => response.json())
+
+                .then(data => {
+
+                    const tabela = document.getElementById("tabelaDespesas");
+
+                    tabela.innerHTML = "";
+
+                    if (data.length === 0) {
+
+                        tabela.innerHTML = `
+<tr>
+<td colspan="7">Nenhum resultado encontrado</td>
+</tr>
+`;
+
+                        return;
+                    }
+
+                    data.forEach(show => {
+
+                        tabela.innerHTML += `
+<tr>
+<td>${show.id}</td>
+<td>${show.data}</td>
+<td>${show.descricao}</td>
+<td>${show.categoria}</td>
+<td>${show.tipo}</td>
+<td>${show.valor}</td>
+<td>${show.status}</td>
+
+<td>
+<button class="btn btn-danger btn-sm"
+onclick="deletar(${show.id})">
+Excluir
+</button>
+</td>
+
+</tr>
+`;
+                    });
+
+                });
+
+        }
+
+
+        // FUNÇÃO PARA AUTENTICAR O USUARIO NO BANCO E MOSTRAR NA TELA
+        function login() {
+
+            const usuario = document.getElementById("usuario").value;
+            const senha = document.getElementById("senha").value;
+
+            // Validação de campos vazios
+            if (usuario === "" && senha === "") {
+                alert("⚠️ Informe usuario e senha para realizar Login!");
+                return;
+            }
+
+            if (usuario === "") {
+                alert("⚠️ Informe o usuário!");
+                return;
+            }
+
+            if (senha === "") {
+                alert("⚠️ Informe a senha!");
+                return;
+            }
+
+            fetch("http://localhost:8084/usuario", {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    usuario,
+                    senha
+                })
+
+            })
+
+                .then(response => {
+
+                    if (!response.ok) {
+                        throw new Error("Login inválido");
+                    }
+
+                    return response.json();
+
+                })
+
+                .then(data => {
+
+                    // Mostra o usuário no campo Default
+
+                    document.getElementById("usuariologado").value = data.usuario;
+                    alert("Login realizado com sucesso!");
+                    liberarFuncoes();
+                    limparLogin();
+
+                })
+
+
+                .catch(error => {
+
+                    alert("Usuário ou senha incorretos");
+
+                });
+
+        }
+
+
+        // FUNÇÃO EFETUAR O LOGOUT
+        function logout() {
+
+            localStorage.removeItem("usuariologado");
+
+            document.getElementById("usuariologado").value = "";
+
+            bloquearFuncoes();
+
+        }
+
+
+        // FUNÇÃO PARA LIMPAR OS CAMPOS DO LOGIN
+        function limparLogin() {
+            document.getElementById("usuario").value = "";
+            document.getElementById("senha").value = "";
+
+        }
+
+        // FUNÇÃO LIMPAR OS CAMPOS DO FORMULÁRIO
+        function limparCampos() {
+            document.getElementById("id").value = "";
+            document.getElementById("data").value = "";
+            document.getElementById("descricao").value = "";
+            document.getElementById("categoria").value = "";
+            document.getElementById("tipo").value = "";
+            document.getElementById("valor").value = "";
+            document.getElementById("status").value = "";            
+        }
+
+    </script>
+
+</body>
+
+</html>
