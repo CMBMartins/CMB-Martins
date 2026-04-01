@@ -96,7 +96,7 @@ body {
 /* CARDS */
 .cards {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     gap: 15px;
 }
 
@@ -123,6 +123,11 @@ body {
     background: #1e293b;
     padding: 20px;
     border-radius: 12px;
+}
+
+#tendencia {
+    font-weight: bold;
+    font-size: 18px;
 }
 
 /* TABELA */
@@ -171,38 +176,55 @@ th, td {
     </aside>
 
     <!-- CONTEÚDO -->
-    <main class="conteudo">
-
-        <!-- TOPO -->
-        <header class="topo">
-            <h1>Relatórios</h1>
-
+    <main class="conteudo">        
+            <!-- LOGO -->
              <div class="usuario">
                 <input type="text" id="usuariologado" placeholder="Usuário" readonly>
-            </div>           
-           
+            </div> 
+           <div class="logo">            
+            <h1>
+                <img src="Imagens/carlos1.gif" width="50">
+                  Relatórios de Despesas Pessoais
+            </h1>
+            </div>            
+
         </header>
 
         <!-- CARDS -->
         <section class="cards">
 
             <div class="card">
-                <h3>Total</h3>
+                <h3>Total de despesas</h3>
                 <p id="total">R$ 0,00</p>
             </div>
 
             <div class="card">
-                <h3>Este Mês</h3>
-                <p id="mes">R$ 0,00</p>
+                <h3>Renda Total</h3>
+                <p id="renda">R$ 0,00</p>
             </div>
 
             <div class="card">
-                <h3>Pagas</h3>
+                <h3>Despesas do Mês Atual</h3>
+                <p id="mesAtual">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Tendência</h3>
+                <p id="tendencia">-</p>
+           </div>
+
+            <div class="card">
+                <h3>Saldo</h3>
+                <p id="saldo">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Despesas Pagas</h3>
                 <p id="pagas">0</p>
             </div>
 
             <div class="card">
-                <h3>Pendentes</h3>
+                <h3>Despesas Pendentes</h3>
                 <p id="pendentes">0</p>
             </div>
 
@@ -216,7 +238,7 @@ th, td {
             </div>
 
             <div class="grafico">
-                <h3>Por Mês</h3>
+                <h3>Despesas Por Mêses</h3>
                 <canvas id="graficoMes"></canvas>
             </div>
 
@@ -257,35 +279,92 @@ window.onload = function () {
     listarTodos();
     carregarGraficoMensal();
     gerarGraficoStatus();
+    carregarComparativoMensal();
 };
 
-// 🔥 DASHBOARD COMPLETO (usa endpoints específicos)
-function carregarDashboard() {
 
-    // TOTAL
-    fetch(API + "/total")
-        .then(res => res.json())
-        .then(total => {
-            document.getElementById("total").innerText = "R$ " + total.toFixed(2);
+// 🔥 DASHBOARD COMPLETO (usa endpoints específicos)
+        function carregarDashboard() {
+
+            // CARD DO TOTAL GERAL DAS DESPESAS
+            fetch(API + "/total")
+                .then(res => res.json())
+                .then(total => {
+
+                    const valor = Number(total) || 0;
+
+                    document.getElementById("total").innerText =
+                        valor.toLocaleString("pt-BR", {
+                            style: "currency",
+                            currency: "BRL"
+                        });
+                });
+
+                                
+           // CARD TOTAL DE RECEBIDOS - RENDA
+           fetch(API + "/renda")
+             .then(res => res.json())
+             .then(total => {
+
+            const valor = Number(total) || 0;
+
+            document.getElementById("renda").innerText =
+            valor.toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL"
+            });
+    });
+
+    
+    // CARD DESPESAS DO MÊS ATUAL 
+    fetch(API + "/mes")
+    .then(res => res.json())
+    .then(total => {
+
+        const valor = Number(total) || 0;
+
+        document.getElementById("mesAtual").innerText =
+            valor.toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL"
+            });
+
+    })
+    .catch(err => console.error("Erro mês:", err));
+
+
+    // CARD SALDO TOTAL
+    fetch(API + "/saldo")
+   .then(res => res.json())
+             .then(total => {
+
+            const valor = Number(total) || 0;
+
+            document.getElementById("saldo").innerText =
+            valor.toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL"
+            });
+
         });
 
-     // STATUS
-    fetch(API + "/status")
+
+    // CARD STATUS - PAGAS E RECEBIDOS 
+     fetch(API + "/status")
     .then(res => res.json())
     .then(data => {
 
-        const pagas = data.PAGA || data.Paga || data.paga || 0;
-        const pendentes = data.PENDENTE || data.Pendente || data.pendente || 0;
+        const pagas = data?.PAGA ?? 0;
+        const pendentes = data?.PENDENTE ?? 0;
 
         document.getElementById("pagas").innerText = pagas;
         document.getElementById("pendentes").innerText = pendentes;
-
-        console.log("Status:", data); // 🔥 debug
-
     })
     .catch(err => console.error("Erro status:", err));
 
-    // GRÁFICO
+
+      // GRÁFICOS:
+    //POR CATEGORIA
     fetch(API + "/categoria")
         .then(res => res.json())
         .then(data => {
@@ -302,27 +381,72 @@ function carregarDashboard() {
 
         });
 
-    // ÚLTIMAS DESPESAS
-    fetch(API + "/ultimas")
+        //GRÁFICO DE DESPESAS POR MES
+        fetch(API + "/mensal")
         .then(res => res.json())
-        .then(lista => {
+        .then(data => {
 
-            let tabela = document.getElementById("ultimasDespesas");
-            tabela.innerHTML = ""; // 🔥 limpa antes
-
-            lista.forEach(d => {
-                tabela.innerHTML += `
-                    <tr>
-                        <td>${d.data}</td>
-                        <td>${d.descricao}</td>
-                        <td>R$ ${d.valor ?? 0}</td>
-                    </tr>
-                `;
+            new Chart(document.getElementById("graficoMes"), {
+                type: "pie",
+                data: {
+                    labels: Object.keys(data),
+                    datasets: [{
+                        data: Object.values(data)
+                    }]
+                }
             });
 
-        });
+        });       
+    
 }
 
+
+// FUNÇÃO DO CARD COMPARATIVO DOS MESES
+    function carregarComparativoMensal() {
+
+    fetch(API + "/comparativo-mensal")
+        .then(res => res.json())
+        .then(data => {
+
+            console.log("Comparativo:", data); // 🔥 DEBUG
+
+            const atual = Number(data.atual) || 0;
+            const anterior = Number(data.anterior) || 0;
+
+            const diferenca = atual - anterior;
+
+            let texto = "→ R$ 0,00";
+            let cor = "gray";
+
+            if (diferenca > 0) {
+                texto = "↑ +" + diferenca.toLocaleString("pt-BR", {
+                    style: "currency",
+                    currency: "BRL"
+                });
+                cor = "green";
+            } else if (diferenca < 0) {
+                texto = "↓ " + diferenca.toLocaleString("pt-BR", {
+                    style: "currency",
+                    currency: "BRL"
+                });
+                cor = "red";
+            }
+
+            const el = document.getElementById("tendencia");
+
+            if (!el) {
+                console.error("Elemento tendencia não encontrado!");
+                return;
+            }
+
+            el.innerText = texto;
+            el.style.color = cor;
+
+        })
+        .catch(err => console.error("Erro comparativo:", err));
+}
+
+// FUNÇÃO DO STATUS DE DESPESAS
 function gerarGraficoStatus() {
 
     fetch(API + "/status")
@@ -348,6 +472,8 @@ function gerarGraficoStatus() {
         .catch(error => console.error("Erro gráfico status:", error));
 }
 
+
+// FUNÇÃO PARA GERAR GRÁFICO MENSAL
 function carregarGraficoMensal() {
 
     fetch(API + "/mensal")
@@ -396,7 +522,8 @@ function carregarGraficoMensal() {
         .catch(err => console.error("Erro mensal:", err));
 }
 
-// 📋 LISTAR TODAS DESPESAS
+
+// 📋 FUNÇÃO LISTAR TODAS DESPESAS
 function listarTodos() {
 
     fetch(API)

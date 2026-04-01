@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Planilha de Gastos Pessoais</title>
+    <title>Cadastro de Despesas Pessoais</title>
 
     <link rel="stylesheet" href="dashboard.css">
 
@@ -230,8 +230,8 @@
                 <input type="text" id="usuariologado" placeholder="Usuário" readonly>
             </div>            
 
-            <a href="DashboardGestãodeDespesas.html" class="btn-home">
-                ⬅ Relatórios - Dashboard
+            <a href="DashboardGestãodeDespesas.html" target="_blank" class="btn-home">
+               ⬅ Relatórios - Dashboard
             </a>
 
             <a href="PaginaPessoal.html" class="btn-home">
@@ -242,8 +242,8 @@
         <!-- LOGO -->
         <div class="logo">            
             <h1>
-                <img src="carlos1.gif" width="60">
-                Gestão de Despesas
+                <img src="Imagens/carlos1.gif" width="60">
+                Gestão de Despesas Pessoais
             </h1>
         </div>
 
@@ -263,12 +263,12 @@
         </div>
 
         <!-- BOTÕES -->
-        <div class="botoes">
-            <button class="salvar" onclick="salvar()">Salvar</button>
-            <button class="editar" onclick="editar()">Atualizar</button>
-            <button class="limpar" onclick="limparCampos()">Limpar</button>
-            <button class="buscar" onclick="buscarDespesa()">Pesquisar</button>
-            <button class="listar" onclick="listarTodos()">Listar</button>
+        <div class="botoes">            
+            <button id="salvar" onclick="salvar()">Salvar</button>
+            <button id="editar" onclick="editar()">Atualizar</button>
+            <button id="limparCampos" onclick="limparCampos()">Limpar</button>
+            <button id="buscarDespesa" onclick="buscarDespesa()">Pesquisar</button>
+            <button id="listarTodos" onclick="listarTodos()">Listar</button>
         </div>
 
         <!-- LOGIN -->
@@ -282,6 +282,7 @@
             <div class="login-botoes">
                 <button onclick="login()">Entrar</button>
                 <button onclick="logout()">Sair</button>
+                <button onclick="cadastrar()">Cadastrar</button>
             </div>
 
         </div>
@@ -323,7 +324,33 @@
 
         const api = "http://localhost:8084/despesas";
 
-        //listarTodos();
+        window.onload = function () {
+
+            if (localStorage.getItem("usuariologado")) {
+                liberarFuncoes();
+
+            } else {
+
+                bloquearFuncoes();
+            }
+
+        }
+
+        function liberarFuncoes() {
+
+            document.getElementById("salvar").disabled = false;
+            document.getElementById("editar").disabled = false;
+            document.getElementById("listarTodos").disabled = false;
+
+        }
+
+        function bloquearFuncoes() {
+
+            document.getElementById("salvar").disabled = true;
+            document.getElementById("editar").disabled = true;
+            document.getElementById("listarTodos").disabled = true;
+
+        }
 
         // FUNÇÃO PARA LISTAR TODAS DESPESAS
         function listarTodos() {
@@ -376,7 +403,7 @@ Excluir
                 const valor = document.getElementById("valor").value;                
                 const status = document.getElementById("status").value;
 
-                alert("Projeto salvo com sucesso!");
+                //alert("Dados salvos com sucesso!");
 
                 fetch(api, {
 
@@ -445,7 +472,7 @@ Excluir
 
                     .then(() => {
 
-                        alert("Dados atualizados com sucesso!");
+                        //alert("Dados atualizados com sucesso!");
 
                         limparCampos();
                         listarTodos();
@@ -465,7 +492,7 @@ Excluir
                     method: "DELETE"
                 })
                     .then(() => {
-                        alert("Registro excluído com sucesso!");
+                        //alert("Registro excluído com sucesso!");
                         listarTodos();
                     })
                     .catch(error => {
@@ -479,16 +506,16 @@ Excluir
 
 
         // FUNÇÃO PARA CONSULTAR POR DESPESA
-        function buscarDescricao() {
+        function buscarDespesa() {
 
-            const descricao = document.getElementById("cliente").value;
+            const descricao = document.getElementById("descricao").value;
 
-            if (cliente === "") {
-                alert("⚠️ Informe o cliente a ser consultado!");
+            if (descricao === "") {
+                alert("⚠️ Informe o lançamento a ser consultado!");
                 return;
             }
 
-            fetch("http://localhost:8084/despesas/buscar?descricao=" + encodeURIComponent(descricao))
+            fetch(`${api}/buscar?descricao=${descricao}`)
 
                 .then(response => response.json())
 
@@ -615,6 +642,13 @@ Excluir
             bloquearFuncoes();
 
         }
+
+        // FUNÇÃO CADASTRAR USUÁRIOS
+        function cadastrar() {
+            
+            window.open("GestãodeUsuarios.html", "_blank");
+
+            }
 
 
         // FUNÇÃO PARA LIMPAR OS CAMPOS DO LOGIN
