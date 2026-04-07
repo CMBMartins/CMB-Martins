@@ -1,9 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador ALBRAS </title>
     <!-- Adiciona o Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -17,214 +18,212 @@
     <link rel="stylesheet" href="styles/vars.css" />
     <link rel="stylesheet" href="styles/main-content.css" />
     <link rel="stylesheet" href="styles/sidebar-footer.css" />
-    <link rel="stylesheet" href="styles/media-query.css" /> <!--Media queries devem ser chamados depois do CSS principal -->
+    <link rel="stylesheet" href="styles/media-query.css" />
+    <!--Media queries devem ser chamados depois do CSS principal -->
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css"
-    integrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css"
-    integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous" />
-    </head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css"
+        integrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css"
+        integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous" />
+</head>
 
-    <style>
-        body {
-            position: absolute;
-            width: 1500px;
-            height: 850px;
-            font-family: Arial, sans-serif;
-            background-color: #c0c0c0;
-            margin: 0;
-            padding: 0;
-            top: 50px;
-            left: 100px;
-            border: 2px solid black;
-        }
+<style>
+    body {
+        position: absolute;
+        width: 1500px;
+        height: 850px;
+        font-family: Arial, sans-serif;
+        background: #aaaaaa;
+        margin: 0;
+        padding: 0;
+        top: 50px;
+        left: 100px;
+        border: 2px solid black;
+    }
 
-        /* Barra superior */
-        .top-bar {            
-            padding: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 2px solid blue;
-        }
-        
+    /* Barra superior */
+    .top-bar {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 2px solid blue;
+    }
 
-        .divider {            
-            position: absolute;
-            width: 100%;
-            height: 4px;
-            background-color: blue;
-        }
-        .top-divider {
-            top: 0px;
-        }
-        .bottom-divider {           
-            top: 56px;
-        }
 
-        .buttons {
-            background-color: #c0c0c0;
-            display: flex;
-            gap: 5px;
-        }
+    .divider {
+        position: absolute;
+        width: 100%;
+        height: 4px;
+        background-color: blue;
+    }
 
-        .buttons button {
-            background-color: #c0c0c0;
-            top: 155px;
-            width: 40px;
-            height: 40px;
-            border: none;
-            cursor: pointer;            
-            border-radius: 5px;
-        }
+    .top-divider {
+        top: 0px;
+    }
 
-        .header {
-            background-color: #c0c0c0;
-            border: 0px solid #CCC;
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .header img {
-            height: 40px;
-        }
+    .bottom-divider {
+        top: 56px;
+    }
 
-        .title {
-            font-weight: bold;
-            font-size: 25px;
-            color: blue;
-        }
+    .buttons {
+        background: #aaa;
+        display: flex;
+        gap: 5px;
+    }
 
-        .datetime {
-            color: darkred;
-            font-weight: bold;
-        }
+    .buttons button {
+        background: #aaa;
+        top: 155px;
+        width: 40px;
+        height: 40px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
 
-        /* Layout principal */
-        .container {
-            width: 1495px;
-            height: 350px;
-            background-color: #c0c0c0;
-            display: flex;
-            justify-content: space-between;
-            padding: 20px;            
-        }
+    .header {
+        background: #aaa;
+        border: 0px solid #CCC;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-        /* Controle de Demanda */
-        .controle {
-            background-color: #c0c0c0;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-            width: 400px;
-            left: 0px;
-            border: 2px solid black;
-        }
+    .header img {
+        height: 40px;
+    }
 
-        .controle h3 {
-            margin: 0;
-        }
+    .title {
+        font-weight: bold;
+        font-size: 25px;
+        color: blue;
+    }
 
-        .controle p {
-            font-size: 18px;
-            color: blue;
-        }
+    .datetime {
+        color: darkred;
+        font-weight: bold;
+    }
 
-        /* Estrutura elétrica */
-        .estrutura {
-            background-color: #c0c0c0;
-            text-align: center;
-            flex-grow: 1;
-            position: relative;
-            width: 100px;
-            border: 2px solid black;
-        }
+    /* Layout principal */
+    .container {
+        width: 1495px;
+        height: 250px;
+        background: #aaa;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+    }
 
-        .linha-vermelha {
-            width: 150px;
-            height: 3px;
-            background-color: red;
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
+    /* Controle de Demanda */
+    .controle {
+        background: #aaa;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        width: 400px;
+        left: 0px;
+        border: 2px solid black;
+    }
 
-        .medicao {
-            background-color: #c0c0c0;            
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-            width: 500px;
-            border: 2px solid black;
-        }
+    .controle h3 {
+        margin: 0;
+    }
 
-        .medicao table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+    .controle p {
+        font-size: 18px;
+        color: blue;
+    }
 
-        .medicao td {
-            padding: 5px;
-            border-bottom: 1px solid #ccc;
-        }
+    .linha-vermelha {
+        width: 150px;
+        height: 3px;
+        background-color: red;
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 
-        .azul {
-            color: blue;
-        }
+    .medicao {
+        background: #aaa;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        width: 500px;
+        border: 2px solid black;
+    }
 
-        .vermelho {
-            color: red;
-        }
+    .medicao table {
+        width: 80%;
+        border-collapse: collapse;
+    }
 
-        #email {
-            position: absolute;
-            top: 1120px;
-            left: 1370px;
-            font-style: italic;
-            font-size: 10px;
-            color: gray;
-        }
+    .medicao td {
+        padding: 5px;
+        border-bottom: 1px solid #ccc;
+    }
 
-        body {
-            background-color: #c0c0c0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            border: 2px solid black;
-        }
+    .azul {
+        color: blue;
+    }
 
-        /* Container flexível */
-        .container {
-            background-color: #c0c0c0;
-            display: flex; /* Ativa o Flexbox */
-            justify-content: space-between; /* Espaço entre as colunas */
-            gap: 20px; /* Espaço entre as divs */
-            padding: 20px;
-        }
+    .vermelho {
+        color: red;
+    }
 
-        /* Estilização das seções */
-        .section {
-            background-color: #c0c0c0;
-            padding: 15px;
-            border-radius: 3px;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-            flex: 1; /* Faz com que todas as colunas tenham largura igual */
-        }
+    #email {
+        position: absolute;
+        top: 1120px;
+        left: 1070px;
+        font-style: italic;
+        font-size: 10px;
+        color: gray;
+    }
 
-        .section-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
+    body {
+        background: #aaa;
+        font-family: Arial, sans-serif;
+        background: #aaa;
+        margin: 0;
+        padding: 0;
+        border: 2px solid black;
+    }
 
-        .campo-direita {
+    /* Container flexível */
+    .container {
+        background: #aaa;
+        display: flex;
+        /* Ativa o Flexbox */
+        justify-content: space-between;
+        /* Espaço entre as colunas */
+        gap: 20px;
+        /* Espaço entre as divs */
+        padding: 20px;
+    }
+
+    /* Estilização das seções */
+    .section {
+        background: #aaa;
+        padding: 15px;
+        border-radius: 3px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        flex: 1;
+        /* Faz com que todas as colunas tenham largura igual */
+    }
+
+    .section-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .campo-direita {
         text-align: right;
     }
 
-         #usuariologado {
+    #usuariologado {
         text-align: right;
         float: right;
         padding: 6px 10px;
@@ -238,27 +237,9 @@
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
     }
 
-        .campo-direita {
-        text-align: right;
-        }
-
-         #usuariologado {
-        text-align: right;
-        float: right;
-        padding: 6px 10px;
-        text-align: right;
-        font-weight: bold;
-        font-size: 14px;
-        color: #003366;
-        background: #e6f2ff;
-        border: 2px solid #007bff;
-        border-radius: 6px;
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-     /* padrão de botão */
+    /* padrão de botão */
     .login button {
-        padding: 4px 12px;
+        padding: 6px 18px;
         border: none;
         border-radius: 6px;
         font-size: 14px;
@@ -269,29 +250,30 @@
         color: white;
         background-color: #007bff;
         /* azul padrão */
-        }
+    }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
 
-        th, td {
-            padding: 8px;
-            border-bottom: 1px solid #ccc;
-            text-align: left;
-        }
+    th,
+    td {
+        padding: 8px;
+        border-bottom: 1px solid #ccc;
+        text-align: left;
+    }
 
-        .highlight {
-            color: blue;
-            font-weight: bold;
-        }
+    .highlight {
+        color: blue;
+        font-weight: bold;
+    }
 
-        .red {
-            color: red;
-        }
+    .red {
+        color: red;
+    }
 
-        .painel-datahora {
+    .painel-datahora {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -312,96 +294,412 @@
         font-weight: bold;
     }
 
-    </style>
+    .estrutura {
+        position: relative;
+        width: 40%;
+        height: 210px;
+        border: 0px solid black;
+        background: #aaa;
+        text-align: center;
+    }
 
-    <body>
+    /* Linha superior */
+    .linha-topo {
+        position: absolute;
+        top: 0px;
+        left: 20%;
+        width: 60%;
+        height: 3px;
+        background-color: red;
+    }
 
-       <div id="container">        
-       <div class="divider top-divider"></div>
-       <div class="divider bottom-divider"></div>      
+    /* Frequência */
+    .frequencia {
+        position: absolute;
+        top: -18px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: blue;
+        font-weight: bold;
+    }
 
-    <img src="carlos1.gif" alt="Carlos GIF" style="position: absolute; top: 1050px; left: 1400px; width: 70px; height: 70px;">
-    <img src="ALBRAS1.JPG" alt="Logo" style="position: absolute; top: 5px; left: 2px; width: 255px; height: 50px;">
+    /* Lados */
+    .lado {
+        position: absolute;
+        color: blue;
+        font-size: 14px;
+    }
 
-    <!-- Cabeçalho-->
-    <div class="header">
-    <div>         
-    <span class="title">........................................................................................... SIMULADOR ALBRAS ................................................................................</span><br><br>
-    
-    <div class="campo-direita">
-    <input type="text" id="usuariologado" placeholder="Default" style="width:13%;">
-    </div>      
+    .esquerdo {
+        top: 30px;
+        left: 70px;
+    }
 
-    <div class="home text-start"> 
-    
-    <a href="PaginaPessoal.html" class="btn btn-default">
-    <span class="glyphicon glyphicon-home"></span> Página Principal
-    </a><br><br>
+    .direito {
+        top: 30px;
+        right: 80px;
+    }
 
-</div>
+    /* Centro */
+    .centro {
+        position: absolute;
+        top: 70px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: blue;
+    }
 
-<div id="dataHora"></div>
+    /* Linhas verticais laterais */
+    .linha-vertical-esq {
+        position: absolute;
+        top: 0px;
+        left: 20%;
+        width: 4px;
+        height: 30px;
+        background-color: red;
+    }
 
-            <div class="painel-datahora"-->
+    .linha-vertical-dir {
+        position: absolute;
+        top: 0px;
+        right: 20%;
+        width: 4px;
+        height: 30px;
+        background-color: red;
+    }
 
-                <div class="data">
-                    <span id="dataCompleta"></span>
+    /* Linha vertical central */
+    .linha-vertical-centro {
+        position: absolute;
+        top: 0px;
+        left: 40%;
+        width: 4px;
+        height: 140px;
+        background-color: red;
+        transform: translateX(-50%);
+    }
+
+    /* Linha vertical central */
+    .linha-vertical-centro1 {
+        position: absolute;
+        top: 190px;
+        left: 40%;
+        width: 4px;
+        height: 40px;
+        background-color: rgb(255, 174, 0);
+        transform: translateX(-50%);
+    }
+
+    /* Linha superior */
+    .linha-topo1 {
+        position: absolute;
+        top: 28px;
+        left: 15.5%;
+        width: 10%;
+        height: 3px;
+        background-color: red;
+    }
+
+    /* Linha superior */
+    .linha-topo2 {
+        position: absolute;
+        top: 28px;
+        left: 74.5%;
+        width: 10%;
+        height: 3px;
+        background-color: red;
+    }
+
+    /* Trafo */
+    .trafo {
+        position: absolute;
+        top: 130px;
+        left: 40%;
+        transform: translateX(-50%);
+        background: #999;
+        padding: 5px;
+        border: 1px solid black;
+    }
+
+    /* Barramento */
+    .barramento {
+        position: absolute;
+        top: 230px;
+        left: -44%;
+        width: 220%;
+        height: 4px;
+        background-color: orange;
+    }
+
+    /* Corpo das colunas das Reduções */
+    body {
+        background: #aaa;
+        font-family: Arial;
+    }
+
+
+    /* COLUNAS */
+    .coluna {
+        position: relative;
+        text-align: center;
+    }
+
+
+    /* LINHA VERTICAL */
+    .linha-vertical {
+        position: absolute;
+        top: -60px;
+        width: 4px;
+        height: 30px;
+        background: rgb(255, 145, 0);
+        left: -70%;
+    }
+
+    /* LINHA VERTICAL */
+    .linha-verticalprocesso {
+        position: absolute;
+        top: -60px;
+        width: 4px;
+        height: 290px;
+        background: rgb(255, 145, 0);
+        left: 130%;
+    }
+
+    /* Barramento */
+    .linhaprocesso {
+        position: absolute;
+        top: 230px;
+        left: 115%;
+        width: 30%;
+        height: 4px;
+        background-color: orange;
+    }
+
+    /* Trafo */
+    .trafo1 {
+        position: absolute;
+        top: -30px;
+        left: 13%;
+        transform: translateX(-50%);
+        background: #999;
+        padding: 5px;
+        border: 1px solid black;
+    }
+
+    .trafo2 {
+        position: absolute;
+        top: -30px;
+        left: 29%;
+        transform: translateX(-50%);
+        background: #999;
+        padding: 5px;
+        border: 1px solid black;
+    }
+
+    .trafo3 {
+        position: absolute;
+        top: -30px;
+        left: 44.6%;
+        transform: translateX(-50%);
+        background: #999;
+        padding: 5px;
+        border: 1px solid black;
+    }
+
+    .trafo4 {
+        position: absolute;
+        top: -30px;
+        left: 60.3%;
+        transform: translateX(-50%);
+        background: #999;
+        padding: 5px;
+        border: 1px solid black;
+    }
+
+    /* CAIXA */
+    .caixa {
+        border: 1px solid #888;
+        padding: 5px;
+        width: 150px;
+        background: #bbb;
+        font-size: 13px;
+        margin-left: -35px;
+        margin-top: 20px;
+        /* desce a caixa */
+    }
+
+    .caixa h3 {
+        margin: 5px 0 10px;
+    }
+
+    /* TEXTO */
+    .caixa p {
+        display: flex;
+        justify-content: space-between;
+        margin: 4px 0;
+        color: blue;
+    }
+
+    /* BOTÃO IDC */
+    .btn {
+        border: 1px solid #555;
+        padding: 2px 8px;
+        background: #ccc;
+        color: black;
+    }
+
+    /* LABEL EMBAIXO */
+    .label {
+        margin-top: 10px;
+        font-weight: bold;
+        color: blue;
+    }
+
+    .labelprocesso {
+        margin-top: 0px;
+        font-weight: bold;
+        color: blue;
+        margin-left: 150px;
+
+    }
+
+    .processo .caixa {
+        width: 160px;
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .painel {
+        position: relative;
+        height: 290px;
+        display: flex;
+        justify-content: center;
+        /* centraliza geral */
+        gap: 120px;
+        /* espaço entre colunas */
+        margin-top: 60px;
+    }
+</style>
+
+<body>
+
+    <div id="container">
+        <div class="divider top-divider"></div>
+        <div class="divider bottom-divider"></div>
+
+        <img src="imagensAlbras/Carlos1.PNG" alt="Carlos GIF"
+            style="position: absolute; top: 1000px; left: 1400px; width: 70px; height: 70px;">
+        <img src="imagensAlbras/Albras1.JPG" alt="Logo"
+            style="position: absolute; top: 5px; left: 2px; width: 255px; height: 50px;">
+
+        <!-- Cabeçalho-->
+        <div class="header">
+            <div>
+                <span
+                    class="title">...........................................................................................
+                    SIMULADOR ALBRAS
+                    ................................................................................</span><br><br>
+
+                <div class="campo-direita">
+                    <input type="text" id="usuariologado" placeholder="Default" style="width:13%;">
                 </div>
 
-                <div class="hora">
-                    <span id="horaAtual"></span>
+                <div class="home text-start">
+
+                    <a href="PaginaPessoal.html" class="btn btn-default">
+                        <span class="glyphicon glyphicon-home"></span> Página Principal
+                    </a><br><br>
+
                 </div>
-                
-            <div class="login">
+
+                <div id="dataHora"></div>
+
+                <div class="painel-datahora" -->
+
+                    <div class="data">
+                        <span id="dataCompleta"></span>
+                    </div>
+
+                    <div class="hora">
+                        <span id="horaAtual"></span>
+                    </div>
+
+                    <div class="login">
                         <input type="text" id="usuario" placeholder="Usuário" required style="width:37%;">
+
                         <input type="text" id="senha" placeholder="Senha" required style="width:37%;">
+
                         <button onclick="autenticar()">Entrar</button>
                         <button onclick="logout()">Sair</button>
                     </div>
-            </div><br>
-   
-    <!--BOTÕES DO MENU PRINCIPAL DA TELA-->
-    <div id="menu" class="menu">
-    <div id="menu" class="menu">
+
+                </div><br>
+
+                <!-- Barra Superior -->
+                <!--BOTÕES DO MENU PRINCIPAL DA TELA-->
+                <div id="menu" class="menu">
                     <button class="button" style="top: 159px; left: 152px;" onclick="autenticar()"
                         title="Pressione para fazer Login e liberar a operação dos Equipamentos">
-                        <img src="botãoLogin.JPG" alt="Botão Login">
+                        <img src="imagensAlbras/botãoLogin.jpg" alt="Botão Login">
                     </button>
-    <button class="button" style="top: 59px; left: 202px;" title="Pressione para Consultar os Relatórios">
-        <a href="telaMTS.html" target="_blank"> <img src="botãoRelatorio.JPG" alt="Botão Relatório"></a>
-    </button>
-    <button class="button" style="top: 159px; left: 152px;" onclick="logout()"
-                        title="Pressione para fazer Logout">
-                        <img src="botaoHistoricos.JPG" alt="Botão Logout">
-                    </button>
-    <button class="button" style="top: 59px; left: 52px;" title="Pressione para Inserir e Editar os Usuários do Sistema">
-        <a href="GestãodeUsuarios.html" target="_blank"> <img src="botãoAlarme.JPG" alt="Botão Usuários"></a>
-    </button>
-    <button class="button" style="top: 59px; left: 302px;" title="Pressione para acessar a Tela dos Barramentos de 34,5 kV">
-        <a href="telaMTS.html" target="_blank"> <img src="botãoTelecomando.JPG" alt="Botão Tela dos Barramentos"></a>
-    </button>
-    <button class="button" style="top: 59px; left: 252px;" title="Modifica Valores">
-        <a href="telaMTS.html" target="_blank"> <img src="telecomando.JPG" alt="Botão Modifica Valores"></a>
-    </button>
-    <button class="button" style="top: 59px; left: 102px;" title="Pressione para Visualizar Imagens dos Equipamentos">
-        <a href="AlbumPessoal.html" target="_blank"> <img src="botãoMT.JPG" alt="Botão Equipamentos"></a>
-    </button>
-    <button class="button" style="top: 59px; left: 252px;" title="Pressione para Selecionar uma das Classes de Manobra a ser Simulada">
-        <a href="telaMTS.html" target="_blank"> <img src="Simulador.JPG" alt="Botão Simulador"></a>
-    </button>
-    <button class="button" style="top: 59px; left: 352px;" title="Pressione para chamar a tela das SE's Locais">
-        <a href="telaMTS.html" target="_blank"> <img src="botaoSesLocais.JPG" alt="Botão SE's Locais"></a>            
-    </button>
-    <button class="button" style="top: 59px; left: 302px;" title="Pressione para chamar a tela da Página Principal">
-        <a href="PaginaPessoal.html" target="_blank"> <img src="TelaPrincipal.PNG" alt="Botão Página Principal"></a>           
-    </button>        
-    <!-- Adicione os outros botões aqui -->
-</div>
-</div>
 
-    <!--DIV DA ASSINATURA DO DESENVOLVEDOR DA TELA-->
-    <div id="email">cmardonio@yahoo.com.br</div>
-    </div>
+                    <button class="button" style="top: 59px; left: 202px;"
+                        title="Pressione para Consultar os Relatórios">
+                        <a href="CalculosEletrico.html" target="_blank"> <img src="imagensAlbras/botãoRelatorio.JPG"
+                                alt="Botão Relatório"></a>
+                    </button>
+
+                    <button class="button" style="top: 159px; left: 152px;" onclick="logout()"
+                        title="Pressione para fazer Logout">
+                        <img src="imagensAlbras/botaoHistoricos.jpg" alt="Botão Logout">
+                    </button>
+
+                    <button id=btnUsuario class="button" onclick="acessarUsuario()"
+                        title="Pressione para Inserir e Editar os Usuários do Sistema">
+                        <img src="imagensAlbras/botãoAlarme.jpg" alt="Botão Usuários">
+                    </button>
+
+                    <button id="btnBarramento" class="button" onclick="acessarBarramento()"
+                        title="Pressione para acessar a Tela dos Barramentos de 34,5 kV">
+                        <img src="imagensAlbras/botãoTelecomando.jpg" alt="Botão Tela dos Barramentos">
+                    </button>
+
+                    <button id="btnValores" class="button" onclick="atualizaValores()" title="Modifica Valores">
+                        <img src="imagensAlbras/telecomando.jpg" alt="Botão Modifica Valores">
+                    </button>
+
+                    <button class="button" style="top: 59px; left: 102px;"
+                        title="Pressione para Visualizar Imagens dos Equipamentos">
+                        <a href="AlbumPessoal.html" target="_blank"> <img src="imagensAlbras/botãoMT.jpg"
+                                alt="Botão Equipamentos"></a>
+                    </button>
+
+                    <button class="button" style="top: 59px; left: 252px;"
+                        title="Pressione para Selecionar uma das Classes de Manobra a ser Simulada">
+                        <a href="telaMTS.html" target="_blank"> <img src="imagensAlbras/Simulador.jpg"
+                                alt="Botão Simulador"></a>
+                    </button>
+
+                    <button class="button" style="top: 59px; left: 352px;"
+                        title="Pressione para chamar a tela das SE's Locais">
+                        <a href="telaMTS.html" target="_blank"> <img src="imagensAlbras/botaoseslocais.jpg"
+                                alt="Botão SE's Locais"></a>
+                    </button>
+
+                    <button class="button" style="top: 59px; left: 302px;"
+                        title="Pressione para chamar a tela da Página Principal">
+                        <a href="PaginaPessoal.html" target="_blank"> <img src="imagensAlbras/TelaPrincipal.png"
+                                alt="Botão Página Principal"></a>
+                    </button>
+                    <!-- Adicione os outros botões aqui -->
+                </div>
+            </div>
+
+            <!--DIV DA ASSINATURA DO DESENVOLVEDOR DA TELA-->
+            <div id="email">cmardonio@yahoo.com.br</div>
+        </div>
     </div>
 
     <!-- Container com três colunas -->
@@ -412,41 +710,69 @@
             <div class="section-title">Controle de Demanda</div>
             <table>
                 <tr>
-                    <th>Demanda Controlada (MW)</th>
-                    <td class="highlight">812.0</td>
+                    <th>Demanda Controlada (MW)
+                    <td class="highlight"><span id="dc"></span></th>
+                    <td class="highlight"><span id="dc"></span></td>
                 </tr>
                 <tr>
-                    <th>Eletronorte</th>
-                    <td class="highlight">237.7 (kV)</td>
-                </tr>
-                <tr>
-                    <th>ALBRAS/ALUNORTE</th>
-                    <td class="highlight">855.2 (MW)</td>
-                </tr>
-                <tr>
-                    <th class="red">Frequência</th>
-                    <td class="red">60.0 Hz</td>
-                </tr>
-                <tr>
-                    <th>Alunorte</th>
-                    <td class="highlight">76.1 (MW)</td>
-                </tr>
-                <tr>
-                    <th>Albras</th>
-                    <td class="highlight">792.2 (MW)</td>
-                </tr>
-                <!--tr>
-                    <th>MT's</th>
-                    <td class="highlight">716.1 (MW)</td>
-                </tr-->
+
             </table>
         </div>
 
         <!-- Espaço central (Vazio ou estrutura elétrica, caso necessário) -->
         <div class="estrutura">
-            <div class="section-title">Alimentação da Eletronorte (230 KV)</div>
-            <p style="text-align: center;"></p>
-            <img src="Eletronorte.png" alt="Diagrama elétrico" width="250">
+
+            <!--h4>Alimentação da Eletronorte (230 KV)</h4-->
+
+            <div class="linha-topo"></div>
+
+            <div class="linha-topo1"></div>
+
+            <div class="linha-topo2"></div>
+
+            <div class="frequencia">
+                <span id="freq1">60.0</span> (HZ)
+            </div>
+
+            <!-- LADO ESQUERDO -->
+            <div class="lado esquerdo">
+                Eletronorte<br>
+                <span id="kv">237.7</span> (kV)<br>
+                <span id="mw1">855.2</span> (MW)
+            </div>
+
+            <!-- LADO DIREITO -->
+            <div class="lado direito">
+                Alunorte<br>
+                <span id="mw2">76.1</span> (MW)
+            </div>
+
+            <!-- CENTRO -->
+            <div class="centro">
+                Albras<br>
+                <span id="mw3">792.2</span> (MW)
+            </div>
+
+            <!-- Linha vertical esquerda -->
+            <div class="linha-vertical-esq"></div>
+
+            <!-- Linha vertical direita -->
+            <div class="linha-vertical-dir"></div>
+
+            <!-- Linha vertical central (descendo) -->
+            <div class="linha-vertical-centro"></div>
+
+            <!-- Linha vertical central (descendo) -->
+            <div class="linha-vertical-centro1"></div>
+
+            <!-- TRAFO -->
+            <div class="trafo">
+                <img src="imagensAlbras/MT.JPG" alt="Imagem MTS">
+            </div>
+
+            <!-- BARRAMENTO -->
+            <div class="barramento"></div>
+
         </div>
 
         <!-- Medição de Energia -->
@@ -454,111 +780,153 @@
             <div class="section-title">Medição de Energia</div>
             <table>
                 <tr>
-                    <td><b>Fator de Potência (%)</b></td>
-                    <td class="highlight">98.3</td>
+                    <td><b>Fator de Potência (%)
+                    <td class="highlight"><span id="fp"></span></b>
+                    <td class="highlight"><span id="fp"></span></td>
                 </tr>
                 <tr>
-                    <td><b>Demanda Anterior (MW)</b></td>
-                    <td class="highlight">805.2</td>
+                    <td><b>Demanda Anterior (MW)
+                    <td class="highlight"><span id="dant"></span></b>
+                    <td class="highlight"><span id="dant"></span></td>
                 </tr>
                 <tr>
-                    <td><b>Demanda Atual (MW)</b></td>
-                    <td class="highlight">805.8</td>
+                    <td><b>Demanda Atual (MW)
+                    <td class="highlight"><span id="datual"></span></b>
+                    <td class="highlight"><span id="datual"></span></td>
                 </tr>
                 <tr>
-                    <td><b>Demanda Medidor Total Albras (MW)</b></td>
-                    <td class="highlight">806.4</td>
+                    <td><b>Demanda Medidor Total Albras (MW)
+                    <td class="highlight"><span id="dma"></span></b>
+                    <td class="highlight"><span id="dma"></span></td>
                 </tr>
-                
+
             </table>
         </div>
     </div>
 
-        <!-- Seções REDUÇÃO -->
-    <div class="section">
-        <div class="section-title">Redução</div>
-        <table>
-            <tr>
-                <th><b>Redução I</b></th>
-                <th>Dem: <span class="highlight">182.1</span></th>
-                <th>Iset: <span class="highlight">172.0</span></th>
-                <th>IDC: <span class="highlight">172.2</span></th>
-                <th>VDC: <span class="highlight">1028.5</span></th>
-                <th>DV: <span class="highlight">1.35</span></th>
-            </tr>
-            <tr>
-                <th><b>Redução II</b></th>
-                <th>Dem: <span class="highlight">194.1</span></th>
-                <th>Iset: <span class="highlight">181.0</span></th>
-                <th>IDC: <span class="highlight">181.1</span></th>
-                <th>VDC: <span class="highlight">1044.2</span></th>
-                <th>DV: <span class="highlight">-7.22</span></th>
-            </tr>
-            <tr>
-                <th><b>Redução III</b></th>
-                <th>Dem: <span class="highlight">196.7</span></th>
-                <th>Iset: <span class="highlight">180.0</span></th>
-                <td>IDC: <span class="highlight">181.1</span></td>
-                <th>VDC: <span class="highlight">1044.2</span></th>
-                <th>DV: <span class="highlight">0.22</span></th>
-            </tr>
-            <tr>
-                <th><b>Redução IV</b></th>
-                <th>Dem: <span class="highlight">195.8</span></th>
-                <th>Iset: <span class="highlight">181.0</span></th>
-                <th>IDC: <span class="highlight">181.1</span></th>
-                <th>VDC: <span class="highlight">1056.1</span></th>
-                <th>DV: <span class="highlight">0.40</span></th>
-            </tr>
-        </table>
+    <!-- Seções REDUÇÃO -->
+    <div class="painel">
+
+        <!-- BARRAMENTO SUPERIOR -->
+        <div class="barra-topo"></div>
+
+        <!-- TRAFO -->
+        <div class="trafo1">
+            <img src="imagensAlbras/LVR.JPG" alt="Imagem MTS">
+        </div>
+
+        <div class="trafo2">
+            <img src="imagensAlbras/LVR.JPG" alt="Imagem MTS">
+        </div>
+
+        <div class="trafo3">
+            <img src="imagensAlbras/LVR.JPG" alt="Imagem MTS">
+        </div>
+
+        <div class="trafo4">
+            <img src="imagensAlbras/LVR.JPG" alt="Imagem MTS">
+        </div>
+
+        <!-- RED 1 -->
+        <div class="coluna">
+            <div class="linha-vertical"></div>
+            <div class="caixa">
+                <h4>Reducao I</h4>
+                <p>Dem <span id="dem">182.1</span></p>
+                <p>Iset <span id="iset">172.0</span></p>
+                <p><span class="btn">IDC</span> <span id="idc">172.2</span></p>
+                <p>VDC <span id="vdc">1028.5</span></p>
+                <p>DV <span id="dv">1.35</span></p>
+            </div>
+            <div class="label">RED1</div>
+        </div>
+
+        <!-- RED 2 -->
+        <div class="coluna">
+            <div class="linha-vertical"></div>
+            <div class="caixa">
+                <h4>Reducao II</h4>
+                <p>Dem <span id="dem2">194.1</span></p>
+                <p>Iset <span id="iset2">181.0</span></p>
+                <p><span class="btn">IDC</span> <span id="idc2">181.1</span></p>
+                <p>VDC <span id="vdc2">1044.2</span></p>
+                <p>DV <span id="dv2">-7.22</span></p>
+            </div>
+            <div class="label">RED2</div>
+        </div>
+
+        <!-- RED 3 -->
+        <div class="coluna">
+            <div class="linha-vertical"></div>
+            <div class="caixa">
+                <h4>Reducao III</h4>
+                <p>Dem <span id="dem3">196.7</span></p>
+                <p>Iset <span id="iset3">180.0</span></p>
+                <p><span class="btn">IDC</span> <span id="idc3">180.1</span></p>
+                <p>VDC <span id="vdc3">1064.1</span></p>
+                <p>DV <span id="dv3">0.22</span></p>
+            </div>
+            <div class="label">RED3</div>
+        </div>
+
+        <!-- RED 4 -->
+        <div class="coluna">
+            <div class="linha-vertical"></div>
+            <div class="caixa">
+                <h4>Reducao IV</h4>
+                <p>Dem <span id="dem4">195.8</span></p>
+                <p>Iset <span id="iset4">181.0</span></p>
+                <p><span class="btn">IDC</span> <span id="idc4">181.1</span></p>
+                <p>VDC <span id="vdc4">1056.1</span></p>
+                <p>DV <span id="dv4">0.40</span></p>
+            </div>
+            <div class="label">RED4</div>
+        </div>
+
+        <!-- PROCESSO -->
+        <div class="coluna processo">
+            <div class="linha-verticalprocesso"></div>
+            <div class="linhaprocesso"></div>
+            <div class="caixa">
+                <h4>Alimentadores de Processo</h4>
+                <p>P1 <span id="p1">8.2</span></p>
+                <p>P2 <span id="p2">6.0</span></p>
+                <p>P3 <span id="p3">7.1</span></p>
+                <p>P4 <span id="p4">4.1</span></p>
+                <p>P5 <span id="p5">5.4</span></p>
+                <p>P6 <span id="p6">4.4</span></p>
+                <p><b>Total <span id="total">36.4</span></b></p>
+                <div class="labelprocesso">PROCESSO</div>
+            </div>
+
+        </div>
+
     </div>
 
-    <!-- Alimentadores de Processo -->
-    <div class="section">
-        <div class="section-title">Alimentadores de Processo</div>
-        <table>
-            <tr>
-                <th>P1</th>
-                <th class="highlight">8.2</th>
-                <th>P2</th>
-                <th class="highlight">6.0</th>
-                <th>P3</th>
-                <th class="highlight">7.1</th>
-                <th>P4</th>
-                <th class="highlight">4.4</th>
-                <th>P5</th>
-                <th class="highlight">4.4</th>
-                <th>P6</th>
-                <th class="highlight">4.4</th>
-            </tr>
-            <tr>
-                <th>Total</th>
-                <th class="highlight">36.4</th>
-            </tr>
-        </table>
-    </div>
-</div>
 
     <!-- Alarme -->
-    <div class="section alarms">    
+    <div class="section alarms">
         <p class="red"> Alarmes: </p>
         <p>MANOBRA HABILITADA PARA SIMULAÇÃO: 'NENHUMA'</p>
         <p class="green">EQUIPAMENTO QUE FOI OPERADO: 'NENHUM'</p>
     </div>
     </div>
 
-<!--<scripts>-->    
+    <!--<scripts>-->
 
     <script>
 
         const api = "http://localhost:8084/simulador";
+
+        // FUNÇÃO DE INICIALIZAÇÃO DAS FUNÇÕES        
+        localStorage.removeItem("usuariologado");
+        document.getElementById("usuariologado").value = "";
 
         window.onload = function () {
 
             if (localStorage.getItem("usuariologado")) {
                 liberarFuncoes();
                 document.getElementById("usuariologado").value = data.usuario;
-                alert("Login realizado com sucesso!");
 
             } else {
 
@@ -567,39 +935,47 @@
 
         }
 
-        // FUNÇÃO PARA MOSTRAR E ATUALIZAR DATA E HORA
+        // FUNÇÃO PARA ATUALIZAR DATA E HORA
         function atualizarDataHora() {
 
-                    const agora = new Date();
+            const agora = new Date();
 
-                    const dias = [
-                        "Domingo", "Segunda-feira", "Terça-feira",
-                        "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"
-                    ];
+            const dias = [
+                "Domingo", "Segunda-feira", "Terça-feira",
+                "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"
+            ];
 
-                    const meses = [
-                        "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
-                        "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
-                    ];
+            const meses = [
+                "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+                "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+            ];
 
-                    const diaSemana = dias[agora.getDay()];
-                    const dia = agora.getDate();
-                    const mes = meses[agora.getMonth()];
-                    const ano = agora.getFullYear();
+            const diaSemana = dias[agora.getDay()];
+            const dia = agora.getDate();
+            const mes = meses[agora.getMonth()];
+            const ano = agora.getFullYear();
 
-                    const hora = agora.toLocaleTimeString("pt-BR");
+            const hora = agora.toLocaleTimeString("pt-BR");
 
-                    document.getElementById("dataCompleta").innerHTML =
-                        "📅 " + diaSemana + ", " + dia + " de " + mes + " de " + ano;
+            document.getElementById("dataCompleta").innerHTML =
+                "📅 " + diaSemana + ", " + dia + " de " + mes + " de " + ano;
 
-                    document.getElementById("horaAtual").innerHTML =
-                        "⏰ " + hora;
+            document.getElementById("horaAtual").innerHTML =
+                "⏰ " + hora;
 
-                }
+        }
 
-                setInterval(atualizarDataHora, 1000);
+        window.onload = function () {
+            atualizarValores();
+        }
 
-                atualizarDataHora();
+        setInterval(atualizarDataHora, 1000);
+        atualizarDataHora();
+
+        setInterval(atualizaValores, 2000); // atualiza a cada 2 segundos
+
+        setInterval(atualizarPainel, 2000);
+
 
         // FUNÇÃO PARA AUTENTICAR O USUARIO NO BANCO E MOSTRAR NA TELA
         function autenticar() {
@@ -622,6 +998,9 @@
                 alert("⚠️ Informe a senha!");
                 return;
             }
+
+            // Se passou na validação
+            //alert("✅ Dados preenchidos! Validando login...");
 
             fetch("http://localhost:8084/usuario/login", {
 
@@ -651,12 +1030,14 @@
                 .then(data => {
 
                     // Mostra o usuário no campo Default
+
                     document.getElementById("usuariologado").value = data.usuario;
                     alert("Login realizado com sucesso!");
-                    //liberarFuncoes();
+                    liberarFuncoes();
                     limparLogin();
 
                 })
+
 
                 .catch(error => {
 
@@ -666,18 +1047,77 @@
 
         }
 
+        // FUNÇÃO PARA ACESSAR ATELA DOS BARRAMENTOS
+        function acessarBarramento() {
+
+            const usuario = document.getElementById("usuario").value;
+
+            console.log("Usuário:", usuario); // 👈 veja no console
+
+            if (!usuario) {
+                alert("🔒 Acesso bloqueado! Faça login primeiro.");
+                return;
+            }
+
+            // liberado            
+            window.open("telaMTS.html", "_blank");
+        }
+
+
+        function acessarUsuario() {
+
+            const usuario = localStorage.getItem("usuarioLogado");
+            //const usuario = document.getElementById("usuario").value;
+
+            if (!usuario) {
+                alert("🔒 Acesso bloqueado! Faça login primeiro.");
+                return;
+            }
+
+            // liberado            
+            window.open("GestãodeUsuarios.html", "_blank");
+        }
+
 
         // FUNÇÃO EFETUAR O LOGOUT
         function logout() {
 
             localStorage.removeItem("usuariologado");
+
             document.getElementById("usuariologado").value = "";
+
             alert("Logout realizado com sucesso!");
+
             bloquearFuncoes();
 
         }
 
-        
+        // FUNÇÃO PARA LIBERAR BOTÕES
+        function liberarFuncoes() {
+
+            const usuario = localStorage.getItem("usuarioLogado");
+            //document.getElementById("usuariologado").value = "";
+
+            if (!usuario) {
+                alert("🔒 Acesso bloqueado! Faça login primeiro.");
+                return;
+            }
+
+            document.getElementById("btnBarramento").disabled = false;
+            document.getElementById("btnUsuario").disabled = false;
+            //document.getElementById("Botão Login").disabled = false;           
+
+        }
+
+        // FUNÇÃO PARA BLOQUEAR BOTÕES
+        function bloquearFuncoes() {
+
+            document.getElementById("btnBarramento").disabled = true;
+            document.getElementById("btnUsuario").disabled = true;
+            //document.getElementById("Botão Login").disabled = true;
+            alert("Funções bloqueadas com sucesso!");
+        }
+
         // FUNÇÃO PARA LIMPAR OS CAMPOS DO LOGIN
         function limparLogin() {
             document.getElementById("usuario").value = "";
@@ -685,7 +1125,67 @@
 
         }
 
-    </script>    
+        function atualizarPainel() {
+
+            function random(min, max, casas = 1) {
+                return (Math.random() * (max - min) + min).toFixed(casas);
+            }
+
+            document.getElementById("freq1").innerText = random(59.8, 60.2, 1);
+            document.getElementById("kv").innerText = random(230, 240);
+            document.getElementById("mw1").innerText = random(800, 900);
+            document.getElementById("mw2").innerText = random(70, 90);
+            document.getElementById("mw3").innerText = random(750, 820);
+        }
+
+        // FUNÇÃO PARA ATUALIZAR OS VALORES
+        function atualizaValores() {
+
+            // Função auxiliar
+            function random(min, max, casas = 1) {
+                return (Math.random() * (max - min) + min).toFixed(casas);
+            }
+
+            document.getElementById("dc").innerText = random(800, 900);
+
+            document.getElementById("fp").innerText = random(98, 100);
+            document.getElementById("dant").innerText = random(800, 810);
+            document.getElementById("datual").innerText = random(800, 810);
+            document.getElementById("dma").innerText = random(810, 820);
+
+            document.getElementById("dem").innerText = random(170, 200);
+            document.getElementById("iset").innerText = random(160, 180);
+            document.getElementById("idc").innerText = random(160, 180);
+            document.getElementById("vdc").innerText = random(1000, 1100);
+            document.getElementById("dv").innerText = random(1.0, 2.0);
+            document.getElementById("dem2").innerText = random(170, 200);
+            document.getElementById("iset2").innerText = random(160, 180);
+            document.getElementById("idc2").innerText = random(160, 180);
+            document.getElementById("vdc2").innerText = random(1000, 1100);
+            document.getElementById("dv2").innerText = random(1.0, 2.0);
+            document.getElementById("dem3").innerText = random(170, 200);
+            document.getElementById("iset3").innerText = random(160, 180);
+            document.getElementById("idc3").innerText = random(160, 180);
+            document.getElementById("vdc3").innerText = random(1000, 1100);
+            document.getElementById("dv3").innerText = random(1.0, 2.0);
+            document.getElementById("dem4").innerText = random(170, 200);
+            document.getElementById("iset4").innerText = random(160, 180);
+            document.getElementById("idc4").innerText = random(160, 180);
+            document.getElementById("vdc4").innerText = random(1000, 1100);
+            document.getElementById("dv4").innerText = random(1.0, 2.0);
+
+            document.getElementById("p1").innerText = random(7.0, 8.0);
+            document.getElementById("p2").innerText = random(7.0, 8.0);
+            document.getElementById("p3").innerText = random(6.0, 7.0);
+            document.getElementById("p4").innerText = random(5.0, 6.0);
+            document.getElementById("p5").innerText = random(3.0, 4.0);
+            document.getElementById("p6").innerText = random(3.0, 4.0);
+            document.getElementById("total").innerText = random(36.0, 37.0);
+
+        }
+
+    </script>
 
 </body>
+
 </html>

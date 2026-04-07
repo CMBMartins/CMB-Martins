@@ -15,125 +15,145 @@
 
 <style>
     body {
-    font-family: Arial;
-    background: linear-gradient(135deg, #4e73df, #1cc88a);
-    margin: 0;
-}
+        font-family: Arial;
+        background: linear-gradient(135deg, #4e73df, #1cc88a);
+        margin: 0;
+    }
 
-/* CONTAINER */
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
-}
+    /* CONTAINER */
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+    }
 
-/* CARD */
-.card {   
+    /* CARD */
+    .card {
 
-    background: white;
-    padding: 25px;
-    width: 800px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 8px gray;
-    margin-bottom: 20px;
-}
+        background: white;
+        padding: 25px;
+        width: 800px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 8px gray;
+        margin-bottom: 20px;
+    }
 
-/* TOPO */
-.topo {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
+    /* TOPO */
+    .topo {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
 
-.btn-home {
-    text-decoration: none;
-    background: #4e73df;
-    color: white;
-    padding: 6px 12px;
-    border-radius: 5px;
-}
+    .btn-home {
+        text-decoration: none;
+        background: #4e73df;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 5px;
+    }
 
-/* LOGO */
-.logo {
-    text-align: center;
-}
+    /* LOGO */
+    .logo {
+        text-align: center;
+    }
 
-.logo img {
-    width: 60px;
-}
+    .logo img {
+        width: 60px;
+    }
 
-.logo h1 {
-    margin: 5px 0;
-}
+    .logo h1 {
+        margin: 5px 0;
+    }
 
-/* GRID */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-top: 15px;
-}
+    /* GRID */
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        /* 2 colunas */
+        gap: 10px;
+        /* espaço entre campos */
+    }
 
-/* INPUTS */
-.grid input, .login input {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+    .grid input {
+        width: 100%;
+        box-sizing: border-box;
+    }
 
-/* BOTÕES */
-.botoes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 15px;
-}
+    /* INPUTS */
+    .grid input,
+    .login input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
 
-.botoes button {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-}
+    /* BOTÕES */
+    .botoes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 15px;
+    }
 
-/* CORES */
-.salvar { background: #1cc88a; }
-.editar { background: #f6c23e; }
-.limpar { background: #858796; }
-.buscar { background: #36b9cc; }
-.listar { background: #4e73df; }
+    .botoes button {
+        flex: 1;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+    }
 
-/* LOGIN */
-.login {
-    margin-top: 25px;
-    padding-top: 15px;
-    border-top: 1px solid #ddd;
-}
+    /* CORES */
+    .salvar {
+        background: #1cc88a;
+    }
 
-.login-botoes {
-    margin-top: 10px;
-    display: flex;
-    gap: 10px;
-}
+    .editar {
+        background: #f6c23e;
+    }
 
-.login button {
-    flex: 1;
-    padding: 8px;
-    border: none;
-    background: #4e73df;
-    color: white;
-    border-radius: 5px;
-}
+    .limpar {
+        background: #858796;
+    }
+
+    .buscar {
+        background: #36b9cc;
+    }
+
+    .listar {
+        background: #4e73df;
+    }
+
+    /* LOGIN */
+    .login {
+        margin-top: 25px;
+        padding-top: 15px;
+        border-top: 1px solid #ddd;
+    }
+
+    .login-botoes {
+        margin-top: 10px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .login button {
+        flex: 1;
+        padding: 8px;
+        border: none;
+        background: #4e73df;
+        color: white;
+        border-radius: 5px;
+    }
+
     .campo-direita {
         text-align: right;
     }
 
     #usuariologado {
-        text-align: right;
-        float: right;
         padding: 6px 10px;
         text-align: right;
         font-weight: bold;
@@ -220,179 +240,178 @@
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <div class="card">
+        <div class="card">
 
-        <!-- TOPO -->
-        <div class="topo">
-            <div class="usuario">
-                <input type="text" id="usuariologado" placeholder="Usuário" readonly>
-            </div>            
+            <!-- TOPO -->
+            <div class="topo">
+                <div class="usuario">
+                    <input type="text" id="usuariologado" placeholder="Usuário" readonly>
+                </div>
 
-            <a href="DashboardGestãodeDespesas.html" target="_blank" class="btn-home">
-               ⬅ Relatórios - Dashboard
-            </a>
+                <a href="DashboardGestãodeDespesas.html" target="_blank" class="btn-home">
+                    ⬅ Relatórios - Dashboard
+                </a>
 
-            <a href="PaginaPessoal.html" class="btn-home">
-                ⬅ Página Principal
-            </a>
-        </div>
-
-        <!-- LOGO -->
-        <div class="logo">            
-            <h1>
-                <img src="carlos1.gif" width="60">
-                Gestão de Despesas Pessoais
-            </h1>
-        </div>
-
-        <h2>Cadastro de Despesas</h2>
-
-        <!-- FORMULÁRIO -->
-        <div class="grid">
-
-            <input type="text" id="id" placeholder="ID">
-            <input type="date" id="data">
-            <input type="text" id="descricao" placeholder="Descrição">
-            <input type="text" id="categoria" placeholder="Categoria">
-            <input type="text" id="tipo" placeholder="Tipo">
-            <input type="number" id="valor" placeholder="Valor">
-            <input type="text" id="status" placeholder="Status">
-
-        </div>
-
-        <!-- BOTÕES -->
-        <div class="botoes">            
-            <button id="salvar" onclick="salvar()">Salvar</button>
-            <button id="editar" onclick="editar()">Atualizar</button>
-            <button id="limparCampos" onclick="limparCampos()">Limpar</button>
-            <button id="buscarDespesa" onclick="buscarDespesa()">Pesquisar</button>
-            <button id="listarTodos" onclick="listarTodos()">Listar</button>
-        </div>
-
-        <!-- LOGIN -->
-        <div class="login">
-
-            <h3>Login</h3>
-
-            <input type="text" id="usuario" placeholder="Usuário">            
-            <input type="password" id="senha" placeholder="Senha">
-
-            <div class="login-botoes">
-                <button onclick="login()">Entrar</button>
-                <button onclick="logout()">Sair</button>
-                <button onclick="cadastrar()">Cadastrar</button>
+                <a href="PaginaPessoal.html" class="btn-home">
+                    ⬅ Página Principal
+                </a>
             </div>
 
-        </div>
+            <!-- LOGO -->
+            <div class="logo">
+                <h1>
+                    <img src="Imagens/carlos1.gif" width="60">
+                    Gestão de Despesas Pessoais
+                </h1>
+            </div>
 
-        <!-- LISTA -->
-        <div class="card-lista">
+            <h2>Cadastro de Despesas</h2>
 
-            <h2>Lista de Despesas</h2>
+            <!-- FORMULÁRIO -->
+            <div class="grid">
 
-            <table>
+                <input type="text" id="id" placeholder="ID">
+                <input type="date" id="data">
+                <input type="text" id="descricao" placeholder="Descrição">
+                <input type="text" id="categoria" placeholder="Categoria">
+                <input type="text" id="tipo" placeholder="Tipo">
+                <input type="number" id="valor" placeholder="Valor">
+                <input type="text" id="status" placeholder="Status">
 
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Data</th>
-                        <th>Descrição</th>
-                        <th>Categoria</th>
-                        <th>Tipo</th>
-                        <th>Valor</th>
-                        <th>Status</th>
-                        <th>Ação</th>
-                    </tr>
-                </thead>
 
-                <tbody id="tabelaDespesas"></tbody>
+            </div>
 
-            </table>
+            <!-- BOTÕES -->
+            <div class="botoes">
+                <button id="salvar" onclick="salvar()">Salvar</button>
+                <button id="editar" onclick="editar()">Atualizar</button>
+                <button id="limparCampos" onclick="limparCampos()">Limpar</button>
+                <button id="buscarDespesa" onclick="buscarDespesa()">Pesquisar por Despesas</button>
+                <button id="listarTodos" onclick="listarTodos()">Listar Despesas</button>
+            </div>
+
+            <!-- LOGIN -->
+            <div class="login">
+
+                <h3>Login</h3>
+
+                <input type="text" id="usuario" placeholder="Usuário">
+                <input type="password" id="senha" placeholder="Senha">
+
+                <div class="login-botoes">
+                    <button onclick="login()">Entrar</button>
+                    <button onclick="logout()">Sair</button>
+                    <button onclick="cadastrar()">Cadastrar</button>
+                </div>
+
+            </div>
+
+            <!-- LISTA -->
+            <div class="card-lista">
+
+                <h2>Lista de Despesas</h2>
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Data</th>
+                            <th>Descrição</th>
+                            <th>Categoria</th>
+                            <th>Tipo</th>
+                            <th>Valor</th>
+                            <th>Status</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tabelaDespesas"></tbody>
+
+                </table>
+
+            </div>
 
         </div>
 
     </div>
 
-</div>
-
 
     <script>
+
+        const API = "http://localhost:8084/despesas";
+
+        function getUsuario() {
+
+            const usuario = document.getElementById("usuariologado")?.value;
+
+            // 🔥 BLOQUEIO TOTAL
+            if (!usuario) {
+                alert("⚠️ Faça login primeiro!");
+                throw new Error("Usuário não logado");
+            }
+
+            return usuario;
+        }
+
 
         const id = document.getElementById("id").value;
 
         const api = "http://localhost:8084/despesas";
 
-        window.onload = function () {
-
-            if (localStorage.getItem("usuariologado")) {
-                liberarFuncoes();
-
-            } else {
-
-                bloquearFuncoes();
-            }
-
-        }
-
-        function liberarFuncoes() {
-
-            document.getElementById("salvar").disabled = false;
-            document.getElementById("editar").disabled = false;
-            document.getElementById("listarTodos").disabled = false;
-
-        }
-
-        function bloquearFuncoes() {
-
-            document.getElementById("salvar").disabled = true;
-            document.getElementById("editar").disabled = true;
-            document.getElementById("listarTodos").disabled = true;
-
-        }
 
         // FUNÇÃO PARA LISTAR TODAS DESPESAS
         function listarTodos() {
 
-            fetch(api)
+            const usuario = getUsuario();
+
+            if (!usuario) {
+                console.warn("Usuário não definido!");
+                alert("⚠️ Faça Login!");
+                return;
+            }
+
+            fetch(api + "/usuario?usuario=" + usuario)
                 .then(response => response.json())
                 .then(data => {
 
                     const tabela = document.getElementById("tabelaDespesas");
-
                     tabela.innerHTML = "";
 
                     data.forEach(show => {
-
                         tabela.innerHTML += `
-<tr>
-<td>${show.id}</td>
-<td>${show.data}</td>
-<td>${show.descricao}</td>
-<td>${show.categoria}</td>
-<td>${show.tipo}</td>
-<td>${show.valor}</td>
-<td>${show.status}</td>
-
-<td>
-
-<button class="btn btn-danger btn-sm"
-onclick="deletar(${show.id})">
-Excluir
-</button>
-</td>
-
-</tr>
-`;
-
+        <tr>
+        <td>${show.id}</td>
+        <td>${show.data}</td>
+        <td>${show.descricao}</td>
+        <td>${show.categoria}</td>
+        <td>${show.tipo}</td>
+        <td>${show.valor}</td>
+        <td>${show.status}</td>
+        <td>
+            <button onclick="deletar(${show.id})">Excluir</button>
+            </td>
+            </tr>
+            `;
                     });
 
-                });
+                })
+                .catch(err => console.error("Erro ao listar:", err));
         }
+
 
         // FUNÇÃO PARA SALVAR
         function salvar() {
+
+            const usuario = getUsuario();
+
+            if (!usuario) {
+                console.warn("Usuário não definido!");
+                alert("⚠️ Faça Login!");
+                return;
+            }
 
             if (confirm("Tem certeza que deseja salvar esses dados?")) {
 
@@ -400,8 +419,9 @@ Excluir
                 const descricao = document.getElementById("descricao").value;
                 const categoria = document.getElementById("categoria").value;
                 const tipo = document.getElementById("tipo").value;
-                const valor = document.getElementById("valor").value;                
+                const valor = document.getElementById("valor").value;
                 const status = document.getElementById("status").value;
+                const usuario = document.getElementById("usuariologado").value // 🔥 AQUI                
 
                 //alert("Dados salvos com sucesso!");
 
@@ -420,7 +440,8 @@ Excluir
                         categoria,
                         tipo,
                         valor,
-                        status                        
+                        status,
+                        usuario
 
                     })
 
@@ -443,19 +464,28 @@ Excluir
         // FUNÇÃO PARA EDITAR OS DADOS NA TABELA
         function editar() {
 
+            const usuario = getUsuario();
+
+            if (!usuario) {
+                console.warn("Usuário não definido!");
+                alert("⚠️ Faça Login!");
+                return;
+            }
+
             if (confirm("Tem certeza que deseja editar estes dados?")) {
 
                 const id = document.getElementById("id").value;
 
                 const dados = {
-                   
+
                     data: document.getElementById("data").value,
                     descricao: document.getElementById("descricao").value,
                     categoria: document.getElementById("categoria").value,
                     tipo: document.getElementById("tipo").value,
                     valor: document.getElementById("valor").value,
                     status: document.getElementById("status").value,
-                    
+                    usuario: document.getElementById("usuariologado").value
+
                 };
 
                 fetch(api + "/" + id, {
@@ -486,6 +516,14 @@ Excluir
         // FUNÇÃO PARA EXCLUIR
         function deletar(id) {
 
+            const usuario = getUsuario();
+
+            if (!usuario) {
+                console.warn("Usuário não definido!");
+                alert("⚠️ Faça Login!");
+                return;
+            }
+
             if (confirm("Tem certeza que deseja excluir este registro?")) {
 
                 fetch(`${api}/${id}`, {
@@ -505,34 +543,44 @@ Excluir
         }
 
 
-        // FUNÇÃO PARA CONSULTAR POR DESPESA
+        // FUNÇÃO PARA CONSULTAR POR DESCRIÇÃO
         function buscarDespesa() {
+
+            const usuario = getUsuario();
+
+            if (!usuario) {
+                console.warn("Usuário não definido!");
+                alert("⚠️ Faça Login!");
+                return;
+            }
 
             const descricao = document.getElementById("descricao").value;
 
-            if (descricao === "") {
+            if (!descricao) {
                 alert("⚠️ Informe o lançamento a ser consultado!");
                 return;
             }
 
-            fetch(`${api}/buscar?descricao=${descricao}`)
-
+            fetch(`${API}/buscar?usuario=${usuario}&descricao=${encodeURIComponent(descricao)}`)
                 .then(response => response.json())
-
                 .then(data => {
 
                     const tabela = document.getElementById("tabelaDespesas");
 
+                    if (!tabela) {
+                        console.error("Tabela não encontrada!");
+                        return;
+                    }
+                    limparCampos();
+
                     tabela.innerHTML = "";
 
                     if (data.length === 0) {
-
                         tabela.innerHTML = `
 <tr>
-<td colspan="7">Nenhum resultado encontrado</td>
+<td colspan="8">Nenhum resultado encontrado</td>
 </tr>
 `;
-
                         return;
                     }
 
@@ -547,20 +595,18 @@ Excluir
 <td>${show.tipo}</td>
 <td>${show.valor}</td>
 <td>${show.status}</td>
-
 <td>
 <button class="btn btn-danger btn-sm"
 onclick="deletar(${show.id})">
 Excluir
 </button>
 </td>
-
 </tr>
 `;
                     });
 
-                });
-
+                })
+                .catch(error => console.error("Erro na busca:", error));
         }
 
 
@@ -586,7 +632,7 @@ Excluir
                 return;
             }
 
-            fetch("http://localhost:8084/usuario", {
+            fetch("http://localhost:8084/usuario/login", {
 
                 method: "POST",
 
@@ -639,16 +685,16 @@ Excluir
 
             document.getElementById("usuariologado").value = "";
 
-            bloquearFuncoes();
+            alert("Logout realizado com sucesso!");
 
         }
 
         // FUNÇÃO CADASTRAR USUÁRIOS
         function cadastrar() {
-            
+
             window.open("GestãodeUsuarios.html", "_blank");
 
-            }
+        }
 
 
         // FUNÇÃO PARA LIMPAR OS CAMPOS DO LOGIN
@@ -666,7 +712,7 @@ Excluir
             document.getElementById("categoria").value = "";
             document.getElementById("tipo").value = "";
             document.getElementById("valor").value = "";
-            document.getElementById("status").value = "";            
+            document.getElementById("status").value = "";
         }
 
     </script>
